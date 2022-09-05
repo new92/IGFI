@@ -1,0 +1,6 @@
+instagrapi == 1.16.17
+requests == 2.27.1
+instabot == 0.117.0
+instapy == 0.6.15
+instaloader == 4.9.1
+art == 5.6
