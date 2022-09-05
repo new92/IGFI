@@ -4,7 +4,7 @@ InstaID: Program for getting, displaying and saving the ID of an Instagram accou
 """
 #Imports
 try:
-    import os
+    import time
     import platform
     from os import system
     import sys
@@ -15,7 +15,6 @@ try:
     import instagram_private_api
     import instagram_web_api
     import webbrowser
-    import time
     from art import tprint
     from selenium import webdriver
 except ImportError as imp:
@@ -39,7 +38,6 @@ print("[+] Github: @new92")
 print("\n")
 print("[1] Get account ID")
 print("[2] Exit")
-print("\n")
 option=int(input("[::] Choose an option: "))
 
 while option < 1 or option > 2 or option == None:
