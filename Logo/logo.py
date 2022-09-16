@@ -1,6 +1,6 @@
 """
 Author: @new92
-Program for drawing the Instagram logo using turtle 
+Program for drawing the Instagram logo using the turtle module
 """
 
 #Imports
