@@ -77,7 +77,7 @@ This code of conduct and its related procedures also applies to unacceptable beh
 
 
 
-## 11. License and attribution
+## 10. License and attribution
 
 The Citizen Code of Conduct is distributed by [Stumptown Syndicate](http://stumptownsyndicate.org) under a [Creative Commons Attribution-ShareAlike license](http://creativecommons.org/licenses/by-sa/3.0/). 
 
