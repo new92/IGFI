@@ -1,6 +1,6 @@
 instagrapi == 1.16.17
-requests == 2.27.1
 instabot == 0.117.0
 instapy == 0.6.15
+instagram_private_api == 1.6.0.0
+instaclient == 2.9.20
 instaloader == 4.9.1
-art == 5.6
