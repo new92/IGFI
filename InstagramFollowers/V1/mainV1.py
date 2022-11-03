@@ -18,7 +18,6 @@ try:
     import webbrowser
     import instaloader
     import getpass
-    import http
     from getpass import getpass
     from instagrapi import *
 except ImportError as imp:
@@ -66,6 +65,28 @@ if option == 1:
         print("[!] Invalid Username !")
         sleep(1)
         username=str(input("[::] Please enter again your username: "))
+    username=str(input("[::] Please enter your username: "))
+    resp = requests.get(f"https://www.instagram.com/{username}/")
+    while resp.status_code == 404 or resp.status_code == 400:
+        print("[!] User not found !")
+        sleep(1)
+        print("[1] Try with another username")
+        print("[2] Exit")
+        opt=int(input(">>> "))
+        while opt < 1 or opt > 2 or opt == None:
+            print("[!] Invalid number !")
+            sleep(1)
+            opt=int(input(">>> "))
+        if opt == 1:
+            username=str(input("[::] Please enter the username: "))
+            while username == None:
+                print("[!] Invalid username !")
+                sleep(1)
+                username=str(input("[::] Please enter the username: "))
+            continue
+        else:
+            print("[+] Exiting...")
+            quit(0)
     username=username.lower()
     username=username.strip()
     sleep(1)
