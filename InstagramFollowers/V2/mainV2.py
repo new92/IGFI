@@ -24,7 +24,7 @@ try:
     from getpass import getpass
     from instagrapi import *
 except ImportError as imp:
-    print("[!] WARNING: Not all modules used in this program have been installed !")
+    print("[!] WARNING: Not all packages used in this program have been installed !")
     sleep(2)
     print("[+] Ignoring Warning...")
     sleep(1)
