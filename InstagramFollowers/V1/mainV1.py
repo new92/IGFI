@@ -17,7 +17,6 @@ try:
     import instaclient
     import webbrowser
     import instaloader
-    import getpass
     from getpass import getpass
     from instagrapi import *
 except ImportError as imp:
