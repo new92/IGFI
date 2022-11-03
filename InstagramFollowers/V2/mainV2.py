@@ -21,8 +21,6 @@ try:
     import instapy
     import instaloader
     import instagram_private_api
-    import instagram_web_api
-    import getpass
     from getpass import getpass
     from instagrapi import *
 except ImportError as imp:
