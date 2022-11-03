@@ -4,3 +4,4 @@ instapy == 0.6.15
 instagram_private_api == 1.6.0.0
 instaclient == 2.9.20
 instaloader == 4.9.1
+requests == 2.25.1
