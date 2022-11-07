@@ -14,7 +14,6 @@ try:
     import instabot
     import instapy
     import instagram_private_api
-    import instaclient
     import webbrowser
     import instaloader
     from getpass import getpass
