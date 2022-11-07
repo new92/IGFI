@@ -29,7 +29,7 @@ except ImportError as imp:
     elif sys.platform == 'darwin':
         system("python -m pip install requirements.txt")
         pass
-    elif platform.system():
+    elif platform.system() == 'Windows':
         system("pip3 install -r requirements.txt")
         pass
 
