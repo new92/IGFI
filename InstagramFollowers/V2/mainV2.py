@@ -14,7 +14,6 @@ try:
     from os import system
     from time import sleep
     import instagrapi
-    import webbrowser
     import os
     import requests
     import instabot
@@ -22,7 +21,6 @@ try:
     import instaloader
     import instagram_private_api
     from getpass import getpass
-    from instagrapi import *
 except ImportError as imp:
     print("[!] WARNING: Not all packages used in this program have been installed !")
     sleep(2)
@@ -63,17 +61,17 @@ while option < 1 or option > 2 or option == None:
 if option == 1:
     print("[+] The data will not be stored or saved")
     sleep(2)
+    username=str(input("[::] Please enter your username: "))
     while username == None or len(username) > 30:
         print("[!] Invalid Username !")
         sleep(1)
         username=str(input("[::] Please enter again your username: "))
-    username=str(input("[::] Please enter your username: "))
     resp = requests.get(f"https://www.instagram.com/{username}/")
     while resp.status_code == 404 or resp.status_code == 400:
         print("[!] User not found !")
         sleep(1)
         print("[1] Try with another username")
-        print("[2] Exit")
+        print("[2] quit")
         opt=int(input(">>> "))
         while opt < 1 or opt > 2 or opt == None:
             print("[!] Invalid number !")
@@ -104,12 +102,11 @@ if option == 1:
         login = clnt.login(username,password)
         if login == True:
             print("[!] Login Successful !")
-            sleep(1)
-            print("[+] Please wait while the program is increasing your followers...")
             sleep(2)
+            print("[+] Please wait while the program is increasing your followers...")
         else:
             print("[!] Login Unsuccessful !")
-            sleep(1)
+            sleep(2)
             print("[+] Please check the username and/or the password !")
             sleep(2)
             print("[+] Exiting...")
@@ -137,7 +134,7 @@ if option == 1:
                 print("[!] Error !")
                 sleep(1)
                 print(key)
-                sleep(2)
+                sleep(1)
                 print("[+] Exiting...")
                 quit(0)
             print(f"[+] Following {FOLLOW[i]}...")
@@ -149,7 +146,7 @@ if option == 1:
                 print("[!] Error !")
                 sleep(1)
                 print(ex)
-                sleep(2)
+                sleep(1)
                 print("[+] Exiting...")
                 quit(0)
             print(f"[+] Unfollowing {UNFOLLOW[e]}...")
