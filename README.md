@@ -1,10 +1,11 @@
-# IGFollowersIncreaser
+# IGFollowersIncreaser 🤖
 
 With this script the user by simply logging in, can increase their followers !
 Works for both private and public accounts.
 And the first time the user uses it can add up to 50 followers ! The other times it can add 25 - 30 followers.
 It's suggested to run it every two (2) days in order for your account not to get blocked.
-## Acknowledgements
+
+## Links 🔗
 
  - [License](https://github.com/new92/IGFollowersIncreaser/blob/main/LICENSE.md)
  - [Contributing](https://github.com/new92/IGFollowersIncreaser/blob/main/CONTRIBUTING.md)
@@ -12,12 +13,12 @@ It's suggested to run it every two (2) days in order for your account not to get
  - [You may also find interesting](https://github.com/new92?tab=repositories)
 
 
-## Authors
+## Authors ✍️
 
 - [@new92](https://www.github.com/new92)
 
 
-## Badges
+## Badges 📛
 
 
 [![Number of files](https://img.shields.io/github/directory-file-count/new92/IGFollowersIncreaser)](https://img.shields.io/github/directory-file-count/new92/IGFollowersIncreaser)
@@ -44,7 +45,7 @@ It's suggested to run it every two (2) days in order for your account not to get
 
 [![Contributors](https://img.shields.io/github/contributors/new92/IGFollowersIncreaser)](https://img.shields.io/github/contributors/new92/IGFollowersIncreaser)
 
-## Contributing
+## Contributing 🤝
 
 Contributions are always welcome !
 
@@ -54,12 +55,12 @@ Please adhere to this project's `code of conduct`.
 For more info please check the `CODE_OF_CONDUCT.md` file
 
 
-## Feedback
+## Feedback 💭
 
 If you have any feedback, please reach out to us at new92github@gmail.com
 
 
-## Features
+## Features 🔜
 
 - GUI
 - Automation
@@ -96,7 +97,7 @@ Answer ➡️ Only if you're using a very old version of Instagram. But it has b
     
 
 
-## Installation
+## Installation 📥
 
 ### Linux 🐧
 
@@ -132,12 +133,12 @@ Answer ➡️ Only if you're using a very old version of Instagram. But it has b
   python3 mainV1.py
 ```
     
-## License
+## License 📄
 
 [MIT](https://choosealicense.com/licenses/mit/)
 
 
-## Screenshots
+## Screenshots 📸
 
 ![InstaFollowV1Main](https://user-images.githubusercontent.com/94779840/201513180-11d59a76-9352-4880-b9f2-ad7be6f2b212.png)
 ![InstaFollowV1Following](https://user-images.githubusercontent.com/94779840/201513136-ea8f4c6f-ef39-4991-8d71-fd238d93007c.png)
