@@ -108,7 +108,7 @@ Answer ➡️ Only if you're using a very old version of Instagram. But it has b
   cd InstagramFollowers
   cd V<and the version you want to use. Example: cd V1   Available versions: 1 and 2>
   sudo pip install -r requirements.txt
-  python3 mainV1.py
+  python3 main<and the name of the folder. Example: python3 mainV1.py>.py
 ```
 
 ### Windows 🪟
@@ -119,7 +119,7 @@ Answer ➡️ Only if you're using a very old version of Instagram. But it has b
   cd InstagramFollowers
   cd V<and the version you want to use. Example: cd V1   Available versions: 1 and 2>
   pip install -r requirements.txt
-  python3 mainV1.py
+  python3 mainV<and the name of the folder. Example: python3 mainV1.py>.py
 ```
 
 ### MacOS 🍎
@@ -130,7 +130,7 @@ Answer ➡️ Only if you're using a very old version of Instagram. But it has b
   cd InstagramFollowers
   cd V<and the version you want to use. Example: cd V1   Available versions: 1 and 2>
   python -m pip install requirements.txt
-  python3 mainV1.py
+  python3 mainV<and the name of the folder. Example: python3 mainV1.py>.py
 ```
     
 ## License 📄
