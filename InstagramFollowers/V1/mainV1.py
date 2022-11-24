@@ -1,6 +1,6 @@
 """
 Author: new92
-Github: https://www.github.com/new92
+Github: @new92
 InstaFollow: Program for increasing followers on Instagram
 User's data (such as: username, password) will not be stored or saved ! 
 Will be used only to increase the followers of the given account
