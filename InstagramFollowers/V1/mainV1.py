@@ -16,7 +16,6 @@ try:
     import instagram_private_api
     import webbrowser
     import instaloader
-    from getpass import getpass
     from instagrapi import *
 except ImportError as imp:
     print("[!] WARNING: Not all packages used in this program have been installed !")
