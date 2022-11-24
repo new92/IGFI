@@ -21,7 +21,7 @@ try:
 except ImportError as imp:
     print("[!] WARNING: Not all packages used in this program have been installed !")
     sleep(2)
-    print("[+] Ignoring Warning...")
+    print("[+] Ignoring warning...")
     sleep(1)
     if sys.platform.startswith('linux') == True:
         system("sudo pip install -r requirements.txt")
@@ -30,7 +30,7 @@ except ImportError as imp:
         system("python -m pip install requirements.txt")
         pass
     elif platform.system() == 'Windows':
-        system("pip3 install -r requirements.txt")
+        system("pip install -r requirements.txt")
         pass
 
 print("""
@@ -53,14 +53,17 @@ option=int(input("[::] Please enter the number of the option (from above): "))
 while option < 1 or option > 2 or option == None:
     print("[!] Invalid number !")
     sleep(1)
-    option=int(input("[::] Please enter again the option: "))
+    option=int(input("[::] Please enter again the number of the option: "))
 if option == 1:
     sleep(1)
     print("[+] The data will not be stored or saved")
     sleep(2)
+    print("-"*40)
+    print("LOGIN")
+    print("-")
     username=str(input("[::] Please enter your username: "))
     while username == None or len(username) > 30:
-        print("[!] Invalid Username !")
+        print("[!] Invalid username !")
         sleep(1)
         username=str(input("[::] Please enter again your username: "))
     username=str(input("[::] Please enter your username: "))
@@ -120,9 +123,9 @@ if option == 1:
     sleep(2)
     print("[+] To end the process enter Ctrl + C")
     sleep(2)
-    c = 1
+    temp = True
     print("[!] NOTE: Use this program every 2 days in order for your account not to get blocked")
-    while c > 0:
+    while temp != False:
         try:
             clnt.user_follow(173560420) #Cristiano Ronaldo
             print("[+] Following 173560420...")
