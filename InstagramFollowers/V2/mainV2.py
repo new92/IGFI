@@ -1,8 +1,7 @@
 """
 Author: new92
-Github: https://www.github.com/new92
-InstaFollowV2: Is a program similar to Version 1 (V1) but I found a different way to build the same program with less
-lines of code.
+Github: @new92
+InstaFollowV2: Is a program similar to Version 1 (V1) but I found a different way to build the same program with fewer lines of code.
 User's data (such as: username, password) will not be stored or saved ! 
 Will be used only to increase the followers of the user's account
 """
@@ -20,7 +19,7 @@ try:
     import instapy
     import instaloader
     import instagram_private_api
-    from getpass import getpass
+    from instagrapi import *
 except ImportError as imp:
     print("[!] WARNING: Not all packages used in this program have been installed !")
     sleep(2)
@@ -57,10 +56,12 @@ option=int(input("[::] Please enter the number of the option (from above): "))
 while option < 1 or option > 2 or option == None:
     print("[!] Invalid number !")
     sleep(1)
-    option=int(input("[::] Please enter again: "))
+    option=int(input("[::] Please enter again the number of the option: "))
 if option == 1:
     print("[+] The data will not be stored or saved")
     sleep(2)
+    print("-"*40)
+    print("LOGIN"
     username=str(input("[::] Please enter your username: "))
     while username == None or len(username) > 30:
         print("[!] Invalid Username !")
@@ -71,7 +72,7 @@ if option == 1:
         print("[!] User not found !")
         sleep(1)
         print("[1] Try with another username")
-        print("[2] quit")
+        print("[2] Exit")
         opt=int(input(">>> "))
         while opt < 1 or opt > 2 or opt == None:
             print("[!] Invalid number !")
@@ -83,7 +84,6 @@ if option == 1:
                 print("[!] Invalid username !")
                 sleep(1)
                 username=str(input("[::] Please enter the username: "))
-            continue
         else:
             print("[+] Exiting...")
             quit(0)
@@ -92,7 +92,7 @@ if option == 1:
     sleep(1)
     password=input("[::] Please enter your password: ")
     while password == None:
-        print("[!] Invalid Password !")
+        print("[!] Invalid password !")
         sleep(1)
         password=input("[::] Please enter again your password: ")
     password=password.strip()
@@ -101,11 +101,11 @@ if option == 1:
     try:
         login = clnt.login(username,password)
         if login == True:
-            print("[!] Login Successful !")
+            print("[!] Login successful !")
             sleep(2)
             print("[+] Please wait while the program is increasing your followers...")
         else:
-            print("[!] Login Unsuccessful !")
+            print("[!] Login unsuccessful !")
             sleep(2)
             print("[+] Please check the username and/or the password !")
             sleep(2)
@@ -121,12 +121,12 @@ if option == 1:
     sleep(2)
     print("[+] To end the process enter Ctrl + C")
     sleep(2)
-    c = 1
+    temp = True
     FOLLOW=['173560420','1436859892','18428658','7719696','451573056','247944034','407964088','460563723','6860189','427553890','26669533','4213518589','12331195','28527810','12281817','208560325','145821237','305701719','217867189','20824486','25025320','787132','260375673','290023231','1269788896','29394004','11830955','6380930','2094200507','9777455']
     UNFOLLOW=['173560420','1436859892','18428658','7719696','451573056','247944034','407964088','460563723','6860189','427553890','26669533','4213518589','12331195','28527810','12281817','208560325','145821237','305701719','217867189','20824486','25025320','787132','260375673','290023231','1269788896','29394004','11830955','6380930','2094200507','9777455']
     print("[!] NOTE: Use this program every 2 days in order for your account not to get blocked")
     sleep(5)
-    while c > 0:
+    while temp != False:
         for i in range(len(FOLLOW)):
             try:
                 clnt.user_follow(FOLLOW[i])
