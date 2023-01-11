@@ -57,7 +57,7 @@ For more info please check the `CODE_OF_CONDUCT.md` file
 
 ## Feedback 💭
 
-If you have any feedback, please reach out to us at <a href='mailto:new92github@gmail.com'>Here</a>
+If you have any feedback, please reach out to us at <a href='mailto:new92github@gmail.com'>this address</a>
 
 
 ## Features 🔜
