@@ -63,8 +63,8 @@ If you have any feedback, please reach out to us at new92github@gmail.com
 ## Features 🔜
 
 - [x] GUI
-- [x] Automation
-- [x] Program a V3 faster than both versions 1 and 2
+- [ ] Automation
+- [ ] Program a V3 better than both versions 1 and 2
 
 ## FAQ 🤔
 
