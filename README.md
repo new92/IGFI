@@ -135,7 +135,7 @@ Answer ➡️ Only if you're using a very old version of Instagram. But it has b
     
 ## License 📄
 
-[MIT](https://choosealicense.com/licenses/mit/)
+**[MIT](https://choosealicense.com/licenses/mit/)**
 
 
 ## Screenshots 📸
