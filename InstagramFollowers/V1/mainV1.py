@@ -16,6 +16,7 @@ try:
     import instagram_private_api
     import webbrowser
     import instaloader
+    import os
     from instagrapi import *
 except ImportError as imp:
     print("[!] WARNING: Not all packages used in this program have been installed !")
@@ -40,7 +41,6 @@ except ImportError as imp:
                 quit(0)
         else:
             system("sudo pip install -r requirements.txt")
-            pass
     elif sys.platform == 'darwin':
         system("python -m pip install requirements.txt")
         pass
