@@ -98,7 +98,6 @@ if option == 1:
                 print("[!] Invalid username !")
                 sleep(1)
                 username=str(input("[::] Please enter the username: "))
-            continue
         else:
             print("[+] Exiting...")
             quit(0)
@@ -107,7 +106,7 @@ if option == 1:
     sleep(1)
     password=input("[::] Please enter your password: ")
     while password == None:
-        print("[!] Invalid Password !")
+        print("[!] Invalid password !")
         sleep(1)
         password=input("[::] Please enter again your password: ")
     password=password.strip()
