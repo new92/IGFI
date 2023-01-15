@@ -135,7 +135,7 @@ Answer ➡️ Only if you're using a very old version of Instagram. But it has b
 
 ## License 📜
 
-[![License](https://img.shields.io/github/license/new92/IGFollowersIncreaser?style=for-the-badge)](https://github.com/new92/IGFollowersIncreaser/blob/main/LICENSE)
+[![License](https://img.shields.io/github/license/new92/IGFollowersIncreaser?style=for-the-badge)](https://github.com/new92/IGFollowersIncreaser/blob/main/LICENSE.md)
 
 
 
