@@ -17,10 +17,6 @@ try:
     from time import sleep
     import instagrapi
     import os
-    import instabot
-    import instapy
-    import instaloader
-    import instagram_private_api
     from instagrapi import *
 except ImportError as imp:
     print("[!] WARNING: Not all packages used in this program have been installed !")
