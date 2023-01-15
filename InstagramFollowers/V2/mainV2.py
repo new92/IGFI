@@ -6,7 +6,6 @@ User's data (such as: username, password) will not be stored or saved !
 Will be used only to increase the followers of the user's account
 """
 
-#Imports
 try:
     import sys
     import platform
@@ -26,14 +25,27 @@ except ImportError as imp:
     print("[+] Ignoring warning...")
     sleep(1)
     if sys.platform.startswith('linux') == True:
-        system("sudo pip install -r requirements.txt")
-        pass
+        if os.geteuid() != 0:
+            print("[!] Root user not detected !")
+            sleep(2)
+            print("[+] Trying to enable root user...")
+            sleep(1)
+            system("sudo su")
+            try:
+                system("sudo pip install -r requirements.txt")
+            except Exception as ex:
+                print("[!] Error !")
+                sleep(1)
+                print(ex)
+                sleep(2)
+                print("[+] Exiting...")
+                quit(0)
+        else:
+            system("sudo pip install -r requirements.txt")
     elif sys.platform == 'darwin':
         system("python -m pip install requirements.txt")
-        pass
     elif platform.system() == 'Windows':
         system("pip install -r requirements.txt")
-        pass
 
 
 print("""
@@ -47,9 +59,10 @@ print("""
 print("\n")
 print("[+] Program for increasing followers on Instagram")
 print("\n")
-print("[+] Github: https://www.github.com/new92")
+print("[+] Author: new92")
+print("[+] Github: @new92")
 print("\n")
-print("[1] Increase Followers")
+print("[1] Increase followers")
 print("[2] Exit")
 print("\n")
 option=int(input("[::] Please enter the number of the option (from above): "))
@@ -61,10 +74,10 @@ if option == 1:
     print("[+] The data will not be stored or saved")
     sleep(2)
     print("-"*40)
-    print("LOGIN"
+    print("login".upper())
     username=str(input("[::] Please enter your username: "))
     while username == None or len(username) > 30:
-        print("[!] Invalid Username !")
+        print("[!] Invalid username !")
         sleep(1)
         username=str(input("[::] Please enter again your username: "))
     resp = requests.get(f"https://www.instagram.com/{username}/")
@@ -126,7 +139,7 @@ if option == 1:
     UNFOLLOW=['173560420','1436859892','18428658','7719696','451573056','247944034','407964088','460563723','6860189','427553890','26669533','4213518589','12331195','28527810','12281817','208560325','145821237','305701719','217867189','20824486','25025320','787132','260375673','290023231','1269788896','29394004','11830955','6380930','2094200507','9777455']
     print("[!] NOTE: Use this program every 2 days in order for your account not to get blocked")
     sleep(5)
-    while temp != False:
+    while temp:
         for i in range(len(FOLLOW)):
             try:
                 clnt.user_follow(FOLLOW[i])
