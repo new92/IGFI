@@ -94,7 +94,6 @@ Answer ➡️ No, not at all ! Because it's like asking if following and unfollo
 Answer ➡️ Only if you're using a very old version of Instagram. But it has been tested in several accounts and none of them got blocked.
 
 
-    
 
 
 ## Installation 📥
@@ -133,9 +132,11 @@ Answer ➡️ Only if you're using a very old version of Instagram. But it has b
   python3 mainV<and the name of the folder. Example: python3 mainV1.py>.py
 ```
     
-## License 📄
 
-**[MIT](https://choosealicense.com/licenses/mit/)**
+## License 📜
+
+[![License](https://img.shields.io/github/license/new92/IGFollowersIncreaser?style=for-the-badge)](https://github.com/new92/IGFollowersIncreaser/blob/main/LICENSE)
+
 
 
 ## Screenshots 📸
