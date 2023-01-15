@@ -43,10 +43,8 @@ except ImportError as imp:
             system("sudo pip install -r requirements.txt")
     elif sys.platform == 'darwin':
         system("python -m pip install requirements.txt")
-        pass
     elif platform.system() == 'Windows':
         system("pip install -r requirements.txt")
-        pass
 
 print("""
 ██╗███╗░░██╗░██████╗████████╗░█████╗░███████╗░█████╗░██╗░░░░░██╗░░░░░░█████╗░░██╗░░░░░░░██╗    ██╗░░░██╗░░███╗░░
