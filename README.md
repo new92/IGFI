@@ -138,5 +138,5 @@ Answer ➡️ Only if you're using a very old version of Instagram. But it has b
 
 ## Screenshots 📸
 
-> Photos of the script can be found at <a href="https://github.com/new92/IGFollowersIncreaser/tree/main/InstagramFollowers/Photos">this url</a>
+**Photos of the script can be found at <a href="https://github.com/new92/IGFollowersIncreaser/tree/main/InstagramFollowers/Photos">this url</a>**
 
