@@ -136,3 +136,7 @@ Answer ➡️ Only if you're using a very old version of Instagram. But it has b
 [![License](https://img.shields.io/github/license/new92/IGFollowersIncreaser?style=for-the-badge)](https://github.com/new92/IGFollowersIncreaser/blob/main/LICENSE.md)
 
 
+## Screenshots 📸
+
+Photos of the script can be found at <a href="https://github.com/new92/IGFollowersIncreaser/tree/main/InstagramFollowers/Photos">this url</a>
+
