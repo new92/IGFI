@@ -136,11 +136,3 @@ Answer ➡️ Only if you're using a very old version of Instagram. But it has b
 [![License](https://img.shields.io/github/license/new92/IGFollowersIncreaser?style=for-the-badge)](https://github.com/new92/IGFollowersIncreaser/blob/main/LICENSE.md)
 
 
-
-## Screenshots 📸
-
-![InstaFollowV1Main](https://user-images.githubusercontent.com/94779840/201513180-11d59a76-9352-4880-b9f2-ad7be6f2b212.png)
-![InstaFollowV1Following](https://user-images.githubusercontent.com/94779840/201513136-ea8f4c6f-ef39-4991-8d71-fd238d93007c.png)
-![InstaFollowV2Main](https://user-images.githubusercontent.com/94779840/201513167-3233432e-8f4b-4686-a21b-2e44ffb17142.png)
-![InstaFollowV2Following](https://user-images.githubusercontent.com/94779840/201513172-d38d82ef-bd79-4360-be67-b6322b72b1fa.png)
-
