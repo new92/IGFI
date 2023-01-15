@@ -162,5 +162,5 @@ if option == 1:
                 sleep(1)
                 print("[+] Exiting...")
                 quit(0)
-            print(f"[+] Unfollowing {UNFOLLOW[e]}...")
+            print(f"[+] Unfollowing {UNFOLLOW[j]}...")
             sleep(1)
