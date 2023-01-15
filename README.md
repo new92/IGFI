@@ -31,8 +31,6 @@ It's suggested to run it every two (2) days in order for your account not to get
 
 [![Stars](https://img.shields.io/github/stars/new92/IGFollowersIncreaser?style=social)](https://img.shields.io/github/stars/new92/IGFollowersIncreaser?style=social)
 
-[![License](https://img.shields.io/github/license/new92/IGFollowersIncreaser)](https://img.shields.io/github/license/new92/IGFollowersIncreaser)
-
 [![Open issues](https://img.shields.io/github/issues-raw/new92/IGFollowersIncreaser)](https://img.shields.io/github/issues-raw/new92/IGFollowersIncreaser)
 
 [![Closed Issues](https://img.shields.io/github/issues-closed-raw/new92/IGFollowersIncreaser)](https://img.shields.io/github/issues-closed-raw/new92/IGFollowersIncreaser)
