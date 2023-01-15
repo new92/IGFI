@@ -115,12 +115,12 @@ if option == 1:
     try:
         login = clnt.login(username,password)
         if login == True:
-            print("[!] Login Successful !")
+            print("[!] Login successful !")
             sleep(1)
             print("[+] Please wait while the program is increasing your followers...")
             sleep(2)
         else:
-            print("[!] Login Unsuccessful !")
+            print("[!] Login unsuccessful !")
             sleep(1)
             print("[+] Please check the username and/or the password !")
             sleep(2)
@@ -138,7 +138,7 @@ if option == 1:
     sleep(2)
     temp = True
     print("[!] NOTE: Use this program every 2 days in order for your account not to get blocked")
-    while temp != False:
+    while temp:
         try:
             clnt.user_follow(173560420) #Cristiano Ronaldo
             print("[+] Following 173560420...")
@@ -321,7 +321,7 @@ if option == 1:
             print("[+] Unfollowing 9777455...")
             sleep(2)
         except KeyboardInterrupt as key:
-            print("[!] Program Interrupted !")
+            print("[!] Program interrupted by user !")
             sleep(1)
             print("[+] Exiting...")
             quit(0)
