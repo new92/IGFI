@@ -29,9 +29,9 @@ except ImportError as imp:
             sleep(2)
             print("[+] Trying to enable root user...")
             sleep(1)
-            system(sudo su)
+            system("sudo su")
             try:
-                system(sudo pip install -r requirements.txt)
+                system("sudo pip install -r requirements.txt")
             except Exception as ex:
                 print("[!] Error !")
                 sleep(1)
