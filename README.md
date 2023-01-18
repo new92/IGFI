@@ -62,7 +62,7 @@ If you have any feedback, please reach out to us at <a href='mailto:new92github@
 
 - [ ] GUI
 - [ ] Automation
-- [x] ~~V3 script better than both versions 1 and 2~~ **<a href='https://github.com/new92/IGFollowersIncreaser/tree/main/InstagramFollowers/V3'>URL</a>**
+- [x] ~~V3 script better than both versions 1 and 2~~          **<a href='https://github.com/new92/IGFollowersIncreaser/tree/main/InstagramFollowers/V3'>URL</a>**
 
 ## FAQ 🤔
 
