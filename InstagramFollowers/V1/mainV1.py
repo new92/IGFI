@@ -1,9 +1,14 @@
 """
 Author: new92
 Github: @new92
-InstaFollow: Program for increasing followers on Instagram
+InstaFollowV1: Script for increasing the followers of an Instagram account
+
+
+
+*********IMPORTANT*********
 User's data (such as: username, password) will not be stored or saved ! 
-Will be used only to increase the followers of the given account
+Will be used only to increase the followers of the user's Instagram account
+***************************
 """
 try:
     import sys
@@ -11,11 +16,6 @@ try:
     from os import system
     from time import sleep
     import instagrapi
-    import instabot
-    import instapy
-    import instagram_private_api
-    import webbrowser
-    import instaloader
     import os
     from instagrapi import *
 except ImportError as imp:
