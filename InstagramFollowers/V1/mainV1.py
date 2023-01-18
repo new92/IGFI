@@ -6,7 +6,7 @@ InstaFollowV1: Script for increasing the followers of an Instagram account
 
 
 *********IMPORTANT*********
-User's data (such as: username, password) will not be stored or saved ! 
+User's login credentials (such as: username, password) will not be stored or saved ! 
 Will be used only to increase the followers of the user's Instagram account
 ***************************
 """
@@ -71,7 +71,7 @@ while option < 1 or option > 2 or option == None:
     option=int(input("[::] Please enter again the number: "))
 if option == 1:
     sleep(1)
-    print("[+] The data will not be stored or saved")
+    print("[+] The login credentials will not be stored or saved")
     sleep(2)
     print("-"*20+"login".upper()+"-"*20)
     username=str(input("[::] Please enter your username: "))
