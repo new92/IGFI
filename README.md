@@ -60,9 +60,9 @@ If you have any feedback, please reach out to us at <a href='mailto:new92github@
 
 ## Features 🔜
 
-- [x] GUI
-- [x] Automation
-- [x] Program a V3 better than both versions 1 and 2
+- [ ] GUI
+- [ ] Automation
+- [x] ~~Program a V3 better than both versions 1 and 2~~
 
 ## FAQ 🤔
 
