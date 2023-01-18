@@ -62,7 +62,7 @@ If you have any feedback, please reach out to us at <a href='mailto:new92github@
 
 - [ ] GUI
 - [ ] Automation
-- [x] Program a V3 better than both versions 1 and 2
+- [ x ] Program a V3 better than both versions 1 and 2
 
 ## FAQ 🤔
 
@@ -103,7 +103,7 @@ Answer ➡️ Only if you're using a very old version of Instagram. But it has b
   git clone https://github.com/new92/IGFollowersIncreaser
   cd IGFollowersIncreaser
   cd InstagramFollowers
-  cd V<and the version you want to use. Example: cd V1   Available versions: 1 and 2>
+  cd V<and the version you want to use. Example: cd V1   Available versions: 1 or 2 or 3>
   sudo pip install -r requirements.txt
   python3 mainV<and the name of the folder. Example: python3 mainV1.py>.py
 ```
@@ -114,7 +114,7 @@ Answer ➡️ Only if you're using a very old version of Instagram. But it has b
   git clone https://github.com/new92/IGFollowersIncreaser
   cd IGFollowersIncreaser
   cd InstagramFollowers
-  cd V<and the version you want to use. Example: cd V1   Available versions: 1 and 2>
+  cd V<and the version you want to use. Example: cd V1   Available versions: 1 or 2 or 3>
   pip install -r requirements.txt
   python3 mainV<and the name of the folder. Example: python3 mainV1.py>.py
 ```
@@ -125,7 +125,7 @@ Answer ➡️ Only if you're using a very old version of Instagram. But it has b
   git clone https://github.com/new92/IGFollowersIncreaser
   cd IGFollowersIncreaser
   cd InstagramFollowers
-  cd V<and the version you want to use. Example: cd V1   Available versions: 1 and 2>
+  cd V<and the version you want to use. Example: cd V1   Available versions: 1 or 2 or 3>
   python -m pip install requirements.txt
   python3 mainV<and the name of the folder. Example: python3 mainV1.py>.py
 ```
