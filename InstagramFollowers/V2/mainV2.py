@@ -15,8 +15,8 @@ try:
     import platform
     from os import system
     from time import sleep
-    import instagrapi
     import os
+    import instagrapi
     from instagrapi import *
 except ImportError as imp:
     print("[!] WARNING: Not all packages used in this program have been installed !")
@@ -65,11 +65,11 @@ print("\n")
 print("[1] Increase followers")
 print("[2] Exit")
 print("\n")
-option=int(input("[::] Please enter the number of the option (from above): "))
+option=int(input("[::] Please enter a number of the option (from above): "))
 while option < 1 or option > 2 or option == None:
     print("[!] Invalid number !")
     sleep(1)
-    option=int(input("[::] Please enter again the number of the option: "))
+    option=int(input("[::] Please enter again the number: "))
 if option == 1:
     print("[+] The login data will not be stored or saved")
     sleep(2)
