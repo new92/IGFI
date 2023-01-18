@@ -1,0 +1,1 @@
+instagrapi == 1.16.17
