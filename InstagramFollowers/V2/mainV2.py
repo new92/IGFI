@@ -23,7 +23,7 @@ except ImportError as imp:
     sleep(2)
     print("[+] Ignoring warning...")
     sleep(1)
-    if sys.platform.startswith('linux') == True:
+    if sys.platform.startswith('linux'):
         if os.geteuid() != 0:
             print("[!] Root user not detected !")
             sleep(2)
