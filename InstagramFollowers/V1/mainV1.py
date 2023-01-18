@@ -118,172 +118,172 @@ if option == 1:
     print("[!] NOTE: Use this program every 2 days in order for your account not to get blocked")
     while temp:
         try:
-            clnt.user_follow(173560420) #Cristiano Ronaldo
+            clnt.user_follow(173560420)
             print("[+] Following 173560420...")
             sleep(2)
-            clnt.user_follow(1436859892) #Cardi B
+            clnt.user_follow(1436859892)
             print("[+] Following 1436859892...")
             sleep(2)
-            clnt.user_follow(18428658) #Kim Kardashian
+            clnt.user_follow(18428658)
             print("[+] Following 18428658...")
             sleep(2)
-            clnt.user_follow(7719696) #Ariana Grande
+            clnt.user_follow(7719696)
             print("[+] Following 7719696...")
             sleep(2)
-            clnt.user_follow(451573056) #Nicki Minaj
+            clnt.user_follow(451573056)
             print("[+] Following 451573056...")
             sleep(2)
-            clnt.user_follow(247944034) #Beyonce
+            clnt.user_follow(247944034)
             print("[+] Following 247944034...")
             sleep(2)
-            clnt.user_follow(407964088) #Katy Perry
+            clnt.user_follow(407964088)
             print("[+] Following 407964088...")
             sleep(2)
-            clnt.user_follow(460563723) #Selena Gomez
+            clnt.user_follow(460563723)
             print("[+] Following 460563723...")
             sleep(2)
-            clnt.user_follow(6860189) #Justin Bieber
+            clnt.user_follow(6860189)
             print("[+] Following 6860189...")
             sleep(2)
-            clnt.user_follow(427553890) #Lionel Messi
+            clnt.user_follow(427553890)
             print("[+] Following 427553890...")
             sleep(2)
-            clnt.user_follow(26669533) #Neymar Jr
+            clnt.user_follow(26669533)
             print("[+] Following 26669533...")
             sleep(2)
-            clnt.user_follow(4213518589) #Kylian Mbappe
+            clnt.user_follow(4213518589)
             print("[+] Following 4213518589...")
             sleep(2)
-            clnt.user_follow(12331195) #Dua Lipa
+            clnt.user_follow(12331195)
             print("[+] Following 12331195...")
             sleep(2)
-            clnt.user_follow(28527810) #Billie Eilish
+            clnt.user_follow(28527810)
             print("[+] Following 28527810...")
             sleep(2)
-            clnt.user_follow(12281817) #Kylie Jenner
+            clnt.user_follow(12281817)
             print("[+] Following 12281817...")
             sleep(2)
-            clnt.user_follow(208560325) #Khloe Kardashian
+            clnt.user_follow(208560325)
             print("[+] Following 208560325...")
             sleep(2)
-            clnt.user_follow(145821237) #Kourtney Kardashian
+            clnt.user_follow(145821237)
             print("[+] Following 145821237...")
             sleep(2)
-            clnt.user_follow(305701719) #Jennifer Lopez
+            clnt.user_follow(305701719)
             print("[+] Following 305701719...")
             sleep(2)
-            clnt.user_follow(217867189) #Shakira
+            clnt.user_follow(217867189)
             print("[+] Following 217867189...")
             sleep(2)
-            clnt.user_follow(20824486) #NBA
+            clnt.user_follow(20824486)
             print("[+] Following 20824486...")
             sleep(2)
-            clnt.user_follow(25025320) #Instagram
+            clnt.user_follow(25025320)
             print("[+] Following 25025320...")
             sleep(2)
-            clnt.user_follow(787132) #National Geographic
+            clnt.user_follow(787132)
             print("[+] Following 787132...")
             sleep(2)
-            clnt.user_follow(260375673) #FC Barcelona
+            clnt.user_follow(260375673)
             print("[+] Following 260375673...")
             sleep(2)
-            clnt.user_follow(290023231) #Real Madrid
+            clnt.user_follow(290023231)
             print("[+] Following 290023231...")
             sleep(2)
-            clnt.user_follow(1269788896) #Champions League
+            clnt.user_follow(1269788896)
             print("[+] Following 1269788896...")
             sleep(2)
-            clnt.user_follow(29394004) #Chris Brown
+            clnt.user_follow(29394004)
             print("[+] Following 29394004...")
             sleep(2)
-            clnt.user_follow(11830955) #Taylor Swift
+            clnt.user_follow(11830955)
             print("[+] Following 11830955...")
             sleep(2)
-            clnt.user_follow(6380930) #Kendall Jenner
+            clnt.user_follow(6380930)
             print("[+] Following 6380930...")
             sleep(2)
-            clnt.user_follow(2094200507) #Virat Kohli
+            clnt.user_follow(2094200507)
             print("[+] Following 2094200507...")
             sleep(2)
-            clnt.user_follow(9777455) #Zendaya
+            clnt.user_follow(9777455)
             print("[+] Following 9777455...")
             sleep(2)
-            clnt.user_unfollow(173560420) #Cristiano Ronaldo
+            clnt.user_unfollow(173560420)
             print("[+] Unfollowing 173560420...")
             sleep(2)
-            clnt.user_unfollow(1436859892) #Cardi B
+            clnt.user_unfollow(1436859892)
             print("[+] Unfollowing 1436859892...")
             sleep(2)
-            clnt.user_unfollow(18428658) #Kim Kardashian
+            clnt.user_unfollow(18428658)
             print("[+] Unfollowing 18428658...")
             sleep(2)
-            clnt.user_unfollow(7719696) #Ariana Grande
+            clnt.user_unfollow(7719696)
             print("[+] Unfollowing 7719696...")
             sleep(2)
-            clnt.user_unfollow(451573056) #Nicki Minaj
+            clnt.user_unfollow(451573056)
             print("[+] Unfollowing 451573056...")
             sleep(2)
-            clnt.user_unfollow(247944034) #Beyonce
+            clnt.user_unfollow(247944034)
             print("[+] Unfollowing 247944034...")
             sleep(2)
-            clnt.user_unfollow(407964088) #Katy Perry
+            clnt.user_unfollow(407964088)
             print("[+] Unfollowing 407964088...")
             sleep(2)
-            clnt.user_unfollow(460563723) #Selena Gomez
+            clnt.user_unfollow(460563723)
             print("[+] Unfollowing 460563723...")
             sleep(2)
-            clnt.user_unfollow(6860189) #Justin Bieber
+            clnt.user_unfollow(6860189)
             print("[+] Unfollowing 6860189...")
             sleep(2)
-            clnt.user_unfollow(427553890) #Lionel Messi
+            clnt.user_unfollow(427553890)
             print("[+] Unfollowing 427553890...")
             sleep(2)
-            clnt.user_unfollow(26669533) #Neymar Jr
+            clnt.user_unfollow(26669533)
             print("[+] Unfollowing 26669533...")
             sleep(2)
-            clnt.user_unfollow(4213518589) #Kylian Mbappe
+            clnt.user_unfollow(4213518589)
             print("[+] Unfollowing 4213518589...")
             sleep(2)
-            clnt.user_unfollow(12331195) #Dua Lipa
+            clnt.user_unfollow(12331195)
             print("[+] Unfollowing 12331195...")
             sleep(2)
-            clnt.user_unfollow(28527810) #Billie Eilish
+            clnt.user_unfollow(28527810)
             print("[+] Unfollowing 28527810...")
             sleep(2)
-            clnt.user_unfollow(12281817) #Kylie Jenner
+            clnt.user_unfollow(12281817)
             print("[+] Unfollowing 12281817...")
             sleep(2)
-            clnt.user_unfollow(208560325) #Khloe Kardashian
+            clnt.user_unfollow(208560325)
             print("[+] Unfollowing 208560325...")
             sleep(2)
-            clnt.user_unfollow(145821237) #Kourtney Kardashian
+            clnt.user_unfollow(145821237)
             print("[+] Unfollowing 145821237...")
             sleep(2)
-            clnt.user_unfollow(305701719) #Jennifer Lopez
+            clnt.user_unfollow(305701719)
             print("[+] Unfollowing 305701719...")
             sleep(2)
-            clnt.user_unfollow(217867189) #Shakira
+            clnt.user_unfollow(217867189)
             print("[+] Unfollowing 217867189...")
             sleep(2)
-            clnt.user_unfollow(20824486) #NBA
+            clnt.user_unfollow(20824486)
             print("[+] Unfollowing 20824486...")
             sleep(2)
-            clnt.user_unfollow(25025320) #Instagram
+            clnt.user_unfollow(25025320)
             print("[+] Unfollowing 25025320...")
             sleep(2)
-            clnt.user_unfollow(787132) #National Geographic
+            clnt.user_unfollow(787132)
             print("[+] Unfollowing 787132...")
             sleep(2)
-            clnt.user_unfollow(260375673) #FC Barcelona
+            clnt.user_unfollow(260375673)
             print("[+] Unfollowing 260375673...")
             sleep(2)
-            clnt.user_unfollow(290023231) #Real Madrid
+            clnt.user_unfollow(290023231)
             print("[+] Unfollowing 290023231...")
             sleep(2)
-            clnt.user_unfollow(1269788896) #Champions League
+            clnt.user_unfollow(1269788896)
             print("[+] Unfollowing 1269788896...")
             sleep(2)
-            clnt.user_unfollow(29394004) #Chris Brown
+            clnt.user_unfollow(29394004)
             print("[+] Unfollowing 29394004...")
             sleep(2)
             clnt.user_unfollow(11830955)
