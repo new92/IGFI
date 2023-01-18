@@ -56,9 +56,8 @@ banner = """
 ╚═╝╚═╝░░╚══╝╚═════╝░░░░╚═╝░░░╚═╝░░╚═╝╚═╝░░░░░░╚════╝░╚══════╝╚══════╝░╚════╝░░░░╚═╝░░░╚═╝░░    ░░░╚═╝░░░╚══════╝
 """
 print(banner)
-print("\t\tScript by @new92")
 print("\n")
-print("[+] Program for increasing the followers of an account on Instagram (works for both public and private accounts)")
+print("[+] Script for increasing the followers of an account on Instagram (works for both public and private accounts)")
 print("\n")
 print("[+] Author: new92")
 print("[+] Github: @new92")
@@ -72,7 +71,7 @@ while option < 1 or option > 2 or option == None:
     sleep(1)
     option=int(input("[::] Please enter again the number of the option: "))
 if option == 1:
-    print("[+] The data will not be stored or saved")
+    print("[+] The login data will not be stored or saved")
     sleep(2)
     print("|"+"-"*20+"login".upper()+"-"*20+"|")
     username=str(input("[::] Please enter your username: "))
