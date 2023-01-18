@@ -73,33 +73,12 @@ if option == 1:
     sleep(1)
     print("[+] The data will not be stored or saved")
     sleep(2)
-    print("-"*40+"login".upper()+"-"*40)
+    print("-"*20+"login".upper()+"-"*20)
     username=str(input("[::] Please enter your username: "))
     while username == None or len(username) > 30:
         print("[!] Invalid username !")
         sleep(1)
         username=str(input("[::] Please enter again your username: "))
-    username=str(input("[::] Please enter your username: "))
-    resp = requests.get(f"https://www.instagram.com/{username}/")
-    while resp.status_code == 404 or resp.status_code == 400:
-        print("[!] User not found !")
-        sleep(1)
-        print("[1] Try with another username")
-        print("[2] Exit")
-        opt=int(input(">>> "))
-        while opt < 1 or opt > 2 or opt == None:
-            print("[!] Invalid number !")
-            sleep(1)
-            opt=int(input(">>> "))
-        if opt == 1:
-            username=str(input("[::] Please enter the username: "))
-            while username == None:
-                print("[!] Invalid username !")
-                sleep(1)
-                username=str(input("[::] Please enter the username: "))
-        else:
-            print("[+] Exiting...")
-            quit(0)
     username=username.lower()
     username=username.strip()
     sleep(1)
@@ -113,7 +92,7 @@ if option == 1:
     clnt=instagrapi.Client()
     try:
         login = clnt.login(username,password)
-        if login == True:
+        if login:
             print("[!] Login successful !")
             sleep(1)
             print("[+] Please wait while the program is increasing your followers...")
@@ -307,16 +286,16 @@ if option == 1:
             clnt.user_unfollow(29394004) #Chris Brown
             print("[+] Unfollowing 29394004...")
             sleep(2)
-            clnt.user_unfollow(11830955) #Taylor Swift
+            clnt.user_unfollow(11830955)
             print("[+] Unfollowing 11830955...")
             sleep(2)
-            clnt.user_unfollow(6380930) #Kendall Jenner
+            clnt.user_unfollow(6380930)
             print("[+] Unfollowing 6380930...")
             sleep(2)
-            clnt.user_unfollow(2094200507) #Virat Kohli
+            clnt.user_unfollow(2094200507)
             print("[+] Unfollowing 2094200507...")
             sleep(2)
-            clnt.user_unfollow(9777455) #Zendaya
+            clnt.user_unfollow(9777455)
             print("[+] Unfollowing 9777455...")
             sleep(2)
         except KeyboardInterrupt as key:
