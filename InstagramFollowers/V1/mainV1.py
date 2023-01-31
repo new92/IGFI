@@ -150,11 +150,11 @@ def main():
         username=username.lower()
         username=username.strip()
         sleep(1)
-        password=input("[::] Please enter your password: ")
+        password=str(input("[::] Please enter your password: "))
         while password == None:
             print("[!] Invalid password !")
             sleep(1)
-            password=input("[::] Please enter again your password: ")
+            password=str(input("[::] Please enter again your password: "))
         password=password.strip()
         sleep(1)
         print("|"+"-"*45+"|")
