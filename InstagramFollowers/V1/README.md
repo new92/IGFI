@@ -2,6 +2,7 @@
 
 InstaFollowV1 (or IFv1 for short) provides many features ! Some of which are:
 - Security (for your login credentials)
-- Speed
-- Flexibility over the different OS's
-- A satisfactory amount of followers (15 to 20 each time)
+- Speed (10 followers per minute)
+- Flexibility over the different operating systems (OSS)
+- A satisfactory amount of followers (30 the first time to use / 15 to 20 per time)
+- Automatic uninstallation
