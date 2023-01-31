@@ -52,7 +52,7 @@ def ProgInfo():
     lang = 'es-US'
     language = 'Python'
     name = 'InstaFollowV1'
-    lines = 408
+    lines = 407
     f = '/IGFollowersIncreaser/InstagramFollowers/V1/mainV1.py'
     ptf = os.path.abspath(f)
     if os.path.exists(ptf):
@@ -91,7 +91,7 @@ def nums():
 def main():
     print(banner())
     print("\n")
-    print("[+] Program for increasing followers on Instagram")
+    print("[+] Script for increasing the followers of an Instagram account")
     print("\n")
     print("[+] Author: new92")
     print("[+] Github: @new92")
