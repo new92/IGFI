@@ -89,7 +89,7 @@ def nums():
     print("[4] Exit")
 
 def main():
-    banner()
+    print(banner())
     print("\n")
     print("[+] Program for increasing followers on Instagram")
     print("\n")
