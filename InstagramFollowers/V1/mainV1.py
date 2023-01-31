@@ -4,7 +4,6 @@ Github: @new92
 InstaFollowV1: Script for increasing the followers of an Instagram account
 
 
-
 *********IMPORTANT*********
 User's login credentials (such as: username, password) will not be stored or saved ! 
 Will be used only to increase the followers of the user's Instagram account
@@ -17,6 +16,8 @@ try:
     from time import sleep
     import instagrapi
     import os
+    import sys
+    import shutil
     from instagrapi import *
 except ImportError as imp:
     print("[!] WARNING: Not all packages used in this program have been installed !")
@@ -45,8 +46,35 @@ except ImportError as imp:
         system("python -m pip install requirements.txt")
     elif platform.system() == 'Windows':
         system("pip install -r requirements.txt")
+    
+def ProgInfo():
+    author = 'new92'
+    license1 = 'MIT'
+    lang = 'es-US'
+    language = 'Python'
+    name = 'InstaFollowV1'
+    lines = 408
+    f = '/IGFollowersIncreaser/InstagramFollowers/V1/mainV1.py'
+    ptf = os.path.abspath(f)
+    if os.path.exists(ptf):
+        fsize = (os.stat(f)).st_size
+    else:
+        fsize = 0
+    stars = 14
+    forks = stars // 2
+    print("[+] Author: "+str(author))
+    print("[+] Github: @"+str(author))
+    print("[+] License: "+str(license1))
+    print("[+] Natural language: "+str(lang))
+    print("[+] Programming language(s) used: "+str(language))
+    print("[+] Number of lines: "+str(lines))
+    print("[+] Program's name: "+str(name))
+    print("[+] File size: "+str(fsize)+" bytes")
+    print("[+] Github repo stars: "+str(stars))
+    print("[+] Github repo forks: "+str(forks))
 
-banner="""
+def banner(): 
+    return """
 ██╗███╗░░██╗░██████╗████████╗░█████╗░███████╗░█████╗░██╗░░░░░██╗░░░░░░█████╗░░██╗░░░░░░░██╗    ██╗░░░██╗░░███╗░░
 ██║████╗░██║██╔════╝╚══██╔══╝██╔══██╗██╔════╝██╔══██╗██║░░░░░██║░░░░░██╔══██╗░██║░░██╗░░██║    ██║░░░██║░████║░░
 ██║██╔██╗██║╚█████╗░░░░██║░░░███████║█████╗░░██║░░██║██║░░░░░██║░░░░░██║░░██║░╚██╗████╗██╔╝    ╚██╗░██╔╝██╔██║░░
@@ -54,302 +82,327 @@ banner="""
 ██║██║░╚███║██████╔╝░░░██║░░░██║░░██║██║░░░░░╚█████╔╝███████╗███████╗╚█████╔╝░░╚██╔╝░╚██╔╝░    ░░╚██╔╝░░███████╗
 ╚═╝╚═╝░░╚══╝╚═════╝░░░░╚═╝░░░╚═╝░░╚═╝╚═╝░░░░░░╚════╝░╚══════╝╚══════╝░╚════╝░░░░╚═╝░░░╚═╝░░    ░░░╚═╝░░░╚══════╝
 """
-print(banner)
-print("\n")
-print("[+] Program for increasing followers on Instagram")
-print("\n")
-print("[+] Author: new92")
-print("[+] Github: @new92")
-print("\n")
-print("[1] Increase Followers")
-print("[2] Exit")
-print("\n")
-option=int(input("[::] Please enter a number (from the above ones): "))
-while option < 1 or option > 2 or option == None:
-    print("[!] Invalid number !")
-    sleep(1)
-    option=int(input("[::] Please enter again the number: "))
-if option == 1:
-    sleep(1)
-    print("[+] The login credentials will not be stored or saved")
-    sleep(2)
-    print("-"*20+"login".upper()+"-"*20)
-    username=str(input("[::] Please enter your username: "))
-    while username == None or len(username) > 30:
-        print("[!] Invalid username !")
+
+def nums():
+    print("[1] Increase followers")
+    print("[2] Show program info and exit")
+    print("[3] Uninstall script")
+    print("[4] Exit")
+
+def main():
+    banner()
+    print("\n")
+    print("[+] Program for increasing followers on Instagram")
+    print("\n")
+    print("[+] Author: new92")
+    print("[+] Github: @new92")
+    print("\n")
+    nums()
+    print("\n")
+    option=int(input("[::] Please enter a number (from the above ones): "))
+    while option < 1 or option > 4 or option == None:
+        print("[!] Invalid number !")
         sleep(1)
-        username=str(input("[::] Please enter again your username: "))
-    username=username.lower()
-    username=username.strip()
-    sleep(1)
-    password=input("[::] Please enter your password: ")
-    while password == None:
-        print("[!] Invalid password !")
-        sleep(1)
-        password=input("[::] Please enter again your password: ")
-    password=password.strip()
-    sleep(1)
-    clnt=instagrapi.Client()
-    try:
-        login = clnt.login(username,password)
-        if login:
-            print("[!] Login successful !")
-            sleep(1)
-            print("[+] Please wait while the program is increasing your followers...")
-            sleep(2)
+        nums()
+        option=int(input("[::] Please enter again a number (from the above ones): "))
+    if option == 1:
+        if platform.system() == 'Windows':
+            system("cls")
         else:
-            print("[!] Login unsuccessful !")
-            sleep(1)
-            print("[+] Please check the username and/or the password !")
-            sleep(2)
-            print("[+] Exiting...")
-            quit(0)
-    except Exception as ex:
-        print("[!] Error !")
+            system("clear")
         sleep(1)
-        print(ex)
+        print("[+] The data will not be stored or saved")
         sleep(2)
-        print("[+] Exiting...")
-        quit(0)
-    sleep(2)
-    print("[+] To end the process enter Ctrl + C")
-    sleep(2)
-    print("[!] NOTE: Use this program every 2 days in order for your account not to get blocked")
-    while True:
+        username=str(input("[::] Please enter your username: "))
+        while username == None or len(username) > 30:
+            print("[!] Invalid username !")
+            sleep(1)
+            username=str(input("[::] Please enter again your username: "))
+        resp = requests.get(f"https://www.instagram.com/{username}/")
+        while resp.status_code == 404 or resp.status_code == 400:
+            print("[!] User not found !")
+            sleep(1)
+            print("[1] Try with another username")
+            print("[2] Return to menu")
+            print("[3] Exit")
+            opt=int(input("[::] Please enter a number (from the above ones): "))
+            while opt < 1 or opt > 3 or opt == None:
+                print("[!] Invalid number !")
+                sleep(1)
+                print("[1] Try with another username")
+                print("[2] Return to menu")
+                print("[3] Exit")
+                opt=int(input("[::] Please enter again a number (from the above ones): "))
+            if opt == 1:
+                username=str(input("[::] Please enter the username: "))
+                while username == None or len(username) > 30:
+                    print("[!] Invalid username !")
+                    sleep(1)
+                    username=str(input("[::] Please enter again the username: "))
+            elif opt == 2:
+                main()
+            else:
+                print("[+] Thank you for using my script 😁")
+                sleep(2)
+                print("[+] See you next time 👋")
+                sleep(1)
+                exit(0)
+        username=username.lower()
+        username=username.strip()
+        sleep(1)
+        password=input("[::] Please enter your password: ")
+        while password == None:
+            print("[!] Invalid password !")
+            sleep(1)
+            password=input("[::] Please enter again your password: ")
+        password=password.strip()
+        sleep(1)
+        clnt=instagrapi.Client()
         try:
-            clnt.user_follow(173560420)
-            print("[+] Following 173560420...")
-            sleep(2)
-            clnt.user_follow(1436859892)
-            print("[+] Following 1436859892...")
-            sleep(2)
-            clnt.user_follow(18428658)
-            print("[+] Following 18428658...")
-            sleep(2)
-            clnt.user_follow(7719696)
-            print("[+] Following 7719696...")
-            sleep(2)
-            clnt.user_follow(451573056)
-            print("[+] Following 451573056...")
-            sleep(2)
-            clnt.user_follow(247944034)
-            print("[+] Following 247944034...")
-            sleep(2)
-            clnt.user_follow(407964088)
-            print("[+] Following 407964088...")
-            sleep(2)
-            clnt.user_follow(460563723)
-            print("[+] Following 460563723...")
-            sleep(2)
-            clnt.user_follow(6860189)
-            print("[+] Following 6860189...")
-            sleep(2)
-            clnt.user_follow(427553890)
-            print("[+] Following 427553890...")
-            sleep(2)
-            clnt.user_follow(26669533)
-            print("[+] Following 26669533...")
-            sleep(2)
-            clnt.user_follow(4213518589)
-            print("[+] Following 4213518589...")
-            sleep(2)
-            clnt.user_follow(12331195)
-            print("[+] Following 12331195...")
-            sleep(2)
-            clnt.user_follow(28527810)
-            print("[+] Following 28527810...")
-            sleep(2)
-            clnt.user_follow(12281817)
-            print("[+] Following 12281817...")
-            sleep(2)
-            clnt.user_follow(208560325)
-            print("[+] Following 208560325...")
-            sleep(2)
-            clnt.user_follow(145821237)
-            print("[+] Following 145821237...")
-            sleep(2)
-            clnt.user_follow(305701719)
-            print("[+] Following 305701719...")
-            sleep(2)
-            clnt.user_follow(217867189)
-            print("[+] Following 217867189...")
-            sleep(2)
-            clnt.user_follow(20824486)
-            print("[+] Following 20824486...")
-            sleep(2)
-            clnt.user_follow(25025320)
-            print("[+] Following 25025320...")
-            sleep(2)
-            clnt.user_follow(787132)
-            print("[+] Following 787132...")
-            sleep(2)
-            clnt.user_follow(260375673)
-            print("[+] Following 260375673...")
-            sleep(2)
-            clnt.user_follow(290023231)
-            print("[+] Following 290023231...")
-            sleep(2)
-            clnt.user_follow(1269788896)
-            print("[+] Following 1269788896...")
-            sleep(2)
-            clnt.user_follow(29394004)
-            print("[+] Following 29394004...")
-            sleep(2)
-            clnt.user_follow(11830955)
-            print("[+] Following 11830955...")
-            sleep(2)
-            clnt.user_follow(6380930)
-            print("[+] Following 6380930...")
-            sleep(2)
-            clnt.user_follow(2094200507)
-            print("[+] Following 2094200507...")
-            sleep(2)
-            clnt.user_follow(9777455)
-            print("[+] Following 9777455...")
-            sleep(2)
-            clnt.user_follow(204633036)
-            print("[+] Following 204633036...")
-            sleep(2)
-            clnt.user_follow(176618189)
-            print("[+] Following 176618189...")
-            sleep(2)
-            clnt.user_follow(1418652011)
-            print("[+] Following 1418652011...")
-            sleep(2)
-            clnt.user_follow(3439002676)
-            print("[+] Following 3439002676...")
-            sleep(2)
-            clnt.user_follow(3439002676)
-            print("[+] Following 3439002676...")
-            sleep(2)
-            clnt.user_follow(212742998)
-            print("[+] Following 212742998...")
-            sleep(2)
-            clnt.user_follow(528817151)
-            print("[+] Following 528817151...")
-            sleep(2)
-            clnt.user_follow(13460080)
-            print("[+] Following 13460080...")
-            sleep(2)
-            clnt.user_unfollow(173560420)
-            print("[+] Unfollowing 173560420...")
-            sleep(2)
-            clnt.user_unfollow(1436859892)
-            print("[+] Unfollowing 1436859892...")
-            sleep(2)
-            clnt.user_unfollow(18428658)
-            print("[+] Unfollowing 18428658...")
-            sleep(2)
-            clnt.user_unfollow(7719696)
-            print("[+] Unfollowing 7719696...")
-            sleep(2)
-            clnt.user_unfollow(451573056)
-            print("[+] Unfollowing 451573056...")
-            sleep(2)
-            clnt.user_unfollow(247944034)
-            print("[+] Unfollowing 247944034...")
-            sleep(2)
-            clnt.user_unfollow(407964088)
-            print("[+] Unfollowing 407964088...")
-            sleep(2)
-            clnt.user_unfollow(460563723)
-            print("[+] Unfollowing 460563723...")
-            sleep(2)
-            clnt.user_unfollow(6860189)
-            print("[+] Unfollowing 6860189...")
-            sleep(2)
-            clnt.user_unfollow(427553890)
-            print("[+] Unfollowing 427553890...")
-            sleep(2)
-            clnt.user_unfollow(26669533)
-            print("[+] Unfollowing 26669533...")
-            sleep(2)
-            clnt.user_unfollow(4213518589)
-            print("[+] Unfollowing 4213518589...")
-            sleep(2)
-            clnt.user_unfollow(12331195)
-            print("[+] Unfollowing 12331195...")
-            sleep(2)
-            clnt.user_unfollow(28527810)
-            print("[+] Unfollowing 28527810...")
-            sleep(2)
-            clnt.user_unfollow(12281817)
-            print("[+] Unfollowing 12281817...")
-            sleep(2)
-            clnt.user_unfollow(208560325)
-            print("[+] Unfollowing 208560325...")
-            sleep(2)
-            clnt.user_unfollow(145821237)
-            print("[+] Unfollowing 145821237...")
-            sleep(2)
-            clnt.user_unfollow(305701719)
-            print("[+] Unfollowing 305701719...")
-            sleep(2)
-            clnt.user_unfollow(217867189)
-            print("[+] Unfollowing 217867189...")
-            sleep(2)
-            clnt.user_unfollow(20824486)
-            print("[+] Unfollowing 20824486...")
-            sleep(2)
-            clnt.user_unfollow(25025320)
-            print("[+] Unfollowing 25025320...")
-            sleep(2)
-            clnt.user_unfollow(787132)
-            print("[+] Unfollowing 787132...")
-            sleep(2)
-            clnt.user_unfollow(260375673)
-            print("[+] Unfollowing 260375673...")
-            sleep(2)
-            clnt.user_unfollow(290023231)
-            print("[+] Unfollowing 290023231...")
-            sleep(2)
-            clnt.user_unfollow(1269788896)
-            print("[+] Unfollowing 1269788896...")
-            sleep(2)
-            clnt.user_unfollow(29394004)
-            print("[+] Unfollowing 29394004...")
-            sleep(2)
-            clnt.user_unfollow(11830955)
-            print("[+] Unfollowing 11830955...")
-            sleep(2)
-            clnt.user_unfollow(6380930)
-            print("[+] Unfollowing 6380930...")
-            sleep(2)
-            clnt.user_unfollow(2094200507)
-            print("[+] Unfollowing 2094200507...")
-            sleep(2)
-            clnt.user_unfollow(9777455)
-            print("[+] Unfollowing 9777455...")
-            sleep(2)
-            clnt.user_unfollow(204633036)
-            print("[+] Unfollowing 204633036...")
-            sleep(2)
-            clnt.user_unfollow(176618189)
-            print("[+] Unfollowing 176618189...")
-            sleep(2)
-            clnt.user_unfollow(1418652011)
-            print("[+] Unfollowing 1418652011...")
-            sleep(2)
-            clnt.user_unfollow(3439002676)
-            print("[+] Unfollowing 3439002676...")
-            sleep(2)
-            clnt.user_unfollow(3439002676)
-            print("[+] Unfollowing 3439002676...")
-            sleep(2)
-            clnt.user_unfollow(212742998)
-            print("[+] Unfollowing 212742998...")
-            sleep(2)
-            clnt.user_unfollow(528817151)
-            print("[+] Unfollowing 528817151...")
-            sleep(2)
-            clnt.user_unfollow(13460080)
-            print("[+] Unfollowing 13460080...")
-            sleep(2)
-        except KeyboardInterrupt as key:
-            print("[!] Program interrupted by user !")
+            login = clnt.login(username,password)
+            if login:
+                print("[!] Login successful !")
+                sleep(2)
+                print("[+] Please wait while the program is increasing your followers...")
+            else:
+                print("[!] Login unsuccessful !")
+                sleep(2)
+                print("[+] Please check the username and/or the password !")
+                sleep(1)
+                print("[+] Exiting...")
+                quit(0)
+        except Exception as ex:
+            print("[!] Error !")
+            sleep(1)
+            print(ex)
             sleep(1)
             print("[+] Exiting...")
             quit(0)
-else:
-    print("[+] Exiting...")
-    quit(0)
+        sleep(2)
+        print("[+] To end the process enter Ctrl + C")
+        sleep(2)
+        print("[!] NOTE: Use this program every 2 days in order for your account not to get blocked")
+        while True:
+            try:
+                clnt.user_follow(173560420) #Cristiano Ronaldo
+                print("[+] Following 173560420...")
+                sleep(2)
+                clnt.user_follow(1436859892) #Cardi B
+                print("[+] Following 1436859892...")
+                sleep(2)
+                clnt.user_follow(18428658) #Kim Kardashian
+                print("[+] Following 18428658...")
+                sleep(2)
+                clnt.user_follow(7719696) #Ariana Grande
+                print("[+] Following 7719696...")
+                sleep(2)
+                clnt.user_follow(451573056) #Nicki Minaj
+                print("[+] Following 451573056...")
+                sleep(2)
+                clnt.user_follow(247944034) #Beyonce
+                print("[+] Following 247944034...")
+                sleep(2)
+                clnt.user_follow(407964088) #Katy Perry
+                print("[+] Following 407964088...")
+                sleep(2)
+                clnt.user_follow(460563723) #Selena Gomez
+                print("[+] Following 460563723...")
+                sleep(2)
+                clnt.user_follow(6860189) #Justin Bieber
+                print("[+] Following 6860189...")
+                sleep(2)
+                clnt.user_follow(427553890) #Lionel Messi
+                print("[+] Following 427553890...")
+                sleep(2)
+                clnt.user_follow(26669533) #Neymar Jr
+                print("[+] Following 26669533...")
+                sleep(2)
+                clnt.user_follow(4213518589) #Kylian Mbappe
+                print("[+] Following 4213518589...")
+                sleep(2)
+                clnt.user_follow(12331195) #Dua Lipa
+                print("[+] Following 12331195...")
+                sleep(2)
+                clnt.user_follow(28527810) #Billie Eilish
+                print("[+] Following 28527810...")
+                sleep(2)
+                clnt.user_follow(12281817) #Kylie Jenner
+                print("[+] Following 12281817...")
+                sleep(2)
+                clnt.user_follow(208560325) #Khloe Kardashian
+                print("[+] Following 208560325...")
+                sleep(2)
+                clnt.user_follow(145821237) #Kourtney Kardashian
+                print("[+] Following 145821237...")
+                sleep(2)
+                clnt.user_follow(305701719) #Jennifer Lopez
+                print("[+] Following 305701719...")
+                sleep(2)
+                clnt.user_follow(217867189) #Shakira
+                print("[+] Following 217867189...")
+                sleep(2)
+                clnt.user_follow(20824486) #NBA
+                print("[+] Following 20824486...")
+                sleep(2)
+                clnt.user_follow(25025320) #Instagram
+                print("[+] Following 25025320...")
+                sleep(2)
+                clnt.user_follow(787132) #National Geographic
+                print("[+] Following 787132...")
+                sleep(2)
+                clnt.user_follow(260375673) #FC Barcelona
+                print("[+] Following 260375673...")
+                sleep(2)
+                clnt.user_follow(290023231) #Real Madrid
+                print("[+] Following 290023231...")
+                sleep(2)
+                clnt.user_follow(1269788896) #Champions League
+                print("[+] Following 1269788896...")
+                sleep(2)
+                clnt.user_follow(29394004) #Chris Brown
+                print("[+] Following 29394004...")
+                sleep(2)
+                clnt.user_follow(11830955) #Taylor Swift
+                print("[+] Following 11830955...")
+                sleep(2)
+                clnt.user_follow(6380930) #Kendall Jenner
+                print("[+] Following 6380930...")
+                sleep(2)
+                clnt.user_follow(2094200507) #Virat Kohli
+                print("[+] Following 2094200507...")
+                sleep(2)
+                clnt.user_follow(9777455) #Zendaya
+                print("[+] Following 9777455...")
+                sleep(2)
+                clnt.user_unfollow(173560420) #Cristiano Ronaldo
+                print("[+] Unfollowing 173560420...")
+                sleep(2)
+                clnt.user_unfollow(1436859892) #Cardi B
+                print("[+] Unfollowing 1436859892...")
+                sleep(2)
+                clnt.user_unfollow(18428658) #Kim Kardashian
+                print("[+] Unfollowing 18428658...")
+                sleep(2)
+                clnt.user_unfollow(7719696) #Ariana Grande
+                print("[+] Unfollowing 7719696...")
+                sleep(2)
+                clnt.user_unfollow(451573056) #Nicki Minaj
+                print("[+] Unfollowing 451573056...")
+                sleep(2)
+                clnt.user_unfollow(247944034) #Beyonce
+                print("[+] Unfollowing 247944034...")
+                sleep(2)
+                clnt.user_unfollow(407964088) #Katy Perry
+                print("[+] Unfollowing 407964088...")
+                sleep(2)
+                clnt.user_unfollow(460563723) #Selena Gomez
+                print("[+] Unfollowing 460563723...")
+                sleep(2)
+                clnt.user_unfollow(6860189) #Justin Bieber
+                print("[+] Unfollowing 6860189...")
+                sleep(2)
+                clnt.user_unfollow(427553890) #Lionel Messi
+                print("[+] Unfollowing 427553890...")
+                sleep(2)
+                clnt.user_unfollow(26669533) #Neymar Jr
+                print("[+] Unfollowing 26669533...")
+                sleep(2)
+                clnt.user_unfollow(4213518589) #Kylian Mbappe
+                print("[+] Unfollowing 4213518589...")
+                sleep(2)
+                clnt.user_unfollow(12331195) #Dua Lipa
+                print("[+] Unfollowing 12331195...")
+                sleep(2)
+                clnt.user_unfollow(28527810) #Billie Eilish
+                print("[+] Unfollowing 28527810...")
+                sleep(2)
+                clnt.user_unfollow(12281817) #Kylie Jenner
+                print("[+] Unfollowing 12281817...")
+                sleep(2)
+                clnt.user_unfollow(208560325) #Khloe Kardashian
+                print("[+] Unfollowing 208560325...")
+                sleep(2)
+                clnt.user_unfollow(145821237) #Kourtney Kardashian
+                print("[+] Unfollowing 145821237...")
+                sleep(2)
+                clnt.user_unfollow(305701719) #Jennifer Lopez
+                print("[+] Unfollowing 305701719...")
+                sleep(2)
+                clnt.user_unfollow(217867189) #Shakira
+                print("[+] Unfollowing 217867189...")
+                sleep(2)
+                clnt.user_unfollow(20824486) #NBA
+                print("[+] Unfollowing 20824486...")
+                sleep(2)
+                clnt.user_unfollow(25025320) #Instagram
+                print("[+] Unfollowing 25025320...")
+                sleep(2)
+                clnt.user_unfollow(787132) #National Geographic
+                print("[+] Unfollowing 787132...")
+                sleep(2)
+                clnt.user_unfollow(260375673) #FC Barcelona
+                print("[+] Unfollowing 260375673...")
+                sleep(2)
+                clnt.user_unfollow(290023231) #Real Madrid
+                print("[+] Unfollowing 290023231...")
+                sleep(2)
+                clnt.user_unfollow(1269788896) #Champions League
+                print("[+] Unfollowing 1269788896...")
+                sleep(2)
+                clnt.user_unfollow(29394004) #Chris Brown
+                print("[+] Unfollowing 29394004...")
+                sleep(2)
+                clnt.user_unfollow(11830955) #Taylor Swift
+                print("[+] Unfollowing 11830955...")
+                sleep(2)
+                clnt.user_unfollow(6380930) #Kendall Jenner
+                print("[+] Unfollowing 6380930...")
+                sleep(2)
+                clnt.user_unfollow(2094200507) #Virat Kohli
+                print("[+] Unfollowing 2094200507...")
+                sleep(2)
+                clnt.user_unfollow(9777455) #Zendaya
+                print("[+] Unfollowing 9777455...")
+                sleep(2)
+            except KeyboardInterrupt as key:
+                print("[!] Program Interrupted !")
+                sleep(1)
+                print("[+] Exiting...")
+                quit(0)
+    elif option == 2:
+        if platform.system() == 'Windows':
+            system("cls")
+        else:
+            system("clear")
+        ProgInfo()
+    elif option == 3:
+        if platform.system() == 'Windows':
+            system("cls")
+        else:
+            system("clear")
+        def rmdir(dire):
+            DIRS = []
+            for root, dirs, files in os.walk(dire):
+                for file in files:
+                    os.remove(os.path.join(root,file))
+                for dir in dirs:
+                    DIRS.append(os.path.join(root,dir))
+            for i in range(len(DIRS)):
+                os.rmdir(DIRS[i])
+            os.rmdir(dire)
+        dir = os.path.abspath('IGFollowersIncreaser')
+        rmdir(dir)
+        print("[+] Files uninstalled successfully !")
+    else:
+        if platform.system() == 'Windows':
+            system("cls")
+        else:
+            system("clear")
+        print("[+] Thank you for using my script 😁")
+        sleep(2)
+        print("[+] See you next time 👋")
+        sleep(1)
+        exit(0)
+
+if __name__ == '__main__':
+    main()
