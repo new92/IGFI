@@ -52,7 +52,7 @@ def ProgInfo():
     lang = 'es-US'
     language = 'Python'
     name = 'InstaFollowV1'
-    lines = 407
+    lines = 409
     f = '/IGFollowersIncreaser/InstagramFollowers/V1/mainV1.py'
     ptf = os.path.abspath(f)
     if os.path.exists(ptf):
@@ -110,8 +110,9 @@ def main():
         else:
             system("clear")
         sleep(1)
-        print("[+] The data will not be stored or saved")
+        print("[+] The login credentials will not be stored or saved")
         sleep(2)
+        print("|"+"-"*20+"login".upper()+"-"*20+"|")
         username=str(input("[::] Please enter your username: "))
         while username == None or len(username) > 30:
             print("[!] Invalid username !")
@@ -156,6 +157,7 @@ def main():
             password=input("[::] Please enter again your password: ")
         password=password.strip()
         sleep(1)
+        print("|"+"-"*45+"|")
         clnt=instagrapi.Client()
         try:
             login = clnt.login(username,password)
