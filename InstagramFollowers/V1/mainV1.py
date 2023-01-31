@@ -17,7 +17,6 @@ try:
     import instagrapi
     import os
     import sys
-    import shutil
     from instagrapi import *
 except ImportError as imp:
     print("[!] WARNING: Not all packages used in this program have been installed !")
