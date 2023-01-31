@@ -114,9 +114,8 @@ if option == 1:
     sleep(2)
     print("[+] To end the process enter Ctrl + C")
     sleep(2)
-    temp = True
     print("[!] NOTE: Use this program every 2 days in order for your account not to get blocked")
-    while temp:
+    while True:
         try:
             clnt.user_follow(173560420)
             print("[+] Following 173560420...")
