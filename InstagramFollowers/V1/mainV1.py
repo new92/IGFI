@@ -16,7 +16,7 @@ try:
     from time import sleep
     import instagrapi
     import os
-    import sys
+    import requests
     from instagrapi import *
 except ImportError as imp:
     print("[!] WARNING: Not all packages used in this program have been installed !")
