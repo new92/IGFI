@@ -54,7 +54,7 @@ def ScriptInfo():
     language = 'Python'
     name = 'InstaFollowV3'
     api = None
-    lines = 317
+    lines = 321
     f = '/IGFollowersIncreaser/InstagramFollowers/V3/mainV3.py'
     ptf = os.path.abspath(f)
     fsize = (os.stat(f)).st_size
@@ -118,6 +118,7 @@ def main():
         print("[!] Invalid number !")
         sleep(1)
         nums()
+        sleep(1)
         num=int(input("[::] Please enter again a number (from the above ones): "))
     if num == 1:
         if platform.system() == 'Windows':
