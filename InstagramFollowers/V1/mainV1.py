@@ -60,7 +60,7 @@ def ProgInfo():
     else:
         fsize = 0
     stars = 14
-    forks = stars // 2
+    forks = 8
     print("[+] Author: "+str(author))
     print("[+] Github: @"+str(author))
     print("[+] License: "+str(license1))
