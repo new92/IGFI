@@ -150,7 +150,6 @@ def main():
                 print("[+] See you next time 👋")
                 sleep(1)
                 exit(0)
-
         username=username.lower()
         username=username.strip()
         sleep(1)
@@ -444,13 +443,13 @@ def main():
                 print("[+] See you next time 👋")
                 sleep(1)
                 exit(0)
-    elif option == 2:
+    elif option == 2: #2 for displaying the script's info
         if platform.system() == 'Windows':
             system("cls")
         else:
             system("clear")
         ProgInfo()
-    elif option == 3:
+    elif option == 3: #3 for keeping a log
         if platform.system() == 'Windows':
             system("cls")
         else:
@@ -515,7 +514,7 @@ def main():
                 print("[+] See you next time 👋")
                 sleep(1)
                 exit(0)
-    elif option == 4:
+    elif option == 4: #4 for clearing the log
         if platform.system() == 'Windows':
             system("cls")
         else:
@@ -568,7 +567,7 @@ def main():
                 print("[+] See you next time 👋")
                 sleep(1)
                 exit(0)
-    elif option == 5:
+    elif option == 5:#5 for uninstalling the script
         if platform.system() == 'Windows':
             system("cls")
         else:
@@ -585,7 +584,7 @@ def main():
             os.rmdir(dire)
         rmdir(os.path.abspath('IGFollowersIncreaser'))
         print("[+] Files uninstalled successfully !")
-    else:
+    else: #6 for exiting
         if platform.system() == 'Windows':
             system("cls")
         else:
@@ -595,6 +594,7 @@ def main():
         print("[+] See you next time 👋")
         sleep(1)
         exit(0)
+
 
 if __name__ == '__main__':
     main()
