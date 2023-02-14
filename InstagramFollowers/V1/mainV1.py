@@ -17,6 +17,7 @@ try:
     import instagrapi
     import os
     import requests
+    from instagramy import InstagramUser
     from datetime import date
     from instagrapi import *
 except ImportError as imp:
@@ -34,12 +35,36 @@ except ImportError as imp:
             try:
                 system("sudo pip install -r requirements.txt")
             except Exception as ex:
-                print("[!] Error !")
-                sleep(1)
-                print(ex)
+                print("[!] Cannot install the required modules !")
                 sleep(2)
-                print("[+] Exiting...")
-                quit(0)
+                print("[1] Uninstall script")
+                print("[2] Exit")
+                opt=int(input("[::] Please enter a number (from the above ones): "))
+                while opt < 1 or opt > 2 or opt == None:
+                    if opt == None:
+                        print("[!] This field can't be blank !")
+                    else:
+                        print("[!] Invalid number !")
+                        sleep(1)
+                        print("[+] Acceptable numbers: [1,2]")
+                if opt == 1:
+                    def rmdir(dire):
+                        DIRS = []
+                        for root, dirs, files in os.walk(dire):
+                            for file in files:
+                                os.remove(os.path.join(root,file))
+                            for dir in dirs:
+                                DIRS.append(os.path.join(root,dir))
+                        for i in range(len(DIRS)):
+                            os.rmdir(DIRS[i])
+                        os.rmdir(dire)
+                    rmdir(os.path.abspath('IGFollowersIncreaser'))
+                    print("[+] Files and dependencies uninstalled successfully !")
+                else:
+                    print("[+] Exiting...")
+                    sleep(1)
+                    print("[+] See you next time 👋")
+                    quit(0)
         else:
             system("sudo pip install -r requirements.txt")
     elif sys.platform == 'darwin':
@@ -53,7 +78,7 @@ def ProgInfo():
     lang = 'es-US'
     language = 'Python'
     name = 'InstaFollowV1'
-    lines = 600
+    lines = 711
     f = '/IGFollowersIncreaser/InstagramFollowers/V1/mainV1.py'
     ptf = os.path.abspath(f)
     if os.path.exists(ptf):
@@ -82,6 +107,7 @@ def banner() -> str:
 ██║██║░╚███║██████╔╝░░░██║░░░██║░░██║██║░░░░░╚█████╔╝███████╗███████╗╚█████╔╝░░╚██╔╝░╚██╔╝░    ░░╚██╔╝░░███████╗
 ╚═╝╚═╝░░╚══╝╚═════╝░░░░╚═╝░░░╚═╝░░╚═╝╚═╝░░░░░░╚════╝░╚══════╝╚══════╝░╚════╝░░░░╚═╝░░░╚═╝░░    ░░░╚═╝░░░╚══════╝
 """
+ANS = ["yes","YES","Yes","y","Y","YeS","yEs","YEs","yES","no","NO","No","n","N","nO"]
 
 def nums():
     print("[1] Increase followers")
@@ -103,7 +129,10 @@ def main():
     print("\n")
     option=int(input("[::] Please enter a number (from the above ones): "))
     while option < 1 or option > 6 or option == None:
-        print("[!] Invalid number !")
+        if type(option) == int:
+            print("[!] Invalid number !")
+        else:
+            print("[!] This field can't be empty !")
         sleep(1)
         nums()
         option=int(input("[::] Please enter again a number (from the above ones): "))
@@ -113,12 +142,30 @@ def main():
         else:
             system("clear")
         sleep(1)
+        if os.path.exists("cons.txt"):
+            con=str(input("[::] Do you consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given (Instagram) account ? [yes/no] "))
+            if con in ANS[:9]:
+                f = open("cons.txt","a")
+                f.write("[=] Date: "+str(date.today())+"\n")
+                f.write("[=] User: Yes I consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given Instagram account.")
+                f.write("-"*40)
+                f.close()
+        else:
+            f = open("cons.txt","w")
+            f.write("[=] Date: "+str(date.today())+"\n")
+            f.write("[=] User: Yes I consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given Instagram account.")
+            f.write("-"*40)
+            f.close()
+        print("\n")
         print("[+] The login credentials will not be stored or saved")
         sleep(2)
         print("|"+"-"*20+"login".upper()+"-"*20+"|")
         username=str(input("[::] Please enter your username: "))
         while username == None or len(username) > 30:
-            print("[!] Invalid username !")
+            if username == None:
+                print("[!] This field can't be empty !")
+            else:
+                print("[!] Invalid username !")
             sleep(1)
             username=str(input("[::] Please enter again your username: "))
         resp = requests.get(f"https://www.instagram.com/{username}/")
@@ -130,7 +177,10 @@ def main():
             print("[3] Exit")
             opt=int(input("[::] Please enter a number (from the above ones): "))
             while opt < 1 or opt > 3 or opt == None:
-                print("[!] Invalid number !")
+                if type(opt) == int:
+                    print("[!] Invalid number !")
+                else:
+                    print("[!] This field can't be empty !")
                 sleep(1)
                 print("[1] Try with another username")
                 print("[2] Return to menu")
@@ -149,13 +199,26 @@ def main():
                 sleep(2)
                 print("[+] See you next time 👋")
                 sleep(1)
-                exit(0)
+                quit(0)
+        ga=str(input("[?] Do you want to grant access to the script to have access to the number of your followers in order to provide additional information ? [yes/no] "))
+        while ga not in ANS or ga == None:
+            if ga == None:
+                print("[!] This field can't be empty !")
+            else:
+                print("[!] Invalid answer !")
+            sleep(1)
+            print("[+] Valid answers: [yes/no]")
+            sleep(1)
+            ga=str(input("[?] Do you want to grant access to the script to have access to the number of your followers in order to provide additional information ? [yes/no] "))
         username=username.lower()
         username=username.strip()
+        if ga in ANS[:9]:
+            user = InstagramUser(username)
+            followers_bef = user.number_of_followers
         sleep(1)
         password=str(input("[::] Please enter your password: "))
         while password == None:
-            print("[!] Invalid password !")
+            print("[!] This field can't be empty !")
             sleep(1)
             password=str(input("[::] Please enter again your password: "))
         password=password.strip()
@@ -185,7 +248,7 @@ def main():
         sleep(2)
         print("[+] To end the process enter Ctrl + C")
         sleep(2)
-        print("[!] NOTE: Use this program every 2 days in order for your account not to get blocked")
+        print("[*] NOTE: Use this program every 2 days in order for your account not to get blocked")
         follow = 0
         unfollow = 0
         while True:
@@ -430,26 +493,51 @@ def main():
                 unfollow += 1
                 print("[+] Unfollowing 9777455...")
                 sleep(2)
-            except KeyboardInterrupt as key:
-                print("[+] Successfully followed: "+str(follow)+" users")
-                sleep(2)
-                print("[+] Successfully unfollowed: "+str(unfollow)+" users")
-                sleep(2)
-                if follow - unfollow != 0:
-                    print("[+] Failed to unfollow: "+str(abs(follow - unfollow))+" users")
-                sleep(2)
+            except KeyboardInterrupt:
+                pass
+            print("[+] Successfully followed: "+str(follow)+" users")
+            sleep(2)
+            print("[+] Successfully unfollowed: "+str(unfollow)+" users")
+            sleep(2)
+            if follow - unfollow != 0:
+                print("[+] Failed to unfollow: "+str(abs(follow - unfollow))+" users")
+            pers = (follow + unfollow) / 74.0
+            print("[+] Percentage of success: "+str(pers))
+            sleep(1)
+            print("[+] Percentage of fail: "+str(float(100 - pers))+"%")
+            sleep(1)
+            if ga in ANS[:9]:
+                followers_af = user.number_of_followers
+                print("[+] Successfully added: "+str(followers_af - followers_bef)+" followers.")
+            print("[1] Return to menu")
+            print("[2] Exit")
+            opt=int(input("[::] Please enter a number (from the above ones): "))
+            while opt < 1 or opt > 2 or opt == None:
+                if opt == None:
+                    print("[!] This field can't be blank !")
+                else:
+                    print("[!] Invalid number !")
+                    sleep(1)
+                    print("[+] Acceptable numbers: [1/2]")
+                sleep(1)
+                print("[1] Return to menu")
+                print("[2] Exit")
+                opt=int(input("[::] Please enter again a number (from the above ones): "))
+            if opt == 1:
+                main()
+            else:
                 print("[+] Thank you for using my script 😁")
                 sleep(2)
                 print("[+] See you next time 👋")
                 sleep(1)
-                exit(0)
-    elif option == 2: #2 for displaying the script's info
+                quit(0)
+    elif option == 2: #2 for displaying script's info
         if platform.system() == 'Windows':
             system("cls")
         else:
             system("clear")
         ProgInfo()
-    elif option == 3: #3 for keeping a log
+    elif option == 3: #3 for keeping log
         if platform.system() == 'Windows':
             system("cls")
         else:
@@ -465,6 +553,9 @@ def main():
             pers = (follow + unfollow) / 74.0
             f.write("[+] Percentage of success: "+str(pers)+"%"+"\n")
             f.write("[+] Percentage of fail: "+str(float(100 - pers))+"%"+"\n")
+            if ga in ANS[:9]:
+                    followers_af = user.number_of_followers
+                    f.write("[+] Successfully added: "+str(followers_af - followers_bef)+" followers.")
             f.close()
             print("[+] Successfully saved log !")
             sleep(2)
@@ -472,7 +563,12 @@ def main():
             print("[2] Exit")
             opt=int(input("[::] Please enter a number (from the above ones): "))
             while opt < 1 or opt > 2 or opt == None:
-                print("[!] Invalid input !")
+                if opt == None:
+                    print("[!] This field can't be blank !")
+                else:
+                    print("[!] Invalid number !")
+                    sleep(1)
+                    print("[+] Acceptable numbers: [1,2]")
                 sleep(1)
                 print("[1] Return to menu")
                 print("[2] Exit")
@@ -484,7 +580,7 @@ def main():
                 sleep(2)
                 print("[+] See you next time 👋")
                 sleep(1)
-                exit(0)
+                quit(0)
         else:
             f = open("log.txt","w")
             f.write("\n"+"-"*40)
@@ -501,7 +597,12 @@ def main():
             print("[2] Exit")
             opt=int(input("[::] Please enter a number (from the above ones): "))
             while opt < 1 or opt > 2 or opt == None:
-                print("[!] Invalid input !")
+                if opt == None:
+                    print("[!] This field can't be blank !")
+                else:
+                    print("[!] Invalid number !")
+                    sleep(1)
+                    print("[+] Acceptable numbers: [1,2]")
                 sleep(1)
                 print("[1] Return to menu")
                 print("[2] Exit")
@@ -513,7 +614,7 @@ def main():
                 sleep(2)
                 print("[+] See you next time 👋")
                 sleep(1)
-                exit(0)
+                quit(0)
     elif option == 4: #4 for clearing the log
         if platform.system() == 'Windows':
             system("cls")
@@ -528,7 +629,12 @@ def main():
             print("[2] Exit")
             opt=int(input("[::] Please enter a number (from the above ones): "))
             while opt < 1 or opt > 2 or opt == None:
-                print("[!] Invalid input !")
+                if opt == None:
+                    print("[!] This field can't be empty !")
+                else:
+                    print("[!] Invalid number !")
+                    sleep(1)
+                    print("[+] Acceptable numbers: [1,2]")
                 sleep(1)
                 print("[1] Return to menu")
                 print("[2] Exit")
@@ -541,7 +647,7 @@ def main():
                 sleep(2)
                 print("[+] See you next time 👋")
                 sleep(1)
-                exit(0)
+                quit(0)
         else:
             if platform.system() == 'Windows':
                 system("cls")
@@ -553,7 +659,12 @@ def main():
             print("[2] Exit")
             opt=int(input("[::] Please enter a number (from the above ones): "))
             while opt < 1 or opt > 2 or opt == None:
-                print("[!] Invalid input !")
+                if opt == None:
+                    print("[!] This field can't be blank !")
+                else:
+                    print("[!] Invalid number !")
+                    sleep(1)
+                    print("[+] Acceptable numbers: [1/2]")
                 sleep(1)
                 print("[1] Return to menu")
                 print("[2] Exit")
@@ -566,7 +677,7 @@ def main():
                 sleep(2)
                 print("[+] See you next time 👋")
                 sleep(1)
-                exit(0)
+                quit(0)
     elif option == 5:#5 for uninstalling the script
         if platform.system() == 'Windows':
             system("cls")
@@ -593,7 +704,7 @@ def main():
         sleep(2)
         print("[+] See you next time 👋")
         sleep(1)
-        exit(0)
+        quit(0)
 
 
 if __name__ == '__main__':
