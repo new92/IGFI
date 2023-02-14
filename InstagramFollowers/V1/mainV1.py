@@ -132,7 +132,7 @@ def main():
         if type(option) == int:
             print("[!] Invalid number !")
         else:
-            print("[!] This field can't be empty !")
+            print("[!] This field can't be blank !")
         sleep(1)
         nums()
         option=int(input("[::] Please enter again a number (from the above ones): "))
@@ -163,7 +163,7 @@ def main():
         username=str(input("[::] Please enter your username: "))
         while username == None or len(username) > 30:
             if username == None:
-                print("[!] This field can't be empty !")
+                print("[!] This field can't be blank !")
             else:
                 print("[!] Invalid username !")
             sleep(1)
@@ -180,7 +180,7 @@ def main():
                 if type(opt) == int:
                     print("[!] Invalid number !")
                 else:
-                    print("[!] This field can't be empty !")
+                    print("[!] This field can't be blank !")
                 sleep(1)
                 print("[1] Try with another username")
                 print("[2] Return to menu")
@@ -203,7 +203,7 @@ def main():
         ga=str(input("[?] Do you want to grant access to the script to have access to the number of your followers in order to provide additional information ? [yes/no] "))
         while ga not in ANS or ga == None:
             if ga == None:
-                print("[!] This field can't be empty !")
+                print("[!] This field can't be blank !")
             else:
                 print("[!] Invalid answer !")
             sleep(1)
@@ -218,7 +218,7 @@ def main():
         sleep(1)
         password=str(input("[::] Please enter your password: "))
         while password == None:
-            print("[!] This field can't be empty !")
+            print("[!] This field can't be blank !")
             sleep(1)
             password=str(input("[::] Please enter again your password: "))
         password=password.strip()
@@ -630,7 +630,7 @@ def main():
             opt=int(input("[::] Please enter a number (from the above ones): "))
             while opt < 1 or opt > 2 or opt == None:
                 if opt == None:
-                    print("[!] This field can't be empty !")
+                    print("[!] This field can't be blank !")
                 else:
                     print("[!] Invalid number !")
                     sleep(1)
