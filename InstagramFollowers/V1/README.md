@@ -6,3 +6,8 @@ InstaFollowV1 (or IFv1 for short) provides many features ! Some of which are:
 - Flexibility over the different operating systems (OSS)
 - A satisfactory amount of followers (30 the first time to use / 15 to 20 per time)
 - Automatic uninstallation
+- Keeping and clearing log
+- Useful data
+
+
+And much more... 😀
