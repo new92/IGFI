@@ -18,6 +18,11 @@ try:
         Linux: apt install python3
         Windows: https://www.python.org/downloads/
         MacOS: https://docs.python-guide.org/starting/install3/osx/""")
+        sleep(2)
+        print("[+] Please install the Python 3 and then use this script ✅")
+        sleep(2)
+        print("[+] Exiting...")
+        sleep(1)
         sys.exit()
     import platform
     from os import system
@@ -86,10 +91,9 @@ def ProgInfo():
     lang = 'es-US'
     language = 'Python'
     name = 'InstaFollowV1'
-    lines = 821
+    lines = 825
     f = '/IGFollowersIncreaser/InstagramFollowers/V1/mainV1.py'
-    ptf = os.path.abspath(f)
-    if os.path.exists(ptf):
+    if os.path.exists(os.path.abspath(f)):
         fsize = (os.stat(f)).st_size
     else:
         fsize = 0
