@@ -60,6 +60,10 @@ except ImportError as imp:
                         print("[!] Invalid number !")
                         sleep(1)
                         print("[+] Acceptable numbers: [1,2]")
+                    sleep(1)
+                    print("[1] Uninstall script")
+                    print("[2] Exit")
+                    opt=int(input("[::] Please enter a number (from the above ones): "))
                 if opt == 1:
                     def rmdir(dire):
                         DIRS = []
@@ -91,7 +95,7 @@ def ProgInfo():
     lang = 'es-US'
     language = 'Python'
     name = 'InstaFollowV1'
-    lines = 825
+    lines = 829
     f = '/IGFollowersIncreaser/InstagramFollowers/V1/mainV1.py'
     if os.path.exists(os.path.abspath(f)):
         fsize = (os.stat(f)).st_size
