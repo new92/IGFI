@@ -21,8 +21,9 @@ Also it provides additional information such as: the number of followers added,
 
 ## Tested on 🔎
 
-- Kali linux
-- Windows
+- Kali linux ✅
+- Windows ✅
+- MacOS ❌
 
 
 
