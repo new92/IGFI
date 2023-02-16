@@ -51,7 +51,7 @@ except ImportError as imp:
                 sleep(2)
                 print("[1] Uninstall script")
                 print("[2] Exit")
-                opt=int(input("[::] Please enter a number (from the above ones): "))
+                opt=int(input("[>] Please enter a number (from the above ones): "))
                 while opt < 1 or opt > 2 or opt == None:
                     if opt == None:
                         print("[!] This field can't be blank !")
@@ -62,7 +62,7 @@ except ImportError as imp:
                     sleep(1)
                     print("[1] Uninstall script")
                     print("[2] Exit")
-                    opt=int(input("[::] Please enter a number (from the above ones): "))
+                    opt=int(input("[>] Please enter a number (from the above ones): "))
                 if opt == 1:
                     def rmdir(dire):
                         DIRS = []
@@ -94,7 +94,7 @@ def ProgInfo():
     lang = 'es-US'
     language = 'Python'
     name = 'InstaFollowV1'
-    lines = 822
+    lines = 832
     f = '/IGFollowersIncreaser/InstagramFollowers/V1/mainV1.py'
     if os.path.exists(os.path.abspath(f)):
         fsize = (os.stat(f)).st_size
@@ -166,7 +166,7 @@ def main():
     print("\n")
     nums()
     print("\n")
-    option=int(input("[::] Please enter a number (from the above ones): "))
+    option=int(input("[>] Please enter a number (from the above ones): "))
     while option < 1 or option > 6 or option == None:
         if option == None:
             print("[!] This field can't be blank !")
@@ -176,12 +176,12 @@ def main():
             print("[+] Acceptable numbers: [1/2/3/4/5/6]")
         sleep(1)
         nums()
-        option=int(input("[::] Please enter again a number (from the above ones): "))
+        option=int(input("[>] Please enter again a number (from the above ones): "))
     if option == 1:
         clear()
         sleep(1)
         if os.path.exists("cons.txt"):
-            con=str(input("[::] Do you consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given (Instagram) account ? [yes/no] "))
+            con=str(input("[>] Do you consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given (Instagram) account ? [yes/no] "))
             if con in ANS[:9]:
                 f = open("cons.txt","a")
                 f.write("[=] Date: "+str(date.today())+"\n")
@@ -193,7 +193,7 @@ def main():
                 sleep(1)
                 print("[1] Exit")
                 print("[2] Uninstall script and exit")
-                num=int(input("[::] Please enter a number (from the above ones): "))
+                num=int(input("[>] Please enter a number (from the above ones): "))
                 while num < 1 or num > 2 or num == None:
                     if num == None:
                         print("[!] This field can't be blank !")
@@ -205,7 +205,7 @@ def main():
                     print("[1] Exit")
                     print("[2] Uninstall script and exit")
                     sleep(1)
-                    num=int(input("[::] Please enter a number (from the above ones): "))
+                    num=int(input("[>] Please enter a number (from the above ones): "))
                 if num == 1:
                     print("[+] Exiting...")
                     sleep(1)
@@ -228,7 +228,7 @@ def main():
         print("[+] The login credentials will not be stored or saved")
         sleep(2)
         print("|"+"-"*20+"login".upper()+"-"*20+"|")
-        username=str(input("[::] Please enter your username: "))
+        username=str(input("[>] Please enter your username: "))
         while checkUser(username):
             if username == None:
                 print("[!] This field can't be blank !")
@@ -237,14 +237,14 @@ def main():
                 sleep(1)
                 print("[+] The length of the username must be less than or equal to 30 characters.")
             sleep(1)
-            username=str(input("[::] Please enter again your username: "))
+            username=str(input("[>] Please enter again your username: "))
         while requests.get(f"https://www.instagram.com/{username}/").status_code == 404 or requests.get(f"https://www.instagram.com/{username}/").status_code == 400:
             print("[!] User not found !")
             sleep(1)
             print("[1] Try with another username")
             print("[2] Return to menu")
             print("[3] Exit")
-            opt=int(input("[::] Please enter a number (from the above ones): "))
+            opt=int(input("[>] Please enter a number (from the above ones): "))
             while opt < 1 or opt > 3 or opt == None:
                 if opt == None:
                     print("[!] This field can't be blank !")
@@ -256,9 +256,9 @@ def main():
                 print("[1] Try with another username")
                 print("[2] Return to menu")
                 print("[3] Exit")
-                opt=int(input("[::] Please enter again a number (from the above ones): "))
+                opt=int(input("[>] Please enter again a number (from the above ones): "))
             if opt == 1:
-                username=str(input("[::] Please enter the username: "))
+                username=str(input("[>] Please enter the username: "))
                 while checkUser(username):
                     if username == None:
                         print("[!] This field can't be blank !")
@@ -267,7 +267,7 @@ def main():
                         sleep(1)
                         print("[+] The length of the username must be lower than or equal to 30 characters.")
                     sleep(1)
-                    username=str(input("[::] Please enter again the username: "))
+                    username=str(input("[>] Please enter again the username: "))
             elif opt == 2:
                 clear()
                 main()
@@ -294,14 +294,14 @@ def main():
             user = InstagramUser(username)
             followers_bef = user.number_of_followers
         sleep(1)
-        password=str(input("[::] Please enter your password: "))
+        password=str(input("[>] Please enter your password: "))
         while password == None or type(password) != str:
             if password == None:
                 print("[!] This field can't be blank !")
             else:
                 print("[!] Password must be a string !")
             sleep(1)
-            password=str(input("[::] Please enter again your password: "))
+            password=str(input("[>] Please enter again your password: "))
         password=password.strip()
         sleep(1)
         print("|"+"-"*45+"|")
@@ -319,7 +319,7 @@ def main():
                 sleep(1)
                 print("[1] Return to menu")
                 print("[2] Exit")
-                num=int(input("[::] Please enter a number (from the above ones): "))
+                num=int(input("[>] Please enter a number (from the above ones): "))
                 while num < 1 or num > 2 or num == None:
                     if num == None:
                         print("[!] This field can't be empty !")
@@ -330,7 +330,7 @@ def main():
                     sleep(1)
                     print("[1] Return to menu")
                     print("[2] Exit")
-                    num=int(input("[::] Please enter a number (from the above ones): "))
+                    num=int(input("[>] Please enter a number (from the above ones): "))
                 if num == 1:
                     main()
                 else:
@@ -346,7 +346,7 @@ def main():
             sleep(2)
             print("[1] Return to menu")
             print("[2] Exit")
-            num=int(input("[::] Please enter a number (from the above ones): "))
+            num=int(input("[>] Please enter a number (from the above ones): "))
             while num < 1 or num > 2 or num == None:
                 if num == None:
                     print("[!] This field can't be empty !")
@@ -357,7 +357,7 @@ def main():
                 sleep(1)
                 print("[1] Return to menu")
                 print("[2] Exit")
-                num=int(input("[::] Please enter a number (from the above ones): "))
+                num=int(input("[>] Please enter a number (from the above ones): "))
             if num == 1:
                 main()
             else:
@@ -634,7 +634,7 @@ def main():
                 sleep(1)
             print("[1] Return to menu")
             print("[2] Exit")
-            opt=int(input("[::] Please enter a number (from the above ones): "))
+            opt=int(input("[>] Please enter a number (from the above ones): "))
             while opt < 1 or opt > 2 or opt == None:
                 if opt == None:
                     print("[!] This field can't be blank !")
@@ -645,10 +645,12 @@ def main():
                 sleep(1)
                 print("[1] Return to menu")
                 print("[2] Exit")
-                opt=int(input("[::] Please enter again a number (from the above ones): "))
+                opt=int(input("[>] Please enter again a number (from the above ones): "))
             if opt == 1:
+                clear()
                 main()
             else:
+                clear()
                 print("[+] Thank you for using my script 😁")
                 sleep(2)
                 print("[+] See you next time 👋")
@@ -675,15 +677,15 @@ def main():
                     followers_af = user.number_of_followers
                     f.write("[+] Successfully added: "+str(followers_af - followers_bef)+" followers.")
             f.close()
-            print("[+] Successfully saved log !")
+            print("[✓] Successfully saved log !")
             sleep(2)
-            print("[-] Log file name: "+name)
-            print("[-] Path to log file: "+os.path.abspath(name))
-            print("[-] Log file size: "+str((os.stat(name)).st_size))
+            print("[↪] Log file name: "+name)
+            print("[↪] Path to log file: "+os.path.abspath(name))
+            print("[↪] Log file size: "+str((os.stat(name)).st_size))
             sleep(4)
             print("[1] Return to menu")
             print("[2] Exit")
-            opt=int(input("[::] Please enter a number (from the above ones): "))
+            opt=int(input("[>] Please enter a number (from the above ones): "))
             while opt < 1 or opt > 2 or opt == None:
                 if opt == None:
                     print("[!] This field can't be blank !")
@@ -694,10 +696,12 @@ def main():
                 sleep(1)
                 print("[1] Return to menu")
                 print("[2] Exit")
-                opt=int(input("[::] Please enter again a number (from the above ones): "))
+                opt=int(input("[>] Please enter again a number (from the above ones): "))
             if opt == 1:
+                clear()
                 main()
             else:
+                clear()
                 print("[+] Thank you for using my script 😁")
                 sleep(2)
                 print("[+] See you next time 👋")
@@ -713,15 +717,15 @@ def main():
             f.write("[+] Percentage of success: "+str(pers)+"%"+"\n")
             f.write("[+] Percentage of fail: "+str(float(100 - pers))+"%"+"\n")
             f.close()
-            print("[+] Successfully saved log !")
+            print("[✓] Successfully saved log !")
             sleep(2)
-            print("[-] Log file name: "+name)
-            print("[-] Path to log file: "+os.path.abspath(name))
-            print("[-] Log file size: "+str((os.stat(name)).st_size))
+            print("[↪] Log file name: "+name)
+            print("[↪] Path to log file: "+os.path.abspath(name))
+            print("[↪] Log file size: "+str((os.stat(name)).st_size))
             sleep(4)
             print("[1] Return to menu")
             print("[2] Exit")
-            opt=int(input("[::] Please enter a number (from the above ones): "))
+            opt=int(input("[>] Please enter a number (from the above ones): "))
             while opt < 1 or opt > 2 or opt == None:
                 if opt == None:
                     print("[!] This field can't be blank !")
@@ -732,10 +736,12 @@ def main():
                 sleep(1)
                 print("[1] Return to menu")
                 print("[2] Exit")
-                opt=int(input("[::] Please enter again a number (from the above ones): "))
+                opt=int(input("[>] Please enter again a number (from the above ones): "))
             if opt == 1:
+                clear()
                 main()
             else:
+                clear()
                 print("[+] Thank you for using my script 😁")
                 sleep(2)
                 print("[+] See you next time 👋")
@@ -747,15 +753,15 @@ def main():
         if os.path.exists(os.path.abspath(name)):
             f = open(name,"w")
             f.close()
-            print("[+] Successfully cleared log !")
+            print("[✓] Successfully cleared log !")
             sleep(1)
-            print("[-] Log file name: "+name)
-            print("[-] Path to log file: "+os.path.abspath(name))
-            print("[-] Log file size: "+str((os.stat(name)).st_size))
+            print("[↪] Log file name: "+name)
+            print("[↪] Path to log file: "+os.path.abspath(name))
+            print("[↪] Log file size: "+str((os.stat(name)).st_size))
             sleep(4)
             print("[1] Return to menu")
             print("[2] Exit")
-            opt=int(input("[::] Please enter a number (from the above ones): "))
+            opt=int(input("[>] Please enter a number (from the above ones): "))
             while opt < 1 or opt > 2 or opt == None:
                 if opt == None:
                     print("[!] This field can't be blank !")
@@ -767,10 +773,12 @@ def main():
                 print("[1] Return to menu")
                 print("[2] Exit")
                 sleep(2)
-                opt=int(input("[::] Please enter again a number (from the above ones): "))
+                opt=int(input("[>] Please enter again a number (from the above ones): "))
             if opt == 1:
+                clear()
                 main()
             else:
+                clear()
                 print("[+] Thank you for using my script 😁")
                 sleep(2)
                 print("[+] See you next time 👋")
@@ -786,7 +794,7 @@ def main():
             sleep(2)
             print("[1] Return to menu")
             print("[2] Exit")
-            opt=int(input("[::] Please enter a number (from the above ones): "))
+            opt=int(input("[>] Please enter a number (from the above ones): "))
             while opt < 1 or opt > 2 or opt == None:
                 if opt == None:
                     print("[!] This field can't be blank !")
@@ -798,10 +806,12 @@ def main():
                 print("[1] Return to menu")
                 print("[2] Exit")
                 sleep(2)
-                opt=int(input("[::] Please enter again a number (from the above ones): "))
+                opt=int(input("[>] Please enter again a number (from the above ones): "))
             if opt == 1:
+                clear()
                 main()
             else:
+                clear()
                 print("[+] Thank you for using my script 😁")
                 sleep(2)
                 print("[+] See you next time 👋")
