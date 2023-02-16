@@ -5,11 +5,10 @@ Github: @new92
 InstaFollowV1: Script for increasing the followers of an Instagram account
 
 
-**********IMPORTANT**********
-
+*********IMPORTANT*********
 User's login credentials (such as: username, password) will not be stored or saved ! 
 Will be used only to increase the followers of the user's Instagram account
-*****************************
+***************************
 """
 try:
     import sys
@@ -48,7 +47,9 @@ except ImportError as imp:
             try:
                 system("sudo pip install -r requirements.txt")
             except Exception as ex:
-                print("[!] Cannot install the required modules !")
+                print("[!] Error ! Cannot install the required modules !")
+                sleep(1)
+                print("[=] Error message -> "+str(ex))
                 sleep(2)
                 print("[1] Uninstall script")
                 print("[2] Exit")
@@ -63,7 +64,7 @@ except ImportError as imp:
                     sleep(1)
                     print("[1] Uninstall script")
                     print("[2] Exit")
-                    opt=int(input("[>] Please enter a number (from the above ones): "))
+                    opt=int(input("[>] Please enter again a number (from the above ones): "))
                 if opt == 1:
                     def rmdir(dire):
                         DIRS = []
@@ -95,7 +96,7 @@ def ProgInfo():
     lang = 'es-US'
     language = 'Python'
     name = 'InstaFollowV1'
-    lines = 832
+    lines = 842
     f = '/IGFollowersIncreaser/InstagramFollowers/V1/mainV1.py'
     if os.path.exists(os.path.abspath(f)):
         fsize = (os.stat(f)).st_size
@@ -123,6 +124,7 @@ def banner() -> str:
 ██║██║░╚███║██████╔╝░░░██║░░░██║░░██║██║░░░░░╚█████╔╝███████╗███████╗╚█████╔╝░░╚██╔╝░╚██╔╝░    ░░╚██╔╝░░███████╗
 ╚═╝╚═╝░░╚══╝╚═════╝░░░░╚═╝░░░╚═╝░░╚═╝╚═╝░░░░░░╚════╝░╚══════╝╚══════╝░╚════╝░░░░╚═╝░░░╚═╝░░    ░░░╚═╝░░░╚══════╝
 """
+
 ANS = ["yes","YES","Yes","y","Y","YeS","yEs","YEs","yES","no","NO","No","n","N","nO"]
 
 def Uninstall() -> str:
@@ -136,8 +138,7 @@ def Uninstall() -> str:
         for i in range(len(DIRS)):
             os.rmdir(DIRS[i])
         os.rmdir(dire)
-    dir = os.path.abspath('IGFollowersIncreaser')
-    rmdir(dir)
+    rmdir(os.path.abspath('IGFollowersIncreaser'))
     return "[+] Files and dependencies uninstalled successfully !"
 
 def checkUser(username:str) -> bool:
@@ -216,6 +217,8 @@ def main():
                     sleep(2)
                     print("[+] Exiting...")
                     sleep(1)
+                    print("[+] Thank you for using my script 🫡")
+                    sleep(2)
                     print("[+] Until we meet again 👋")
                     sleep(1)
                     quit(0)
@@ -259,6 +262,7 @@ def main():
                 print("[3] Exit")
                 opt=int(input("[>] Please enter again a number (from the above ones): "))
             if opt == 1:
+                clear()
                 username=str(input("[>] Please enter the username: "))
                 while checkUser(username):
                     if username == None:
@@ -360,8 +364,10 @@ def main():
                 print("[2] Exit")
                 num=int(input("[>] Please enter a number (from the above ones): "))
             if num == 1:
+                clear()
                 main()
             else:
+                clear()
                 print("[+] Exiting...")
                 sleep(1)
                 print("[+] See you next time 👋")
@@ -618,12 +624,12 @@ def main():
                 sleep(2)
             except KeyboardInterrupt:
                 pass
-            print(f"[+] Successfully followed: {follow} users")
+            print(f"[✓] Successfully followed: {follow} users")
             sleep(2)
-            print(f"[+] Successfully unfollowed: {unfollow} users")
+            print(f"[✓] Successfully unfollowed: {unfollow} users")
             sleep(2)
             if follow - unfollow != 0:
-                print(f"[+] Failed to unfollow: {abs(follow - unfollow)} users")
+                print(f"[✕] Failed to unfollow: {abs(follow - unfollow)} users")
             pers = (follow + unfollow) / 74.0
             print("[+] Percentage of success: "+str(pers))
             sleep(1)
@@ -631,7 +637,7 @@ def main():
             sleep(1)
             if ga in ANS[:9]:
                 followers_af = user.number_of_followers
-                print(f"[+] Successfully added: {followers_af - followers_bef} followers.")
+                print(f"[✓] Successfully added: {followers_af - followers_bef} followers.")
                 sleep(1)
             print("[1] Return to menu")
             print("[2] Exit")
@@ -670,13 +676,13 @@ def main():
             f.write("[+] Followed: "+str(follow)+" users"+"\n")
             f.write("[+] Unfollowed: "+str(unfollow)+" users"+"\n")
             if follow - unfollow != 0:
-                f.write("[+] Failed to unfollow: "+str(abs(follow - unfollow)+" users"+"\n"))
+                f.write("[✕] Failed to unfollow: "+str(abs(follow - unfollow)+" users"+"\n"))
             pers = (follow + unfollow) / 74.0
             f.write("[+] Percentage of success: "+str(pers)+"%"+"\n")
             f.write("[+] Percentage of fail: "+str(float(100 - pers))+"%"+"\n")
             if ga in ANS[:9]:
-                    followers_af = user.number_of_followers
-                    f.write("[+] Successfully added: "+str(followers_af - followers_bef)+" followers.")
+                followers_af = user.number_of_followers
+                f.write("[✓] Successfully added: "+str(followers_af - followers_bef)+" followers."+"\n")
             f.close()
             print("[✓] Successfully saved log !")
             sleep(2)
@@ -717,6 +723,9 @@ def main():
             pers = (follow + unfollow) / 74.0
             f.write("[+] Percentage of success: "+str(pers)+"%"+"\n")
             f.write("[+] Percentage of fail: "+str(float(100 - pers))+"%"+"\n")
+            if ga in ANS[:9]:
+                followers_af = user.number_of_followers
+                f.write("[✓] Successfully added: "+str(followers_af - followers_bef)+" followers."+"\n")
             f.close()
             print("[✓] Successfully saved log !")
             sleep(2)
@@ -789,7 +798,7 @@ def main():
             clear()
             print("[!] Log file not found on this device !")
             sleep(2)
-            print("[+] Searched log file using name: "+name)
+            print("🔎 Searched log file using name: "+name)
             sleep(2)
             print("[+] Please first create the log file and then use this option 😀")
             sleep(2)
