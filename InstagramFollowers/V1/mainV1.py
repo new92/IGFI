@@ -142,7 +142,7 @@ def Uninstall() -> str:
 def checkUser(username:str) -> bool:
     return username == None or len(username) > 30
 
-def cls():
+def clear():
     if platform.system() == 'Windows':
         system("cls")
     else:
@@ -178,7 +178,7 @@ def main():
         nums()
         option=int(input("[::] Please enter again a number (from the above ones): "))
     if option == 1:
-        cls()
+        clear()
         sleep(1)
         if os.path.exists("cons.txt"):
             con=str(input("[::] Do you consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given (Instagram) account ? [yes/no] "))
@@ -270,10 +270,10 @@ def main():
                     username=str(input("[::] Please enter again the username: "))
             elif opt == 2:
                 break
-                cls()
+                clear()
                 main()
             else:
-                cls()
+                clear()
                 print("[+] Thank you for using my script 😁")
                 sleep(2)
                 print("[+] See you next time 👋")
@@ -368,7 +368,7 @@ def main():
                 sleep(1)
                 quit(0)
         sleep(2)
-        cls()
+        clear()
         print("[+] To end the process enter Ctrl + C")
         sleep(2)
         print("[*] NOTE: Use this program every 2 days in order for your account not to get blocked")
@@ -656,10 +656,10 @@ def main():
                 sleep(1)
                 quit(0)
     elif option == 2:
-        cls()
+        clear()
         ProgInfo()
     elif option == 3:
-        cls()
+        clear()
         name = "log.txt"
         if os.path.exists(os.path.abspath(name)):
             f = open(name,"a")
@@ -743,7 +743,7 @@ def main():
                 sleep(1)
                 quit(0)
     elif option == 4:
-        cls()
+        clear()
         name = "log.txt"
         if os.path.exists(os.path.abspath(name)):
             f = open(name,"w")
@@ -778,7 +778,7 @@ def main():
                 sleep(1)
                 quit(0)
         else:
-            cls()
+            clear()
             print("[!] Log file not found on this device !")
             sleep(2)
             print("[+] Searched log file using name: "+name)
@@ -809,10 +809,10 @@ def main():
                 sleep(1)
                 quit(0)
     elif option == 5:
-        cls()
+        clear()
         print(Uninstall())
     else:
-        cls()
+        clear()
         print("[+] Thank you for using my script 😁")
         sleep(2)
         print("[+] See you next time 👋")
