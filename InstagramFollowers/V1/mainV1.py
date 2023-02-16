@@ -94,7 +94,7 @@ def ProgInfo():
     lang = 'es-US'
     language = 'Python'
     name = 'InstaFollowV1'
-    lines = 843
+    lines = 832
     f = '/IGFollowersIncreaser/InstagramFollowers/V1/mainV1.py'
     if os.path.exists(os.path.abspath(f)):
         fsize = (os.stat(f)).st_size
@@ -816,18 +816,7 @@ def main():
             system("cls")
         else:
             system("clear")
-        def rmdir(dire):
-            DIRS = []
-            for root, dirs, files in os.walk(dire):
-                for file in files:
-                    os.remove(os.path.join(root,file))
-                for dir in dirs:
-                    DIRS.append(os.path.join(root,dir))
-            for i in range(len(DIRS)):
-                os.rmdir(DIRS[i])
-            os.rmdir(dire)
-        rmdir(os.path.abspath('IGFollowersIncreaser'))
-        print("[+] Files and dependencies uninstalled successfully !")
+        print(Uninstall())
     else:
         if platform.system() == 'Windows':
             system("cls")
