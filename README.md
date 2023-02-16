@@ -4,7 +4,7 @@ With this script the user by simply logging in, can increase their followers !
 Works for both private and public accounts.
 And the first time the user uses it can add up to 50 followers ! The other times it can add 25 - 30 followers.
 It's suggested to use it every two (2) days in order for your account not to get blocked.
-Also it provides additional information such as: the number of followers added, 
+Also it provides additional information such as: the number of followers added, the percentage of success / failure etc.
 
 ## Links 🔗
 
