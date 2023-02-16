@@ -6,6 +6,7 @@ InstaFollowV1: Script for increasing the followers of an Instagram account
 
 
 **********IMPORTANT**********
+
 User's login credentials (such as: username, password) will not be stored or saved ! 
 Will be used only to increase the followers of the user's Instagram account
 *****************************
