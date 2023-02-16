@@ -94,7 +94,7 @@ def ProgInfo():
     lang = 'es-US'
     language = 'Python'
     name = 'InstaFollowV1'
-    lines = 823
+    lines = 822
     f = '/IGFollowersIncreaser/InstagramFollowers/V1/mainV1.py'
     if os.path.exists(os.path.abspath(f)):
         fsize = (os.stat(f)).st_size
@@ -269,7 +269,6 @@ def main():
                     sleep(1)
                     username=str(input("[::] Please enter again the username: "))
             elif opt == 2:
-                break
                 clear()
                 main()
             else:
