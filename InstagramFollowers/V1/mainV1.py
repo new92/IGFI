@@ -94,13 +94,13 @@ def ProgInfo():
     lang = 'es-US'
     language = 'Python'
     name = 'InstaFollowV1'
-    lines = 825
+    lines = 823
     f = '/IGFollowersIncreaser/InstagramFollowers/V1/mainV1.py'
     if os.path.exists(os.path.abspath(f)):
         fsize = (os.stat(f)).st_size
     else:
         fsize = 0
-    stars = 15
+    stars = 16
     forks = 10
     print("[+] Author: "+str(author))
     print("[+] Github: @"+str(author))
@@ -125,9 +125,6 @@ def banner() -> str:
 ANS = ["yes","YES","Yes","y","Y","YeS","yEs","YEs","yES","no","NO","No","n","N","nO"]
 
 def Uninstall() -> str:
-    """
-    Uninstall's the script and returns a message
-    """
     def rmdir(dire):
         DIRS = []
         for root, dirs, files in os.walk(dire):
@@ -143,15 +140,15 @@ def Uninstall() -> str:
     return "[+] Files and dependencies uninstalled successfully !"
 
 def checkUser(username:str) -> bool:
-    """
-    Checks the validation of a username
-    """
     return username == None or len(username) > 30
 
+def cls():
+    if platform.system() == 'Windows':
+        system("cls")
+    else:
+        system("clear")
+
 def nums():
-    """
-    Returns the numbers of the available options
-    """
     print("[1] Increase followers")
     print("[2] Show program info and exit")
     print("[3] Keep log")
@@ -181,10 +178,7 @@ def main():
         nums()
         option=int(input("[::] Please enter again a number (from the above ones): "))
     if option == 1:
-        if platform.system() == 'Windows':
-            system("cls")
-        else:
-            system("clear")
+        cls()
         sleep(1)
         if os.path.exists("cons.txt"):
             con=str(input("[::] Do you consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given (Instagram) account ? [yes/no] "))
@@ -276,8 +270,10 @@ def main():
                     username=str(input("[::] Please enter again the username: "))
             elif opt == 2:
                 break
+                cls()
                 main()
             else:
+                cls()
                 print("[+] Thank you for using my script 😁")
                 sleep(2)
                 print("[+] See you next time 👋")
@@ -372,6 +368,7 @@ def main():
                 sleep(1)
                 quit(0)
         sleep(2)
+        cls()
         print("[+] To end the process enter Ctrl + C")
         sleep(2)
         print("[*] NOTE: Use this program every 2 days in order for your account not to get blocked")
@@ -659,16 +656,10 @@ def main():
                 sleep(1)
                 quit(0)
     elif option == 2:
-        if platform.system() == 'Windows':
-            system("cls")
-        else:
-            system("clear")
+        cls()
         ProgInfo()
     elif option == 3:
-        if platform.system() == 'Windows':
-            system("cls")
-        else:
-            system("clear")
+        cls()
         name = "log.txt"
         if os.path.exists(os.path.abspath(name)):
             f = open(name,"a")
@@ -752,10 +743,7 @@ def main():
                 sleep(1)
                 quit(0)
     elif option == 4:
-        if platform.system() == 'Windows':
-            system("cls")
-        else:
-            system("clear")
+        cls()
         name = "log.txt"
         if os.path.exists(os.path.abspath(name)):
             f = open(name,"w")
@@ -790,10 +778,7 @@ def main():
                 sleep(1)
                 quit(0)
         else:
-            if platform.system() == 'Windows':
-                system("cls")
-            else:
-                system("clear")
+            cls()
             print("[!] Log file not found on this device !")
             sleep(2)
             print("[+] Searched log file using name: "+name)
@@ -824,16 +809,10 @@ def main():
                 sleep(1)
                 quit(0)
     elif option == 5:
-        if platform.system() == 'Windows':
-            system("cls")
-        else:
-            system("clear")
+        cls()
         print(Uninstall())
     else:
-        if platform.system() == 'Windows':
-            system("cls")
-        else:
-            system("clear")
+        cls()
         print("[+] Thank you for using my script 😁")
         sleep(2)
         print("[+] See you next time 👋")
