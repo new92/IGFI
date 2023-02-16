@@ -94,7 +94,7 @@ def ProgInfo():
     lang = 'es-US'
     language = 'Python'
     name = 'InstaFollowV1'
-    lines = 844
+    lines = 825
     f = '/IGFollowersIncreaser/InstagramFollowers/V1/mainV1.py'
     if os.path.exists(os.path.abspath(f)):
         fsize = (os.stat(f)).st_size
@@ -314,7 +314,7 @@ def main():
         try:
             login = client.login(username,password)
             if login:
-                print("[!] Login successful !")
+                print("[*] Login successful !")
                 sleep(2)
                 print("[+] Please wait while the program is increasing your followers...")
             else:
