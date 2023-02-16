@@ -14,12 +14,12 @@ try:
     import sys
     if sys.version_info[0] < 3:
         print("[!] Error ! This script requires Python version 3.X ! ")
-        print("""[+] Instructions to download Python 3 : 
+        print("""[+] Instructions to download Python 3.x : 
         Linux: apt install python3
         Windows: https://www.python.org/downloads/
         MacOS: https://docs.python-guide.org/starting/install3/osx/""")
         sleep(2)
-        print("[+] Please install Python 3 and then use this script ✅")
+        print("[+] Please install the Python 3 and then use this script ✅")
         sleep(2)
         print("[+] Exiting...")
         sleep(1)
@@ -94,13 +94,13 @@ def ProgInfo():
     lang = 'es-US'
     language = 'Python'
     name = 'InstaFollowV1'
-    lines = 823
+    lines = 838
     f = '/IGFollowersIncreaser/InstagramFollowers/V1/mainV1.py'
     if os.path.exists(os.path.abspath(f)):
         fsize = (os.stat(f)).st_size
     else:
         fsize = 0
-    stars = 16
+    stars = 15
     forks = 10
     print("[+] Author: "+str(author))
     print("[+] Github: @"+str(author))
@@ -125,6 +125,9 @@ def banner() -> str:
 ANS = ["yes","YES","Yes","y","Y","YeS","yEs","YEs","yES","no","NO","No","n","N","nO"]
 
 def Uninstall() -> str:
+    """
+    Uninstall's the script and returns a message
+    """
     def rmdir(dire):
         DIRS = []
         for root, dirs, files in os.walk(dire):
@@ -140,9 +143,15 @@ def Uninstall() -> str:
     return "[+] Files and dependencies uninstalled successfully !"
 
 def checkUser(username:str) -> bool:
+    """
+    Checks the validation of a username
+    """
     return username == None or len(username) > 30
 
 def nums():
+    """
+    Returns the numbers of the available options
+    """
     print("[1] Increase followers")
     print("[2] Show program info and exit")
     print("[3] Keep log")
@@ -209,6 +218,12 @@ def main():
                     quit(0)
                 else:
                     print(Uninstall())
+                    sleep(2)
+                    print("[+] Exiting...")
+                    sleep(1)
+                    print("[+] Until we meet again 👋")
+                    sleep(1)
+                    quit(0)
         else:
             f = open("cons.txt","w")
             f.write("[=] Date: "+str(date.today())+"\n")
