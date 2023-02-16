@@ -58,7 +58,7 @@ def ScriptInfo():
     f = '/IGFollowersIncreaser/InstagramFollowers/V3/mainV3.py'
     ptf = os.path.abspath(f)
     fsize = (os.stat(f)).st_size
-    stars = 14
+    stars = 16
     forks = 10
     print("[+] Author: "+str(author))
     print("[+] Github: @"+str(author))
