@@ -23,7 +23,7 @@ try:
         sleep(2)
         print("[+] Exiting...")
         sleep(1)
-        sys.exit()
+        quit(0)
     import platform
     from os import system
     from time import sleep
@@ -32,7 +32,6 @@ try:
     import requests
     from instagramy import InstagramUser
     from datetime import date
-    from instagrapi import *
 except ImportError as imp:
     print("[!] WARNING: Not all packages used in this program have been installed !")
     sleep(2)
@@ -95,13 +94,13 @@ def ProgInfo():
     lang = 'es-US'
     language = 'Python'
     name = 'InstaFollowV1'
-    lines = 829
+    lines = 843
     f = '/IGFollowersIncreaser/InstagramFollowers/V1/mainV1.py'
     if os.path.exists(os.path.abspath(f)):
         fsize = (os.stat(f)).st_size
     else:
         fsize = 0
-    stars = 16
+    stars = 15
     forks = 10
     print("[+] Author: "+str(author))
     print("[+] Github: @"+str(author))
@@ -114,7 +113,7 @@ def ProgInfo():
     print("[+] Github repo stars: "+str(stars))
     print("[+] Github repo forks: "+str(forks))
 
-def banner() -> str: 
+def banner() -> str:
     return """
 ██╗███╗░░██╗░██████╗████████╗░█████╗░███████╗░█████╗░██╗░░░░░██╗░░░░░░█████╗░░██╗░░░░░░░██╗    ██╗░░░██╗░░███╗░░
 ██║████╗░██║██╔════╝╚══██╔══╝██╔══██╗██╔════╝██╔══██╗██║░░░░░██║░░░░░██╔══██╗░██║░░██╗░░██║    ██║░░░██║░████║░░
@@ -125,7 +124,34 @@ def banner() -> str:
 """
 ANS = ["yes","YES","Yes","y","Y","YeS","yEs","YEs","yES","no","NO","No","n","N","nO"]
 
+def Uninstall() -> str:
+    """
+    Uninstall's the script and returns a message
+    """
+    def rmdir(dire):
+        DIRS = []
+        for root, dirs, files in os.walk(dire):
+            for file in files:
+                os.remove(os.path.join(root,file))
+            for dir in dirs:
+                DIRS.append(os.path.join(root,dir))
+        for i in range(len(DIRS)):
+            os.rmdir(DIRS[i])
+        os.rmdir(dire)
+    dir = os.path.abspath('IGFollowersIncreaser')
+    rmdir(dir)
+    return "[+] Files and dependencies uninstalled successfully !"
+
+def checkUser(username:str) -> bool:
+    """
+    Checks the validation of a username
+    """
+    return username == None or len(username) > 30
+
 def nums():
+    """
+    Returns the numbers of the available options
+    """
     print("[1] Increase followers")
     print("[2] Show program info and exit")
     print("[3] Keep log")
@@ -191,18 +217,7 @@ def main():
                     sleep(1)
                     quit(0)
                 else:
-                    def rmdir(dire):
-                        DIRS = []
-                        for root, dirs, files in os.walk(dire):
-                            for file in files:
-                                os.remove(os.path.join(root,file))
-                            for dir in dirs:
-                                DIRS.append(os.path.join(root,dir))
-                        for i in range(len(DIRS)):
-                            os.rmdir(DIRS[i])
-                        os.rmdir(dire)
-                    rmdir(os.path.abspath('IGFollowersIncreaser'))
-                    print("[+] Files and dependencies uninstalled successfully !")
+                    print(Uninstall())
         else:
             f = open("cons.txt","w")
             f.write("[=] Date: "+str(date.today())+"\n")
@@ -214,17 +229,16 @@ def main():
         sleep(2)
         print("|"+"-"*20+"login".upper()+"-"*20+"|")
         username=str(input("[::] Please enter your username: "))
-        while username == None or len(username) > 30:
+        while checkUser(username):
             if username == None:
                 print("[!] This field can't be blank !")
             else:
-                print("[!] Invalid username !")
+                print("[!] Invalid length !")
                 sleep(1)
-                print("[+] The length of the username must be lower than or equal to 30 characters.")
+                print("[+] The length of the username must be less than or equal to 30 characters.")
             sleep(1)
             username=str(input("[::] Please enter again your username: "))
-        resp = requests.get(f"https://www.instagram.com/{username}/")
-        while resp.status_code == 404 or resp.status_code == 400:
+        while requests.get(f"https://www.instagram.com/{username}/").status_code == 404 or requests.get(f"https://www.instagram.com/{username}/").status_code == 400:
             print("[!] User not found !")
             sleep(1)
             print("[1] Try with another username")
