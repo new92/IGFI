@@ -3,7 +3,8 @@
 With this script the user by simply logging in, can increase their followers !
 Works for both private and public accounts.
 And the first time the user uses it can add up to 50 followers ! The other times it can add 25 - 30 followers.
-It's suggested to run it every two (2) days in order for your account not to get blocked.
+It's suggested to use it every two (2) days in order for your account not to get blocked.
+Also it provides additional information such as: the number of followers added, 
 
 ## Links 🔗
 
@@ -16,6 +17,13 @@ It's suggested to run it every two (2) days in order for your account not to get
 ## Authors ✍️
 
 - [@new92](https://www.github.com/new92)
+
+
+## Tested on 🔎
+
+- Kali linux
+- Windows
+
 
 
 ## Badges 📛
@@ -62,6 +70,7 @@ If you have any feedback, please reach out to us at <a href='mailto:new92github@
 
 - [ ] GUI
 - [ ] Automation
+- [ ] Display the usernames of the followers added
 - [x] ~~V3 script better than both versions 1 and 2~~ **<a href='https://github.com/new92/IGFollowersIncreaser/tree/main/InstagramFollowers/V3'>URL</a>**
 
 ## FAQ 🤔
@@ -89,7 +98,7 @@ Answer ➡️ No, not at all ! Because it's like asking if following and unfollo
 
 - Can my account get blocked using this script ?
 
-Answer ➡️ Only if you're using a very old version of Instagram. But it has been tested in several accounts and none of them got blocked.
+Answer ➡️ Only if you're using a very old version of Instagram. But the script has been tested in several accounts and none of them got blocked.
 
 
 
