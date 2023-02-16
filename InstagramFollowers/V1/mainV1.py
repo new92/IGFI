@@ -34,7 +34,7 @@ try:
     from instagramy import InstagramUser
     from datetime import date
 except ImportError as imp:
-    print("[!] WARNING: Not all packages used in this program have been installed !")
+    print("[!] WARNING: Not all packages used in this script have been installed !")
     sleep(2)
     print("[+] Ignoring warning...")
     sleep(1)
