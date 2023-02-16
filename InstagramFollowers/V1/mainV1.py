@@ -94,7 +94,7 @@ def ProgInfo():
     lang = 'es-US'
     language = 'Python'
     name = 'InstaFollowV1'
-    lines = 832
+    lines = 824
     f = '/IGFollowersIncreaser/InstagramFollowers/V1/mainV1.py'
     if os.path.exists(os.path.abspath(f)):
         fsize = (os.stat(f)).st_size
@@ -125,9 +125,6 @@ def banner() -> str:
 ANS = ["yes","YES","Yes","y","Y","YeS","yEs","YEs","yES","no","NO","No","n","N","nO"]
 
 def Uninstall() -> str:
-    """
-    Uninstall's the script and returns a message
-    """
     def rmdir(dire):
         DIRS = []
         for root, dirs, files in os.walk(dire):
@@ -143,15 +140,9 @@ def Uninstall() -> str:
     return "[+] Files and dependencies uninstalled successfully !"
 
 def checkUser(username:str) -> bool:
-    """
-    Checks the validation of a username
-    """
     return username == None or len(username) > 30
 
 def nums():
-    """
-    Returns the numbers of the available options
-    """
     print("[1] Increase followers")
     print("[2] Show program info and exit")
     print("[3] Keep log")
