@@ -106,7 +106,7 @@ def Info():
         fsize = (os.stat(f)).st_size
     else:
         fsize = 0
-    stars = 16
+    stars = 17
     forks = 10
     print("[+] Author: "+str(author))
     print("[+] Github: @"+str(author))
