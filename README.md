@@ -35,27 +35,27 @@ Any type of feedback is welcome and appreciated. (Please do not use any vulgar v
 ## Badges 📛
 
 
-[![Number of files](https://img.shields.io/github/directory-file-count/new92/IGFollowersIncreaser)](https://img.shields.io/github/directory-file-count/new92/IGFollowersIncreaser)
+[![Number of files](https://img.shields.io/github/directory-file-count/new92/IGFollowersIncreaser?style=for-the-badge)](https://img.shields.io/github/directory-file-count/new92/IGFollowersIncreaser)
 
-[![Code size](https://img.shields.io/github/languages/code-size/new92/IGFollowersIncreaser)](https://img.shields.io/github/languages/code-size/new92/IGFollowersIncreaser)
+[![Code size](https://img.shields.io/github/languages/code-size/new92/IGFollowersIncreaser?style=for-the-badge)](https://img.shields.io/github/languages/code-size/new92/IGFollowersIncreaser)
 
-[![Followers](https://img.shields.io/github/followers/new92?style=social)](https://img.shields.io/github/followers/new92?style=social)
+[![Followers](https://img.shields.io/github/followers/new92?style=for-the-badge)](https://img.shields.io/github/followers/new92)
 
-[![Forks](https://img.shields.io/github/forks/new92/IGFollowersIncreaser?style=social)](https://img.shields.io/github/forks/new92/IGFollowersIncreaser?style=social)
+[![Forks](https://img.shields.io/github/forks/new92/IGFollowersIncreaser?style=for-the-badge)](https://img.shields.io/github/forks/new92/IGFollowersIncreaser)
 
-[![Stars](https://img.shields.io/github/stars/new92/IGFollowersIncreaser?style=social)](https://img.shields.io/github/stars/new92/IGFollowersIncreaser?style=social)
+[![Stars](https://img.shields.io/github/stars/new92/IGFollowersIncreaser?style=for-the-badge)](https://img.shields.io/github/stars/new92/IGFollowersIncreaser)
 
-[![Open issues](https://img.shields.io/github/issues-raw/new92/IGFollowersIncreaser)](https://img.shields.io/github/issues-raw/new92/IGFollowersIncreaser)
+[![Open issues](https://img.shields.io/github/issues-raw/new92/IGFollowersIncreaser?style=for-the-badge)](https://img.shields.io/github/issues-raw/new92/IGFollowersIncreaser)
 
-[![Closed Issues](https://img.shields.io/github/issues-closed-raw/new92/IGFollowersIncreaser)](https://img.shields.io/github/issues-closed-raw/new92/IGFollowersIncreaser)
+[![Closed Issues](https://img.shields.io/github/issues-closed-raw/new92/IGFollowersIncreaser?style=for-the-badge)](https://img.shields.io/github/issues-closed-raw/new92/IGFollowersIncreaser)
 
-[![Open pull requests](https://img.shields.io/github/issues-pr-raw/new92/IGFollowersIncreaser)](https://img.shields.io/github/issues-pr-raw/new92/IGFollowersIncreaser)
+[![Open pull requests](https://img.shields.io/github/issues-pr-raw/new92/IGFollowersIncreaser?style=for-the-badge)](https://img.shields.io/github/issues-pr-raw/new92/IGFollowersIncreaser)
 
-[![Closed pull requests](https://img.shields.io/github/issues-pr-closed-raw/new92/IGFollowersIncreaser)](https://img.shields.io/github/issues-pr-closed-raw/new92/IGFollowersIncreaser)
+[![Closed pull requests](https://img.shields.io/github/issues-pr-closed-raw/new92/IGFollowersIncreaser?style=for-the-badge)](https://img.shields.io/github/issues-pr-closed-raw/new92/IGFollowersIncreaser)
 
-[![Discussions](https://img.shields.io/github/discussions/new92/IGFollowersIncreaser)](https://img.shields.io/github/discussions/new92/IGFollowersIncreaser)
+[![Discussions](https://img.shields.io/github/discussions/new92/IGFollowersIncreaser?style=for-the-badge)](https://img.shields.io/github/discussions/new92/IGFollowersIncreaser)
 
-[![Contributors](https://img.shields.io/github/contributors/new92/IGFollowersIncreaser)](https://img.shields.io/github/contributors/new92/IGFollowersIncreaser)
+[![Contributors](https://img.shields.io/github/contributors/new92/IGFollowersIncreaser?style=for-the-badge)](https://img.shields.io/github/contributors/new92/IGFollowersIncreaser)
 
 ## Contributing 🤝
 
