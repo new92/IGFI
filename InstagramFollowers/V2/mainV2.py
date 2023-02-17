@@ -300,7 +300,7 @@ def main():
                 print("[+] See you next time 👋")
                 sleep(1)
                 quit(0)
-        con=str(input(f"[?] Script will increase the followers for the user: {username} is it correct ? [yes/no] "))
+        con=str(input(f"[?] Script will increase the followers for the user: {username} is that correct ? [yes/no] "))
         while con not in ANS or con == None or type(con) != str:
             if con == None:
                 print("[!] This field can't be blank !")
