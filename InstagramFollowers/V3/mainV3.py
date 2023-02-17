@@ -33,7 +33,7 @@ try:
     import instagrapi
     import requests
     from datetime import date
-    from instagramy import InstagramUser
+    import instaloader
 except ImportError as imp:
     print("[!] WARNING: Not all packages used in this script have been installed !")
     sleep(2)
@@ -100,7 +100,7 @@ def Info():
     language = 'Python'
     name = 'InstaFollowV3'
     api = None
-    lines = 840
+    lines = 847
     f = '/IGFollowersIncreaser/InstagramFollowers/V3/mainV3.py'
     if os.path.exists(os.path.abspath(f)):
         fsize = (os.stat(f)).st_size
@@ -163,7 +163,8 @@ def checkUser(username:str) -> bool:
     return username == None or len(username) > 30 or type(username) != str
 
 def valUser(username:str) -> bool:
-    return requests.get("https://www.instagram.com/"+username).status_code in (range(400, 419) + range(421, 427) + [429, 431, 451])
+    L = [400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 418, 421, 422, 423, 424, 425, 426, 429, 431, 451]
+    return requests.get("https://www.instagram.com/"+username).status_code in L
 
 def main():
     print(banner())
@@ -337,7 +338,7 @@ def main():
                 print("[+] See you next time 👋")
                 sleep(2)
                 quit(0)
-        con=str(input(f"[?] Script will increase the followers for the user: {username} is that correct ? [yes/no] "))
+        con=str(input(f"[?] The script will increase the followers for the user: {username} is that correct ? [yes/no] "))
         while con not in ANS or con == None or type(con) != str:
             if con == None:
                 print("[!] This field can't be blank !")
@@ -348,7 +349,7 @@ def main():
                 sleep(1)
                 print("[+] Acceptable answers: [yes/no]")
             sleep(1)
-            con=str(input(f"[?] Script will increase the followers for the user: {username} is it correct ? [yes/no] "))
+            con=str(input(f"[?] The script will increase the followers for the user: {username} is it correct ? [yes/no] "))
         if con in ANS[9:]:
             username=str(input("[>] Please enter another username: "))
             while checkUser(username):
@@ -418,8 +419,9 @@ def main():
             sleep(1)
             ga=str(input("[?] Do you want to grant access to the script to have access to the number of your followers in order to provide additional information ? [yes/no] "))
         if ga in ANS[:9]:
-            user = InstagramUser(username)
-            followers_bef = user.number_of_followers
+            loader = instaloader.Instaloader()
+            profile = instaloader.Profile.from_username(loader.context, username)
+            followers_bef = profile.followers
         username=username.lower()
         username=username.strip()
         sleep(1)
@@ -521,21 +523,22 @@ def main():
         f = 0
         x = 0
         for i in range(30):
-            for j in range(len(NAMES)-1):
-                client.user_follow(users[NAMES[j]])
-                print(f"[+] Following {NAMES[j]}...")
-                sleep(3)
-                f += 1
-                print(f"[+] Next user to follow: {NAMES[j+1]}...")
-                sleep(3)
-            for j in range(len(NAMES)-1):
-                client.user_unfollow(users[NAMES[j]])
-                print(f"[-] Unfollowing {NAMES[j]}...")
-                sleep(3)
-                x += 1
-                print(f"[-] Next user to unfollow: {NAMES[j+1]}...")
-                sleep(3)
-            if KeyboardInterrupt:
+            try:
+                for j in range(len(NAMES)-1):
+                    client.user_follow(users[NAMES[j]])
+                    print(f"[+] Following {NAMES[j]}...")
+                    sleep(3)
+                    f += 1
+                    print(f"[+] Next user to follow: {NAMES[j+1]}...")
+                    sleep(3)
+                for j in range(len(NAMES)-1):
+                    client.user_unfollow(users[NAMES[j]])
+                    print(f"[-] Unfollowing {NAMES[j]}...")
+                    sleep(3)
+                    x += 1
+                    print(f"[-] Next user to unfollow: {NAMES[j+1]}...")
+                    sleep(3)
+            except KeyboardInterrupt:
                 res = f - x
                 if res != 0:
                     suc = f / float(len(NAMES))
@@ -549,10 +552,12 @@ def main():
                     sleep(1)
                     print(f"[+] Percentage of success: "+str(suc))
                     sleep(1)
-                    if ga in ANS[:9] and followers_bef - followers_af != 0:
-                        followers_af = user.number_of_followers
-                        print(f"[✓] Successfully added: {followers_af - followers_bef} followers.")
-                        sleep(1)
+                    if ga in ANS[:9]:
+                        followers_af = profile.followers
+                        if followers_bef - followers_af != 0:
+                            followers_af = user.number_of_followers
+                            print(f"[✓] Successfully added: {followers_af - followers_bef} followers.")
+                            sleep(1)
                     print("[*] Users which the script failed to unfollow:")
                     sleep(3)
                     print('-'*15+"users".upper()+'-'*15)
@@ -564,6 +569,7 @@ def main():
                     sleep(1)
                     print(f"[+] Fail: {res}%")
                     sleep(2)
+                print("\n")
                 print("[1] Return to menu")
                 print("[2] Exit")
                 opt=int(input("[>] Please enter a number (from the above ones): "))
@@ -603,14 +609,15 @@ def main():
             sleep(1)
             print(f"[+] Percentage of success: "+str(suc))
             sleep(1)
-            if ga in ANS[:9] and followers_bef - followers_af != 0:
-                followers_af = user.number_of_followers
-                print(f"[✓] Successfully added: {followers_af - followers_bef} followers.")
-                sleep(1)
-            print("[*] Users which the script failed to unfollow:")
+            if ga in ANS[:9]:
+                followers_af = profile.followers
+                if followers_bef - followers_af != 0:
+                    followers_af = user.number_of_followers
+                    print(f"[✓] Successfully added: {followers_af - followers_bef} followers.")
+                    sleep(1)
+            print("[*] Users which the script didn't unfollow:")
             sleep(3)
             print('-'*15+"users".upper()+'-'*15)
-            print("\n")
             for i in range(res,-1,-1):
                 print("[+] User: "+str(NAMES[i]))
         else:
