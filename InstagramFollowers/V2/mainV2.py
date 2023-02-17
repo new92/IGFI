@@ -191,7 +191,7 @@ def main():
             if con in ANS[:9]:
                 f = open("cons.txt","a")
                 f.write("[=] Date: "+str(date.today())+"\n")
-                f.write("[=] User: Yes I consent that the author of this script (new92) has no responsibility for any loss or damage may the script cause to the given Instagram account.")
+                f.write("[=] User: Yes I consent that the author of this script (new92) has no responsibility for any loss or damage may the script cause to the given Instagram account.\n")
                 f.write("-"*40)
                 f.close()
             else:
@@ -231,7 +231,7 @@ def main():
         else:
             f = open("cons.txt","w")
             f.write("[=] Date: "+str(date.today())+"\n")
-            f.write("[=] User: Yes I consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given Instagram account.")
+            f.write("[=] User: Yes I consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given Instagram account.\n")
             f.write("-"*40)
             f.close()
         print("[+] The login credentials will not be stored or saved")
@@ -606,7 +606,7 @@ def main():
             f.write("[+] Date: "+str(date.today())+"\n")
             f.write("[+] Followed: "+str(follow)+" users"+"\n")
             f.write("[+] Unfollowed: "+str(unfollow)+" users"+"\n")
-            pers = (follow + unfollow) / 74.0
+            pers = (follow + unfollow) / float(len(FOLLOW)*2)
             f.write("[+] Percentage of success: "+str(pers)+"%"+"\n")
             f.write("[+] Percentage of fail: "+str(float(100 - pers))+"%"+"\n")
             f.close()
