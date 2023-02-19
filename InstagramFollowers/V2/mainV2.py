@@ -32,7 +32,7 @@ try:
     import os
     import instagrapi
     import requests
-    from instagramy import InstagramUser
+    import instaloader
     from datetime import date
 except ImportError as imp:
     print("[!] WARNING: Not all packages used in this script have been installed !")
@@ -99,7 +99,7 @@ def ProgInfo():
     language = 'Python'
     name = 'InstaFollowV2'
     api = None
-    lines = 734
+    lines = 735
     f = '/IGFollowersIncreaser/InstagramFollowers/V2/mainV2.py'
     if os.path.exists(os.path.abspath(f)):
         fsize = (os.stat(f)).st_size
@@ -151,7 +151,7 @@ def checkUser(username:str) -> bool:
 
 def nums():
     print("[1] Increase followers")
-    print("[2] Show program info and exit")
+    print("[2] Show script's info and exit")
     print("[3] Keep log")
     print("[4] Clear log")
     print("[5] Uninstall script")
@@ -389,8 +389,9 @@ def main():
             sleep(1)
             ga=str(input("[?] Do you want to grant access to the script to have access to the number of your followers in order to provide additional information ? [yes/no] "))
         if ga in ANS[:9]:
-            user = InstagramUser(username)
-            followers_bef = user.number_of_followers
+            loader = instaloader.Instaloader()
+            profile = instaloader.Profile.from_username(loader.context, username)
+            followers_bef = profile.followers
         username=username.lower()
         username=username.strip()
         sleep(1)
@@ -520,7 +521,7 @@ def main():
                 print(f"[+] Percentage of fail: {float(100 - pers)}%")
                 sleep(1)
                 if ga in ANS[:9]:
-                    followers_af = user.number_of_followers
+                    followers_af = profile.followers
                     print(f"[✓] Successfully added: {followers_af - followers_bef} followers.")
                     sleep(1)
                 print("[1] Return to menu")
@@ -565,7 +566,7 @@ def main():
             f.write("[+] Percentage of success: "+str(pers)+"%"+"\n")
             f.write("[+] Percentage of fail: "+str(float(100 - pers))+"%"+"\n")
             if ga in ANS[:9]:
-                followers_af = user.number_of_followers
+                followers_af = profile.followers
                 f.write("[✓] Successfully added: "+str(followers_af - followers_bef)+" followers.")
             f.close()
             print("[✓] Successfully saved log !")
