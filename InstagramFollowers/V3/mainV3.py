@@ -96,11 +96,10 @@ def Info():
     author = 'new92'
     license1 = 'MIT'
     lang = 'es-US'
-    email = 'new92github@gmail.com'
     language = 'Python'
     name = 'InstaFollowV3'
     api = None
-    lines = 847
+    lines = 846
     f = '/IGFollowersIncreaser/InstagramFollowers/V3/mainV3.py'
     if os.path.exists(os.path.abspath(f)):
         fsize = (os.stat(f)).st_size
@@ -555,7 +554,7 @@ def main():
                     if ga in ANS[:9]:
                         followers_af = profile.followers
                         if followers_bef - followers_af != 0:
-                            followers_af = user.number_of_followers
+                            followers_af = profile.followers
                             print(f"[✓] Successfully added: {followers_af - followers_bef} followers.")
                             sleep(1)
                     print("[*] Users which the script failed to unfollow:")
@@ -612,7 +611,7 @@ def main():
             if ga in ANS[:9]:
                 followers_af = profile.followers
                 if followers_bef - followers_af != 0:
-                    followers_af = user.number_of_followers
+                    followers_af = profile.followers
                     print(f"[✓] Successfully added: {followers_af - followers_bef} followers.")
                     sleep(1)
             print("[*] Users which the script didn't unfollow:")
@@ -669,7 +668,7 @@ def main():
             f.write("[+] Percentage of success: "+str(pers)+"%"+"\n")
             f.write("[+] Percentage of fail: "+str(float(100 - pers))+"%"+"\n")
             if ga in ANS[:9]:
-                followers_af = user.number_of_followers
+                followers_af = profile.followers
                 f.write("[✓] Successfully added: "+str(followers_af - followers_bef)+" followers.")
             f.close()
             print("[✓] Successfully saved log !")
