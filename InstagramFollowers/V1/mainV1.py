@@ -30,7 +30,7 @@ try:
     import instagrapi
     import os
     import requests
-    from instagramy import InstagramUser
+    import instaloader
     from datetime import date
 except ImportError as imp:
     print("[!] WARNING: Not all packages used in this script have been installed !")
@@ -49,7 +49,7 @@ except ImportError as imp:
             except Exception as ex:
                 print("[!] Error ! Cannot install the required modules !")
                 sleep(1)
-                print("[=] Error message -> "+str(ex))
+                print("[=] Error message ==> "+str(ex))
                 sleep(2)
                 print("[1] Uninstall script")
                 print("[2] Exit")
@@ -96,7 +96,7 @@ def ProgInfo():
     lang = 'es-US'
     language = 'Python'
     name = 'InstaFollowV1'
-    lines = 842
+    lines = 843
     f = '/IGFollowersIncreaser/InstagramFollowers/V1/mainV1.py'
     if os.path.exists(os.path.abspath(f)):
         fsize = (os.stat(f)).st_size
@@ -296,8 +296,9 @@ def main():
         username=username.lower()
         username=username.strip()
         if ga in ANS[:9]:
-            user = InstagramUser(username)
-            followers_bef = user.number_of_followers
+            loader = instaloader.Instaloader()
+            profile = instaloader.Profile.from_username(loader.context, username)
+            followers_bef = profile.followers
         sleep(1)
         password=str(input("[>] Please enter your password: "))
         while password == None or type(password) != str:
@@ -636,7 +637,7 @@ def main():
             print(f"[+] Percentage of fail: {float(100 - pers)}%")
             sleep(1)
             if ga in ANS[:9]:
-                followers_af = user.number_of_followers
+                followers_af = profile.followers
                 print(f"[✓] Successfully added: {followers_af - followers_bef} followers.")
                 sleep(1)
             print("[1] Return to menu")
@@ -681,7 +682,7 @@ def main():
             f.write("[+] Percentage of success: "+str(pers)+"%"+"\n")
             f.write("[+] Percentage of fail: "+str(float(100 - pers))+"%"+"\n")
             if ga in ANS[:9]:
-                followers_af = user.number_of_followers
+                followers_af = profile.followers
                 f.write("[✓] Successfully added: "+str(followers_af - followers_bef)+" followers."+"\n")
             f.close()
             print("[✓] Successfully saved log !")
@@ -724,7 +725,7 @@ def main():
             f.write("[+] Percentage of success: "+str(pers)+"%"+"\n")
             f.write("[+] Percentage of fail: "+str(float(100 - pers))+"%"+"\n")
             if ga in ANS[:9]:
-                followers_af = user.number_of_followers
+                followers_af = profile.followers
                 f.write("[✓] Successfully added: "+str(followers_af - followers_bef)+" followers."+"\n")
             f.close()
             print("[✓] Successfully saved log !")
@@ -798,7 +799,7 @@ def main():
             clear()
             print("[!] Log file not found on this device !")
             sleep(2)
-            print("🔎 Searched log file using name: "+name)
+            print("[+] Searched log file using name: "+name)
             sleep(2)
             print("[+] Please first create the log file and then use this option 😀")
             sleep(2)
