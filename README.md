@@ -69,7 +69,10 @@ For more info please check the `CODE_OF_CONDUCT.md` file
 
 ## Feedback 💭
 
-If you have any feedback, please reach out to us at <a href='mailto:new92github@gmail.com'>this email address</a>
+If you have any feedback, please reach out to us at <a href="mailto:new92github@gmail.com">this email address</a>.
+
+**Feel free to contact us anytime ! You'll get a reply within a day. Please avoid using abusive or offensive language.
+If you are reporting a bug or making a suggestion please make sure your report/suggestion is as much detailed as possible.**
 
 
 ## Features 🔜
@@ -78,6 +81,7 @@ If you have any feedback, please reach out to us at <a href='mailto:new92github@
 - [ ] Automation
 - [ ] Display the usernames of the followers added
 - [x] ~~V3 script better than both versions 1 and 2~~ **<a href='https://github.com/new92/IGFollowersIncreaser/tree/main/InstagramFollowers/V3'>URL</a>**
+- [ ] V4 (this version will include the features as shown above and some extra)
 
 ## FAQ 🤔
 
@@ -91,21 +95,20 @@ Answer ➡️ This can be resolved by logging in to your instagram account from 
 
 - Where can I report a bug ?
 
-Answer ➡️ You can report a bug by creating an issue. Please feel free to include screenshots, the error which is being displayed, the OS you are using, your default browser etc. And any other additional info which can be used to resolve the bug.
+Answer ➡️ You can report a bug by creating an issue or by emailing us at <a href="mailto:new92github@gmail.com">this</a> email address. Please feel free to include screenshots, the error which is being displayed, the OS you are using, your default browser etc. Any other additional info will be appreciated and will help to resolve the bug faster
 
 ### Question 3
 
 - Is illegal to increase followers using script(s) ?
 
-Answer ➡️ No, not at all ! Because it's like asking if following and unfollowing an account is illegal. Although Instagram doesn't suggest using this techniques to increase your followers.
+Answer ➡️ No, not at all ! Because it's like asking if following and unfollowing an account is illegal. Although Instagram doesn't suggest using this technique to increase your followers.
 
 
 ### Question 4
 
-- Can my account get blocked using this script ?
+- Can my account get blocked by using this script ?
 
 Answer ➡️ Only if you're using a very old version of Instagram. But the script has been tested in several accounts and none of them got blocked.
-
 
 
 
@@ -142,7 +145,7 @@ Answer ➡️ Only if you're using a very old version of Instagram. But the scri
   cd InstagramFollowers
   cd V<and the version you want to use. Example: cd V1   Available versions: 1/2/3>
   python -m pip install requirements.txt
-  python3 mainV<and the name of the folder. Example: python3 mainV1.py>.py
+  python mainV<and the name of the folder. Example: python3 mainV1.py>.py
 ```
     
 
