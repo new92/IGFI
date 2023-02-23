@@ -12,7 +12,7 @@ If you didn't like it and/or found a bug or you have a suggestion please feel fr
 Any type of feedback is welcome and appreciated. (Please do not use any vulgar vocabulary)
 
 
-## Links 🔗
+## Urls 🔗
 
  - [License](https://github.com/new92/IGFollowersIncreaser/blob/main/LICENSE.md)
  - [Contributing](https://github.com/new92/IGFollowersIncreaser/blob/main/CONTRIBUTING.md)
