@@ -1,16 +1,9 @@
 # Security Policy
 
-## Supported Versions
-
-
-| Version | Supported          |
-| ------- | ------------------ |
-| 1.0     | :white_check_mark: |
-
-
-## Reporting a Vulnerability 
+## Reporting a Vulnerability
 
 Please report a bug or a vulnerability at the issues section, by creating a new issue and describing with as much details as possible.
 
+You can also report a vulnerability by sendind us an email at <a href="mailto:new92github@gmail.com">this emai address</a>.
 
-Tip: Include screenshots, the OS (Operating System) you are using in order to fix with the best way possible the problem !
+Tip: Include screenshots, the OS (Operating System) you are using, etc. in order to fix it with the best way possible !
