@@ -106,7 +106,7 @@ def ProgInfo():
     forks = 10
     print("[+] Author: "+author)
     print("[+] Github: @"+author)
-    print("[+] License: "+str(license1)
+    print("[+] License: "+license1)
     print("[+] Natural language: "+lang)
     print("[+] Programming language(s) used: "+str(language))
     print("[+] Number of lines: "+str(lines))
