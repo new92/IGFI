@@ -107,7 +107,7 @@ def ProgInfo():
         fsize = 0
     stars = 18
     forks = 10
-    print("[+] Author: "+str(author))
+    print("[+] Author: "+author)
     print("[+] Github: @"+str(author))
     print("[+] License: "+str(license1))
     print("[+] Natural language: "+str(lang))
