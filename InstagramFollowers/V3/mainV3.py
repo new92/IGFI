@@ -107,13 +107,13 @@ def Info():
         fsize = 0
     stars = 18
     forks = 10
-    print("[+] Author: "+str(author))
-    print("[+] Github: @"+str(author))
-    print("[+] License: "+str(license1))
-    print("[+] Natural language: "+str(lang))
-    print("[+] Programming language(s) used: "+str(language))
+    print("[+] Author: "+author)
+    print("[+] Github: @"+author)
+    print("[+] License: "+license1)
+    print("[+] Natural language: "+lang)
+    print("[+] Programming language(s) used: "+language)
     print("[+] Number of lines: "+str(lines))
-    print("[+] Script's name: "+str(name))
+    print("[+] Script's name: "+name)
     print("[+] API(s) used: "+str(api))
     print("[+] File size: "+str(fsize)+" bytes")
     print("[+] Github repo stars: "+str(stars))
@@ -131,7 +131,7 @@ def Uninstall() -> str:
             os.rmdir(DIRS[i])
         os.rmdir(dire)
     rmdir(os.path.abspath('IGFollowersIncreaser'))
-    return "[+] Files and dependencies uninstalled successfully !"
+    return "[✓] Files and dependencies uninstalled successfully !"
 
 def banner() -> str:
     return """
