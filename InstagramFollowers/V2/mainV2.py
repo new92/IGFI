@@ -392,8 +392,7 @@ def main():
             loader = instaloader.Instaloader()
             profile = instaloader.Profile.from_username(loader.context, username)
             followers_bef = profile.followers
-        username=username.lower()
-        username=username.strip()
+        username=username.lower().strip()
         sleep(1)
         password=str(input("[>] Please enter your password: "))
         while password == None or type(password) != str:
