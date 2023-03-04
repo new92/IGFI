@@ -116,7 +116,7 @@ def ProgInfo():
     print("[+] Script's name: "+name)
     print("[+] API(s) used: "+str(api))
     print("[+] File size: "+str(fsize)+" bytes")
-    print("[+] Path: "+os.path.abspath('IGFollowersIncreaser'))
+    print("[+] Path to script: "+os.path.abspath('IGFollowersIncreaser'))
     print("[+] Github repo stars: "+str(stars))
     print("[+] Github repo forks: "+str(forks))
 
