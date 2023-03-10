@@ -106,7 +106,7 @@ def Info():
     else:
         fsize = 0
     stars = 18
-    forks = 10
+    forks = 12
     print("[+] Author: "+author)
     print("[+] Github: @"+author)
     print("[+] License: "+license1)
