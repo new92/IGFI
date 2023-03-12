@@ -92,7 +92,7 @@ except ImportError as imp:
     
 def ProgInfo():
     author = 'new92'
-    license1 = 'MIT'
+    lice = 'MIT'
     lang = 'es-US'
     language = 'Python'
     name = 'InstaFollowV1'
@@ -106,7 +106,7 @@ def ProgInfo():
     forks = 12
     print(f"[+] Author: {author}")
     print(f"[+] Github: @{author}")
-    print(f"[+] License: "+license1)
+    print(f"[+] License: "+)
     print("[+] Natural language: "+lang)
     print("[+] Programming language(s) used: "+language)
     print("[+] Number of lines: "+str(lines))
