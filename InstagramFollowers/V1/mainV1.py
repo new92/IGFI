@@ -108,7 +108,7 @@ def ProgInfo():
     print(f"[+] Github: @{author}")
     print(f"[+] License: {lice}")
     print(f"[+] Natural language: {lang}")
-    print(f"[+] Programming language(s) used: "+language)
+    print(f"[+] Programming language(s) used: "+)
     print("[+] Number of lines: "+str(lines))
     print("[+] Script's name: "+name)
     print("[+] File size: "+str(fsize)+" bytes")
