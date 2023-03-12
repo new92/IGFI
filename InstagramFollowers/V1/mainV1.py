@@ -49,7 +49,7 @@ except ImportError as imp:
             except Exception as ex:
                 print("[!] Error ! Cannot install the required modules !")
                 sleep(1)
-                print("[=] Error message ==> "+str(ex))
+                print("[*] Error message ==> "+str(ex))
                 sleep(2)
                 print("[1] Uninstall script")
                 print("[2] Exit")
