@@ -112,7 +112,7 @@ def ProgInfo():
     print(f"[+] Number of lines: {lines}")
     print(f"[+] Script's name: {name}")
     print(f"[+] File size: {fsize} bytes")
-    print("[+] Github repo stars: "+str(stars))
+    print(f"[+] Github repo stars: {stars}")
     print("[+] Github repo forks: "+str(forks))
 
 def banner() -> str:
