@@ -113,7 +113,7 @@ def ProgInfo():
     print(f"[+] Natural language: {lang}")
     print(f"[+] Programming language(s) used: {language}")
     print(f"[+] Number of lines: {lines}")
-    print(f"[+] Script's name: {name}"+name)
+    print(f"[+] Script's name: {name}")
     print("[+] API(s) used: "+str(api))
     print("[+] File size: "+str(fsize)+" bytes")
     print("[+] Path to script: "+os.path.abspath('IGFollowersIncreaser'))
