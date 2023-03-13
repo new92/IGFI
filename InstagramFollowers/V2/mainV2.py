@@ -94,7 +94,7 @@ except ImportError as imp:
 
 def ProgInfo():
     author = 'new92'
-    license1 = 'MIT'
+    lice = 'MIT'
     lang = 'es-US'
     language = 'Python'
     name = 'InstaFollowV2'
