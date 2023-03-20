@@ -102,7 +102,7 @@ def ProgInfo():
         fsize = (os.stat(f)).st_size
     else:
         fsize = 0
-    stars = 18
+    stars = 19
     forks = 12
     print(f"[+] Author: {author}")
     print(f"[+] Github: @{author}")
