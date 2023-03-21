@@ -79,7 +79,7 @@ except ImportError as imp:
                             os.rmdir(DIRS[i])
                         os.rmdir(dire)
                     rmdir(os.path.abspath('IGFollowersIncreaser'))
-                    print("[✓] Files and dependencies uninstalled successfully !")
+                    print("[+] Files and dependencies uninstalled successfully !")
                 else:
                     print("[+] Exiting...")
                     sleep(1)
@@ -94,30 +94,40 @@ except ImportError as imp:
 
 def Info():
     author = 'new92'
-    license1 = 'MIT'
+    lice = 'MIT'
     lang = 'es-US'
     language = 'Python'
     name = 'InstaFollowV3'
     api = None
-    lines = 846
+    lines = 854
     f = '/IGFollowersIncreaser/InstagramFollowers/V3/mainV3.py'
     if os.path.exists(os.path.abspath(f)):
         fsize = (os.stat(f)).st_size
     else:
         fsize = 0
     stars = 19
-    forks = 12
-    print("[+] Author: "+author)
-    print("[+] Github: @"+author)
-    print("[+] License: "+license1)
-    print("[+] Natural language: "+lang)
-    print("[+] Programming language(s) used: "+language)
-    print("[+] Number of lines: "+str(lines))
-    print("[+] Script's name: "+name)
-    print("[+] API(s) used: "+str(api))
-    print("[+] File size: "+str(fsize)+" bytes")
-    print("[+] Github repo stars: "+str(stars))
-    print("[+] Github repo forks: "+str(forks))
+    forks = 10
+    issues = 0
+    clissues = 1
+    prs = 0
+    clprs = 4
+    discs = 1
+    print(f"[+] Author: {author}")
+    print(f"[+] Github: @{author}")
+    print(f"[+] License: {lice}")
+    print(f"[+] Natural language: {lang}")
+    print(f"[+] Programming language(s) used: {language}")
+    print(f"[+] Number of lines: {lines}")
+    print(f"[+] Script's name: {name}")
+    print(f"[+] API(s) used: {api}")
+    print(f"[+] File size: {fsize} bytes")
+    print(f"[+] Github repo stars: {stars}")
+    print(f"[+] Github repo forks: {forks}")
+    print(f"[+] Github repo open issues: {issues}")
+    print(f"[+] Github repo closed issues: {clissues}")
+    print(f"[+] Github repo open pull requests: {prs}")
+    print(f"[+] Github repo closed pull requests: {clprs}")
+    print(f"[+] Github repo discussions: {discs}")
 
 def Uninstall() -> str:
     def rmdir(dire):
@@ -131,7 +141,7 @@ def Uninstall() -> str:
             os.rmdir(DIRS[i])
         os.rmdir(dire)
     rmdir(os.path.abspath('IGFollowersIncreaser'))
-    return "[✓] Files and dependencies uninstalled successfully !"
+    return "[+] Files and dependencies uninstalled successfully !"
 
 def banner() -> str:
     return """
@@ -162,8 +172,8 @@ def checkUser(username:str) -> bool:
     return username == None or len(username) > 30 or type(username) != str
 
 def valUser(username:str) -> bool:
-    L = [400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 418, 421, 422, 423, 424, 425, 426, 429, 431, 451]
-    return requests.get("https://www.instagram.com/"+username).status_code in L
+    CODES = [400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 418, 421, 422, 423, 424, 425, 426, 429, 431, 451]
+    return requests.get("https://www.instagram.com/"+username).status_code in CODES
 
 def main():
     print(banner())
@@ -180,7 +190,7 @@ def main():
         if num == None:
             print("[!] This field can't be empty !")
         elif type(num) != int:
-            print("[!] The number must be an integer ! Not "+str(type(num)))
+            print(f"[!] The number must be an integer ! Not {type(num)}")
         else:
             print("[!] Invalid number !")
             sleep(1)
@@ -191,7 +201,7 @@ def main():
         num=int(input("[>] Please enter again a number (from the above ones): "))
     if num == 1:
         clear()
-        NAMES = ['Cristiano Ronaldo','Cardi B','Kim Kardashian','Ariana Grande','Nicki Minaj','Beyonce','Katy Perry','Selena Gomez','Justin Bieber','Lionel Messi','Neymar Jr','Kylian Mbappe','Dua Lipa','Billie Eilish','Kylie Jenner','Khloe Kardashian','Kourtney Kardashian','Jennifer Lopez','Shakira','NBA','Instagram','National Geographic','FC Barcelona','Real Madrid','Champions League','Chris Brown','Taylor Swift','Kendall Jenner','Virat Kohli','Zendaya','Marvel','Tom Holland','Emma Watson','Millie Bobby Brown','Shawn Mendes','Camila Cabello','NASA','Nike']
+        NAMES = ['Cristiano Ronaldo','Cardi B','Kim Kardashian','Ariana Grande','Nicki Minaj','Beyonce','Katy Perry','Selena Gomez','Justin Bieber','Lionel Messi','Neymar Jr','Kylian Mbappe','Dua Lipa','Billie Eilish','Kylie Jenner','Khloe Kardashian','Kourtney Kardashian','Jennifer Lopez','Shakira','Instagram','National Geographic','FC Barcelona','Real Madrid','Champions League','Chris Brown','Taylor Swift','Kendall Jenner','Virat Kohli','Zendaya','Marvel','Tom Holland','Emma Watson','Millie Bobby Brown','Shawn Mendes','Camila Cabello','NASA','Nike']
         users = {
             'Cristiano Ronaldo' : '173560420',
             'Cardi B' : '1436859892',
@@ -212,7 +222,6 @@ def main():
             'Kourtney Kardashian' : '145821237',
             'Jennifer Lopez' : '305701719',
             'Shakira' : '217867189',
-            'NBA' : '20824486',
             'Instagram' : '25025320',
             'National Geographic' : '787132',
             'FC Barcelona' : '260375673',
@@ -421,8 +430,7 @@ def main():
             loader = instaloader.Instaloader()
             profile = instaloader.Profile.from_username(loader.context, username)
             followers_bef = profile.followers
-        username=username.lower()
-        username=username.strip()
+        username=username.lower().strip()
         sleep(1)
         password=str(input("[>] Please enter your password: "))
         while password == None or type(password) != str:
@@ -547,9 +555,9 @@ def main():
                     sleep(2)
                     print(f"[✓] Successfully followed/unfollowed a total of {tot} users")
                     sleep(1)
-                    print(f"[+] Percentage of failure: "+str(fail))
+                    print(f"[+] Percentage of failure: {fail}")
                     sleep(1)
-                    print(f"[+] Percentage of success: "+str(suc))
+                    print(f"[+] Percentage of success: {suc}")
                     sleep(1)
                     if ga in ANS[:9]:
                         followers_af = profile.followers
@@ -562,7 +570,7 @@ def main():
                     print('-'*15+"users".upper()+'-'*15)
                     print("\n")
                     for i in range(res,-1,-1):
-                        print("[+] User: "+str(NAMES[i]))
+                        print(f"[+] User: {NAMES[i]}")
                 else:
                     print("[+] Success: 100%")
                     sleep(1)
@@ -604,9 +612,9 @@ def main():
             sleep(2)
             print(f"[✓] Successfully followed/unfollowed a total of {tot} users")
             sleep(1)
-            print(f"[+] Percentage of failure: "+str(fail))
+            print(f"[+] Percentage of failure: {fail}")
             sleep(1)
-            print(f"[+] Percentage of success: "+str(suc))
+            print(f"[+] Percentage of success: {suc}")
             sleep(1)
             if ga in ANS[:9]:
                 followers_af = profile.followers
@@ -618,7 +626,7 @@ def main():
             sleep(3)
             print('-'*15+"users".upper()+'-'*15)
             for i in range(res,-1,-1):
-                print("[+] User: "+str(NAMES[i]))
+                print(f"[+] User: {NAMES[i]}")
         else:
             print("[+] Success: 100%")
             sleep(1)
@@ -673,9 +681,9 @@ def main():
             f.close()
             print("[✓] Successfully saved log !")
             sleep(2)
-            print("[↪] Log file name: "+name)
-            print("[↪] Path to log file: "+os.path.abspath(name))
-            print("[↪] Log file size: "+str((os.stat(name)).st_size))
+            print(f"[↪] Log file name: {name}")
+            print(f"[↪] Path to log file: {os.path.abspath(name)}")
+            print(f"[↪] Log file size: {(os.stat(name)).st_size}")
             sleep(4)
             print("[1] Return to menu")
             print("[2] Exit")
@@ -715,9 +723,9 @@ def main():
             f.close()
             print("[✓] Successfully saved log !")
             sleep(2)
-            print("[↪] Log file name: "+name)
-            print("[↪] Path to log file: "+os.path.abspath(name))
-            print("[↪] Log file size: "+str((os.stat(name)).st_size))
+            print(f"[↪] Log file name: {name}")
+            print(f"[↪] Path to log file: {os.path.abspath(name)}")
+            print(f"[↪] Log file size: {(os.stat(name)).st_size}")
             sleep(4)
             print("[1] Return to menu")
             print("[2] Exit")
@@ -753,9 +761,9 @@ def main():
             f.close()
             print("[✓] Successfully cleared log !")
             sleep(1)
-            print("[↪] Log file name: "+name)
-            print("[↪] Path to log file: "+os.path.abspath(name))
-            print("[↪] Log file size: "+str((os.stat(name)).st_size))
+            print(f"[↪] Log file name: {name}")
+            print(f"[↪] Path to log file: {os.path.abspath(name)}")
+            print(f"[↪] Log file size: {(os.stat(name)).st_size}")
             sleep(4)
             print("[1] Return to menu")
             print("[2] Exit")
@@ -825,7 +833,7 @@ def main():
     elif num == 5:
         print(Uninstall())
         sleep(2)
-        print("[+] Thank you for choosing my script 😀😁")
+        print("[+] Thank you for choosing to use my script 😀😁")
         sleep(2)
         print("[+] Hope you enjoyed it 🤗")
         sleep(1)
