@@ -49,7 +49,7 @@ except ImportError as imp:
             except Exception as ex:
                 print("[!] Error ! Cannot install the required modules !")
                 sleep(1)
-                print("[*] Error message ==> "+str(ex))
+                print(f"[=] Error message ==> {ex}")
                 sleep(2)
                 print("[1] Uninstall script")
                 print("[2] Exit")
@@ -77,7 +77,7 @@ except ImportError as imp:
                             os.rmdir(DIRS[i])
                         os.rmdir(dire)
                     rmdir(os.path.abspath('IGFollowersIncreaser'))
-                    print("[✓] Files and dependencies uninstalled successfully !")
+                    print("[+] Files and dependencies uninstalled successfully !")
                 else:
                     print("[+] Exiting...")
                     sleep(1)
@@ -96,14 +96,19 @@ def ProgInfo():
     lang = 'es-US'
     language = 'Python'
     name = 'InstaFollowV1'
-    lines = 843
+    lines = 845
     f = '/IGFollowersIncreaser/InstagramFollowers/V1/mainV1.py'
     if os.path.exists(os.path.abspath(f)):
         fsize = (os.stat(f)).st_size
     else:
         fsize = 0
     stars = 19
-    forks = 12
+    forks = 10
+    issues = 0
+    clissues = 1
+    prs = 0
+    clprs = 4
+    discs = 1
     print(f"[+] Author: {author}")
     print(f"[+] Github: @{author}")
     print(f"[+] License: {lice}")
@@ -112,8 +117,13 @@ def ProgInfo():
     print(f"[+] Number of lines: {lines}")
     print(f"[+] Script's name: {name}")
     print(f"[+] File size: {fsize} bytes")
-    print(f"[+] Github repo stars: {stars}")
-    print(f"[+] Github repo forks: {forks}")
+    print(f"[+] Number of stars on the Github repo: {stars}")
+    print(f"[+] Number of forks on the Github repo: {forks}")
+    print(f"[+] Number of open issues on the Github repo: {issues}")
+    print(f"[+] Number of closed issues on the Github repo: {clissues}")
+    print(f"[+] Number of open pull requests on the Github repo: {prs}")
+    print(f"[+] Number of closed pull requests on the Github repo: {clprs}")
+    print(f"[+] Number of discussions on the Github repo: {discs}")
 
 def banner() -> str:
     return """
@@ -233,6 +243,7 @@ def main():
         sleep(2)
         print("|"+"-"*20+"login".upper()+"-"*20+"|")
         username=str(input("[>] Please enter your username: "))
+        username = username.lower().strip()
         while checkUser(username):
             if username == None:
                 print("[!] This field can't be blank !")
@@ -264,6 +275,7 @@ def main():
             if opt == 1:
                 clear()
                 username=str(input("[>] Please enter the username: "))
+                username = username.lower().strip()
                 while checkUser(username):
                     if username == None:
                         print("[!] This field can't be blank !")
@@ -293,8 +305,6 @@ def main():
                 print("[+] Valid answers: [yes/no]")
             sleep(1)
             ga=str(input("[?] Do you want to grant access to the script to have access to the number of your followers in order to provide additional information ? [yes/no] "))
-        username=username.lower()
-        username=username.strip()
         if ga in ANS[:9]:
             loader = instaloader.Instaloader()
             profile = instaloader.Profile.from_username(loader.context, username)
@@ -315,7 +325,7 @@ def main():
         try:
             login = client.login(username,password)
             if login:
-                print("[*] Login successful !")
+                print("[✓] Login successful !")
                 sleep(2)
                 print("[+] Please wait while the program is increasing your followers...")
             else:
@@ -459,10 +469,6 @@ def main():
                 follow += 1
                 print("[+] Following 217867189...")
                 sleep(2)
-                client.user_follow(20824486) #NBA
-                follow += 1
-                print("[+] Following 20824486...")
-                sleep(2)
                 client.user_follow(25025320) #Instagram
                 follow += 1
                 print("[+] Following 25025320...")
@@ -579,10 +585,6 @@ def main():
                 unfollow += 1
                 print("[+] Unfollowing 217867189...")
                 sleep(2)
-                client.user_unfollow(20824486) #NBA
-                unfollow += 1
-                print("[+] Unfollowing 20824486...")
-                sleep(2)
                 client.user_unfollow(25025320) #Instagram
                 unfollow += 1
                 print("[+] Unfollowing 25025320...")
@@ -632,7 +634,7 @@ def main():
             if follow - unfollow != 0:
                 print(f"[✕] Failed to unfollow: {abs(follow - unfollow)} users")
             pers = (follow + unfollow) / 74.0
-            print("[+] Percentage of success: "+str(pers))
+            print(f"[+] Percentage of success: {pers}")
             sleep(1)
             print(f"[+] Percentage of fail: {float(100 - pers)}%")
             sleep(1)
@@ -687,9 +689,9 @@ def main():
             f.close()
             print("[✓] Successfully saved log !")
             sleep(2)
-            print("[↪] Log file name: "+name)
-            print("[↪] Path to log file: "+os.path.abspath(name))
-            print("[↪] Log file size: "+str((os.stat(name)).st_size))
+            print(f"[↪] Log file name: {name}")
+            print(f"[↪] Path to log file: {os.path.abspath(name)}")
+            print(f"[↪] Log file size: {(os.stat(name)).st_size}")
             sleep(4)
             print("[1] Return to menu")
             print("[2] Exit")
@@ -730,9 +732,9 @@ def main():
             f.close()
             print("[✓] Successfully saved log !")
             sleep(2)
-            print("[↪] Log file name: "+name)
-            print("[↪] Path to log file: "+os.path.abspath(name))
-            print("[↪] Log file size: "+str((os.stat(name)).st_size))
+            print(f"[↪] Log file name: {name}")
+            print(f"[↪] Path to log file: {os.path.abspath(name)}")
+            print(f"[↪] Log file size: {(os.stat(name)).st_size}")
             sleep(4)
             print("[1] Return to menu")
             print("[2] Exit")
@@ -766,9 +768,9 @@ def main():
             f.close()
             print("[✓] Successfully cleared log !")
             sleep(1)
-            print("[↪] Log file name: "+name)
-            print("[↪] Path to log file: "+os.path.abspath(name))
-            print("[↪] Log file size: "+str((os.stat(name)).st_size))
+            print(f"[↪] Log file name: {name}")
+            print(f"[↪] Path to log file: {os.path.abspath(name)}")
+            print(f"[↪] Log file size: {(os.stat(name)).st_size}")
             sleep(4)
             print("[1] Return to menu")
             print("[2] Exit")
@@ -799,7 +801,7 @@ def main():
             clear()
             print("[!] Log file not found on this device !")
             sleep(2)
-            print("[+] Searched log file using name: "+name)
+            print(f"[+] Searched log file using name: {name}")
             sleep(2)
             print("[+] Please first create the log file and then use this option 😀")
             sleep(2)
