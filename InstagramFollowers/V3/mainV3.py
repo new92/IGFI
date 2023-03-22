@@ -141,7 +141,7 @@ def Uninstall() -> str:
             os.rmdir(DIRS[i])
         os.rmdir(dire)
     rmdir(os.path.abspath('IGFollowersIncreaser'))
-    return "[+] Files and dependencies uninstalled successfully !"
+    return "[✓] Files and dependencies uninstalled successfully !"
 
 def banner() -> str:
     return """
