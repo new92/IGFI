@@ -172,8 +172,7 @@ def checkUser(username:str) -> bool:
     return username == None or len(username) > 30 or type(username) != str
 
 def valUser(username:str) -> bool:
-    CODES = [400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 418, 421, 422, 423, 424, 425, 426, 429, 431, 451]
-    return requests.get("https://www.instagram.com/"+username).status_code in CODES
+    return requests.get("https://www.instagram.com/"+username).status_code in [400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 418, 421, 422, 423, 424, 425, 426, 429, 431, 451]
 
 def main():
     print(banner())
