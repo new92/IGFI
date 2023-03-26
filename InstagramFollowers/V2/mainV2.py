@@ -528,7 +528,7 @@ def main():
                 if follow - unfollow != 0:
                     print(f"[✕] Failed to unfollow: {abs(follow - unfollow)} users")
                 pers = (follow + unfollow) / float(len(FOLLOW)*2)
-                print(f"[+] Percentage of success: {pers}")
+                print(f"[+] Percentage of success: {pers}%")
                 sleep(1)
                 print(f"[+] Percentage of fail: {float(100 - pers)}%")
                 sleep(1)
