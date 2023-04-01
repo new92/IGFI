@@ -102,7 +102,7 @@ def ProgInfo():
         fsize = (os.stat(f)).st_size
     else:
         fsize = 0
-    stars = 21
+    stars = 22
     forks = 13
     issues = 0
     clissues = 1
