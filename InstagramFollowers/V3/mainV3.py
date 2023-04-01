@@ -99,7 +99,7 @@ def Info():
     language = 'Python'
     name = 'InstaFollowV3'
     api = None
-    lines = 854
+    lines = 853
     f = '/IGFollowersIncreaser/InstagramFollowers/V3/mainV3.py'
     if os.path.exists(os.path.abspath(f)):
         fsize = (os.stat(f)).st_size
