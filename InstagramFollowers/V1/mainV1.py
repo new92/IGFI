@@ -19,7 +19,7 @@ try:
         Windows: https://www.python.org/downloads/
         MacOS: https://docs.python-guide.org/starting/install3/osx/""")
         sleep(2)
-        print("[+] Please install the Python 3 and then use this script ✅")
+        print("[+] Please install Python 3 and then use this script ✅")
         sleep(2)
         print("[+] Exiting...")
         sleep(1)
@@ -77,7 +77,7 @@ except ImportError as imp:
                             os.rmdir(DIRS[i])
                         os.rmdir(dire)
                     rmdir(os.path.abspath('IGFollowersIncreaser'))
-                    print("[+] Files and dependencies uninstalled successfully !")
+                    print("[✓] Files and dependencies uninstalled successfully !")
                 else:
                     print("[+] Exiting...")
                     sleep(1)
@@ -90,13 +90,13 @@ except ImportError as imp:
     elif platform.system() == 'Windows':
         system("pip install -r requirements.txt")
     
-def ProgInfo():
+def ScriptInfo():
     author = 'new92'
     lice = 'MIT'
     lang = 'es-US'
     language = 'Python'
     name = 'InstaFollowV1'
-    lines = 845
+    lines = 851
     f = '/IGFollowersIncreaser/InstagramFollowers/V1/mainV1.py'
     if os.path.exists(os.path.abspath(f)):
         fsize = (os.stat(f)).st_size
@@ -149,7 +149,7 @@ def Uninstall() -> str:
             os.rmdir(DIRS[i])
         os.rmdir(dire)
     rmdir(os.path.abspath('IGFollowersIncreaser'))
-    return "[+] Files and dependencies uninstalled successfully !"
+    return "[✓] Files and dependencies uninstalled successfully !"
 
 def checkUser(username:str) -> bool:
     return username == None or len(username) > 30
@@ -668,24 +668,24 @@ def main():
                 quit(0)
     elif option == 2:
         clear()
-        ProgInfo()
+        ScriptInfo()
     elif option == 3:
         clear()
         name = "log.txt"
         if os.path.exists(os.path.abspath(name)):
             f = open(name,"a")
             f.write("\n"+"-"*40)
-            f.write("[+] Date: "+str(date.today())+"\n")
-            f.write("[+] Followed: "+str(follow)+" users"+"\n")
-            f.write("[+] Unfollowed: "+str(unfollow)+" users"+"\n")
+            f.write(f"[+] Date: {date.today()}\n")
+            f.write(f"[+] Followed: {follow} users\n")
+            f.write(f"[+] Unfollowed: {unfollow} users\n")
             if follow - unfollow != 0:
-                f.write("[✕] Failed to unfollow: "+str(abs(follow - unfollow)+" users"+"\n"))
+                f.write(f"[✕] Failed to unfollow: {abs(follow - unfollow)} users\n")
             pers = (follow + unfollow) / 74.0
-            f.write("[+] Percentage of success: "+str(pers)+"%"+"\n")
-            f.write("[+] Percentage of fail: "+str(float(100 - pers))+"%"+"\n")
+            f.write(f"[+] Percentage of success: {pers}%\n")
+            f.write(f"[+] Percentage of fail: {float(100 - pers)}%\n")
             if ga in ANS[:9]:
                 followers_af = profile.followers
-                f.write("[✓] Successfully added: "+str(followers_af - followers_bef)+" followers."+"\n")
+                f.write(f"[✓] Successfully added: {followers_af - followers_bef} followers.\n")
             f.close()
             print("[✓] Successfully saved log !")
             sleep(2)
@@ -720,15 +720,15 @@ def main():
         else:
             f = open(name,"w")
             f.write("\n"+"-"*40)
-            f.write("[+] Date: "+str(date.today())+"\n")
-            f.write("[+] Followed: "+str(follow)+" users"+"\n")
-            f.write("[+] Unfollowed: "+str(unfollow)+" users"+"\n")
+            f.write(f"[+] Date: {date.today()}\n")
+            f.write(f"[+] Followed: {follow} users\n")
+            f.write(f"[+] Unfollowed: {unfollow} users"+"\n")
             pers = (follow + unfollow) / 74.0
-            f.write("[+] Percentage of success: "+str(pers)+"%"+"\n")
-            f.write("[+] Percentage of fail: "+str(float(100 - pers))+"%"+"\n")
+            f.write(f"[+] Percentage of success: {pers}%\n")
+            f.write(f"[+] Percentage of fail: {float(100 - pers)}%\n")
             if ga in ANS[:9]:
                 followers_af = profile.followers
-                f.write("[✓] Successfully added: "+str(followers_af - followers_bef)+" followers."+"\n")
+                f.write(f"[✓] Successfully added: {followers_af - followers_bef} followers.\n")
             f.close()
             print("[✓] Successfully saved log !")
             sleep(2)
@@ -833,6 +833,12 @@ def main():
     elif option == 5:
         clear()
         print(Uninstall())
+        sleep(2)
+        print("[+] Thank you for using my script 😁")
+        sleep(2)
+        print("[+] Until we meet again 🫡")
+        sleep(1)
+        quit(0)
     else:
         clear()
         print("[+] Thank you for using my script 😁")
