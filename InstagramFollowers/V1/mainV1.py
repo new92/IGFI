@@ -12,6 +12,7 @@ Will be used only to increase the followers of the user's Instagram account
 """
 try:
     import sys
+    from time import sleep
     if sys.version_info[0] < 3:
         print("[!] Error ! This script requires Python version 3.X ! ")
         print("""[+] Instructions to download Python 3.x : 
@@ -26,13 +27,12 @@ try:
         quit(0)
     import platform
     from os import system
-    from time import sleep
     import instagrapi
     import os
     import requests
     import instaloader
     from datetime import date
-except ImportError as imp:
+except ImportError:
     print("[!] WARNING: Not all packages used in this script have been installed !")
     sleep(2)
     print("[+] Ignoring warning...")
