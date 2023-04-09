@@ -56,11 +56,9 @@ except ImportError:
                 print("[1] Uninstall script")
                 print("[2] Exit")
                 opt=int(input("[>] Please enter a number (from the above ones): "))
-                while opt < 1 or opt > 2 or opt == None or type(opt) != int:
+                while opt < 1 or opt > 2 or opt == None:
                     if opt == None:
                         print("[!] This field can't be blank !")
-                    elif type(opt) != int:
-                        print(f"[!] The number must be an integer ! Not {type(opt)}")
                     else:
                         print("[!] Invalid number !")
                         sleep(1)
