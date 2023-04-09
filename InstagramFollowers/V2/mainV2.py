@@ -99,7 +99,7 @@ def ProgInfo():
     language = 'Python'
     name = 'InstaFollowV2'
     api = None
-    lines = 741
+    lines = 736
     f = '/IGFollowersIncreaser/InstagramFollowers/V2/mainV2.py'
     if os.path.exists(os.path.abspath(f)):
         fsize = (os.stat(f)).st_size
@@ -313,7 +313,7 @@ def main():
                 sleep(1)
                 quit(0)
         con=str(input(f"[?] Script will increase the followers for the user: {username} is that correct ? [yes/no] "))
-        while con not in ANS or con == None or type(con) != str:
+        while con not in ANS or con == None:
             if con == None:
                 print("[!] This field can't be blank !")
             else:
@@ -406,13 +406,8 @@ def main():
             followers_bef = profile.followers
         sleep(1)
         password=str(input("[>] Please enter your password: "))
-        while password == None or type(password) != str:
-            if password == None:
-                print("[!] This field can't be blank !")
-            else:
-                print("[!] Invalid password !")
-                sleep(1)
-                print("[+] The password must be a string")
+        while password == None:
+            print("[!] This field can't be blank !")
             sleep(1)
             password=str(input("[>] Please enter again your password: "))
         password=password.strip()
@@ -469,7 +464,7 @@ def main():
             print("[1] Return to menu")
             print("[2] Exit")
             num=int(input("[>] Please enter a number (from the above ones): "))
-            while num < 1 or num > 2 or num == None or type(num) != int:
+            while num < 1 or num > 2 or num == None:
                 if num == None:
                     print("[!] This field can't be empty !")
                 else:
