@@ -311,7 +311,7 @@ def main():
             followers_bef = profile.followers
         sleep(1)
         password=str(input("[>] Please enter your password: "))
-        while password == None or type(password) != str:
+        while password == None:
             if password == None:
                 print("[!] This field can't be blank !")
             else:
