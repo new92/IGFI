@@ -48,7 +48,7 @@ except ImportError:
             system("sudo su")
             try:
                 system("sudo pip install -r requirements.txt")
-            except Exception as ex:
+            except Exception:
                 print("[!] Cannot install the required modules !")
                 sleep(2)
                 print("[1] Uninstall script")
