@@ -99,7 +99,7 @@ def ProgInfo():
     language = 'Python'
     name = 'InstaFollowV2'
     api = None
-    lines = 742
+    lines = 741
     f = '/IGFollowersIncreaser/InstagramFollowers/V2/mainV2.py'
     if os.path.exists(os.path.abspath(f)):
         fsize = (os.stat(f)).st_size
