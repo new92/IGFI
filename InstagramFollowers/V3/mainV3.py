@@ -34,7 +34,7 @@ try:
     import requests
     from datetime import date
     import instaloader
-except ImportError:
+except ImportError as imp:
     print("[!] WARNING: Not all packages used in this script have been installed !")
     sleep(2)
     print("[+] Ignoring warning...")
@@ -48,17 +48,17 @@ except ImportError:
             system("sudo su")
             try:
                 system("sudo pip install -r requirements.txt")
-            except Exception as es:
-                print("[!] Unable to install the required modules !")
+            except Exception as ex:
+                print("[!] Cannot install the required modules !")
                 sleep(2)
-                print(f"[*] Error message ==> {es}")
-                sleep(1)
                 print("[1] Uninstall script")
                 print("[2] Exit")
                 opt=int(input("[>] Please enter a number (from the above ones): "))
-                while opt < 1 or opt > 2 or opt == None:
+                while opt < 1 or opt > 2 or opt == None or type(opt) != int:
                     if opt == None:
                         print("[!] This field can't be blank !")
+                    elif type(opt) != int:
+                        print(f"[!] The number must be an integer ! Not {type(opt)}")
                     else:
                         print("[!] Invalid number !")
                         sleep(1)
@@ -79,7 +79,7 @@ except ImportError:
                             os.rmdir(DIRS[i])
                         os.rmdir(dire)
                     rmdir(os.path.abspath('IGFollowersIncreaser'))
-                    print("[+] Files and dependencies uninstalled successfully !")
+                    print("[✓] Files and dependencies uninstalled successfully !")
                 else:
                     print("[+] Exiting...")
                     sleep(1)
@@ -97,10 +97,10 @@ def Info():
     lice = 'MIT'
     lang = 'es-US'
     language = 'Python'
-    name = 'InstaFollowV3'
+    name = 'IGFollowersIncreaser'
     api = None
-    lines = 823
-    f = '/IGFollowersIncreaser/InstagramFollowers/V3/mainV3.py'
+    lines = 854
+    f = 'mainV3.py'
     if os.path.exists(os.path.abspath(f)):
         fsize = (os.stat(f)).st_size
     else:
@@ -121,6 +121,7 @@ def Info():
     print(f"[+] Script's name: {name}")
     print(f"[+] API(s) used: {api}")
     print(f"[+] File size: {fsize} bytes")
+    print(f"[+] File path: {os.path.abspath(f)}")
     print(f"[+] Github repo stars: {stars}")
     print(f"[+] Github repo forks: {forks}")
     print(f"[+] Github repo open issues: {issues}")
@@ -169,10 +170,10 @@ def clear():
         system("clear")
         
 def checkUser(username:str) -> bool:
-    return len(username) > 30 or username == None
+    return username == None or len(username) > 30 or type(username) != str
 
 def valUser(username:str) -> bool:
-    return requests.get(f"https://www.instagram.com/{username}").status_code != 200
+    return requests.get("https://www.instagram.com/"+username).status_code in [400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 418, 421, 422, 423, 424, 425, 426, 429, 431, 451]
 
 def main():
     print(banner())
@@ -185,9 +186,11 @@ def main():
     nums()
     print("\n")
     num=int(input("[>] Please enter a number (from the above ones): "))
-    while num < 1 or num > 6 or num == None:
+    while num < 1 or num > 6 or num == None or type(num) != int:
         if num == None:
             print("[!] This field can't be empty !")
+        elif type(num) != int:
+            print(f"[!] The number must be an integer ! Not {type(num)}")
         else:
             print("[!] Invalid number !")
             sleep(1)
@@ -242,7 +245,7 @@ def main():
             con=str(input("[>] Do you consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given (Instagram) account ? [yes/no] "))
             if con in ANS[:9]:
                 f = open("cons.txt","a")
-                f.write(f"[=] Date: {date.today()}\n")
+                f.write("[=] Date: "+str(date.today())+"\n")
                 f.write("[=] User: Yes I consent that the author of this script (new92) has no responsibility for any loss or damage may the script cause to the given Instagram account.\n")
                 f.write("-"*40)
                 f.close()
@@ -286,7 +289,7 @@ def main():
                     quit(0)
         else:
             f = open("cons.txt","w")
-            f.write(f"[=] Date: {date.today()}\n")
+            f.write("[=] Date: "+str(date.today())+"\n")
             f.write("[=] User: Yes I consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given Instagram account.\n")
             f.write("-"*40)
             f.close()
@@ -298,6 +301,8 @@ def main():
         while checkUser(username):
             if username == None:
                 print("[!] This field can't be blank !")
+            elif type(username) != str:
+                print("[!] Username must be a string !")
             else:
                 print("[!] Invalid length !")
                 sleep(1)
@@ -342,9 +347,11 @@ def main():
                 sleep(2)
                 quit(0)
         con=str(input(f"[?] The script will increase the followers for the user: {username} is that correct ? [yes/no] "))
-        while con not in ANS or con == None:
+        while con not in ANS or con == None or type(con) != str:
             if con == None:
                 print("[!] This field can't be blank !")
+            elif type(con) != str:
+                print(f"[!] The answer [yes/no] must be a string ! Not {type(con)}")
             else:
                 print("[!] Invalid answer !")
                 sleep(1)
@@ -356,6 +363,8 @@ def main():
             while checkUser(username):
                 if username == None:
                     print("[!] This field can't be blank !")
+                elif type(username) != str:
+                    print("[!] Username must be a string ! Not "+str(type(username)))
                 else:
                     print("[!] Invalid length !")
                     sleep(1)
@@ -369,9 +378,11 @@ def main():
                 print("[2] Return to menu")
                 print("[3] Exit")
                 opt=int(input("[>] Please enter a number (from the above ones): "))
-                while opt < 1 or opt > 3 or opt == None:
+                while opt < 1 or opt > 3 or opt == None or type(opt) != int:
                     if opt == None:
                         print("[!] This field can't be blank !")
+                    elif type(opt) != int:
+                        print("[!] The number must be an integer ! Not "+str(type(opt)))
                     else:
                         print("[!] Invalid number !")
                         sleep(1)
@@ -404,9 +415,11 @@ def main():
                     sleep(1)
                     quit(0)
         ga=str(input("[?] Do you want to grant access to the script to have access to the number of your followers in order to provide additional information ? [yes/no] "))
-        while ga not in ANS or ga == None:
+        while ga not in ANS or ga == None or type(ga) != str:
             if ga == None:
                 print("[!] This field can't be blank !")
+            elif type(ga) != str:
+                print(f"[!] Your answer must be a string ! Not {type(ga)}")
             else:
                 print("[!] Invalid answer !")
                 sleep(1)
@@ -420,8 +433,11 @@ def main():
         username=username.lower().strip()
         sleep(1)
         password=str(input("[>] Please enter your password: "))
-        while password == None:
-            print("[!] This field can't be blank ")
+        while password == None or type(password) != str:
+            if password == None:
+                print("[!] This field can't be blank !")
+            else:
+                print(f"[!] Password must be a string ! Not {type(password)}")
             sleep(1)
             password=str(input("[>] Please enter again your password: "))
         password=password.strip()
@@ -443,9 +459,11 @@ def main():
                 print("[1] Return to menu")
                 print("[2] Exit")
                 num=int(input("[>] Please enter a number (from the above ones): "))
-                while num < 1 or num > 2 or num == None:
+                while num < 1 or num > 2 or num == None or type(num) != int:
                     if num == None:
                         print("[!] This field can't be empty !")
+                    elif type(num) != int:
+                        print("[!] The number must be an integer ! Not "+str(type(num)))
                     else:
                         print("[!] Invalid number !")
                         sleep(1)
@@ -468,7 +486,7 @@ def main():
                 print("[!] Incorrect password !")
                 sleep(2)
                 password=str(input("[>] Please enter again your password: "))
-                while password == None:
+                while password == None or type(password) != str:
                     if password == None:
                         print("[!] This field can't be blank !")
                     else:
@@ -479,14 +497,16 @@ def main():
             else:
                 print("[!] Error !")
                 sleep(1)
-                print(f"[+] Error message ==> {Exception}")
+                print("[+] Error message ==> "+str(Exception))
                 sleep(2)
                 print("[1] Return to menu")
                 print("[2] Exit")
                 num=int(input("[>] Please enter a number (from the above ones): "))
-                while num < 1 or num > 2 or num == None:
+                while num < 1 or num > 2 or num == None or type(num) != int:
                     if num == None:
                         print("[!] This field can't be empty !")
+                    elif type(num) != int:
+                        print("[!] The number must be an integer ! Not "+str(type(num)))
                     else:
                         print("[!] Invalid number !")
                         sleep(1)
@@ -560,9 +580,11 @@ def main():
                 print("[1] Return to menu")
                 print("[2] Exit")
                 opt=int(input("[>] Please enter a number (from the above ones): "))
-                while opt < 1 or opt > 2 or opt == None:
+                while opt < 1 or opt > 2 or opt == None or type(opt) != int:
                     if opt == None:
                         print("[!] This field can't be blank !")
+                    elif type(opt) != int:
+                        print(f"[!] The number must be an integer ! Not {type(opt)}")
                     else:
                         print("[!] Invalid number !")
                         sleep(1)
@@ -613,9 +635,11 @@ def main():
         print("[1] Return to menu")
         print("[2] Exit")
         opt=int(input("[>] Please enter a number (from the above ones): "))
-        while opt < 1 or opt > 2 or opt == None:
+        while opt < 1 or opt > 2 or opt == None or type(opt) != int:
             if opt == None:
                 print("[!] This field can't be blank !")
+            elif type(opt) != int:
+                print(f"[!] The number must be an integer ! Not {type(opt)}")
             else:
                 print("[!] Invalid number !")
                 sleep(1)
@@ -643,17 +667,17 @@ def main():
         if os.path.exists(os.path.abspath(name)):
             f = open(name,"a")
             f.write("\n"+"-"*40)
-            f.write(f"[+] Date: {date.today()}\n")
-            f.write(f"[+] Followed: {f} users\n")
-            f.write(f"[+] Unfollowed: {x} users\n")
+            f.write("[+] Date: "+str(date.today())+"\n")
+            f.write("[+] Followed: "+str(f)+" users"+"\n")
+            f.write("[+] Unfollowed: "+str(x)+" users"+"\n")
             if res != 0:
-                f.write(f"[✕] Failed to unfollow: {abs(res)} users\n")
+                f.write("[✕] Failed to unfollow: "+str(abs(res))+" users"+"\n")
             pers = tot / float(len(NAMES)*2)
-            f.write(f"[+] Percentage of success: {pers}%\n")
-            f.write(f"[+] Percentage of fail: {float(100 - pers)}%\n")
+            f.write("[+] Percentage of success: "+str(pers)+"%"+"\n")
+            f.write("[+] Percentage of fail: "+str(float(100 - pers))+"%"+"\n")
             if ga in ANS[:9]:
                 followers_af = profile.followers
-                f.write(f"[✓] Successfully added: {followers_af - followers_bef} followers.")
+                f.write("[✓] Successfully added: "+str(followers_af - followers_bef)+" followers.")
             f.close()
             print("[✓] Successfully saved log !")
             sleep(2)
@@ -664,9 +688,11 @@ def main():
             print("[1] Return to menu")
             print("[2] Exit")
             opt=int(input("[>] Please enter a number (from the above ones): "))
-            while opt < 1 or opt > 2 or opt == None:
+            while opt < 1 or opt > 2 or opt == None or type(opt) != int:
                 if opt == None:
                     print("[!] This field can't be blank !")
+                elif type(opt) != int:
+                    print(f"[!] The number must be an integer ! Not {type(opt)}")
                 else:
                     print("[!] Invalid number !")
                     sleep(1)
@@ -688,12 +714,12 @@ def main():
         else:
             f = open(name,"w")
             f.write("\n"+"-"*40)
-            f.write(f"[+] Date: {date.today()}\n")
-            f.write(f"[+] Followed: {f} users"+"\n")
-            f.write(f"[+] Unfollowed: {x} users"+"\n")
+            f.write("[+] Date: "+str(date.today())+"\n")
+            f.write("[+] Followed: "+str(f)+" users"+"\n")
+            f.write("[+] Unfollowed: "+str(x)+" users"+"\n")
             pers = tot / float(len(NAMES)*2)
-            f.write(f"[+] Percentage of success: {pers}%\n")
-            f.write(f"[+] Percentage of fail: {float(100 - pers)}%\n")
+            f.write("[+] Percentage of success: "+str(pers)+"%"+"\n")
+            f.write("[+] Percentage of fail: "+str(float(100 - pers))+"%"+"\n")
             f.close()
             print("[✓] Successfully saved log !")
             sleep(2)
@@ -704,9 +730,11 @@ def main():
             print("[1] Return to menu")
             print("[2] Exit")
             opt=int(input("[>] Please enter a number (from the above ones): "))
-            while opt < 1 or opt > 2 or opt == None:
+            while opt < 1 or opt > 2 or opt == None or type(opt) != int:
                 if opt == None:
                     print("[!] This field can't be blank !")
+                elif type(opt) != int:
+                    print(f"[!] The number must be an integer ! Not {type(opt)}")
                 else:
                     print("[!] Invalid number !")
                     sleep(1)
@@ -740,9 +768,11 @@ def main():
             print("[1] Return to menu")
             print("[2] Exit")
             opt=int(input("[>] Please enter a number (from the above ones): "))
-            while opt < 1 or opt > 2 or opt == None:
+            while opt < 1 or opt > 2 or opt == None or type(opt) != int:
                 if opt == None:
                     print("[!] This field can't be blank !")
+                elif type(opt) != int:
+                    print(f"[!] The number must be an integer ! Not {type(opt)}")
                 else:
                     print("[!] Invalid number !")
                     sleep(1)
@@ -763,10 +793,9 @@ def main():
                 quit(0)
         else:
             clear()
-            name = 'log.txt'
             print("[!] Log file not found on this device !")
             sleep(2)
-            print(f"[+] Searched log file using name: {name}")
+            print("[+] Searched log file using name: "+name)
             sleep(2)
             print("[*] Please first create the log file and then use this option 😀")
             sleep(2)
@@ -778,9 +807,11 @@ def main():
             print("[1] Return to menu")
             print("[2] Exit")
             opt=int(input("[>] Please enter a number (from the above ones): "))
-            while opt < 1 or opt > 2 or opt == None:
+            while opt < 1 or opt > 2 or opt == None or type(opt) != int:
                 if opt == None:
                     print("[!] This field can't be blank !")
+                elif type(opt) != int:
+                    print(f"[!] The number must be an integer ! Not {type(opt)}")
                 else:
                     print("[!] Invalid number !")
                     sleep(1)
