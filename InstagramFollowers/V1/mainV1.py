@@ -2,7 +2,8 @@
 """
 Author: new92
 Github: @new92
-InstaFollowV1: Script for increasing the followers of an Instagram account
+
+IGFollowersIncreaser: Use this script to increase the followers of your Insta account
 
 
 *********IMPORTANT*********
@@ -95,9 +96,9 @@ def ScriptInfo():
     lice = 'MIT'
     lang = 'es-US'
     language = 'Python'
-    name = 'InstaFollowV1'
-    lines = 851
-    f = '/IGFollowersIncreaser/InstagramFollowers/V1/mainV1.py'
+    name = 'IGFollowersIncreaser'
+    lines = 850
+    f = 'mainV1.py'
     if os.path.exists(os.path.abspath(f)):
         fsize = (os.stat(f)).st_size
     else:
@@ -117,6 +118,7 @@ def ScriptInfo():
     print(f"[+] Number of lines: {lines}")
     print(f"[+] Script's name: {name}")
     print(f"[+] File size: {fsize} bytes")
+    print(f"[+] File path: {os.path.abspath(f)}")
     print(f"[+] Number of stars on the Github repo: {stars}")
     print(f"[+] Number of forks on the Github repo: {forks}")
     print(f"[+] Number of open issues on the Github repo: {issues}")
@@ -196,7 +198,7 @@ def main():
             con=str(input("[>] Do you consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given (Instagram) account ? [yes/no] "))
             if con in ANS[:9]:
                 f = open("cons.txt","a")
-                f.write("[=] Date: "+str(date.today())+"\n")
+                f.write(f"[=] Date: {date.today()}\n")
                 f.write("[=] User: Yes I consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given Instagram account.")
                 f.write("-"*40)
                 f.close()
@@ -234,7 +236,7 @@ def main():
                     quit(0)
         else:
             f = open("cons.txt","w")
-            f.write("[=] Date: "+str(date.today())+"\n")
+            f.write(f"[=] Date: {date.today()}\n")
             f.write("[=] User: Yes I consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given Instagram account.")
             f.write("-"*40)
             f.close()
@@ -253,7 +255,7 @@ def main():
                 print("[+] The length of the username must be less than or equal to 30 characters.")
             sleep(1)
             username=str(input("[>] Please enter again your username: "))
-        while requests.get(f"https://www.instagram.com/{username}/").status_code == 404 or requests.get(f"https://www.instagram.com/{username}/").status_code == 400:
+        while requests.get(f"https://www.instagram.com/{username}/").status_code != 200:
             print("[!] User not found !")
             sleep(1)
             print("[1] Try with another username")
@@ -312,10 +314,7 @@ def main():
         sleep(1)
         password=str(input("[>] Please enter your password: "))
         while password == None:
-            if password == None:
-                print("[!] This field can't be blank !")
-            else:
-                print("[!] Password must be a string !")
+            print("[!] This field can't be blank !")
             sleep(1)
             password=str(input("[>] Please enter again your password: "))
         password=password.strip()
