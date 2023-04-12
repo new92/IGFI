@@ -2,7 +2,7 @@
 """
 Author: new92
 Github: @new92
-InstaFollowV3: Script for increasing the followers of an Instagram account
+IGFollowersIncreaser: Use this script to increase the followers on your Insta account
 
 
 
