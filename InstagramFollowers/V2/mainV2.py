@@ -3,7 +3,7 @@
 Author: new92
 Github: @new92
 
-InstaFollowV2: Script for increasing the followers of an Instagram account
+IGFollowersIncreaser: Use this script to increase the followers on your Insta account
 
 *********IMPORTANT*********
 
@@ -79,7 +79,7 @@ except ImportError:
                             os.rmdir(DIRS[i])
                         os.rmdir(dire)
                     rmdir(os.path.abspath('IGFollowersIncreaser'))
-                    print("[+] Files and dependencies uninstalled successfully !")
+                    print("[✓] Files and dependencies uninstalled successfully !")
                 else:
                     print("[+] Exiting...")
                     sleep(1)
@@ -97,10 +97,10 @@ def ProgInfo():
     lice = 'MIT'
     lang = 'es-US'
     language = 'Python'
-    name = 'InstaFollowV2'
+    name = 'IGFollowersIncreaser'
     api = None
-    lines = 736
-    f = '/IGFollowersIncreaser/InstagramFollowers/V2/mainV2.py'
+    lines = 747
+    f = 'mainV2.py'
     if os.path.exists(os.path.abspath(f)):
         fsize = (os.stat(f)).st_size
     else:
@@ -121,6 +121,7 @@ def ProgInfo():
     print(f"[+] Script's name: {name}")
     print(f"[+] API(s) used: {api}")
     print(f"[+] File size: {fsize} bytes")
+    print(f"[+] File path: {os.path.abspath(f)}")
     print(f"[+] Github repo stars: {stars}")
     print(f"[+] Github repo forks: {forks}")
     print(f"[+] Github repo open issues: {issues}")
@@ -176,10 +177,10 @@ def clear():
 def main():
     print(banner())
     print("\n")
-    print("[+] Script for increasing the followers of an account on Instagram (works for both public and private accounts)")
-    print("\n")
     print("[+] Author: new92")
     print("[+] Github: @new92")
+    print("\n")
+    print("[+] Use this script to increase the followers on your Insta account")
     print("\n")
     nums()
     print("\n")
@@ -316,6 +317,8 @@ def main():
         while con not in ANS or con == None:
             if con == None:
                 print("[!] This field can't be blank !")
+            elif type(con) != str:
+                print("[!] You must enter a string !")
             else:
                 print("[!] Invalid answer !")
                 sleep(1)
@@ -467,6 +470,8 @@ def main():
             while num < 1 or num > 2 or num == None:
                 if num == None:
                     print("[!] This field can't be empty !")
+                elif type(num) != int:
+                    print("[!] Number must be an integer !")
                 else:
                     print("[!] Invalid number !")
                     sleep(1)
@@ -584,6 +589,8 @@ def main():
             while opt < 1 or opt > 2 or opt == None:
                 if opt == None:
                     print("[!] This field can't be blank !")
+                elif type(opt) != int:
+                    print("[!] Number must be an integer !")
                 else:
                     print("[!] Invalid number !")
                     sleep(1)
@@ -607,7 +614,7 @@ def main():
             f.write("\n"+"-"*40)
             f.write(f"[+] Date: {date.today()}\n")
             f.write(f"[+] Followed: {follow} users\n")
-            f.write(f"[+] Unfollowed: {unfollow} users"+"\n")
+            f.write(f"[+] Unfollowed: {unfollow} users\n")
             pers = (follow + unfollow) / float(len(FOLLOW)*2)
             f.write(f"[+] Percentage of success: {pers}%\n")
             f.write(f"[+] Percentage of fail: {float(100 - pers)}%\n")
@@ -624,6 +631,8 @@ def main():
             while opt < 1 or opt > 2 or opt == None:
                 if opt == None:
                     print("[!] This field can't be blank !")
+                elif type(opt) != int:
+                    print("[!] You must enter an integer !")
                 else:
                     print("[!] Invalid number !")
                     sleep(1)
@@ -660,6 +669,8 @@ def main():
             while opt < 1 or opt > 2 or opt == None:
                 if opt == None:
                     print("[!] This field can't be blank !")
+                elif type(opt) != int:
+                    print("[!] You must enter an integer !")
                 else:
                     print("[!] Invalid number !")
                     sleep(1)
@@ -682,7 +693,7 @@ def main():
             clear()
             print("[!] Log file not found on this device !")
             sleep(2)
-            print(f"[+] Searched log file using name: {name}")
+            print("[+] Searched log file using name: "+name)
             sleep(2)
             print("[*] Please first create the log file and then use this option 😀")
             sleep(2)
