@@ -34,7 +34,7 @@ try:
     import requests
     from datetime import date
     import instaloader
-except ImportError as imp:
+except ImportError:
     print("[!] WARNING: Not all packages used in this script have been installed !")
     sleep(2)
     print("[+] Ignoring warning...")
