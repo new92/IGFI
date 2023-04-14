@@ -106,7 +106,7 @@ def ScriptInfo():
     stars = 24
     forks = 15
     issues = 0
-    clissues = 1
+    clissues = 2
     prs = 0
     clprs = 4
     discs = 1
