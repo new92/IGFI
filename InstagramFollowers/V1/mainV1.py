@@ -6,7 +6,6 @@ Github: @new92
 
 IGFollowersIncreaser: Use this script to increase the followers of your Insta account
 
-
 *********IMPORTANT*********
 User's login credentials (such as: username, password) will not be stored or saved ! 
 Will be used only to increase the followers of the user's Instagram account
