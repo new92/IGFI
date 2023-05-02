@@ -3,7 +3,6 @@
 Author: new92
 Github: @new92
 
-
 IGFollowersIncreaser: Use this script to increase the followers of your Insta account
 
 
