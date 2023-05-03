@@ -167,7 +167,7 @@ def nums():
     print("[2] Show program info and exit")
     print("[3] Keep log")
     print("[4] Clear log")
-    print("[5] Uninstall script")
+    print("[5] Uninstall IGFollowersIncreaser")
     print("[6] Exit")
 
 def main():
