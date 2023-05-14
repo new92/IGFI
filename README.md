@@ -149,6 +149,12 @@ Answer ➡️ Only if you're using a very old version of Instagram. But the scri
   python mainV<and the name of the folder. Example: python3 mainV1.py>.py
 ```
     
+## Update 🔄️
+
+```bash
+   git pull
+```
+
 
 ## License 📜
 
