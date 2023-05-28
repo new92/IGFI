@@ -36,6 +36,7 @@ Any type of feedback is welcome and appreciated. (Please do not use any vulgar v
 ## Badges 📛
 
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/3033f9768def4b55b430b95756e8c261)](https://app.codacy.com/gh/new92/IGFollowersIncreaser?utm_source=github.com&utm_medium=referral&utm_content=new92/IGFollowersIncreaser&utm_campaign=Badge_Grade)
 [![Number of files](https://img.shields.io/github/directory-file-count/new92/IGFollowersIncreaser?style=for-the-badge)](https://img.shields.io/github/directory-file-count/new92/IGFollowersIncreaser)
 
 [![Code size](https://img.shields.io/github/languages/code-size/new92/IGFollowersIncreaser?style=for-the-badge)](https://img.shields.io/github/languages/code-size/new92/IGFollowersIncreaser)
