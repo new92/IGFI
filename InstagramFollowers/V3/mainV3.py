@@ -105,7 +105,7 @@ def Info():
         fsize = (os.stat(f)).st_size
     else:
         fsize = 0
-    stars = 33
+    stars = 34
     forks = 25
     issues = 0
     clissues = 2
