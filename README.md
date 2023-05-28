@@ -59,6 +59,8 @@ Any type of feedback is welcome and appreciated. (Please do not use any vulgar v
 
 [![Contributors](https://img.shields.io/github/contributors/new92/IGFollowersIncreaser?style=for-the-badge)](https://img.shields.io/github/contributors/new92/IGFollowersIncreaser)
 
+[![Language](https://img.shields.io/github/languages/top/new92/IGFollowersIncreaser?style=for-the-badge)](https://img.shields.io/github/languages/top/new92/IGFollowersIncreaser?style=for-the-badge)
+
 ## Contributing 🤝
 
 Contributions are always welcome !
