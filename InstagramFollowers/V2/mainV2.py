@@ -106,7 +106,7 @@ def ProgInfo():
     else:
         fsize = 0
     stars = 35
-    forks = 25
+    forks = 26
     issues = 0
     clissues = 2
     prs = 0
