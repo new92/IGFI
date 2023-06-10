@@ -103,7 +103,7 @@ def ScriptInfo():
     lang = 'en-US'
     language = 'Python'
     name = 'IGFollowersIncreaser'
-    lines = 764
+    lines = 775
     f = 'mainV1.py'
     if os.path.exists(os.path.abspath(f)):
         fsize = (os.stat(f)).st_size
@@ -207,17 +207,24 @@ def main():
         keep=bool(input(f"{YELLOW}[?] Keep log ? "))
         if os.path.exists("cons.txt"):
             con=str(input(f"{YELLOW}[>] Do you consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given (Instagram) account ? [yes/no] "))
+            while con not in ANS or con == None:
+                if con == None:
+                    print(f"{RED}[!] This field can't be blank !")
+                else:
+                    print(f"{RED}[!] Invalid answer !")
+                sleep(1)
+                con=str(input(f"{YELLOW}[>] Do you consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given (Instagram) account ? [yes/no] "))
             if con in ANS[:9]:
                 f = open("cons.txt","a")
                 f.write(f"[=] Date: {date.today()}\n")
-                f.write("[=] User: Yes I consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given Instagram account.")
-                f.write("-"*40)
+                f.write("[=] User: Yes I consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given Instagram account.\n")
+                f.write("-"*40+'\n')
                 f.close()
             else:
                 print(f"{YELLOW}[OK]")
                 sleep(1)
                 print(f"{YELLOW}[1] Exit")
-                print(f"{YELLOW}[2] Uninstall script and exit")
+                print(f"{YELLOW}[2] Uninstall IGFollowersIncreaser and exit")
                 num=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
                 while num < 1 or num > 2 or num == None:
                     if num == None:
@@ -228,7 +235,7 @@ def main():
                         print(f"{YELLOW}[+] Acceptable numbers: [1/2]")
                     sleep(1)
                     print(f"{YELLOW}[1] Exit")
-                    print(f"{YELLOW}[2] Uninstall script and exit")
+                    print(f"{YELLOW}[2] Uninstall IGFollowersIncreaser and exit")
                     sleep(1)
                     num=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
                 if num == 1:
@@ -248,8 +255,8 @@ def main():
         else:
             f = open("cons.txt","w")
             f.write(f"[=] Date: {date.today()}\n")
-            f.write("[=] User: Yes I consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given Instagram account.")
-            f.write("-"*40)
+            f.write("[=] User: Yes I consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given Instagram account.\n")
+            f.write("-"*40+'\n')
             f.close()
         print(f"\n")
         print(f"{YELLOW}[+] The login credentials will not be stored or saved")
@@ -348,7 +355,7 @@ def main():
                 num=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
                 while num < 1 or num > 2 or num == None:
                     if num == None:
-                        print(f"{RED}[!] This field can't be empty !")
+                        print(f"{RED}[!] This field can't be blank !")
                     else:
                         print(f"{RED}[!] Invalid number !")
                         sleep(1)
@@ -358,8 +365,10 @@ def main():
                     print(f"{YELLOW}[2] Exit")
                     num=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
                 if num == 1:
+                    clear()
                     main()
                 else:
+                    clear()
                     print(f"{RED}[+] Exiting...")
                     sleep(1)
                     print(f"{GREEN}[+] See you next time 👋")
@@ -375,7 +384,7 @@ def main():
             num=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
             while num < 1 or num > 2 or num == None:
                 if num == None:
-                    print(f"{RED}[!] This field can't be empty !")
+                    print(f"{RED}[!] This field can't be blank !")
                 else:
                     print(f"{RED}[!] Invalid number !")
                     sleep(1)
@@ -396,9 +405,11 @@ def main():
                 quit(0)
         sleep(2)
         clear()
-        print(f"{YELLOW}[+] To end the process enter Ctrl + C")
+        print(f"{YELLOW}[+] To end the process enter: <Ctrl + C>")
         sleep(2)
         print(f"{YELLOW}[*] NOTE: Use this program every 2 days in order for your account not to get blocked")
+        sleep(6)
+        clear()
         follow = 0
         unfollow = 0
         while True:
@@ -655,19 +666,19 @@ def main():
             if keep:
                 name = 'log.txt'
                 if os.path.exists(os.path.abspath(name)):
-                    f = open(name,"a")
-                    f.write("\n"+"-"*40)
-                    f.write(f"[+] Date: {date.today()}\n")
-                    f.write(f"[+] Followed: {follow} users\n")
-                    f.write(f"[+] Unfollowed: {unfollow} users\n")
+                    f = open(name,'a')
+                    f.write('-'*40+'\n')
+                    f.write(f"[+] Date: {str(date.today())}\n")
+                    f.write(f"[+] Followed: {str(follow)} users\n")
+                    f.write(f"[+] Unfollowed: {str(unfollow)} users\n")
                     if follow - unfollow != 0:
-                        f.write(f"[✕] Failed to unfollow: {abs(follow - unfollow)} users\n")
+                        f.write(f"[✕] Failed to unfollow: {str(abs(follow - unfollow))} users\n")
                     pers = (follow + unfollow) / 74.0
-                    f.write(f"[+] Percentage of success: {pers}%\n")
-                    f.write(f"[+] Percentage of fail: {float(100 - pers)}%\n")
+                    f.write(f"[+] Percentage of success: {str(pers)}%\n")
+                    f.write(f"[+] Percentage of fail: {str(float(100 - pers))}%\n")
                     if ga in ANS[:9]:
                         followers_af = profile.followers
-                        f.write(f"[✓] Successfully added: {followers_af - followers_bef} followers.\n")
+                        f.write(f"[✓] Successfully added: {str(followers_af - followers_bef)} followers.\n")
                     f.close()
                     print(f"{GREEN}[✓] Successfully saved log !")
                     sleep(2)
@@ -679,14 +690,14 @@ def main():
                     f = open(name,"w")
                     f.write("\n"+"-"*40)
                     f.write(f"[+] Date: {date.today()}\n")
-                    f.write(f"[+] Followed: {follow} users\n")
-                    f.write(f"[+] Unfollowed: {unfollow} users"+"\n")
+                    f.write(f"[+] Followed: {str(follow)} users\n")
+                    f.write(f"[+] Unfollowed: {str(unfollow)} users"+"\n")
                     pers = (follow + unfollow) / 74.0
-                    f.write(f"[+] Percentage of success: {pers}%\n")
-                    f.write(f"[+] Percentage of fail: {float(100 - pers)}%\n")
+                    f.write(f"[+] Percentage of success: {str(pers)}%\n")
+                    f.write(f"[+] Percentage of fail: {str(float(100 - pers))}%\n")
                     if ga in ANS[:9]:
                         followers_af = profile.followers
-                        f.write(f"[✓] Successfully added: {followers_af - followers_bef} followers.\n")
+                        f.write(f"[✓] Successfully added: {str(followers_af - followers_bef)} followers.\n")
                     f.close()
                     print(f"{GREEN}[✓] Successfully saved log !")
                     sleep(2)
