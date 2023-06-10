@@ -103,7 +103,7 @@ def ScriptInfo():
     lang = 'en-US'
     language = 'Python'
     name = 'IGFollowersIncreaser'
-    lines = 860
+    lines = 826
     f = 'mainV1.py'
     if os.path.exists(os.path.abspath(f)):
         fsize = (os.stat(f)).st_size
@@ -175,10 +175,9 @@ def clear():
 def nums():
     print(f"{YELLOW}[1] Increase followers")
     print(f"{YELLOW}[2] Show program info and exit")
-    print(f"{YELLOW}[3] Keep log")
-    print(f"{YELLOW}[4] Clear log")
-    print(f"{YELLOW}[5] Uninstall IGFollowersIncreaser")
-    print(f"{YELLOW}[6] Exit")
+    print(f"{YELLOW}[3] Clear log")
+    print(f"{YELLOW}[4] Uninstall IGFollowersIncreaser")
+    print(f"{YELLOW}[5] Exit")
 
 def main():
     print(banner())
@@ -191,19 +190,21 @@ def main():
     nums()
     print(f"\n")
     option=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
-    while option < 1 or option > 6 or option == None:
+    while option < 1 or option > 5 or option == None:
         if option == None:
             print(f"{RED}[!] This field can't be blank !")
         else:
             print(f"{RED}[!] Invalid number !")
             sleep(1)
-            print(f"{YELLOW}[+] Acceptable numbers: [1/2/3/4/5/6]")
+            print(f"{YELLOW}[+] Acceptable numbers: [1/2/3/4/5]")
         sleep(1)
         nums()
         option=int(input(f"{YELLOW}[>] Please enter again a number (from the above ones): "))
     if option == 1:
         clear()
         sleep(1)
+        print(f"{YELLOW}[*] NOTE: Acceptable answers: True/False")
+        keep=bool(input(f"{YELLOW}[?] Keep log ? "))
         if os.path.exists("cons.txt"):
             con=str(input(f"{YELLOW}[>] Do you consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given (Instagram) account ? [yes/no] "))
             if con in ANS[:9]:
@@ -635,7 +636,7 @@ def main():
                 print(f"{YELLOW}[+] Unfollowing 9777455...")
                 sleep(2)
             except KeyboardInterrupt:
-                pass
+                break
             print(f"{GREEN}[✓] Successfully followed: {follow} users")
             sleep(2)
             print(f"{GREEN}[✓] Successfully unfollowed: {unfollow} users")
@@ -651,125 +652,90 @@ def main():
                 followers_af = profile.followers
                 print(f"{GREEN}[✓] Successfully added: {followers_af - followers_bef} followers.")
                 sleep(1)
-            print(f"{YELLOW}[1] Return to menu")
-            print(f"{YELLOW}[2] Exit")
-            opt=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
-            while opt < 1 or opt > 2 or opt == None:
-                if opt == None:
-                    print(f"{RED}[!] This field can't be blank !")
+            if keep:
+                name = 'log.txt'
+                if os.path.exists(os.path.abspath(name)):
+                    f = open(name,"a")
+                    f.write("\n"+"-"*40)
+                    f.write(f"[+] Date: {date.today()}\n")
+                    f.write(f"[+] Followed: {follow} users\n")
+                    f.write(f"[+] Unfollowed: {unfollow} users\n")
+                    if follow - unfollow != 0:
+                        f.write(f"[✕] Failed to unfollow: {abs(follow - unfollow)} users\n")
+                    pers = (follow + unfollow) / 74.0
+                    f.write(f"[+] Percentage of success: {pers}%\n")
+                    f.write(f"[+] Percentage of fail: {float(100 - pers)}%\n")
+                    if ga in ANS[:9]:
+                        followers_af = profile.followers
+                        f.write(f"[✓] Successfully added: {followers_af - followers_bef} followers.\n")
+                    f.close()
+                    print(f"{GREEN}[✓] Successfully saved log !")
+                    sleep(2)
+                    print(f"{GREEN}[↪] Log file name: {name}")
+                    print(f"{GREEN}[↪] Path to log file: {os.path.abspath(name)}")
+                    print(f"{GREEN}[↪] Log file size: {(os.stat(name)).st_size}")
+                    sleep(4)
+                    print(f"{YELLOW}[1] Return to menu")
+                    print(f"{YELLOW}[2] Exit")
+                    opt=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
+                    while opt < 1 or opt > 2 or opt == None:
+                        if opt == None:
+                            print(f"{RED}[!] This field can't be blank !")
+                        else:
+                            print(f"{RED}[!] Invalid number !")
+                            sleep(1)
+                            print(f"{GREEN}[+] Acceptable numbers: [1,2]")
+                        sleep(1)
+                        print(f"{YELLOW}[1] Return to menu")
+                        print(f"[2] Exit")
+                        opt=int(input(f"{YELLOW}[>] Please enter again a number (from the above ones): "))
+                    if opt == 1:
+                        clear()
+                        main()
+                    else:
+                        clear()
+                        print(f"{GREEN}[+] Thank you for using my script 😁")
+                        sleep(2)
+                        print(f"{GREEN}[+] See you next time 👋")
+                        sleep(1)
+                        quit(0)
                 else:
-                    print(f"{RED}[!] Invalid number !")
-                    sleep(1)
-                    print(f"{GREEN}[+] Acceptable numbers: [1/2]")
-                sleep(1)
-                print(f"{YELLOW}[1] Return to menu")
-                print(f"{YELLOW}[2] Exit")
-                opt=int(input(f"{YELLOW}[>] Please enter again a number (from the above ones): "))
-            if opt == 1:
-                clear()
-                main()
-            else:
-                clear()
-                print(f"{GREEN}[+] Thank you for using my script 😁")
-                sleep(2)
-                print(f"{GREEN}[+] See you next time 👋")
-                sleep(1)
-                quit(0)
+                    f = open(name,"w")
+                    f.write("\n"+"-"*40)
+                    f.write(f"[+] Date: {date.today()}\n")
+                    f.write(f"[+] Followed: {follow} users\n")
+                    f.write(f"[+] Unfollowed: {unfollow} users"+"\n")
+                    pers = (follow + unfollow) / 74.0
+                    f.write(f"[+] Percentage of success: {pers}%\n")
+                    f.write(f"[+] Percentage of fail: {float(100 - pers)}%\n")
+                    if ga in ANS[:9]:
+                        followers_af = profile.followers
+                        f.write(f"[✓] Successfully added: {followers_af - followers_bef} followers.\n")
+                    f.close()
+                    print(f"{GREEN}[✓] Successfully saved log !")
+                    sleep(2)
+                    print(f"{GREEN}[↪] Log file name: {name}")
+                    print(f"{GREEN}[↪] Path to log file: {os.path.abspath(name)}")
+                    print(f"{GREEN}[↪] Log file size: {(os.stat(name)).st_size}")
+                    sleep(4)
+                    print(f"{YELLOW}[1] Return to menu")
+                    print(f"{YELLOW}[2] Exit")
+                    opt=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
+                    while opt < 1 or opt > 2 or opt == None:
+                        if opt == None:
+                            print(f"{RED}[!] This field can't be blank !")
+                        else:
+                            print(f"{RED}[!] Invalid number !")
+                            sleep(1)
+                            print(f"{GREEN}[+] Acceptable numbers: [1,2]")
+                        sleep(1)
+                        print(f"{YELLOW}[1] Return to menu")
+                        print(f"{YELLOW}[2] Exit")
+                        opt=int(input(f"{YELLOW}[>] Please enter again a number (from the above ones): "))
     elif option == 2:
         clear()
         ScriptInfo()
     elif option == 3:
-        clear()
-        name = "log.txt"
-        if os.path.exists(os.path.abspath(name)):
-            f = open(name,"a")
-            f.write("\n"+"-"*40)
-            f.write(f"[+] Date: {date.today()}\n")
-            f.write(f"[+] Followed: {follow} users\n")
-            f.write(f"[+] Unfollowed: {unfollow} users\n")
-            if follow - unfollow != 0:
-                f.write(f"[✕] Failed to unfollow: {abs(follow - unfollow)} users\n")
-            pers = (follow + unfollow) / 74.0
-            f.write(f"[+] Percentage of success: {pers}%\n")
-            f.write(f"[+] Percentage of fail: {float(100 - pers)}%\n")
-            if ga in ANS[:9]:
-                followers_af = profile.followers
-                f.write(f"[✓] Successfully added: {followers_af - followers_bef} followers.\n")
-            f.close()
-            print(f"{GREEN}[✓] Successfully saved log !")
-            sleep(2)
-            print(f"{GREEN}[↪] Log file name: {name}")
-            print(f"{GREEN}[↪] Path to log file: {os.path.abspath(name)}")
-            print(f"{GREEN}[↪] Log file size: {(os.stat(name)).st_size}")
-            sleep(4)
-            print(f"{YELLOW}[1] Return to menu")
-            print(f"{YELLOW}[2] Exit")
-            opt=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
-            while opt < 1 or opt > 2 or opt == None:
-                if opt == None:
-                    print(f"{RED}[!] This field can't be blank !")
-                else:
-                    print(f"{RED}[!] Invalid number !")
-                    sleep(1)
-                    print(f"{GREEN}[+] Acceptable numbers: [1,2]")
-                sleep(1)
-                print(f"{YELLOW}[1] Return to menu")
-                print(f"[2] Exit")
-                opt=int(input(f"{YELLOW}[>] Please enter again a number (from the above ones): "))
-            if opt == 1:
-                clear()
-                main()
-            else:
-                clear()
-                print(f"{GREEN}[+] Thank you for using my script 😁")
-                sleep(2)
-                print(f"{GREEN}[+] See you next time 👋")
-                sleep(1)
-                quit(0)
-        else:
-            f = open(name,"w")
-            f.write("\n"+"-"*40)
-            f.write(f"[+] Date: {date.today()}\n")
-            f.write(f"[+] Followed: {follow} users\n")
-            f.write(f"[+] Unfollowed: {unfollow} users"+"\n")
-            pers = (follow + unfollow) / 74.0
-            f.write(f"[+] Percentage of success: {pers}%\n")
-            f.write(f"[+] Percentage of fail: {float(100 - pers)}%\n")
-            if ga in ANS[:9]:
-                followers_af = profile.followers
-                f.write(f"[✓] Successfully added: {followers_af - followers_bef} followers.\n")
-            f.close()
-            print(f"{GREEN}[✓] Successfully saved log !")
-            sleep(2)
-            print(f"{GREEN}[↪] Log file name: {name}")
-            print(f"{GREEN}[↪] Path to log file: {os.path.abspath(name)}")
-            print(f"{GREEN}[↪] Log file size: {(os.stat(name)).st_size}")
-            sleep(4)
-            print(f"{YELLOW}[1] Return to menu")
-            print(f"{YELLOW}[2] Exit")
-            opt=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
-            while opt < 1 or opt > 2 or opt == None:
-                if opt == None:
-                    print(f"{RED}[!] This field can't be blank !")
-                else:
-                    print(f"{RED}[!] Invalid number !")
-                    sleep(1)
-                    print(f"{GREEN}[+] Acceptable numbers: [1,2]")
-                sleep(1)
-                print(f"{YELLOW}[1] Return to menu")
-                print(f"{YELLOW}[2] Exit")
-                opt=int(input(f"{YELLOW}[>] Please enter again a number (from the above ones): "))
-            if opt == 1:
-                clear()
-                main()
-            else:
-                clear()
-                print(f"{GREEN}[+] Thank you for using my script 😁")
-                sleep(2)
-                print(f"{GREEN}[+] See you next time 👋")
-                sleep(1)
-                quit(0)
-    elif option == 4:
         clear()
         name = 'log.txt'
         if os.path.exists(os.path.abspath(name)):
@@ -839,7 +805,7 @@ def main():
                 print(f"{GREEN}[+] See you next time 👋")
                 sleep(1)
                 quit(0)
-    elif option == 5:
+    elif option == 4:
         clear()
         print(Uninstall())
         sleep(2)
