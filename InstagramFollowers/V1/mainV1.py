@@ -3,7 +3,7 @@
 Author: new92
 Github: @new92
 
-IGFollowersIncreaser: Use this script to increase the followers of your Insta account
+IGFollowersIncreaser: Use this script to increase the followers of an Insta account
 
 
 *********IMPORTANT*********
@@ -182,7 +182,7 @@ def nums():
 def main():
     print(banner())
     print(f"\n")
-    print(f"{YELLOW}[+] Use this script to increase the followers on your Insta account")
+    print(f"{YELLOW}[+] IGFollowersIncreaser is a tool which helps the increment of the followers of a user")
     print(f"\n")
     print(f"{YELLOW}[+] Author: new92")
     print(f"{YELLOW}[+] Github: @new92")
