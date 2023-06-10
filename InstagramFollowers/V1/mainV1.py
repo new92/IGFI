@@ -62,7 +62,7 @@ except ImportError:
                     else:
                         print("[!] Invalid number !")
                         sleep(1)
-                        print("[+] Acceptable numbers: [1,2]")
+                        print("[*] Acceptable numbers: [1,2]")
                     sleep(1)
                     print("[1] Uninstall script")
                     print("[2] Exit")
@@ -196,7 +196,7 @@ def main():
         else:
             print(f"{RED}[!] Invalid number !")
             sleep(1)
-            print(f"{YELLOW}[+] Acceptable numbers: [1/2/3/4/5]")
+            print(f"{YELLOW}[*] Acceptable numbers: [1/2/3/4/5]")
         sleep(1)
         nums()
         option=int(input(f"{YELLOW}[>] Please enter again a number (from the above ones): "))
@@ -232,7 +232,7 @@ def main():
                     else:
                         print(f"{RED}[!] Invalid number !")
                         sleep(1)
-                        print(f"{YELLOW}[+] Acceptable numbers: [1/2]")
+                        print(f"{YELLOW}[*] Acceptable numbers: [1/2]")
                     sleep(1)
                     print(f"{YELLOW}[1] Exit")
                     print(f"{YELLOW}[2] Uninstall IGFollowersIncreaser and exit")
@@ -286,7 +286,7 @@ def main():
                 else:
                     print(f"{RED}[!] Invalid number !")
                     sleep(1)
-                    print(f"{GREEN}[+] Acceptable numbers: [1/2/3]")
+                    print(f"{GREEN}[*] Acceptable numbers: [1/2/3]")
                 sleep(1)
                 print(f"{YELLOW}[1] Try with another username")
                 print(f"{YELLOW}[2] Return to menu")
@@ -359,7 +359,7 @@ def main():
                     else:
                         print(f"{RED}[!] Invalid number !")
                         sleep(1)
-                        print(f"{YELLOW}[+] Acceptable numbers: [1/2]")
+                        print(f"{YELLOW}[*] Acceptable numbers: [1/2]")
                     sleep(1)
                     print(f"{YELLOW}[1] Return to menu")
                     print(f"{YELLOW}[2] Exit")
@@ -388,7 +388,7 @@ def main():
                 else:
                     print(f"{RED}[!] Invalid number !")
                     sleep(1)
-                    print(f"{GREEN}[+] Acceptable numbers: [1/2]")
+                    print(f"{GREEN}[*] Acceptable numbers: [1/2]")
                 sleep(1)
                 print(f"{YELLOW}[1] Return to menu")
                 print(f"{YELLOW}[2] Exit")
@@ -714,7 +714,7 @@ def main():
                     else:
                         print(f"{RED}[!] Invalid number !")
                         sleep(1)
-                        print(f"{GREEN}[+] Acceptable numbers: [1,2]")
+                        print(f"{GREEN}[*] Acceptable numbers: [1,2]")
                     sleep(1)
                     print(f"{YELLOW}[1] Return to menu")
                     print(f"{YELLOW}[2] Exit")
@@ -739,7 +739,7 @@ def main():
             else:
                 print(f"{RED}[!] Invalid number !")
                 sleep(1)
-                print(f"{GREEN}[+] Acceptable numbers: [1,2]")
+                print(f"{GREEN}[*] Acceptable numbers: [1,2]")
             sleep(1)
             print(f"{YELLOW}[1] Return to menu")
             print(f"{YELLOW}[2] Exit")
