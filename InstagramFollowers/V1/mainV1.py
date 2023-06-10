@@ -203,7 +203,7 @@ def main():
     if option == 1:
         clear()
         sleep(1)
-        print(f"{YELLOW}[*] NOTE: Acceptable answers: True/False")
+        print(f"{YELLOW}[*] NOTE: Acceptable answers: [True/False]")
         keep=bool(input(f"{YELLOW}[?] Keep log ? "))
         if os.path.exists("cons.txt"):
             con=str(input(f"{YELLOW}[>] Do you consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given (Instagram) account ? [yes/no] "))
