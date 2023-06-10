@@ -35,7 +35,7 @@ try:
     from datetime import date
     from colorama import init, Fore
 except ImportError:
-    print("[!] WARNING: Not all packages used in this script have been installed !")
+    print("[!] WARNING: Not all packages used in IGFollowersIncreaser have been installed !")
     sleep(2)
     print("[+] Ignoring warning...")
     sleep(1)
@@ -247,7 +247,7 @@ def main():
                     sleep(2)
                     print(f"{YELLOW}[+] Exiting...")
                     sleep(1)
-                    print(f"{YELLOW}[+] Thank you for using my script 🫡")
+                    print(f"{YELLOW}[+] Thank you for using IGFollowersIncreaser 🫡")
                     sleep(2)
                     print(f"{YELLOW}[+] Until we meet again 👋")
                     sleep(1)
@@ -261,7 +261,7 @@ def main():
         print(f"\n")
         print(f"{YELLOW}[+] The login credentials will not be stored or saved")
         sleep(2)
-        print(f"{GREEN}|--------------------LOGIN--------------------|")
+        print(f"{GREEN}|--------------------|LOGIN|--------------------|")
         username=str(input(f"{YELLOW}[>] Please enter your username: "))
         username = username.lower().strip()
         while checkUser(username):
@@ -310,7 +310,7 @@ def main():
                 main()
             else:
                 clear()
-                print(f"{YELLOW}[+] Thank you for using my script 😁")
+                print(f"{YELLOW}[+] Thank you for using IGFollowersIncreaser 😁")
                 sleep(2)
                 print(f"{YELLOW}[+] See you next time 👋")
                 sleep(1)
@@ -667,7 +667,7 @@ def main():
                 name = 'log.txt'
                 if os.path.exists(os.path.abspath(name)):
                     f = open(name,'a')
-                    f.write('-'*40+'\n')
+                    f.write('\n'+'-'*40+'\n')
                     f.write(f"[+] Date: {str(date.today())}\n")
                     f.write(f"[+] Followed: {str(follow)} users\n")
                     f.write(f"[+] Unfollowed: {str(unfollow)} users\n")
@@ -724,7 +724,7 @@ def main():
                     main()
                 else:
                     clear()
-                    print(f"{GREEN}[+] Thank you for using my script 😁")
+                    print(f"{GREEN}[+] Thank you for using IGFollowersIncreaser 😁")
                     sleep(2)
                     print(f"{GREEN}[+] See you next time 👋")
                     sleep(1)
@@ -749,7 +749,7 @@ def main():
             main()
         else:
             clear()
-            print(f"{GREEN}[+] Thank you for using my script 😁")
+            print(f"{GREEN}[+] Thank you for using IGFollowersIncreaser 😁")
             sleep(2)
             print(f"{GREEN}[+] See you next time 👋")
             sleep(1)
@@ -758,14 +758,14 @@ def main():
         clear()
         print(Uninstall())
         sleep(2)
-        print(f"{GREEN}[+] Thank you for using my script 😁")
+        print(f"{GREEN}[+] Thank you for using IGFollowersIncreaser 😁")
         sleep(2)
         print(f"{GREEN}[+] Until we meet again 🫡")
         sleep(1)
         quit(0)
     else:
         clear()
-        print(f"{GREEN}[+] Thank you for using my script 😁")
+        print(f"{GREEN}[+] Thank you for using IGFollowersIncreaser 😁")
         sleep(2)
         print(f"{GREEN}[+] See you next time 👋")
         sleep(1)
