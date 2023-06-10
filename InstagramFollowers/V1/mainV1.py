@@ -182,7 +182,7 @@ def nums():
 def main():
     print(banner())
     print(f"\n")
-    print(f"{YELLOW}[+] Script for increasing the followers of an Instagram account")
+    print(f"{YELLOW}[+] Use this script to increase the followers on your Insta account")
     print(f"\n")
     print(f"{YELLOW}[+] Author: new92")
     print(f"{YELLOW}[+] Github: @new92")
