@@ -93,7 +93,6 @@ except ImportError:
         system("pip install -r requirements.txt")
 
 init(autoreset=True)
-
 GREEN = Fore.GREEN
 YELLOW = Fore.YELLOW
 RED = Fore.RED
@@ -104,7 +103,7 @@ def ScriptInfo():
     lang = 'en-US'
     language = 'Python'
     name = 'IGFollowersIncreaser'
-    lines = 767
+    lines = 764
     f = 'mainV1.py'
     if os.path.exists(os.path.abspath(f)):
         fsize = (os.stat(f)).st_size
@@ -175,7 +174,7 @@ def clear():
 
 def nums():
     print(f"{YELLOW}[1] Increase followers")
-    print(f"{YELLOW}[2] Show program info and exit")
+    print(f"{YELLOW}[2] Show IGFollowersIncreaser's info")
     print(f"{YELLOW}[3] Clear log")
     print(f"{YELLOW}[4] Uninstall IGFollowersIncreaser")
     print(f"{YELLOW}[5] Exit")
@@ -676,30 +675,6 @@ def main():
                     print(f"{GREEN}[↪] Path to log file: {os.path.abspath(name)}")
                     print(f"{GREEN}[↪] Log file size: {(os.stat(name)).st_size}")
                     sleep(4)
-                    print(f"{YELLOW}[1] Return to menu")
-                    print(f"{YELLOW}[2] Exit")
-                    opt=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
-                    while opt < 1 or opt > 2 or opt == None:
-                        if opt == None:
-                            print(f"{RED}[!] This field can't be blank !")
-                        else:
-                            print(f"{RED}[!] Invalid number !")
-                            sleep(1)
-                            print(f"{GREEN}[+] Acceptable numbers: [1,2]")
-                        sleep(1)
-                        print(f"{YELLOW}[1] Return to menu")
-                        print(f"[2] Exit")
-                        opt=int(input(f"{YELLOW}[>] Please enter again a number (from the above ones): "))
-                    if opt == 1:
-                        clear()
-                        main()
-                    else:
-                        clear()
-                        print(f"{GREEN}[+] Thank you for using my script 😁")
-                        sleep(2)
-                        print(f"{GREEN}[+] See you next time 👋")
-                        sleep(1)
-                        quit(0)
                 else:
                     f = open(name,"w")
                     f.write("\n"+"-"*40)
@@ -721,31 +696,53 @@ def main():
                     sleep(4)
                     print(f"{YELLOW}[1] Return to menu")
                     print(f"{YELLOW}[2] Exit")
-                    opt=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
-                    while opt < 1 or opt > 2 or opt == None:
-                        if opt == None:
-                            print(f"{RED}[!] This field can't be blank !")
-                        else:
-                            print(f"{RED}[!] Invalid number !")
-                            sleep(1)
-                            print(f"{GREEN}[+] Acceptable numbers: [1,2]")
-                        sleep(1)
-                        print(f"{YELLOW}[1] Return to menu")
-                        print(f"{YELLOW}[2] Exit")
-                        opt=int(input(f"{YELLOW}[>] Please enter again a number (from the above ones): "))
-                    if opt == 1:
-                        clear()
-                        main()
+                opt=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
+                while opt < 1 or opt > 2 or opt == None:
+                    if opt == None:
+                        print(f"{RED}[!] This field can't be blank !")
                     else:
-                        clear()
-                        print(f"{GREEN}[+] Thank you for using my script 😁")
-                        sleep(2)
-                        print(f"{GREEN}[+] See you next time 👋")
+                        print(f"{RED}[!] Invalid number !")
                         sleep(1)
-                        quit(0)
+                        print(f"{GREEN}[+] Acceptable numbers: [1,2]")
+                    sleep(1)
+                    print(f"{YELLOW}[1] Return to menu")
+                    print(f"{YELLOW}[2] Exit")
+                    opt=int(input(f"{YELLOW}[>] Please enter again a number (from the above ones): "))
+                if opt == 1:
+                    clear()
+                    main()
+                else:
+                    clear()
+                    print(f"{GREEN}[+] Thank you for using my script 😁")
+                    sleep(2)
+                    print(f"{GREEN}[+] See you next time 👋")
+                    sleep(1)
+                    quit(0)
     elif option == 2:
         clear()
         ScriptInfo()
+        opt=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
+        while opt < 1 or opt > 2 or opt == None:
+            if opt == None:
+                print(f"{RED}[!] This field can't be blank !")
+            else:
+                print(f"{RED}[!] Invalid number !")
+                sleep(1)
+                print(f"{GREEN}[+] Acceptable numbers: [1,2]")
+            sleep(1)
+            print(f"{YELLOW}[1] Return to menu")
+            print(f"{YELLOW}[2] Exit")
+            opt=int(input(f"{YELLOW}[>] Please enter again a number (from the above ones): "))
+        if opt == 1:
+            clear()
+            main()
+        else:
+            clear()
+            print(f"{GREEN}[+] Thank you for using my script 😁")
+            sleep(2)
+            print(f"{GREEN}[+] See you next time 👋")
+            sleep(1)
+            quit(0)
     elif option == 3:
         clear()
         print(Uninstall())
