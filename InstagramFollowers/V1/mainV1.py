@@ -93,6 +93,7 @@ except ImportError:
         system("pip install -r requirements.txt")
 
 init(autoreset=True)
+
 GREEN = Fore.GREEN
 YELLOW = Fore.YELLOW
 RED = Fore.RED
@@ -103,7 +104,7 @@ def ScriptInfo():
     lang = 'en-US'
     language = 'Python'
     name = 'IGFollowersIncreaser'
-    lines = 826
+    lines = 767
     f = 'mainV1.py'
     if os.path.exists(os.path.abspath(f)):
         fsize = (os.stat(f)).st_size
@@ -732,80 +733,20 @@ def main():
                         print(f"{YELLOW}[1] Return to menu")
                         print(f"{YELLOW}[2] Exit")
                         opt=int(input(f"{YELLOW}[>] Please enter again a number (from the above ones): "))
+                    if opt == 1:
+                        clear()
+                        main()
+                    else:
+                        clear()
+                        print(f"{GREEN}[+] Thank you for using my script 😁")
+                        sleep(2)
+                        print(f"{GREEN}[+] See you next time 👋")
+                        sleep(1)
+                        quit(0)
     elif option == 2:
         clear()
         ScriptInfo()
     elif option == 3:
-        clear()
-        name = 'log.txt'
-        if os.path.exists(os.path.abspath(name)):
-            f = open(name,"w")
-            f.close()
-            print(f"{GREEN}[✓] Successfully cleared log !")
-            sleep(1)
-            print(f"{GREEN}[↪] Log file name: {name}")
-            print(f"{GREEN}[↪] Path to log file: {os.path.abspath(name)}")
-            print(f"{GREEN}[↪] Log file size: {(os.stat(name)).st_size}")
-            sleep(4)
-            print(f"{YELLOW}[1] Return to menu")
-            print(f"{YELLOW}[2] Exit")
-            opt=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
-            while opt < 1 or opt > 2 or opt == None:
-                if opt == None:
-                    print(f"{RED}[!] This field can't be blank !")
-                else:
-                    print(f"{RED}[!] Invalid number !")
-                    sleep(1)
-                    print(f"{GREEN}[+] Acceptable numbers: [1,2]")
-                sleep(1)
-                print(f"{YELLOW}[1] Return to menu")
-                print(f"{YELLOW}[2] Exit")
-                sleep(2)
-                opt=int(input(f"{YELLOW}[>] Please enter again a number (from the above ones): "))
-            if opt == 1:
-                clear()
-                main()
-            else:
-                clear()
-                print(f"{GREEN}[+] Thank you for using my script 😁")
-                sleep(2)
-                print(f"{GREEN}[+] See you next time 👋")
-                sleep(1)
-                quit(0)
-        else:
-            clear()
-            print(f"{RED}[!] Log file not found on this device !")
-            sleep(2)
-            print(f"{GREEN}[+] Searched log file using name: {name}")
-            sleep(2)
-            print(f"{YELLOW}[+] Please first create the log file and then use this option 😀")
-            sleep(2)
-            print(f"{YELLOW}[1] Return to menu")
-            print(f"{YELLOW}[2] Exit")
-            opt=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
-            while opt < 1 or opt > 2 or opt == None:
-                if opt == None:
-                    print(f"{RED}[!] This field can't be blank !")
-                else:
-                    print(f"{RED}[!] Invalid number !")
-                    sleep(1)
-                    print(f"{GREEN}[+] Acceptable numbers: [1/2]")
-                sleep(1)
-                print(f"{YELLOW}[1] Return to menu")
-                print(f"{YELLOW}[2] Exit")
-                sleep(2)
-                opt=int(input(f"{YELLOW}[>] Please enter again a number (from the above ones): "))
-            if opt == 1:
-                clear()
-                main()
-            else:
-                clear()
-                print(f"{GREEN}[+] Thank you for using my script 😁")
-                sleep(2)
-                print(f"{GREEN}[+] See you next time 👋")
-                sleep(1)
-                quit(0)
-    elif option == 4:
         clear()
         print(Uninstall())
         sleep(2)
