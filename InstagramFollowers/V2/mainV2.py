@@ -210,7 +210,7 @@ def main():
     if option == 1:
         clear()
         sleep(1)
-        print(f"{YELLOW}[*] NOTE: Acceptable answers: [True/False]")
+        print(f"{YELLOW}[*] Acceptable answers: [True/False]")
         keep=bool(input(f"{YELLOW}[?] Keep log ? "))
         if os.path.exists("cons.txt"):
             print(f"{YELLOW}[*] Acceptable answers: [yes/no]")
