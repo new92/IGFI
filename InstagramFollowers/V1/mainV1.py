@@ -103,7 +103,7 @@ def ScriptInfo():
     lang = 'en-US'
     language = 'Python'
     name = 'IGFollowersIncreaser'
-    lines = 775
+    lines = 782
     f = 'mainV1.py'
     if os.path.exists(os.path.abspath(f)):
         fsize = (os.stat(f)).st_size
@@ -204,21 +204,26 @@ def main():
         clear()
         sleep(1)
         print(f"{YELLOW}[*] NOTE: Acceptable answers: [True/False]")
+        sleep(1)
         keep=bool(input(f"{YELLOW}[?] Keep log ? "))
         if os.path.exists("cons.txt"):
-            con=str(input(f"{YELLOW}[>] Do you consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given (Instagram) account ? [yes/no] "))
+            print(f"{YELLOW}[*] Acceptable answers: [yes/no]")
+            sleep(1)
+            con=str(input(f"{YELLOW}[>] Do you consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given (Instagram) account ? "))
             while con not in ANS or con == None:
                 if con == None:
                     print(f"{RED}[!] This field can't be blank !")
                 else:
                     print(f"{RED}[!] Invalid answer !")
+                    sleep(1)
+                    print(f"{YELLOW}[*] Acceptable answers: [yes/no]")
                 sleep(1)
-                con=str(input(f"{YELLOW}[>] Do you consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given (Instagram) account ? [yes/no] "))
+                con=str(input(f"{YELLOW}[>] Do you consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given (Instagram) account ? "))
             if con in ANS[:9]:
                 f = open("cons.txt","a")
-                f.write(f"[=] Date: {date.today()}\n")
+                f.write(f"\n[=] Date: {date.today()}\n")
                 f.write("[=] User: Yes I consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given Instagram account.\n")
-                f.write("-"*40+'\n')
+                f.write("-"*40)
                 f.close()
             else:
                 print(f"{YELLOW}[OK]")
@@ -315,16 +320,18 @@ def main():
                 print(f"{YELLOW}[+] See you next time 👋")
                 sleep(1)
                 quit(0)
-        ga=str(input(f"{YELLOW}[?] Do you want to grant access to the script to have access to the number of your followers in order to provide additional information ? [yes/no] "))
+        print(f"{YELLOW}[*] Acceptable answers: [yes/no]")
+        sleep(1)
+        ga=str(input(f"{YELLOW}[?] Do you want to grant access to the script to have access to the number of your followers in order to provide additional information ? "))
         while ga not in ANS or ga == None:
             if ga == None:
                 print(f"{RED}[!] This field can't be blank !")
             else:
                 print(f"{RED}[!] Invalid answer !")
                 sleep(1)
-                print(f"{GREEN}[+] Valid answers: [yes/no]")
+                print(f"{GREEN}[*] Acceptable answers: [yes/no]")
             sleep(1)
-            ga=str(input(f"{YELLOW}[?] Do you want to grant access to the script to have access to the number of your followers in order to provide additional information ? [yes/no] "))
+            ga=str(input(f"{YELLOW}[?] Do you want to grant access to the script to have access to the number of your followers in order to provide additional information ? "))
         if ga in ANS[:9]:
             loader = instaloader.Instaloader()
             profile = instaloader.Profile.from_username(loader.context, username)
