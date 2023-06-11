@@ -112,10 +112,10 @@ def ScriptInfo():
     stars = 36
     forks = 26
     issues = 0
-    clissues = 2
+    clissues = 3
     prs = 0
-    clprs = 4
-    discs = 3
+    clprs = 8
+    discs = 5
     print(f"{YELLOW}[+] Author: {author}")
     print(f"{YELLOW}[+] Github: @{author}")
     print(f"{YELLOW}[+] License: {lice}")
