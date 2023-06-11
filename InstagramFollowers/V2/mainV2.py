@@ -108,7 +108,7 @@ def ScriptInfo():
     language = 'Python'
     name = 'IGFollowersIncreaser'
     api = None
-    lines = 779
+    lines = 781
     f = 'mainV2.py'
     if os.path.exists(os.path.abspath(f)):
         fsize = (os.stat(f)).st_size
@@ -660,6 +660,8 @@ def main():
     elif option == 2:
         clear()
         ScriptInfo()
+        sleep(4)
+        print("\n")
         print(f"{YELLOW}[1] Return to menu")
         print(f"{YELLOW}[2] Exit")
         opt=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
