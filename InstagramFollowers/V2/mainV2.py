@@ -108,7 +108,7 @@ def ScriptInfo():
     language = 'Python'
     name = 'IGFollowersIncreaser'
     api = None
-    lines = 780
+    lines = 784
     f = 'mainV2.py'
     if os.path.exists(os.path.abspath(f)):
         fsize = (os.stat(f)).st_size
@@ -210,10 +210,10 @@ def main():
     if option == 1:
         clear()
         sleep(1)
-        print(f"{YELLOW}[*] Acceptable answers: [True/False]")
+        print(f"{GREEN}[*] Acceptable answers: [True/False]")
         keep=bool(input(f"{YELLOW}[?] Keep log ? "))
         if os.path.exists("cons.txt"):
-            print(f"{YELLOW}[*] Acceptable answers: [yes/no]")
+            print(f"{GREEN}[*] Acceptable answers: [yes/no]")
             con=str(input(f"{YELLOW}[>] Do you consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given (Instagram) account ? "))
             if con in ANS[:9]:
                 f = open("cons.txt","a")
@@ -407,7 +407,7 @@ def main():
                     print(f"{GREEN}[+] See you next time 👋")
                     sleep(1)
                     quit(0)
-        print(f"{YELLOW}[*] Acceptable answers: [yes/no]")
+        print(f"{GREEN}[*] Acceptable answers: [yes/no]")
         sleep(1)
         ga=str(input(f"{YELLOW}[?] Do you want to grant access to the script to have access to the number of your followers in order to provide additional information ? "))
         while ga not in ANS or ga == None:
@@ -521,15 +521,19 @@ def main():
                     follow += 1
                     print(f"{YELLOW}[+] Following {NAMES[i]}...")
                     sleep(2)
+                    print(f"{GREEN}[✓] Ok")
+                    sleep(2)
                     print(f"{YELLOW}[+] Next user to follow: {NAMES[i+1]}")
                     sleep(3)
                 for i in range(len(FOLLOW)-1):
                     client.user_unfollow(FOLLOW[i])
                     unfollow += 1
                     print(f"{YELLOW}[+] Unfollowing {NAMES[i]}...")
-                    sleep(3)
+                    sleep(2)
+                    print(f"{GREEN}[✓] Ok")
+                    sleep(2)
                     print(f"{YELLOW}[+] Next user to unfollow: {NAMES[i+1]}")
-                    sleep(1)
+                    sleep(2)
             except KeyboardInterrupt:
                 print(f"{GREEN}[✓] Successfully followed: {follow} users")
                 sleep(2)
@@ -607,7 +611,7 @@ def main():
                         sleep(2)
                         print(f"{GREEN}[↪] Log file name: {name}")
                         print(f"{GREEN}[↪] Path to log file: {os.path.abspath(name)}")
-                        print(f"{GREEN}[↪] Log file size: {(os.stat(name)).st_size}")
+                        print(f"{GREEN}[↪] Log file size: {(os.stat(name)).st_size} bytes")
                         sleep(4)
                     print(f"{YELLOW}[1] Return to menu")
                     print(f"{YELLOW}[2] Exit")
