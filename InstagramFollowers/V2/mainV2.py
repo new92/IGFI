@@ -108,7 +108,7 @@ def ScriptInfo():
     language = 'Python'
     name = 'IGFollowersIncreaser'
     api = None
-    lines = 781
+    lines = 780
     f = 'mainV2.py'
     if os.path.exists(os.path.abspath(f)):
         fsize = (os.stat(f)).st_size
@@ -731,9 +731,8 @@ def main():
             print(f"{GREEN}[*] Please first create the log file and then use this option 😀")
             sleep(2)
             print(f"""{YELLOW}[+] Instructions: 
-            1) Return to menu and enter the option number 3
-            2) Wait for the script to end and execute it again
-            3) From the menu enter the number 4.
+            1) Return to menu and enter the option number 1
+            2) Enter <True> in the keep log question
             """)
             sleep(2)
             print(f"{YELLOW}[1] Return to menu")
