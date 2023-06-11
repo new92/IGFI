@@ -105,7 +105,7 @@ def ScriptInfo():
     language = 'Python'
     name = 'IGFollowersIncreaser'
     api = None
-    lines = 858
+    lines = 863
     f = 'mainV3.py'
     if os.path.exists(os.path.abspath(f)):
         fsize = (os.stat(f)).st_size
