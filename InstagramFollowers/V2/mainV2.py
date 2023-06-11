@@ -213,10 +213,11 @@ def main():
         print(f"{YELLOW}[*] NOTE: Acceptable answers: [True/False]")
         keep=bool(input(f"{YELLOW}[?] Keep log ? "))
         if os.path.exists("cons.txt"):
-            con=str(input(f"{YELLOW}[>] Do you consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given (Instagram) account ? [yes/no] "))
+            print(f"{YELLOW}[*] Acceptable answers: [yes/no]")
+            con=str(input(f"{YELLOW}[>] Do you consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given (Instagram) account ? "))
             if con in ANS[:9]:
                 f = open("cons.txt","a")
-                f.write(f"[=] Date: {date.today()}\n")
+                f.write(f"\n[=] Date: {date.today()}\n")
                 f.write("[=] User: Yes I consent that the author of this script (new92) has no responsibility for any loss or damage may the script cause to the given Instagram account.\n")
                 f.write("-"*40)
                 f.close()
@@ -329,6 +330,7 @@ def main():
                 sleep(1)
                 quit(0)
         print(f"{GREEN}[*] Acceptable answers: [yes/no]")
+        sleep(1)
         con=str(input(f"{YELLOW}[?] Script will increase the followers for the user: {username} is that correct ? "))
         while con not in ANS or con == None:
             if con == None:
@@ -405,7 +407,9 @@ def main():
                     print(f"{GREEN}[+] See you next time 👋")
                     sleep(1)
                     quit(0)
-        ga=str(input(f"{YELLOW}[?] Do you want to grant access to the script to have access to the number of your followers in order to provide additional information ? [yes/no] "))
+        print(f"{YELLOW}[*] Acceptable answers: [yes/no]")
+        sleep(1)
+        ga=str(input(f"{YELLOW}[?] Do you want to grant access to the script to have access to the number of your followers in order to provide additional information ? "))
         while ga not in ANS or ga == None:
             if ga == None:
                 print(f"{RED}[!] This field can't be blank !")
@@ -414,7 +418,7 @@ def main():
                 sleep(1)
                 print(f"{GREEN}[*] Acceptable answers: [yes/no]")
             sleep(1)
-            ga=str(input(f"{YELLOW}[?] Do you want to grant access to the script to have access to the number of your followers in order to provide additional information ? [yes/no] "))
+            ga=str(input(f"{YELLOW}[?] Do you want to grant access to the script to have access to the number of your followers in order to provide additional information ? "))
         if ga in ANS[:9]:
             loader = instaloader.Instaloader()
             profile = instaloader.Profile.from_username(loader.context, username)
