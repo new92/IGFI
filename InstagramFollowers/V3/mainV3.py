@@ -2,29 +2,31 @@
 """
 Author: new92
 Github: @new92
-IGFollowersIncreaser: Use this script to increase the followers of your Insta acc
+
+IGFollowersIncreaser: Use this script to increase the followers of an Insta account
 
 
 
 *********IMPORTANT*********
+
 User's login credentials (such as: username, password) will not be stored or saved !
 Will be used only to increase the followers of the user's Instagram account
+
 ***************************
 """
-
 
 try:
     import sys
     from time import sleep
     if sys.version_info[0] < 3:
-        print("[!] Error ! This script requires Python version 3.X ! ")
+        print(f"{RED}[!] Error ! IGFollowersIncreaser requires Python version 3.X ! ")
         print("""[+] Instructions to download Python 3.x : 
         Linux: apt install python3
         Windows: https://www.python.org/downloads/
         MacOS: https://docs.python-guide.org/starting/install3/osx/""")
-        print("[+] Please install the Python 3 and then use this script ✅")
+        print(f"{YELLOW}[+] Please install the Python 3 and then use IGFollowersIncreaser ✅")
         sleep(2)
-        print("[+] Exiting...")
+        print(f"{YELLOW}[+] Exiting...")
         sleep(1)
         quit(0)
     import platform
@@ -32,10 +34,11 @@ try:
     import os
     import instagrapi
     import requests
-    from datetime import date
     import instaloader
+    from datetime import date
+    from colorama import init, Fore
 except ImportError:
-    print("[!] WARNING: Not all packages used in this script have been installed !")
+    print("[!] WARNING: Not all packages used in IGFollowersIncreaser have been installed !")
     sleep(2)
     print("[+] Ignoring warning...")
     sleep(1)
@@ -54,17 +57,15 @@ except ImportError:
                 print("[1] Uninstall script")
                 print("[2] Exit")
                 opt=int(input("[>] Please enter a number (from the above ones): "))
-                while opt < 1 or opt > 2 or opt == None or type(opt) != int:
+                while opt < 1 or opt > 2 or opt == None:
                     if opt == None:
                         print("[!] This field can't be blank !")
-                    elif type(opt) != int:
-                        print(f"[!] The number must be an integer ! Not {type(opt)}")
                     else:
                         print("[!] Invalid number !")
                         sleep(1)
-                        print("[+] Acceptable numbers: [1,2]")
+                        print("[*] Acceptable numbers: [1,2]")
                     sleep(1)
-                    print("[1] Uninstall script")
+                    print("[1] Uninstall IGFollowersIncreaser")
                     print("[2] Exit")
                     opt=int(input("[>] Please enter a number (from the above ones): "))
                 if opt == 1:
@@ -92,14 +93,19 @@ except ImportError:
     elif platform.system() == 'Windows':
         system("pip install -r requirements.txt")
 
-def Info():
+init(autoreset=True)
+RED = Fore.RED
+GREEN = Fore.GREEN
+YELLOW = Fore.YELLOW
+
+def ScriptInfo():
     author = 'new92'
     lice = 'MIT'
-    lang = 'es-US'
+    lang = 'en-US'
     language = 'Python'
     name = 'IGFollowersIncreaser'
     api = None
-    lines = 818
+    lines = 858
     f = 'mainV3.py'
     if os.path.exists(os.path.abspath(f)):
         fsize = (os.stat(f)).st_size
@@ -108,27 +114,28 @@ def Info():
     stars = 36
     forks = 26
     issues = 0
-    clissues = 2
+    clissues = 3
     prs = 0
-    clprs = 4
-    discs = 1
-    print(f"[+] Author: {author}")
-    print(f"[+] Github: @{author}")
-    print(f"[+] License: {lice}")
-    print(f"[+] Natural language: {lang}")
-    print(f"[+] Programming language(s) used: {language}")
-    print(f"[+] Number of lines: {lines}")
-    print(f"[+] Script's name: {name}")
-    print(f"[+] API(s) used: {api}")
-    print(f"[+] File size: {fsize} bytes")
-    print(f"[+] File path: {os.path.abspath(f)}")
-    print(f"[+] Github repo stars: {stars}")
-    print(f"[+] Github repo forks: {forks}")
-    print(f"[+] Github repo open issues: {issues}")
-    print(f"[+] Github repo closed issues: {clissues}")
-    print(f"[+] Github repo open pull requests: {prs}")
-    print(f"[+] Github repo closed pull requests: {clprs}")
-    print(f"[+] Github repo discussions: {discs}")
+    clprs = 8
+    discs = 5
+    print(f"{YELLOW}[+] Author: {author}")
+    print(f"{YELLOW}[+] Github: @{author}")
+    print(f"{YELLOW}[+] License: {lice}")
+    print(f"{YELLOW}[+] Natural language: {lang}")
+    print(f"{YELLOW}[+] Programming language(s) used: {language}")
+    print(f"{YELLOW}[+] Number of lines: {lines}")
+    print(f"{YELLOW}[+] Script's name: {name}")
+    print(f"{YELLOW}[+] API(s) used: {api}")
+    print(f"{YELLOW}[+] File size: {fsize} bytes")
+    print(f"{YELLOW}[+] File path: {os.path.abspath(f)}")
+    print(f"{YELLOW}|======|GITHUB REPO INFO|======|")
+    print(f"{YELLOW}[+] Stars: {stars}")
+    print(f"{YELLOW}[+] Forks: {forks}")
+    print(f"{YELLOW}[+] Open issues: {issues}")
+    print(f"{YELLOW}[+] Closed issues: {clissues}")
+    print(f"{YELLOW}[+] Open pull requests: {prs}")
+    print(f"{YELLOW}[+] Closed pull requests: {clprs}")
+    print(f"{YELLOW}[+] Discussions: {discs}")
 
 def Uninstall() -> str:
     def rmdir(dire):
@@ -142,10 +149,10 @@ def Uninstall() -> str:
             os.rmdir(DIRS[i])
         os.rmdir(dire)
     rmdir(os.path.abspath('IGFollowersIncreaser'))
-    return "[✓] Files and dependencies uninstalled successfully !"
+    return f"{GREEN}[✓] Files and dependencies uninstalled successfully !"
 
 def banner() -> str:
-    return """
+    return f"""{YELLOW}
 ██╗███╗░░██╗░██████╗████████╗░█████╗░███████╗░█████╗░██╗░░░░░██╗░░░░░░█████╗░░██╗░░░░░░░██╗      ██╗░░░██╗██████╗░
 ██║████╗░██║██╔════╝╚══██╔══╝██╔══██╗██╔════╝██╔══██╗██║░░░░░██║░░░░░██╔══██╗░██║░░██╗░░██║      ██║░░░██║╚════██╗
 ██║██╔██╗██║╚█████╗░░░░██║░░░███████║█████╗░░██║░░██║██║░░░░░██║░░░░░██║░░██║░╚██╗████╗██╔╝      ╚██╗░██╔╝░█████╔╝
@@ -156,49 +163,52 @@ def banner() -> str:
 ANS = ["yes","YES","Yes","y","Y","YeS","yEs","YEs","yES","no","NO","No","n","N","nO"]
 
 def nums():
-    print("[1] Increase followers")
-    print("[2] Show script's info and exit")
-    print("[3] Keep log")
-    print("[4] Clear log")
-    print("[5] Uninstall IGFollowersIncreaser")
-    print("[6] Exit")
+    print(f"{YELLOW}[1] Increase followers")
+    print(f"{YELLOW}[2] Show IGFollowersIncreaser's info and exit")
+    print(f"{YELLOW}[3] Clear log")
+    print(f"{YELLOW}[4] Uninstall IGFollowersIncreaser")
+    print(f"{YELLOW}[5] Exit")
 
 def clear():
     if platform.system() == 'Windows':
-        system("cls")
+        system('cls')
     else:
-        system("clear")
+        system('clear')
         
 def checkUser(username:str) -> bool:
     return username == None or len(username) > 30
 
 def valUser(username:str) -> bool:
-    return requests.get(f"https://www.instagram.com/{username}").status_code != 200
+    return requests.get(f"https://www.instagram.com/{username}/", allow_redirects=False).status_code != 200
 
 def main():
     print(banner())
     print("\n")
-    print("[+] Author: new92")
-    print("[+] Github: @new92")
+    print(f"{YELLOW}[+] Author: new92")
+    print(f"{YELLOW}[+] Github: @new92")
     print("\n")
-    print("[+] Use this script to increase the followers on your Insta account")
+    print(f"{YELLOW}[+] Use this script to increase the followers on your Insta account")
     print("\n")
     nums()
     print("\n")
-    num=int(input("[>] Please enter a number (from the above ones): "))
-    while num < 1 or num > 6 or num == None:
+    num=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
+    while num < 1 or num > 5 or num == None:
         if num == None:
-            print("[!] This field can't be empty !")
+            print(f"{RED}[!] This field can't be empty !")
         else:
-            print("[!] Invalid number !")
+            print(f"{RED}[!] Invalid number !")
             sleep(1)
-            print("[+] Acceptable numbers: [1/2/3/4/5/6]")
+            print(f"{GREEN}[*] Acceptable numbers: [1/2/3/4/5/6]")
         sleep(1)
         nums()
         sleep(1)
-        num=int(input("[>] Please enter again a number (from the above ones): "))
+        num=int(input(f"{YELLOW}[>] Please enter again a number (from the above ones): "))
     if num == 1:
         clear()
+        sleep(1)
+        print(f"{GREEN}[*] Acceptable answers: [True/False]")
+        sleep(1)
+        keep=bool(input(f"{YELLOW}[?] Keep log ? "))
         NAMES = ['Cristiano Ronaldo','Cardi B','Kim Kardashian','Ariana Grande','Nicki Minaj','Beyonce','Katy Perry','Selena Gomez','Justin Bieber','Lionel Messi','Neymar Jr','Kylian Mbappe','Dua Lipa','Billie Eilish','Kylie Jenner','Khloe Kardashian','Kourtney Kardashian','Jennifer Lopez','Shakira','Instagram','National Geographic','FC Barcelona','Real Madrid','Champions League','Chris Brown','Taylor Swift','Kendall Jenner','Virat Kohli','Zendaya','Marvel','Tom Holland','Emma Watson','Millie Bobby Brown','Shawn Mendes','Camila Cabello','NASA','Nike']
         users = {
             'Cristiano Ronaldo' : '173560420',
@@ -240,286 +250,305 @@ def main():
             'Nike' : '13460080'
         }
         if os.path.exists("cons.txt"):
-            con=str(input("[>] Do you consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given (Instagram) account ? [yes/no] "))
+            print(f"{GREEN}[*] Acceptable answers: [yes/no]")
+            sleep(1)
+            con=str(input(f"{YELLOW}[>] Do you consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given (Instagram) account ? "))
+            while con not in ANS or con == None:
+                if con == None:
+                    print(f"{RED}[!] This field can't be blank !")
+                else:
+                    print(f"{RED}[!] Invalid answer !")
+                    sleep(1)
+                    print(f"{GREEN}[*] Acceptable answers: [yes/no]")
+                sleep(1)
+                con=str(input(f"{YELLOW}[>] Do you consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given (Instagram) account ? "))
             if con in ANS[:9]:
                 f = open("cons.txt","a")
-                f.write(f"[=] Date: {date.today()}\n")
+                f.write(f"\n[=] Date: {date.today()}\n")
                 f.write("[=] User: Yes I consent that the author of this script (new92) has no responsibility for any loss or damage may the script cause to the given Instagram account.\n")
-                f.write("-"*40)
+                f.write("-"*40+'\n')
                 f.close()
             else:
-                print("[OK]")
+                print(f"{YELLOW}[OK]")
                 sleep(1)
-                print("[1] Exit")
-                print("[2] Uninstall script and exit")
-                num=int(input("[>] Please enter a number (from the above ones): "))
+                print(f"{YELLOW}[1] Exit")
+                print(f"{YELLOW}[2] Uninstall IGFollowersIncreaser and exit")
+                num=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
                 while num < 1 or num > 2 or num == None:
                     if num == None:
-                        print("[!] This field can't be blank !")
+                        print(f"{RED}[!] This field can't be blank !")
                     else:
-                        print("[!] Invalid number !")
+                        print(f"{RED}[!] Invalid number !")
                         sleep(1)
-                        print("[+] Acceptable numbers: [1/2]")
+                        print(f"{GREEN}[*] Acceptable numbers: [1/2]")
                     sleep(1)
-                    print("[1] Exit")
-                    print("[2] Uninstall script and exit")
+                    print(f"{YELLOW}[1] Exit")
+                    print(f"{YELLOW}[2] Uninstall IGFollowersIncreaser and exit")
                     sleep(1)
-                    num=int(input("[>] Please enter a number (from the above ones): "))
+                    num=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
                 if num == 1:
                     clear()
-                    print("[+] Exiting...")
+                    print(f"{RED}[+] Exiting...")
                     sleep(1)
-                    print("[+] See you next time 👋")
+                    print(f"{GREEN}[+] See you next time 👋")
                     sleep(1)
                     quit(0)
                 else:
                     clear()
                     print(Uninstall())
                     sleep(1)
-                    print("[+] Exiting...")
+                    print(f"{RED}[+] Exiting...")
                     sleep(1)
-                    print("[+] Thank you for choosing to use my script 😁")
+                    print(f"{GREEN}[+] Thank you for choosing to use IGFollowersIncreaser 😁")
                     sleep(2)
-                    print("[+] If you have any suggestions or found a bug or need help feel free to contact me anytime, at this email address: new92github@gmail.com")
+                    print(f"{GREEN}[+] If you have any suggestions or found a bug or need help feel free to contact me anytime, at this email address: new92github@gmail.com")
                     sleep(3)
-                    print("[+] Exiting...")
-                    sleep(1)
                     quit(0)
         else:
             f = open("cons.txt","w")
-            f.write(f"[=] Date: {date.today()}\n")
+            f.write(f"[=] Date: {str(date.today())}\n")
             f.write("[=] User: Yes I consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given Instagram account.\n")
             f.write("-"*40)
             f.close()
         sleep(1)
-        print("[+] The login credentials will not be stored or saved")
+        print(f"{YELLOW}[+] The login credentials will not be stored or saved")
         sleep(2)
-        print("-"*20+"login".upper()+"-"*20)
-        username=str(input("[>] Please enter your username: "))
+        print(f"{GREEN}|--------------------|LOGIN|--------------------|")
+        username=str(input(f"{YELLOW}[>] Please enter your username: "))
         while checkUser(username):
             if username == None:
-                print("[!] This field can't be blank !")
+                print(f"{RED}[!] This field can't be blank !")
             else:
-                print("[!] Invalid length !")
+                print(f"{RED}[!] Invalid length !")
                 sleep(1)
-                print("[+] Acceptable length: 30 or less chacacters")
+                print(f"{GREEN}[*] Acceptable length: 30 or less characters")
             sleep(1)
-            username=str(input("[>] Please enter again your username: "))
+            username=str(input(f"{YELLOW}[>] Please enter again your username: "))
         while valUser(username):
-            print("[!] User not found !")
+            print(f"{RED}[!] User not found !")
             sleep(1)
-            print("[1] Try with another username")
-            print("[2] Return to menu")
-            print("[3] Exit")
-            opt=int(input("[>] Please enter a number (from the above ones): "))
+            print(f"{YELLOW}[1] Try with another username")
+            print(f"{YELLOW}[2] Return to menu")
+            print(f"{YELLOW}[3] Exit")
+            opt=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
             while opt < 1 or opt > 3 or opt == None:
-                print("[!] Invalid number !")
+                print(f"{RED}[!] Invalid number !")
                 sleep(1)
-                print("[1] Try with another username")
-                print("[2] Return to menu")
-                print("[3] Exit")
-                opt=int(input("[>] Please enter again a number (from the above ones): "))
+                print(f"{YELLOW}[1] Try with another username")
+                print(f"{YELLOW}[2] Return to menu")
+                print(f"{YELLOW}[3] Exit")
+                opt=int(input(f"{YELLOW}[>] Please enter again a number (from the above ones): "))
             if opt == 1:
-                username=str(input("[>] Please enter the username: "))
+                username=str(input(f"{YELLOW}[>] Please enter the username: "))
                 while checkUser(username):
                     if username == None:
-                        print("[!] This field can't be blank !")
+                        print(f"{RED}[!] This field can't be blank !")
                     else:
-                        print("[!] Invalid length !")
+                        print(f"{RED}[!] Invalid length !")
                         sleep(1)
-                        print("[+] Acceptable length: 30 or less chacacters")
+                        print(f"{GREEN}[*] Acceptable length: 30 or less characters")
                     sleep(1)
-                    username=str(input("[>] Please enter again the username: "))
+                    username=str(input(f"{YELLOW}[>] Please enter again the username: "))
             elif opt == 2:
                 clear()
                 main()
             else:
                 clear()
-                print("[+] Exiting...")
+                print(f"{RED}[+] Exiting...")
                 sleep(1)
-                print("[+] See you next time 👋")
+                print(f"{GREEN}[+] See you next time 👋")
                 sleep(2)
                 quit(0)
-        con=str(input(f"[?] The script will increase the followers for the user: {username} is that correct ? [yes/no] "))
+        print(f"{GREEN}[*] Acceptable answers: [yes/no]")
+        sleep(1)
+        con=str(input(f"{YELLOW}[?] The script will increase the followers for the user: {username} is that correct ? "))
         while con not in ANS or con == None:
             if con == None:
-                print("[!] This field can't be blank !")
+                print(f"{RED}[!] This field can't be blank !")
             else:
-                print("[!] Invalid answer !")
+                print(f"{RED}[!] Invalid answer !")
                 sleep(1)
-                print("[+] Acceptable answers: [yes/no]")
+                print(f"{GREEN}[*] Acceptable answers: [yes/no]")
             sleep(1)
-            con=str(input(f"[?] The script will increase the followers for the user: {username} is it correct ? [yes/no] "))
+            con=str(input(f"[?] The script will increase the followers for the user: {username} is it correct ? "))
         if con in ANS[9:]:
-            username=str(input("[>] Please enter another username: "))
+            username=str(input(f"{YELLOW}[>] Please enter another username: "))
             while checkUser(username):
                 if username == None:
-                    print("[!] This field can't be blank !")
+                    print(f"{RED}[!] This field can't be blank !")
                 else:
-                    print("[!] Invalid length !")
+                    print(f"{RED}[!] Invalid length !")
                     sleep(1)
-                    print("[+] Acceptable length: less than or equal to 30")
+                    print(f"{GREEN}[*] Acceptable length: less than or equal to 30")
                 sleep(1)
-                username=str(input("[>] Please enter again your username: "))
+                username=str(input(f"{YELLOW}[>] Please enter again your username: "))
             while valUser(username):
-                print("[!] User not found !")
+                print(f"{RED}[!] User not found !")
                 sleep(1)
                 print("[1] Try with another username")
                 print("[2] Return to menu")
                 print("[3] Exit")
-                opt=int(input("[>] Please enter a number (from the above ones): "))
+                opt=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
                 while opt < 1 or opt > 3 or opt == None:
                     if opt == None:
-                        print("[!] This field can't be blank !")
+                        print(f"{RED}[!] This field can't be blank !")
                     else:
-                        print("[!] Invalid number !")
+                        print(f"{RED}[!] Invalid number !")
                         sleep(1)
-                        print("[+] Acceptable numbers: [1/2/3]")
+                        print(f"{GREEN}[*] Acceptable numbers: [1/2/3]")
                     sleep(1)
                     print("[1] Try with another username")
                     print("[2] Return to menu")
                     print("[3] Exit")
-                    opt=int(input("[>] Please enter again a number (from the above ones): "))
+                    opt=int(input(f"{YELLOW}[>] Please enter again a number (from the above ones): "))
                 if opt == 1:
                     clear()
-                    username=str(input("[>] Please enter the username: "))
+                    username=str(input(f"{YELLOW}[>] Please enter the username: "))
                     while checkUser(username):
                         if username == None:
-                            print("[!] This field can't be blank !")
+                            print(f"{RED}[!] This field can't be blank !")
                         else:
-                            print("[!] Invalid length  !")
+                            print(f"{RED}[!] Invalid length  !")
                             sleep(1)
-                            print("[+] The length of the username must be less than or equal to 30 characters.")
+                            print(f"{YELLOW}[+] The length of the username must be less than or equal to 30 characters.")
                         sleep(1)
-                        username=str(input("[>] Please enter again the username: "))
+                        username=str(input(f"{YELLOW}[>] Please enter again the username: "))
                 elif opt == 2:
                     clear()
                     main()
                 else:
                     clear()
-                    print("[+] Exiting...")
+                    print(f"{YELLOW}[+] Exiting...")
                     sleep(1)
-                    print("[+] See you next time 👋")
+                    print(f"{YELLOW}[+] See you next time 👋")
                     sleep(1)
                     quit(0)
-        ga=str(input("[?] Do you want to grant access to the script to have access to the number of your followers in order to provide additional information ? [yes/no] "))
+        print(f"{GREEN}[*] Acceptable answers: [yes/no]")
+        sleep(1)
+        ga=str(input(f"{YELLOW}[?] Do you want to grant access to the script to have access to the number of your followers in order to provide additional information ? "))
         while ga not in ANS or ga == None:
             if ga == None:
-                print("[!] This field can't be blank !")
+                print(f"{RED}[!] This field can't be blank !")
             else:
-                print("[!] Invalid answer !")
+                print(f"{RED}[!] Invalid answer !")
                 sleep(1)
-                print("[+] Valid answers: [yes/no]")
+                print(f"{YELLOW}[+] Valid answers: [yes/no]")
             sleep(1)
-            ga=str(input("[?] Do you want to grant access to the script to have access to the number of your followers in order to provide additional information ? [yes/no] "))
+            ga=str(input(f"{YELLOW}[?] Do you want to grant access to the script to have access to the number of your followers in order to provide additional information ? "))
         if ga in ANS[:9]:
             loader = instaloader.Instaloader()
             profile = instaloader.Profile.from_username(loader.context, username)
             followers_bef = profile.followers
         username=username.lower().strip()
         sleep(1)
-        password=str(input("[>] Please enter your password: "))
+        password=str(input(f"{YELLOW}[>] Please enter your password: "))
         while password == None:
-            print("[!] This field can't be blank !")
+            print(f"{RED}[!] This field can't be blank !")
             sleep(1)
-            password=str(input("[>] Please enter again your password: "))
+            password=str(input(f"{YELLOW}[>] Please enter again your password: "))
         password=password.strip()
         sleep(1)
+        print(f"{GREEN}|---------------------------------------------|")
         client=instagrapi.Client()
         try:
             login = client.login(username,password)
             if login:
-                print("[✓] Login successful !")
+                print(f"{GREEN}[✓] Login successful !")
                 sleep(1)
-                print("[+] Please wait while the program is increasing your followers...")
+                print(f"{YELLOW}[+] Please wait while the program is increasing your followers...")
                 sleep(2)
             else:
-                print("[!] Login unsuccessful !")
+                print(f"{RED}[!] Login unsuccessful !")
                 sleep(1)
-                print("[+] Please check the username and/or the password !")
+                print(f"{YELLOW}[+] Please check the username and/or the password !")
                 sleep(2)
                 print("\n")
-                print("[1] Return to menu")
-                print("[2] Exit")
-                num=int(input("[>] Please enter a number (from the above ones): "))
+                print(f"{YELLOW}[1] Return to menu")
+                print(f"{YELLOW}[2] Exit")
+                num=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
                 while num < 1 or num > 2 or num == None:
                     if num == None:
-                        print("[!] This field can't be empty !")
+                        print(f"{RED}[!] This field can't be empty !")
                     else:
-                        print("[!] Invalid number !")
+                        print(f"{RED}[!] Invalid number !")
                         sleep(1)
-                        print("[+] Acceptable numbers: [1/2]")
+                        print(f"{GREEN}[*] Acceptable numbers: [1/2]")
                     sleep(1)
-                    print("[1] Return to menu")
-                    print("[2] Exit")
-                    num=int(input("[>] Please enter again a number (from the above ones):"))
+                    print(f"{YELLOW}[1] Return to menu")
+                    print(f"{YELLOW}[2] Exit")
+                    num=int(input(f"{YELLOW}[>] Please enter again a number (from the above ones):"))
                 if num == 1:
                     clear()
                     main()
                 else:
-                    print("[+] Exiting...")
+                    print(f"{RED}[+] Exiting...")
                     sleep(1)
-                    print("[+] See you next time 👋")
+                    print(f"{GREEN}[+] See you next time 👋")
                     sleep(2)
                     quit(0)
         except Exception:
             if Exception == 'The password you entered is incorrect. Please try again.':
-                print("[!] Incorrect password !")
+                print(f"{RED}[!] Incorrect password !")
                 sleep(2)
-                password=str(input("[>] Please enter again your password: "))
+                password=str(input(f"{YELLOW}[>] Please enter again your password: "))
                 while password == None:
-                    print("[!] This field can't be blank !")
+                    print(f"{RED}[!] This field can't be blank !")
                     sleep(1)
-                    password=str(input("[>] Please enter again your password: "))
+                    password=str(input(f"{YELLOW}[>] Please enter again your password: "))
                 password=password.strip()
             else:
-                print("[!] Error !")
+                print(f"{RED}[!] Error !")
                 sleep(1)
-                print(f"[*] Error message ==> {Exception}")
+                print(f"{YELLOW}[*] Error message ==> {Exception}")
                 sleep(2)
-                print("[1] Return to menu")
-                print("[2] Exit")
-                num=int(input("[>] Please enter a number (from the above ones): "))
+                print(f"{YELLOW}[1] Return to menu")
+                print(f"{YELLOW}[2] Exit")
+                num=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
                 while num < 1 or num > 2 or num == None:
                     if num == None:
-                        print("[!] This field can't be empty !")
+                        print(f"{RED}[!] This field can't be empty !")
                     else:
-                        print("[!] Invalid number !")
+                        print(f"{RED}[!] Invalid number !")
                         sleep(1)
-                        print("[+] Acceptable numbers: [1/2]")
+                        print(f"{GREEN}[*] Acceptable numbers: [1/2]")
                     sleep(1)
-                    print("[1] Return to menu")
-                    print("[2] Exit")
-                    num=int(input("[>] Please enter again a number (from the above ones):"))
+                    print(f"{YELLOW}[1] Return to menu")
+                    print(f"{YELLOW}[2] Exit")
+                    num=int(input(f"{YELLOW}[>] Please enter again a number (from the above ones):"))
                 if num == 1:
                     clear()
                     main()
                 else:
-                    print("[+] Exiting...")
+                    print(f"{RED}[+] Exiting...")
                     sleep(1)
-                    print("[+] See you next time 👋")
+                    print(f"{GREEN}[+] See you next time 👋")
                     sleep(1)
                     quit(0)
         sleep(2)
-        print("[+] To end the process enter Ctrl + C")
+        print(f"{YELLOW}[+] To end the process enter Ctrl + C")
         sleep(2)
+        clear()
         f = 0
         x = 0
         for i in range(30):
             try:
                 for j in range(len(NAMES)-1):
                     client.user_follow(users[NAMES[j]])
-                    print(f"[+] Following {NAMES[j]}...")
+                    print(f"{YELLOW}[+] Following {NAMES[j]}...")
                     sleep(3)
+                    print(f"{GREEN}[✓] Ok")
+                    sleep(2)
                     f += 1
-                    print(f"[+] Next user to follow: {NAMES[j+1]}...")
+                    print(f"{YELLOW}[+] Next user to follow: {NAMES[j+1]}...")
                     sleep(3)
                 for j in range(len(NAMES)-1):
                     client.user_unfollow(users[NAMES[j]])
-                    print(f"[-] Unfollowing {NAMES[j]}...")
+                    print(f"{YELLOW}[-] Unfollowing {NAMES[j]}...")
                     sleep(3)
+                    print(f"{GREEN}[✓] Ok")
+                    sleep(2)
                     x += 1
-                    print(f"[-] Next user to unfollow: {NAMES[j+1]}...")
+                    print(f"{YELLOW}[-] Next user to unfollow: {NAMES[j+1]}...")
                     sleep(3)
             except KeyboardInterrupt:
                 res = f - x
@@ -527,54 +556,93 @@ def main():
                     suc = f / float(len(NAMES))
                     fail = res / float(len(NAMES))
                     tot = f + x
-                    print(f"[✕] Failed to unfollow {abs(res)} users !")
+                    print(f"{GREEN}[✓] Successfully followed/unfollowed a total of {tot} users")
                     sleep(2)
-                    print(f"[✓] Successfully followed/unfollowed a total of {tot} users")
+                    print(f"{RED}[✕] Failed to unfollow {abs(res)} users !")
                     sleep(1)
-                    print(f"[+] Percentage of failure: {fail}")
+                    print(f"{GREEN}[+] Percentage of success: {suc}%")
                     sleep(1)
-                    print(f"[+] Percentage of success: {suc}")
-                    sleep(1)
+                    print(f"{RED}[+] Percentage of failure: {fail}%")
                     if ga in ANS[:9]:
                         followers_af = profile.followers
                         if followers_bef - followers_af != 0:
                             followers_af = profile.followers
-                            print(f"[✓] Successfully added: {followers_af - followers_bef} followers.")
+                            print(f"{GREEN}[✓] Successfully added: {followers_af - followers_bef} followers.")
                             sleep(1)
-                    print("[*] Users which the script failed to unfollow:")
+                    print(f"{YELLOW}[*] Users which the script failed to unfollow:")
                     sleep(3)
-                    print('-'*15+"users".upper()+'-'*15)
+                    print(f'{YELLOW}|---------------|USERS|---------------|')
                     print("\n")
                     for i in range(res,-1,-1):
-                        print(f"[+] User: {NAMES[i]}")
+                        print(f"{YELLOW}[+] User: {NAMES[i]}")
                 else:
-                    print("[+] Success: 100%")
+                    print(f"{GREEN}[+] Success: 100%")
                     sleep(1)
-                    print(f"[+] Fail: {res}%")
+                    print(f"{RED}[+] Fail: {res}%")
                     sleep(2)
+                if keep:
+                    name = 'log.txt'
+                    if os.path.exists(os.path.abspath(name)):
+                        f = open(name,'a')
+                        f.write('\n'+'-'*40+'\n')
+                        if res != 0:
+                            f.write(f'[✓] Successfully followed/unfollowed a total of {str(tot)} users\n')
+                            f.write(f'[✕] Failed to unfollow {str(abs(res))} users !\n')
+                            f.write(f'[+] Percentage of success: {str(suc)}%\n')
+                            f.write(f'[+] Percentage of failure: {str(fail)}%\n')
+                            if ga in ANS[:9]:
+                                followers_af = profile.followers
+                                if followers_bef - followers_af != 0:
+                                    followers_af = profile.followers
+                                    f.write(f'[✓] Successfully added: {str(followers_af - followers_bef)} followers.\n')
+                        else:
+                            f.write('[+] Percentage of success: 100%\n')
+                            f.write(f'[+] Percentage of failure: {str(res)}%')
+                        f.close()
+                    else:
+                        f = open(name,'w')
+                        if res != 0:
+                            f.write(f'[✓] Successfully followed/unfollowed a total of {str(tot)} users\n')
+                            f.write(f'[✕] Failed to unfollow {str(abs(res))} users !\n')
+                            f.write(f'[+] Percentage of success: {str(suc)}%\n')
+                            f.write(f'[+] Percentage of failure: {str(fail)}%\n')
+                            if ga in ANS[:9]:
+                                followers_af = profile.followers
+                                if followers_bef - followers_af != 0:
+                                    followers_af = profile.followers
+                                    f.write(f'[✓] Successfully added: {str(followers_af - followers_bef)} followers.\n')
+                        else:
+                            f.write('[+] Percentage of success: 100%\n')
+                            f.write(f'[+] Percentage of failure: {str(res)}%')
+                        f.close()
+                    print(f"{GREEN}[✓] Successfully saved log !")
+                    sleep(2)
+                    print(f"{GREEN}[↪] Log file name: {name}")
+                    print(f"{GREEN}[↪] Path to log file: {os.path.abspath(name)}")
+                    print(f"{GREEN}[↪] Log file size: {(os.stat(name)).st_size} bytes")
                 print("\n")
-                print("[1] Return to menu")
-                print("[2] Exit")
-                opt=int(input("[>] Please enter a number (from the above ones): "))
+                print(f"{YELLOW}[1] Return to menu")
+                print(f"{YELLOW}[2] Exit")
+                opt=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
                 while opt < 1 or opt > 2 or opt == None:
                     if opt == None:
-                        print("[!] This field can't be blank !")
+                        print(f"{RED}[!] This field can't be blank !")
                     else:
-                        print("[!] Invalid number !")
+                        print(f"{RED}[!] Invalid number !")
                         sleep(1)
-                        print("[+] Acceptable numbers: [1/2]")
+                        print(f"{GREEN}[*] Acceptable numbers: [1/2]")
                         sleep(1)
-                        print("[1] Return to menu")
-                        print("[2] Exit")
-                        opt=int(input("[>] Please enter again a number (from the above ones): "))
+                        print(f"{YELLOW}[1] Return to menu")
+                        print(f"{YELLOW}[2] Exit")
+                        opt=int(input(f"{YELLOW}[>] Please enter again a number (from the above ones): "))
                 if opt == 1:
                     clear()
                     main()
                 else:
                     clear()
-                    print("[+] Thank you for using my script 😁")
+                    print(f"{YELLOW}[+] Thank you for using IGFollowersIncreaser 😁")
                     sleep(2)
-                    print("[+] See you next time 👋")
+                    print(f"{YELLOW}[+] See you next time 👋")
                     sleep(1)
                     quit(0)
         res = f - x
@@ -582,235 +650,212 @@ def main():
             suc = f / float(len(NAMES))
             fail = res / float(len(NAMES))
             tot = f + x
-            print(f"[✕] Failed to unfollow {abs(res)} users !")
+            print(f"{GREEN}[✓] Successfully followed/unfollowed a total of {tot} users")
             sleep(2)
-            print(f"[✓] Successfully followed/unfollowed a total of {tot} users")
+            print(f"{RED}[✕] Failed to unfollow {abs(res)} users !")
+            sleep(2)
+            print(f"{GREEN}[+] Percentage of success: {suc}")
             sleep(1)
-            print(f"[+] Percentage of failure: {fail}")
-            sleep(1)
-            print(f"[+] Percentage of success: {suc}")
+            print(f"{RED}[+] Percentage of failure: {fail}")
             sleep(1)
             if ga in ANS[:9]:
                 followers_af = profile.followers
                 if followers_bef - followers_af != 0:
                     followers_af = profile.followers
-                    print(f"[✓] Successfully added: {followers_af - followers_bef} followers.")
+                    print(f"{GREEN}[✓] Successfully added: {followers_af - followers_bef} followers.")
                     sleep(1)
-            print("[*] Users which the script didn't unfollow:")
+            print(f"{YELLOW}[*] Users which the script didn't unfollow:")
             sleep(3)
-            print('-'*15+"users".upper()+'-'*15)
+            print(f'{YELLOW}|---------------|USERS|---------------|')
             for i in range(res,-1,-1):
-                print(f"[+] User: {NAMES[i]}")
+                print(f"{YELLOW}[+] User: {NAMES[i]}")
         else:
-            print("[+] Success: 100%")
+            print(f"{YELLOW}[+] Success: 100%")
             sleep(1)
-            print(f"[+] Fail: {res}%")
+            print(f"{YELLOW}[+] Fail: {res}%")
             sleep(2)
-        print("[1] Return to menu")
-        print("[2] Exit")
-        opt=int(input("[>] Please enter a number (from the above ones): "))
+        if keep:
+            name = 'log.txt'
+            if os.path.exists(os.path.abspath(name)):
+                f = open(name,'a')
+                f.write('\n'+'-'*40+'\n')
+                if res != 0:
+                    f.write(f'[✓] Successfully followed/unfollowed a total of {str(tot)} users\n')
+                    f.write(f'[✕] Failed to unfollow {str(abs(res))} users !\n')
+                    f.write(f'[+] Percentage of success: {str(suc)}%\n')
+                    f.write(f'[+] Percentage of failure: {str(fail)}%\n')
+                    if ga in ANS[:9]:
+                        followers_af = profile.followers
+                        if followers_bef - followers_af != 0:
+                            followers_af = profile.followers
+                            f.write(f'[✓] Successfully added: {str(followers_af - followers_bef)} followers.\n')
+                else:
+                    f.write('[+] Percentage of success: 100%\n')
+                    f.write(f'[+] Percentage of failure: {str(res)}%')
+                f.close()
+            else:
+                f = open(name,'w')
+                if res != 0:
+                    f.write(f'[✓] Successfully followed/unfollowed a total of {str(tot)} users\n')
+                    f.write(f'[✕] Failed to unfollow {str(abs(res))} users !\n')
+                    f.write(f'[+] Percentage of success: {str(suc)}%\n')
+                    f.write(f'[+] Percentage of failure: {str(fail)}%\n')
+                    if ga in ANS[:9]:
+                        followers_af = profile.followers
+                        if followers_bef - followers_af != 0:
+                            followers_af = profile.followers
+                            f.write(f'[✓] Successfully added: {str(followers_af - followers_bef)} followers.\n')
+                else:
+                    f.write('[+] Percentage of success: 100%\n')
+                    f.write(f'[+] Percentage of failure: {str(res)}%')
+                f.close()
+            print(f"{GREEN}[✓] Successfully saved log !")
+            sleep(2)
+            print(f"{GREEN}[↪] Log file name: {name}")
+            print(f"{GREEN}[↪] Path to log file: {os.path.abspath(name)}")
+            print(f"{GREEN}[↪] Log file size: {(os.stat(name)).st_size} bytes")
+        print(f"{YELLOW}[1] Return to menu")
+        print(f"{YELLOW}[2] Exit")
+        opt=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
         while opt < 1 or opt > 2 or opt == None:
             if opt == None:
-                print("[!] This field can't be blank !")
+                print(f"{RED}[!] This field can't be blank !")
             else:
-                print("[!] Invalid number !")
+                print(f"{RED}[!] Invalid number !")
                 sleep(1)
-                print("[+] Acceptable numbers: [1/2]")
+                print(f"{GREEN}[*] Acceptable numbers: [1/2]")
                 sleep(1)
-                print("[1] Return to menu")
-                print("[2] Exit")
-                opt=int(input("[>] Please enter again a number (from the above ones): "))
+                print(f"{YELLOW}[1] Return to menu")
+                print(f"{YELLOW}[2] Exit")
+                opt=int(input(f"{YELLOW}[>] Please enter again a number (from the above ones): "))
         if opt == 1:
             clear()
             main()
         else:
             clear()
-            print("[+] Thank you for using my script 😁")
+            print(f"{GREEN}[+] Thank you for using IGFollowersIncreaser 😁")
             sleep(2)
-            print("[+] See you next time 👋")
+            print(f"{GREEN}[+] See you next time 👋")
             sleep(1)
             quit(0)
     elif num == 2:
         clear()
-        Info()
+        ScriptInfo()
+        sleep(4)
+        print("\n")
+        print(f"{YELLOW}[1] Return to menu")
+        print(f"{YELLOW}[2] Exit")
+        opt=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
+        while opt < 1 or opt > 2 or opt == None:
+            if opt == None:
+                print(f"{RED}[!] This field can't be blank !")
+            else:
+                print(f"{RED}[!] Invalid number !")
+                sleep(1)
+                print(f"{GREEN}[*] Acceptable numbers: [1/2]")
+                sleep(1)
+                print(f"{YELLOW}[1] Return to menu")
+                print(f"{YELLOW}[2] Exit")
+                opt=int(input(f"{YELLOW}[>] Please enter again a number (from the above ones): "))
+        if opt == 1:
+            clear()
+            main()
+        else:
+            clear()
+            print(f"{YELLOW}[+] Thank you for using IGFollowersIncreaser 😁")
+            sleep(2)
+            print(f"{YELLOW}[+] See you next time 👋")
+            sleep(1)
+            quit(0)
     elif num == 3:
         clear()
-        name = "log.txt"
-        if os.path.exists(os.path.abspath(name)):
-            f = open(name,"a")
-            f.write("\n"+"-"*40)
-            f.write(f"[+] Date: {date.today()}\n")
-            f.write(f"[+] Followed: {f} users\n")
-            f.write(f"[+] Unfollowed: {x} users\n")
-            if res != 0:
-                f.write(f"[✕] Failed to unfollow: {abs(res)} users\n")
-            pers = tot / float(len(NAMES)*2)
-            f.write(f"[+] Percentage of success: {pers}%\n")
-            f.write(f"[+] Percentage of fail: {float(100 - pers)}%\n")
-            if ga in ANS[:9]:
-                followers_af = profile.followers
-                f.write(f"[✓] Successfully added: {followers_af - followers_bef} followers.")
-            f.close()
-            print("[✓] Successfully saved log !")
-            sleep(2)
-            print(f"[↪] Log file name: {name}")
-            print(f"[↪] Path to log file: {os.path.abspath(name)}")
-            print(f"[↪] Log file size: {(os.stat(name)).st_size}")
-            sleep(4)
-            print("[1] Return to menu")
-            print("[2] Exit")
-            opt=int(input("[>] Please enter a number (from the above ones): "))
-            while opt < 1 or opt > 2 or opt == None:
-                if opt == None:
-                    print("[!] This field can't be blank !")
-                else:
-                    print("[!] Invalid number !")
-                    sleep(1)
-                    print("[+] Acceptable numbers: [1/2]")
-                sleep(1)
-                print("[1] Return to menu")
-                print("[2] Exit")
-                opt=int(input("[>] Please enter again a number (from the above ones): "))
-            if opt == 1:
-                clear()
-                main()
-            else:
-                clear()
-                print("[+] Thank you for using my script 😁")
-                sleep(2)
-                print("[+] See you next time 👋")
-                sleep(1)
-                quit(0)
-        else:
-            f = open(name,"w")
-            f.write("\n"+"-"*40)
-            f.write(f"[+] Date: {date.today()}\n")
-            f.write(f"[+] Followed: {f} users\n")
-            f.write(f"[+] Unfollowed: {x} users\n")
-            pers = tot / float(len(NAMES)*2)
-            f.write(f"[+] Percentage of success: {pers}%\n")
-            f.write(f"[+] Percentage of fail: {float(100 - pers)}%\n")
-            f.close()
-            print("[✓] Successfully saved log !")
-            sleep(2)
-            print(f"[↪] Log file name: {name}")
-            print(f"[↪] Path to log file: {os.path.abspath(name)}")
-            print(f"[↪] Log file size: {(os.stat(name)).st_size}")
-            sleep(4)
-            print("[1] Return to menu")
-            print("[2] Exit")
-            opt=int(input("[>] Please enter a number (from the above ones): "))
-            while opt < 1 or opt > 2 or opt == None:
-                if opt == None:
-                    print("[!] This field can't be blank !")
-                else:
-                    print("[!] Invalid number !")
-                    sleep(1)
-                    print("[+] Acceptable numbers: [1/2]")
-                sleep(1)
-                print("[1] Return to menu")
-                print("[2] Exit")
-                opt=int(input("[>] Please enter again a number (from the above ones): "))
-            if opt == 1:
-                clear()
-                main()
-            else:
-                clear()
-                print("[+] Thank you for using my script 😁")
-                sleep(2)
-                print("[+] See you next time 👋")
-                sleep(1)
-                quit(0)
-    elif num == 4:
-        clear()
-        name = "log.txt"
+        name = 'log.txt'
         if os.path.exists(os.path.abspath(name)):
             f = open(name,"w")
             f.close()
-            print("[✓] Successfully cleared log !")
+            print(f"{GREEN}[✓] Successfully cleared log !")
             sleep(1)
-            print(f"[↪] Log file name: {name}")
-            print(f"[↪] Path to log file: {os.path.abspath(name)}")
-            print(f"[↪] Log file size: {(os.stat(name)).st_size}")
+            print(f"{GREEN}[↪] Log file name: {name}")
+            print(f"{GREEN}[↪] Path to log file: {os.path.abspath(name)}")
+            print(f"{GREEN}[↪] Log file size: {(os.stat(name)).st_size} bytes")
             sleep(4)
-            print("[1] Return to menu")
-            print("[2] Exit")
-            opt=int(input("[>] Please enter a number (from the above ones): "))
+            print(f"{YELLOW}[1] Return to menu")
+            print(f"{YELLOW}[2] Exit")
+            opt=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
             while opt < 1 or opt > 2 or opt == None:
                 if opt == None:
-                    print("[!] This field can't be blank !")
+                    print(f"{RED}[!] This field can't be blank !")
                 else:
-                    print("[!] Invalid number !")
+                    print(f"{RED}[!] Invalid number !")
                     sleep(1)
-                    print("[+] Acceptable numbers: [1/2]")
+                    print(f"{GREEN}[*] Acceptable numbers: [1/2]")
                 sleep(1)
-                print("[1] Return to menu")
-                print("[2] Exit")
-                opt=int(input("[>] Please enter again a number (from the above ones): "))
+                print(f"{YELLOW}[1] Return to menu")
+                print(f"{YELLOW}[2] Exit")
+                opt=int(input(f"{YELLOW}[>] Please enter again a number (from the above ones): "))
             if opt == 1:
                 clear()
                 main()
             else:
                 clear()
-                print("[+] Thank you for using my script 😁")
+                print(f"{GREEN}[+] Thank you for using IGFollowersIncreaser 😁")
                 sleep(2)
-                print("[+] See you next time 👋")
+                print(f"{GREEN}[+] See you next time 👋")
                 sleep(1)
                 quit(0)
         else:
             clear()
-            print("[!] Log file not found on this device !")
+            print(f"{RED}[✕] Log file not found on this device !")
             sleep(2)
-            print(f"[+] Searched log file using name: {name}")
+            print(f"{YELLOW}[+] Searched log file using name: {name}")
             sleep(2)
-            print("[*] Please first create the log file and then use this option 😀")
+            print(f"{GREEN}[*] Please first create the log file and then use this option 😀")
             sleep(2)
-            print("""[+] Instructions: 
-            1) Return to menu and enter the option number 3
-            2) Wait for the script to end and return to menu (enter yes when the script ask you if you want to return to menu)
-            3) From the menu enter the number 4.
+            print(f"""{YELLOW}[+] Instructions: 
+            1) Return to menu and enter the option number 1
+            2) Enter <True> in the keep log question
             """)
-            print("[1] Return to menu")
-            print("[2] Exit")
-            opt=int(input("[>] Please enter a number (from the above ones): "))
+            print(f"{YELLOW}[1] Return to menu")
+            print(f"{YELLOW}[2] Exit")
+            opt=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
             while opt < 1 or opt > 2 or opt == None:
                 if opt == None:
-                    print("[!] This field can't be blank !")
+                    print(f"{RED}[!] This field can't be blank !")
                 else:
-                    print("[!] Invalid number !")
+                    print(f"{RED}[!] Invalid number !")
                     sleep(1)
-                    print("[+] Acceptable numbers: [1/2]")
+                    print(f"{GREEN}[*] Acceptable numbers: [1/2]")
                 sleep(1)
-                print("[1] Return to menu")
-                print("[2] Exit")
-                opt=int(input("[>] Please enter again a number (from the above ones): "))
+                print(f"{YELLOW}[1] Return to menu")
+                print(f"{YELLOW}[2] Exit")
+                opt=int(input(f"{YELLOW}[>] Please enter again a number (from the above ones): "))
             if opt == 1:
                 clear()
                 main()
             else:
                 clear()
-                print("[+] Thank you for using my script 😁")
+                print(f"{GREEN}[+] Thank you for using IGFollowersIncreaser 😁")
                 sleep(2)
-                print("[+] See you next time 👋")
+                print(f"{GREEN}[+] See you next time 👋")
                 sleep(1)
                 quit(0)
-    elif num == 5:
+    elif num == 4:
         print(Uninstall())
         sleep(2)
-        print("[+] Thank you for choosing to use my script 😀😁")
+        print(f"{YELLOW}[+] Thank you for choosing to use IGFollowersIncreaser 😀😁")
         sleep(2)
-        print("[+] Hope you enjoyed it 🤗")
+        print(f"{YELLOW}[+] Hope you enjoyed it 🤗")
         sleep(1)
-        print("[+] If you have any suggestions or found a bug or need help feel free to contact me anytime, at this email address: new92github@gmail.com")
+        print(f"{YELLOW}[+] If you have any suggestions or found a bug or need help feel free to contact me anytime, at this email address: new92github@gmail.com")
         sleep(3)
-        print("[+] Until we meet again 🫡")
+        print(f"{YELLOW}[+] Until we meet again 🫡")
         sleep(1)
         quit(0)
     else:
         clear()
-        print("[+] Thank you for using my script 😁")
+        print(f"{YELLOW}[+] Thank you for using IGFollowersIncreaser 😁")
         sleep(2)
-        print("[+] See you next time 👋")
+        print(f"{YELLOW}[+] See you next time 👋")
         sleep(1)
         quit(0)
 
