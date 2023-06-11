@@ -175,7 +175,7 @@ def ValUser(username:str) -> bool:
 
 def nums():
     print(f"{YELLOW}[1] Increase followers")
-    print(f"{YELLOW}[2] Display IGFollowersIncreaser's info and exit")
+    print(f"{YELLOW}[2] Display IGFollowersIncreaser's info")
     print(f"{YELLOW}[3] Clear log")
     print(f"{YELLOW}[4] Uninstall IGFollowersIncreaser")
     print(f"{YELLOW}[5] Exit")
@@ -660,6 +660,30 @@ def main():
     elif option == 2:
         clear()
         ScriptInfo()
+        print(f"{YELLOW}[1] Return to menu")
+        print(f"{YELLOW}[2] Exit")
+        opt=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
+        while opt < 1 or opt > 2 or opt == None:
+            if opt == None:
+                print(f"{RED}[!] This field can't be blank !")
+            else:
+                print(f"{RED}[!] Invalid number !")
+                sleep(1)
+                print(f"{GREEN}[*] Acceptable numbers: [1/2]")
+            sleep(1)
+            print(f"{YELLOW}[1] Return to menu")
+            print(f"{YELLOW}[2] Exit")
+            opt=int(input(f"{YELLOW}[>] Please enter again a number (from the above ones): "))
+        if opt == 1:
+            clear()
+            main()
+        else:
+            clear()
+            print(f"{GREEN}[+] Thank you for using IGFollowersIncreaser 😁")
+            sleep(2)
+            print(f"{GREEN}[+] See you next time 👋")
+            sleep(1)
+            quit(0)
     elif option == 3:
         clear()
         name = 'log.txt'
