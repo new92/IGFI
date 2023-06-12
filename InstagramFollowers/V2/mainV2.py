@@ -186,7 +186,7 @@ def ValUser(username:str) -> bool:
 
 def nums():
     print(f"{YELLOW}[1] Increase followers")
-    print(f"{YELLOW}[2] Display IGFollowersIncreaser's info")
+    print(f"{YELLOW}[2] Show IGFollowersIncreaser's info")
     print(f"{YELLOW}[3] Clear log")
     print(f"{YELLOW}[4] Uninstall IGFollowersIncreaser")
     print(f"{YELLOW}[5] Exit")
