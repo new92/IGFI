@@ -26,6 +26,13 @@ try:
         print("[+] Exiting...")
         sleep(1)
         quit(0)
+    from tqdm import tqdm
+    total_mods = 12
+    bar = tqdm(total=total_mods, desc='Loading modules', unit='module')
+    for _ in range(total_mods):
+        sleep(0.75)
+        bar.update(1)
+    bar.close()
     import platform
     from os import system
     import instagrapi
@@ -104,7 +111,7 @@ def ScriptInfo():
     lang = 'en-US'
     language = 'Python'
     name = 'IGFollowersIncreaser'
-    lines = 786
+    lines = 794
     f = 'mainV1.py'
     if os.path.exists(os.path.abspath(f)):
         fsize = (os.stat(f)).st_size
@@ -692,7 +699,7 @@ def main():
                     sleep(2)
                     print(f"{GREEN}[↪] Log file name: {name}")
                     print(f"{GREEN}[↪] Path to log file: {os.path.abspath(name)}")
-                    print(f"{GREEN}[↪] Log file size: {(os.stat(name)).st_size}")
+                    print(f"{GREEN}[↪] Log file size: {(os.stat(name)).st_size} bytes")
                     sleep(4)
                 else:
                     f = open(name,"w")
@@ -711,7 +718,7 @@ def main():
                     sleep(2)
                     print(f"{GREEN}[↪] Log file name: {name}")
                     print(f"{GREEN}[↪] Path to log file: {os.path.abspath(name)}")
-                    print(f"{GREEN}[↪] Log file size: {(os.stat(name)).st_size}")
+                    print(f"{GREEN}[↪] Log file size: {(os.stat(name)).st_size} bytes")
                     sleep(4)
                     print(f"{YELLOW}[1] Return to menu")
                     print(f"{YELLOW}[2] Exit")
