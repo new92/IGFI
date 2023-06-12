@@ -105,13 +105,16 @@ GREEN = Fore.GREEN
 YELLOW = Fore.YELLOW
 RED = Fore.RED
 
+print(f"{GREEN}[✓] Successfully loaded modules !")
+sleep(1)
+
 def ScriptInfo():
     author = 'new92'
     lice = 'MIT'
     lang = 'en-US'
     language = 'Python'
     name = 'IGFollowersIncreaser'
-    lines = 794
+    lines = 797
     f = 'mainV1.py'
     if os.path.exists(os.path.abspath(f)):
         fsize = (os.stat(f)).st_size
