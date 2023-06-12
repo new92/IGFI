@@ -29,6 +29,13 @@ try:
         print(f"{YELLOW}[+] Exiting...")
         sleep(1)
         quit(0)
+    from tqdm import tqdm
+    total_mods = 12
+    bar = tqdm(total=total_mods, desc='Loading modules', unit='module')
+    for _ in range(total_mods):
+        sleep(0.75)
+        bar.update(1)
+    bar.close()
     import platform
     from os import system
     import os
@@ -98,6 +105,9 @@ colorama.init(autoreset=True)
 RED = Fore.RED
 GREEN = Fore.GREEN
 YELLOW = Fore.YELLOW
+
+print(f"{GREEN}[✓] Successfully loaded modules !")
+sleep(1)
 
 def ScriptInfo():
     author = 'new92'
