@@ -35,8 +35,9 @@ try:
     import instagrapi
     import requests
     import instaloader
+    import colorama
     from datetime import date
-    from colorama import init, Fore
+    from colorama import Fore
 except ImportError:
     print("[!] WARNING: Not all packages used in IGFollowersIncreaser have been installed !")
     sleep(2)
@@ -93,7 +94,7 @@ except ImportError:
     elif platform.system() == 'Windows':
         system("pip install -r requirements.txt")
 
-init(autoreset=True)
+colorama.init(autoreset=True)
 RED = Fore.RED
 GREEN = Fore.GREEN
 YELLOW = Fore.YELLOW
