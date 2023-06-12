@@ -853,7 +853,7 @@ def main():
     elif num == 4:
         print(Uninstall())
         sleep(2)
-        print(f"{YELLOW}[+] Thank you for choosing to use IGFollowersIncreaser 😀😁")
+        print(f"{YELLOW}[+] Thank you for choosing IGFollowersIncreaser 😀😁")
         sleep(2)
         print(f"{YELLOW}[+] Hope you enjoyed it 🤗")
         sleep(1)
