@@ -116,7 +116,7 @@ def ScriptInfo():
     language = 'Python'
     name = 'IGFollowersIncreaser'
     api = None
-    lines = 874
+    lines = 872
     f = 'mainV3.py'
     if os.path.exists(os.path.abspath(f)):
         fsize = (os.stat(f)).st_size
@@ -501,12 +501,10 @@ def main():
             if Exception == 'The password you entered is incorrect. Please try again.':
                 print(f"{RED}[!] Incorrect password !")
                 sleep(2)
-                password=str(input(f"{YELLOW}[>] Please enter again your password: "))
-                while password == None:
-                    print(f"{RED}[!] This field can't be blank !")
-                    sleep(1)
-                    password=str(input(f"{YELLOW}[>] Please enter again your password: "))
-                password=password.strip()
+                print(f"{YELLOW}[+] Returning to menu...")
+                sleep(1)
+                clear()
+                main()
             else:
                 print(f"{RED}[!] Error !")
                 sleep(1)
@@ -789,7 +787,7 @@ def main():
             print(f"{GREEN}[↪] Log file name: {name}")
             print(f"{GREEN}[↪] Path to log file: {os.path.abspath(name)}")
             print(f"{GREEN}[↪] Log file size: {(os.stat(name)).st_size} bytes")
-            sleep(4)
+            sleep(3)
             print(f"{YELLOW}[1] Return to menu")
             print(f"{YELLOW}[2] Exit")
             opt=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
