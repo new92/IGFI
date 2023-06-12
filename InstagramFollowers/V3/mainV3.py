@@ -116,7 +116,7 @@ def ScriptInfo():
     language = 'Python'
     name = 'IGFollowersIncreaser'
     api = None
-    lines = 863
+    lines = 874
     f = 'mainV3.py'
     if os.path.exists(os.path.abspath(f)):
         fsize = (os.stat(f)).st_size
@@ -175,7 +175,7 @@ ANS = ["yes","YES","Yes","y","Y","YeS","yEs","YEs","yES","no","NO","No","n","N",
 
 def nums():
     print(f"{YELLOW}[1] Increase followers")
-    print(f"{YELLOW}[2] Show IGFollowersIncreaser's info and exit")
+    print(f"{YELLOW}[2] Show IGFollowersIncreaser's info")
     print(f"{YELLOW}[3] Clear log")
     print(f"{YELLOW}[4] Uninstall IGFollowersIncreaser")
     print(f"{YELLOW}[5] Exit")
