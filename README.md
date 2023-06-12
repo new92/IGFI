@@ -155,7 +155,7 @@ Answer ➡️ Only if you're using a very old version of Instagram. But the scri
 ## Update 🔄️
 
 ```bash
-   cd IGFollowersIncreaser
+   cd <path_to_script>/IGFollowersIncreaser
    git pull
 ```
 
