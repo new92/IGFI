@@ -27,6 +27,13 @@ try:
         print("[+] Exiting...")
         sleep(1)
         quit(0)
+    from tqdm import tqdm
+    total_mods = 12
+    bar = tqdm(total=total_mods, desc='Loading modules', unit='module')
+    for _ in range(total_mods):
+        sleep(0.75)
+        bar.update(1)
+    bar.close()
     import platform
     from os import system
     import os
@@ -109,7 +116,7 @@ def ScriptInfo():
     language = 'Python'
     name = 'IGFollowersIncreaser'
     api = None
-    lines = 784
+    lines = 792
     f = 'mainV2.py'
     if os.path.exists(os.path.abspath(f)):
         fsize = (os.stat(f)).st_size
@@ -117,7 +124,7 @@ def ScriptInfo():
         fsize = 0
     stars = 36
     forks = 26
-    issues = 0
+    issues = 1
     clissues = 3
     prs = 0
     clprs = 8
