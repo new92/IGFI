@@ -27,6 +27,7 @@ try:
         print("[+] Exiting...")
         sleep(1)
         quit(0)
+    import platform
     from tqdm import tqdm
     total_mods = 12
     bar = tqdm(total=total_mods, desc='Loading modules', unit='module')
@@ -34,7 +35,6 @@ try:
         sleep(0.75)
         bar.update(1)
     bar.close()
-    import platform
     from os import system
     import os
     import instagrapi
