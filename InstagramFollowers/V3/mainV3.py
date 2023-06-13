@@ -37,8 +37,8 @@ try:
         sleep(0.75)
         bar.update(1)
     bar.close()
-    from os import system
     import os
+    from os import system
     import instagrapi
     import requests
     import instaloader
