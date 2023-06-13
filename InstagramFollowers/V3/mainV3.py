@@ -71,7 +71,7 @@ except ImportError:
                     else:
                         print("[!] Invalid number !")
                         sleep(1)
-                        print("[*] Acceptable numbers: [1,2]")
+                        print("[*] Acceptable numbers: [1/2]")
                     sleep(1)
                     print("[1] Uninstall IGFollowersIncreaser")
                     print("[2] Exit")
@@ -209,7 +209,7 @@ def main():
         else:
             print(f"{RED}[!] Invalid number !")
             sleep(1)
-            print(f"{GREEN}[*] Acceptable numbers: [1/2/3/4/5/6]")
+            print(f"{GREEN}[*] Acceptable numbers: [1/2/3/4/5]")
         sleep(1)
         nums()
         sleep(1)
@@ -275,7 +275,7 @@ def main():
                 con=str(input(f"{YELLOW}[>] Do you consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given (Instagram) account ? "))
             if con in ANS[:9]:
                 f = open("cons.txt","a")
-                f.write(f"\n[=] Date: {date.today()}\n")
+                f.write(f"\n[=] Date: {str(date.today())}\n")
                 f.write("[=] User: Yes I consent that the author of this script (new92) has no responsibility for any loss or damage may the script cause to the given Instagram account.\n")
                 f.write("-"*40+'\n')
                 f.close()
