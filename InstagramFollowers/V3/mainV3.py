@@ -124,8 +124,8 @@ def ScriptInfo():
         fsize = 0
     stars = 36
     forks = 26
-    issues = 1
-    clissues = 4
+    issues = 0
+    clissues = 5
     prs = 0
     clprs = 8
     discs = 5
