@@ -117,7 +117,7 @@ def ScriptInfo():
     lines = 797
     f = 'mainV1.py'
     if os.path.exists(os.path.abspath(f)):
-        fsize = (os.stat(f)).st_size
+        fsize = os.stat(f)
     else:
         fsize = 0
     stars = 44
