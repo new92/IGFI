@@ -1,4 +1,4 @@
-![instagram](https://user-images.githubusercontent.com/94779840/220741614-2ea1ace7-4bd7-411a-80e8-21ec40b75b4e.jpg)
+![Logo](https://user-images.githubusercontent.com/94779840/220741614-2ea1ace7-4bd7-411a-80e8-21ec40b75b4e.jpg)
 # IGFollowersIncreaser 🤖
 
 With this script the user by simply logging in, can increase their followers !
@@ -35,7 +35,7 @@ Any type of feedback is welcome and appreciated. (Please do not use any vulgar v
 
 ## Badges 📛
 
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/9864f7f507804c81975576919a4a684a)](https://app.codacy.com/gh/new92/IGFollowersIncreaser/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/9864f7f507804c81975576919a4a684a?style=for-the-badge&logo=codacy)](https://app.codacy.com/gh/new92/IGFollowersIncreaser/dashboard?style=for-the-badge&logo=codacy)
 
 [![Number of files](https://img.shields.io/github/directory-file-count/new92/IGFollowersIncreaser?style=for-the-badge)](https://img.shields.io/github/directory-file-count/new92/IGFollowersIncreaser)
 
