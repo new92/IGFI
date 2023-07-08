@@ -125,8 +125,8 @@ Answer ➡️ Only if you're using a very old version of Instagram. But the scri
   git clone https://github.com/new92/IGFollowersIncreaser
   cd IGFollowersIncreaser
   cd InstagramFollowers
-  cd V<and the version you want to use. Example: cd V1   Available versions: 1/2/3>
   sudo pip install -r requirements.txt
+  cd V<and the version you want to use. Example: cd V1   Available versions: 1/2/3>
   python3 mainV<and the number of the script. Example: python3 mainV1.py>.py
 ```
 
@@ -136,8 +136,8 @@ Answer ➡️ Only if you're using a very old version of Instagram. But the scri
   git clone https://github.com/new92/IGFollowersIncreaser
   cd IGFollowersIncreaser
   cd InstagramFollowers
-  cd V<and the version you want to use. Example: cd V1   Available versions: 1/2/3>
   pip install -r requirements.txt
+  cd V<and the version you want to use. Example: cd V1   Available versions: 1/2/3>
   python3 mainV<and the number of the script. Example: python3 mainV1.py>.py
 ```
 
@@ -147,8 +147,8 @@ Answer ➡️ Only if you're using a very old version of Instagram. But the scri
   git clone https://github.com/new92/IGFollowersIncreaser
   cd IGFollowersIncreaser
   cd InstagramFollowers
-  cd V<and the version you want to use. Example: cd V1   Available versions: 1/2/3>
   python -m pip install requirements.txt
+  cd V<and the version you want to use. Example: cd V1   Available versions: 1/2/3>
   python mainV<and the number of the script. Example: python3 mainV1.py>.py
 ```
     
