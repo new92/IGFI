@@ -93,7 +93,7 @@ If you are reporting a bug or making a suggestion please make sure your report/s
 
 - Error while logging in ?
 
-Answer ➡️ This can be resolved by logging in to your instagram account from your browser and then running the script.
+Answer ➡️ This can be resolved by logging in to your instagram account, following the instagram instructions in order to verify that the account belongs to you and then running the script.
 
 #### Question 2
 
