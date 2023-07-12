@@ -126,7 +126,7 @@ def ScriptInfo():
     clissues = 5
     prs = 0
     clprs = 8
-    discs = 5
+    discs = 9
     print(f"{YELLOW}[+] Author: {author}")
     print(f"{YELLOW}[+] Github: @{author}")
     print(f"{YELLOW}[+] License: {lice}")
