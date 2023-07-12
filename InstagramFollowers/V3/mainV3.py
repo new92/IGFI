@@ -122,13 +122,13 @@ def ScriptInfo():
         fsize = os.stat(f)
     else:
         fsize = 0
-    stars = 47
+    stars = 48
     forks = 30
     issues = 0
     clissues = 5
     prs = 0
     clprs = 8
-    discs = 5
+    discs = 9
     print(f"{YELLOW}[+] Author: {author}")
     print(f"{YELLOW}[+] Github: @{author}")
     print(f"{YELLOW}[+] License: {lice}")
