@@ -15,7 +15,7 @@ try:
     import sys
     from time import sleep
     if sys.version_info[0] < 3:
-        print("[!] Error !IGFollowersIncreaser requires Python version 3.X ! ")
+        print("[!] Error ! IGFollowersIncreaser requires Python version 3.X ! ")
         print("""[+] Instructions to download Python 3.x : 
         Linux: apt install python3
         Windows: https://www.python.org/downloads/
