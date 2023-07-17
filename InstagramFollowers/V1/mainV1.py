@@ -763,7 +763,7 @@ def main():
         clear()
         ScriptInfo()
         sleep(4)
-        print("\n")
+        print("\n\n")
         print(f"{YELLOW}[1] Return to menu")
         print(f"{YELLOW}[2] Exit")
         opt=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
