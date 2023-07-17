@@ -635,7 +635,7 @@ def main():
                         print(f"{GREEN}[↪] Log file name: {name}")
                         print(f"{GREEN}[↪] Path to log file: {fpath(name)}")
                         print(f"{GREEN}[↪] Log file size: {os.stat(fpath(name)).st_size} bytes")
-                        sleep(4)
+                        sleep(3)
                     print(f"{YELLOW}[1] Return to menu")
                     print(f"{YELLOW}[2] Exit")
                     opt=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
