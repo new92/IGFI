@@ -26,22 +26,21 @@ try:
         print("[+] Exiting...")
         sleep(1)
         quit(0)
-    import platform
     from tqdm import tqdm
-    total_mods = 12
+    total_mods = 10
     bar = tqdm(total=total_mods, desc='Loading modules', unit='module')
     for _ in range(total_mods):
         sleep(0.75)
         bar.update(1)
     bar.close()
+    import platform
     from os import system
     import instagrapi
     import os
     import requests
     import instaloader
-    import colorama
     from datetime import date
-    from colorama import Fore
+    from colorama import init, Fore
 except ImportError:
     print("[!] WARNING: Not all packages used in IGFollowersIncreaser have been installed !")
     sleep(2)
@@ -70,12 +69,17 @@ except ImportError:
                     else:
                         print("[!] Invalid number !")
                         sleep(1)
-                        print("[*] Acceptable numbers: [1,2]")
+                        print("[*] Acceptable numbers: [1/2]")
                     sleep(1)
                     print("[1] Uninstall script")
                     print("[2] Exit")
                     opt=int(input("[>] Please enter again a number (from the above ones): "))
                 if opt == 1:
+                    def fpath(fname: str):
+                        for root, dirs, files in os.walk('/'):
+                            if fname in files:
+                                return os.path.abspath(os.path.join(root, fname))
+                        return None
                     def rmdir(dire):
                         DIRS = []
                         for root, dirs, files in os.walk(dire):
@@ -86,7 +90,7 @@ except ImportError:
                         for i in range(len(DIRS)):
                             os.rmdir(DIRS[i])
                         os.rmdir(dire)
-                    rmdir(os.path.abspath('IGFollowersIncreaser'))
+                    rmdir(fpath('IGFollowersIncreaser'))
                     print("[✓] Files and dependencies uninstalled successfully !")
                 else:
                     print("[+] Exiting...")
@@ -100,7 +104,7 @@ except ImportError:
     elif platform.system() == 'Windows':
         system("pip install -r requirements.txt")
 
-colorama.init(autoreset=True)
+init(autoreset=True)
 GREEN = Fore.GREEN
 YELLOW = Fore.YELLOW
 RED = Fore.RED
@@ -108,25 +112,31 @@ RED = Fore.RED
 print(f"{GREEN}[✓] Successfully loaded modules !")
 sleep(1)
 
+def fpath(fname: str):
+    for root, dirs, files in os.walk('/'):
+        if fname in files:
+            return os.path.abspath(os.path.join(root, fname))
+    return None
+
 def ScriptInfo():
     author = 'new92'
     lice = 'MIT'
     lang = 'en-US'
     language = 'Python'
     name = 'IGFollowersIncreaser'
-    lines = 797
+    lines = 809
     f = 'mainV1.py'
-    if os.path.exists(os.path.abspath(f)):
-        fsize = os.stat(f)
+    if os.path.exists(fpath(f)):
+        fsize = os.stat(fpath(f)).st_size
     else:
         fsize = 0
     stars = 50
     forks = 31
-    issues = 0
+    issues = 1
     clissues = 5
     prs = 0
     clprs = 8
-    discs = 9
+    discs = 5
     print(f"{YELLOW}[+] Author: {author}")
     print(f"{YELLOW}[+] Github: @{author}")
     print(f"{YELLOW}[+] License: {lice}")
@@ -135,7 +145,7 @@ def ScriptInfo():
     print(f"{YELLOW}[+] Number of lines: {lines}")
     print(f"{YELLOW}[+] Script's name: {name}")
     print(f"{YELLOW}[+] File size: {fsize} bytes")
-    print(f"{YELLOW}[+] File path: {os.path.abspath(f)}")
+    print(f"{YELLOW}[+] File path: {fpath(f)}")
     print(f"{YELLOW}|======|GITHUB REPO INFO|======|")
     print(f"{YELLOW}[+] Stars: {stars}")
     print(f"{YELLOW}[+] Forks: {forks}")
@@ -168,7 +178,7 @@ def Uninstall() -> str:
         for i in range(len(DIRS)):
             os.rmdir(DIRS[i])
         os.rmdir(dire)
-    rmdir(os.path.abspath('IGFollowersIncreaser'))
+    rmdir(fpath('IGFollowersIncreaser'))
     return f"{GREEN}[✓] Files and dependencies uninstalled successfully !"
 
 def checkUser(username:str) -> bool:
@@ -192,14 +202,14 @@ def nums():
 
 def main():
     print(banner())
-    print(f"\n")
-    print(f"{YELLOW}[+] IGFollowersIncreaser is a tool which helps the increment of the followers of a user")
-    print(f"\n")
+    print("\n")
+    print(f"{YELLOW}[+] IGFollowersIncreaser is a tool which helps the increment of the followers of a user on Instagram")
+    print("\n")
     print(f"{YELLOW}[+] Author: new92")
     print(f"{YELLOW}[+] Github: @new92")
-    print(f"\n")
+    print("\n")
     nums()
-    print(f"\n")
+    print("\n")
     option=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
     while option < 1 or option > 5 or option == None:
         if option == None:
@@ -255,10 +265,12 @@ def main():
                     sleep(1)
                     num=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
                 if num == 1:
+                    clear()
                     print(f"{YELLOW}[+] Exiting...")
                     sleep(1)
                     quit(0)
                 else:
+                    clear()
                     print(Uninstall())
                     sleep(2)
                     print(f"{YELLOW}[+] Exiting...")
@@ -274,7 +286,7 @@ def main():
             f.write("[=] User: Yes I consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given Instagram account.\n")
             f.write("-"*40+'\n')
             f.close()
-        print(f"\n")
+        print("\n")
         print(f"{YELLOW}[+] The login credentials will not be stored or saved")
         sleep(2)
         print(f"{GREEN}|--------------------|LOGIN|--------------------|")
@@ -683,7 +695,7 @@ def main():
                 sleep(1)
             if keep:
                 name = 'log.txt'
-                if os.path.exists(os.path.abspath(name)):
+                if os.path.exists(fpath(name)):
                     f = open(name,'a')
                     f.write('\n'+'-'*40+'\n')
                     f.write(f"[+] Date: {str(date.today())}\n")
@@ -701,8 +713,8 @@ def main():
                     print(f"{GREEN}[✓] Successfully saved log !")
                     sleep(2)
                     print(f"{GREEN}[↪] Log file name: {name}")
-                    print(f"{GREEN}[↪] Path to log file: {os.path.abspath(name)}")
-                    print(f"{GREEN}[↪] Log file size: {(os.stat(name)).st_size} bytes")
+                    print(f"{GREEN}[↪] Path to log file: {fpath(name)}")
+                    print(f"{GREEN}[↪] Log file size: {(os.stat(fpath(name))).st_size} bytes")
                     sleep(4)
                 else:
                     f = open(name,"w")
@@ -720,8 +732,8 @@ def main():
                     print(f"{GREEN}[✓] Successfully saved log !")
                     sleep(2)
                     print(f"{GREEN}[↪] Log file name: {name}")
-                    print(f"{GREEN}[↪] Path to log file: {os.path.abspath(name)}")
-                    print(f"{GREEN}[↪] Log file size: {(os.stat(name)).st_size} bytes")
+                    print(f"{GREEN}[↪] Path to log file: {fpath(name)}")
+                    print(f"{GREEN}[↪] Log file size: {os.stat(fpath(name)).st_size} bytes")
                     sleep(4)
                     print(f"{YELLOW}[1] Return to menu")
                     print(f"{YELLOW}[2] Exit")
@@ -732,7 +744,7 @@ def main():
                     else:
                         print(f"{RED}[!] Invalid number !")
                         sleep(1)
-                        print(f"{GREEN}[*] Acceptable numbers: [1,2]")
+                        print(f"{GREEN}[*] Acceptable numbers: [1/2]")
                     sleep(1)
                     print(f"{YELLOW}[1] Return to menu")
                     print(f"{YELLOW}[2] Exit")
@@ -761,7 +773,7 @@ def main():
             else:
                 print(f"{RED}[!] Invalid number !")
                 sleep(1)
-                print(f"{GREEN}[*] Acceptable numbers: [1,2]")
+                print(f"{GREEN}[*] Acceptable numbers: [1/2]")
             sleep(1)
             print(f"{YELLOW}[1] Return to menu")
             print(f"{YELLOW}[2] Exit")
