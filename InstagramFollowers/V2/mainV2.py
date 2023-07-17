@@ -22,27 +22,26 @@ try:
         Linux: apt install python3
         Windows: https://www.python.org/downloads/
         MacOS: https://docs.python-guide.org/starting/install3/osx/""")
-        print("[+] Please install the Python 3 and then use IGFollowersIncreaser ✅")
+        print("[+] Please install Python 3 and then use IGFollowersIncreaser ✅")
         sleep(2)
         print("[+] Exiting...")
         sleep(1)
         quit(0)
-    import platform
     from tqdm import tqdm
-    total_mods = 12
+    total_mods = 10
     bar = tqdm(total=total_mods, desc='Loading modules', unit='module')
     for _ in range(total_mods):
         sleep(0.75)
         bar.update(1)
     bar.close()
+    import platform
     from os import system
     import os
     import instagrapi
     import requests
     import instaloader
-    import colorama
     from datetime import date
-    from colorama import Fore
+    from colorama import init, Fore
 except ImportError:
     print("[!] WARNING: Not all packages used in IGFollowersIncreaser have been installed !")
     sleep(2)
@@ -77,6 +76,11 @@ except ImportError:
                     print("[2] Exit")
                     opt=int(input("[>] Please enter again a number (from the above ones): "))
                 if opt == 1:
+                    def fpath(fname: str):
+                        for root, dirs, files in os.walk('/'):
+                            if fname in files:
+                                return os.path.abspath(os.path.join(root, fname))
+                        return None
                     def rmdir(dire):
                         DIRS = []
                         for root, dirs, files in os.walk(dire):
@@ -87,7 +91,7 @@ except ImportError:
                         for i in range(len(DIRS)):
                             os.rmdir(DIRS[i])
                         os.rmdir(dire)
-                    rmdir(os.path.abspath('IGFollowersIncreaser'))
+                    rmdir(fpath('IGFollowersIncreaser'))
                     print("[✓] Files and dependencies uninstalled successfully !")
                 else:
                     print("[+] Exiting...")
@@ -104,13 +108,19 @@ except ImportError:
     elif platform.system() == 'Windows':
         system("pip install -r requirements.txt")
 
-colorama.init(autoreset=True)
+init(autoreset=True)
 GREEN = Fore.GREEN
 RED = Fore.RED
 YELLOW = Fore.YELLOW
 
 print(f"{GREEN}[✓] Successfully loaded modules !")
 sleep(1)
+
+def fpath(fname: str):
+    for root, dirs, files in os.walk('/'):
+         if fname in files:
+            return os.path.abspath(os.path.join(root, fname))
+    return None
 
 def ScriptInfo():
     author = 'new92'
@@ -119,19 +129,19 @@ def ScriptInfo():
     language = 'Python'
     name = 'IGFollowersIncreaser'
     api = None
-    lines = 795
+    lines = 807
     f = 'mainV2.py'
-    if os.path.exists(os.path.abspath(f)):
-        fsize = os.stat(f)
+    if os.path.exists(fpath(f)):
+        fsize = os.stat(fpath(f)).st_size
     else:
         fsize = 0
     stars = 50
     forks = 31
-    issues = 0
+    issues = 1
     clissues = 5
     prs = 0
     clprs = 8
-    discs = 9
+    discs = 5
     print(f"{YELLOW}[+] Author: {author}")
     print(f"{YELLOW}[+] Github: @{author}")
     print(f"{YELLOW}[+] License: {lice}")
@@ -164,7 +174,7 @@ def Uninstall() -> str:
         for i in range(len(DIRS)):
             os.rmdir(DIRS[i])
         os.rmdir(dire)
-    rmdir(os.path.abspath('IGFollowersIncreaser'))
+    rmdir(fpath('IGFollowersIncreaser'))
     return f"{GREEN}[✓] Files and dependencies uninstalled successfully !"
 
 
@@ -179,7 +189,7 @@ def banner() -> str:
 """
 
 def checkUser(username:str) -> bool:
-    return username == None or len(username) > 30
+    return username == None or len(username) > 30 or username == ''
 
 def ValUser(username:str) -> bool:
     return requests.get(f'https://www.instagram.com/{username}/', allow_redirects=False).status_code != 200
@@ -225,6 +235,7 @@ def main():
         keep=bool(input(f"{YELLOW}[?] Keep log ? "))
         if os.path.exists("cons.txt"):
             print(f"{GREEN}[*] Acceptable answers: [yes/no]")
+            sleep(1)
             con=str(input(f"{YELLOW}[>] Do you consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given (Instagram) account ? "))
             if con in ANS[:9]:
                 f = open("cons.txt","a")
@@ -326,6 +337,7 @@ def main():
             elif opt == 3:
                 clear()
                 print(Uninstall())
+                sleep(2)
                 print(f"{GREEN}[+] Thank you for using IGFollowersIncreaser 😁")
                 sleep(2)
                 print(f"{GREEN}[+] Hope you enjoyed it ! ☺️")
@@ -351,9 +363,9 @@ def main():
                 sleep(1)
                 print(f"{GREEN}[*] Acceptable answers: [yes/no]")
             sleep(1)
-            con=str(input(f"{YELLOW}[?] Script will increase the followers for the user: {username} is it correct ? "))
+            con=str(input(f"{YELLOW}[?] Script will increase the followers for the user: {username} is that correct ? "))
         if con in ANS[9:]:
-            username=str(input(f"{YELLOW}[>] Please enter an other username: "))
+            username=str(input(f"{YELLOW}[>] Please enter a different username: "))
             username = username.lower().strip()
             while checkUser(username):
                 if username == None:
@@ -361,7 +373,7 @@ def main():
                 else:
                     print(f"{RED}[!] Invalid length !")
                     sleep(1)
-                    print(f"{GREEN}[*] Acceptable length: less than or equal to 30")
+                    print(f"{GREEN}[*] Acceptable length: <= 30")
                 sleep(1)
                 username=str(input(f"{YELLOW}[>] Please enter again the username: "))
             while ValUser(username):
@@ -436,7 +448,7 @@ def main():
             followers_bef = profile.followers
         sleep(1)
         password=str(input(f"{YELLOW}[>] Please enter your password: "))
-        while password == None:
+        while password == None or password == '':
             print(f"{RED}[!] This field can't be blank !")
             sleep(1)
             password=str(input(f"{YELLOW}[>] Please enter again your password: "))
@@ -456,7 +468,7 @@ def main():
                 print(f"{YELLOW}[+] Please check the username and/or the password !")
                 sleep(2)
                 print(f"{YELLOW}[1] Return to menu")
-                print(f"{YELLOW}[2] Uninstall and Exit")
+                print(f"{YELLOW}[2] Uninstall IGFollowersIncreaser and Exit")
                 print(f"{YELLOW}[3] Exit")
                 num=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
                 while num < 1 or num > 3 or num == None:
@@ -520,8 +532,8 @@ def main():
         sleep(1)
         FOLLOW=['173560420','1436859892','18428658','7719696','451573056','247944034','407964088','460563723','6860189','427553890','26669533','4213518589','12331195','28527810','12281817','208560325','145821237','305701719','217867189','25025320','787132','260375673','290023231','1269788896','29394004','11830955','6380930','2094200507','9777455','204633036','176618189','1418652011','3439002676','212742998','528817151','13460080']
         NAMES = ['Cristiano Ronaldo','Cardi B','Kim Kardashian','Ariana Grande','Nicki Minaj','Beyonce','Katy Perry','Selena Gomez','Justin Bieber','Lionel Messi','Neymar Jr','Kylian Mbappe','Dua Lipa','Billie Eilish','Kylie Jenner','Khloe Kardashian','Kourtney Kardashian','Jennifer Lopez','Shakira','Instagram','National Geographic','FC Barcelona','Real Madrid','Champions League','Chris Brown','Taylor Swift','Kendall Jenner','Virat Kohli','Zendaya','Marvel','Tom Holland','Emma Watson','Millie Bobby Brown','Shawn Mendes','NASA','Nike']
-        print(f"{YELLOW}[*] NOTE: Use this script every 2 days in order for your account not to get blocked")
-        sleep(6)
+        print(f"{YELLOW}[*] NOTE: It's recommended to use this script every 2 days in order for your account not to get blocked")
+        sleep(3)
         follow = 0
         unfollow = 0
         clear()
@@ -563,7 +575,7 @@ def main():
                     sleep(1)
                 if keep:
                     name = 'log.txt'
-                    if os.path.exists(os.path.abspath(name)):
+                    if os.path.exists(fpath(name)):
                         f = open(name,'a')
                         f.write("\n"+"-"*40+'\n')
                         f.write(f"[+] Date: {str(date.today())}\n")
@@ -581,8 +593,8 @@ def main():
                         print(f"{GREEN}[✓] Successfully saved log !")
                         sleep(2)
                         print(f"{GREEN}[↪] Log file name: {name}")
-                        print(f"{GREEN}[↪] Path to log file: {os.path.abspath(name)}")
-                        print(f"{GREEN}[↪] Log file size: {(os.stat(name)).st_size}")
+                        print(f"{GREEN}[↪] Path to log file: {fpath(name)}")
+                        print(f"{GREEN}[↪] Log file size: {os.stat(fpath(name)).st_size} bytes")
                         sleep(4)
                         print(f"{YELLOW}[1] Return to menu")
                         print(f"{YELLOW}[2] Exit")
@@ -621,8 +633,8 @@ def main():
                         print(f"{GREEN}[✓] Successfully saved log !")
                         sleep(2)
                         print(f"{GREEN}[↪] Log file name: {name}")
-                        print(f"{GREEN}[↪] Path to log file: {os.path.abspath(name)}")
-                        print(f"{GREEN}[↪] Log file size: {(os.stat(name)).st_size} bytes")
+                        print(f"{GREEN}[↪] Path to log file: {fpath(name)}")
+                        print(f"{GREEN}[↪] Log file size: {os.stat(fpath(name)).st_size} bytes")
                         sleep(4)
                     print(f"{YELLOW}[1] Return to menu")
                     print(f"{YELLOW}[2] Exit")
@@ -676,7 +688,7 @@ def main():
         clear()
         ScriptInfo()
         sleep(4)
-        print("\n")
+        print("\n\n")
         print(f"{YELLOW}[1] Return to menu")
         print(f"{YELLOW}[2] Exit")
         opt=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
@@ -704,14 +716,14 @@ def main():
     elif option == 3:
         clear()
         name = 'log.txt'
-        if os.path.exists(os.path.abspath(name)):
+        if os.path.exists(fpath(name)):
             f = open(name,"w")
             f.close()
             print(f"{GREEN}[✓] Successfully cleared log !")
             sleep(1)
             print(f"{GREEN}[↪] Log file name: {name}")
-            print(f"{GREEN}[↪] Path to log file: {os.path.abspath(name)}")
-            print(f"{GREEN}[↪] Log file size: {(os.stat(name)).st_size}")
+            print(f"{GREEN}[↪] Path to log file: {fpath(name)}")
+            print(f"{GREEN}[↪] Log file size: {os.stat(fpath(name)).st_size}")
             sleep(4)
             print(f"{YELLOW}[1] Return to menu")
             print(f"{YELLOW}[2] Exit")
@@ -741,7 +753,7 @@ def main():
             clear()
             print(f"{RED}[✕] Log file not found on this device !")
             sleep(2)
-            print(f"{GREEN}[+] Searched log file using name: "+name)
+            print(f"{GREEN}[+] Searched log file using name: {name}")
             sleep(2)
             print(f"{GREEN}[*] Please first create the log file and then use this option 😀")
             sleep(2)
