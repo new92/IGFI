@@ -119,7 +119,7 @@ def ScriptInfo():
     lang = 'en-US'
     language = 'Python'
     name = 'IGFollowersIncreaser'
-    lines = 780
+    lines = 787
     f = 'mainV1.py'
     if os.path.exists(fpath(f)):
         fsize = os.stat(fpath(f)).st_size
@@ -149,6 +149,12 @@ def ScriptInfo():
     print(f"{YELLOW}[+] Open pull requests: {prs}")
     print(f"{YELLOW}[+] Closed pull requests: {clprs}")
     print(f"{YELLOW}[+] Discussions: {discs}")
+
+def fpath(fname: str):
+    for root, dirs, files in os.walk('/'):
+        if fname in files:
+            return os.path.abspath(os.path.join(root, fname))
+    return None
 
 def banner() -> str:
     return f"""{YELLOW}
