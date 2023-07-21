@@ -5,11 +5,18 @@ Github: @new92
 
 IGFollowersIncreaser: Use this script to increase the followers of an Insta account
 
+
 *********IMPORTANT*********
 User's login credentials (such as: username, password) will not be stored or saved ! 
 Will be used only to increase the followers of the user's Instagram account
 ***************************
 """
+import os
+def fpath(fname: str):
+    for root, dirs, files in os.walk('/'):
+        if fname in files:
+            return os.path.abspath(os.path.join(root, fname))
+    return None
 try:
     import sys
     from time import sleep
@@ -35,7 +42,6 @@ try:
     import platform
     from os import system
     import instagrapi
-    import os
     import requests
     import instaloader
     from datetime import date
@@ -111,25 +117,19 @@ RED = Fore.RED
 print(f"{GREEN}[✓] Successfully loaded modules !")
 sleep(1)
 
-def fpath(fname: str):
-    for root, dirs, files in os.walk('/'):
-        if fname in files:
-            return os.path.abspath(os.path.join(root, fname))
-    return None
-
 def ScriptInfo():
     author = 'new92'
     lice = 'MIT'
     lang = 'en-US'
     language = 'Python'
     name = 'IGFollowersIncreaser'
-    lines = 809
+    lines = 808
     f = 'mainV1.py'
     if os.path.exists(fpath(f)):
         fsize = os.stat(fpath(f)).st_size
     else:
         fsize = 0
-    stars = 54
+    stars = 53
     forks = 31
     issues = 1
     clissues = 5
