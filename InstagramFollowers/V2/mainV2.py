@@ -254,9 +254,9 @@ def main():
             con=str(input(f"{YELLOW}[>] Do you consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given (Instagram) account ? "))
             while con not in ANS or con == None or con == '':
                 if con == None or con == '':
-                    print("[!] This field can't be blank !")
+                    print(f"{RED}[!] This field can't be blank !")
                 else:
-                    print("[!] Invalid input !")
+                    print(f"{RED}[!] Invalid input !")
                     sleep(1)
                     print(f"{GREEN}[*] Acceptable answers: [yes/no]")
                 sleep(1)
@@ -651,7 +651,7 @@ def main():
             sleep(1)
             print(f"{GREEN}[↪] Log file name: {name}")
             print(f"{GREEN}[↪] Path to log file: {fpath(name)}")
-            print(f"{GREEN}[↪] Log file size: {os.stat(fpath(name)).st_size}")
+            print(f"{GREEN}[↪] Log file size: {os.stat(fpath(name)).st_size} bytes")
             sleep(4)
         else:
             clear()
