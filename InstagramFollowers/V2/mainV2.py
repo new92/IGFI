@@ -12,16 +12,17 @@ Will be used only to increase the followers of the user's Instagram account
 
 ***************************
 """
-
 try:
     import sys
     from time import sleep
     if sys.version_info[0] < 3:
         print("[!] Error ! IGFollowersIncreaser requires Python version 3.X ! ")
+        sleep(2)
         print("""[+] Instructions to download Python 3.x : 
         Linux: apt install python3
         Windows: https://www.python.org/downloads/
         MacOS: https://docs.python-guide.org/starting/install3/osx/""")
+        sleep(2)
         print("[+] Please install Python 3 and then use IGFollowersIncreaser ✅")
         sleep(2)
         print("[+] Exiting...")
@@ -129,13 +130,13 @@ def ScriptInfo():
     language = 'Python'
     name = 'IGFollowersIncreaser'
     api = None
-    lines = 807
+    lines = 737
     f = 'mainV2.py'
     if os.path.exists(fpath(f)):
         fsize = os.stat(fpath(f)).st_size
     else:
         fsize = 0
-    stars = 54
+    stars = 53
     forks = 31
     issues = 1
     clissues = 5
@@ -232,8 +233,9 @@ def main():
         clear()
         sleep(1)
         print(f"{GREEN}[*] Acceptable answers: [True/False]")
+        sleep(1)
         keep=bool(input(f"{YELLOW}[?] Keep log ? "))
-        if os.path.exists("cons.txt"):
+        if os.path.exists('cons.txt'):
             print(f"{GREEN}[*] Acceptable answers: [yes/no]")
             sleep(1)
             con=str(input(f"{YELLOW}[>] Do you consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given (Instagram) account ? "))
@@ -596,30 +598,6 @@ def main():
                         print(f"{GREEN}[↪] Path to log file: {fpath(name)}")
                         print(f"{GREEN}[↪] Log file size: {os.stat(fpath(name)).st_size} bytes")
                         sleep(4)
-                        print(f"{YELLOW}[1] Return to menu")
-                        print(f"{YELLOW}[2] Exit")
-                        opt=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
-                        while opt < 1 or opt > 2 or opt == None:
-                            if opt == None:
-                                print(f"{RED}[!] This field can't be blank !")
-                            else:
-                                print(f"{RED}[!] Invalid number !")
-                                sleep(1)
-                                print(f"{GREEN}[*] Acceptable numbers: [1/2]")
-                            sleep(1)
-                            print(f"{YELLOW}[1] Return to menu")
-                            print(f"{YELLOW}[2] Exit")
-                            opt=int(input(f"{YELLOW}[>] Please enter again a number (from the above ones): "))
-                        if opt == 1:
-                            clear()
-                            main()
-                        else:
-                            clear()
-                            print(f"{YELLOW}[+] Thank you for using IGFollowersIncreaser 😁")
-                            sleep(2)
-                            print(f"{YELLOW}[+] See you next time 👋")
-                            sleep(1)
-                            quit(0)
                     else:
                         f = open(name,"w")
                         f.write("-"*40+'\n')
@@ -635,31 +613,7 @@ def main():
                         print(f"{GREEN}[↪] Log file name: {name}")
                         print(f"{GREEN}[↪] Path to log file: {fpath(name)}")
                         print(f"{GREEN}[↪] Log file size: {os.stat(fpath(name)).st_size} bytes")
-                        sleep(3)
-                    print(f"{YELLOW}[1] Return to menu")
-                    print(f"{YELLOW}[2] Exit")
-                    opt=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
-                    while opt < 1 or opt > 2 or opt == None:
-                        if opt == None:
-                            print(f"{RED}[!] This field can't be blank !")
-                        else:
-                            print(f"{RED}[!] Invalid number !")
-                            sleep(1)
-                            print(f"{GREEN}[*] Acceptable numbers: [1/2]")
-                        sleep(1)
-                        print(f"{YELLOW}[1] Return to menu")
-                        print(f"{YELLOW}[2] Exit")
-                        opt=int(input(f"{YELLOW}[>] Please enter again a number (from the above ones): "))
-                    if opt == 1:
-                        clear()
-                        main()
-                    else:
-                        clear()
-                        print(f"{GREEN}[+] Thank you for using IGFollowersIncreaser 😁")
-                        sleep(2)
-                        print(f"{GREEN}[+] See you next time 👋")
-                        sleep(1)
-                        quit(0)
+                        sleep(4)
                 print(f"{YELLOW}[1] Return to menu")
                 print(f"{YELLOW}[2] Exit")
                 opt=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
@@ -725,30 +679,6 @@ def main():
             print(f"{GREEN}[↪] Path to log file: {fpath(name)}")
             print(f"{GREEN}[↪] Log file size: {os.stat(fpath(name)).st_size}")
             sleep(4)
-            print(f"{YELLOW}[1] Return to menu")
-            print(f"{YELLOW}[2] Exit")
-            opt=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
-            while opt < 1 or opt > 2 or opt == None:
-                if opt == None:
-                    print(f"{RED}[!] This field can't be blank !")
-                else:
-                    print(f"{RED}[!] Invalid number !")
-                    sleep(1)
-                    print(f"{GREEN}[*] Acceptable numbers: [1/2]")
-                sleep(1)
-                print(f"{YELLOW}[1] Return to menu")
-                print(f"{YELLOW}[2] Exit")
-                opt=int(input(f"{YELLOW}[>] Please enter again a number (from the above ones): "))
-            if opt == 1:
-                clear()
-                main()
-            else:
-                clear()
-                print(f"{GREEN}[+] Thank you for using IGFollowersIncreaser 😁")
-                sleep(2)
-                print(f"{GREEN}[+] See you next time 👋")
-                sleep(1)
-                quit(0)
         else:
             clear()
             print(f"{RED}[✕] Log file not found on this device !")
@@ -761,21 +691,21 @@ def main():
             1) Return to menu and enter the option number 1
             2) Enter <True> in the keep log question
             """)
-            sleep(2)
+            sleep(3)
+        print(f"{YELLOW}[1] Return to menu")
+        print(f"{YELLOW}[2] Exit")
+        opt=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
+        while opt < 1 or opt > 2 or opt == None:
+            if opt == None:
+                print(f"{RED}[!] This field can't be blank !")
+            else:
+                print(f"{RED}[!] Invalid number !")
+                sleep(1)
+                print(f"{GREEN}[*] Acceptable numbers: [1/2]")
+            sleep(1)
             print(f"{YELLOW}[1] Return to menu")
             print(f"{YELLOW}[2] Exit")
-            opt=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
-            while opt < 1 or opt > 2 or opt == None:
-                if opt == None:
-                    print(f"{RED}[!] This field can't be blank !")
-                else:
-                    print(f"{RED}[!] Invalid number !")
-                    sleep(1)
-                    print(f"{GREEN}[*] Acceptable numbers: [1/2]")
-                sleep(1)
-                print(f"{YELLOW}[1] Return to menu")
-                print(f"{YELLOW}[2] Exit")
-                opt=int(input(f"{YELLOW}[>] Please enter again a number (from the above ones): "))
+            opt=int(input(f"{YELLOW}[>] Please enter again a number (from the above ones): "))
             if opt == 1:
                 clear()
                 main()
