@@ -177,7 +177,7 @@ def Uninstall() -> str:
     return f"{GREEN}[✓] Files and dependencies uninstalled successfully !"
 
 def checkUser(username:str) -> bool:
-    return username == None or len(username) > 30
+    return username == None or len(username) > 30 or username == ''
 
 def valUser(username: str) -> bool:
     return requests.get(f'https://www.instagram.com/{username}/', allow_redirects=False).status_code != 200
@@ -226,8 +226,8 @@ def main():
             print(f"{YELLOW}[*] Acceptable answers: [yes/no]")
             sleep(1)
             con=str(input(f"{YELLOW}[>] Do you consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given (Instagram) account ? "))
-            while con not in ANS or con == None:
-                if con == None:
+            while con not in ANS or con == None or con == '':
+                if con == None or con == '':
                     print(f"{RED}[!] This field can't be blank !")
                 else:
                     print(f"{RED}[!] Invalid answer !")
@@ -288,7 +288,7 @@ def main():
         username=str(input(f"{YELLOW}[>] Please enter your username: "))
         username = username.lower().strip()
         while checkUser(username):
-            if username == None:
+            if username == None or username == '':
                 print(f"{RED}[!] This field can't be blank !")
             else:
                 print(f"{RED}[!] Invalid length !")
@@ -320,7 +320,7 @@ def main():
                 username=str(input(f"{YELLOW}[>] Please enter the username: "))
                 username = username.lower().strip()
                 while checkUser(username):
-                    if username == None:
+                    if username == None or username == '':
                         print(f"{RED}[!] This field can't be blank !")
                     else:
                         print(f"{RED}[!] Invalid username !")
@@ -341,8 +341,8 @@ def main():
         print(f"{YELLOW}[*] Acceptable answers: [yes/no]")
         sleep(1)
         ga=str(input(f"{YELLOW}[?] Do you want to grant access to the script to have access to the number of your followers in order to provide additional information ? "))
-        while ga not in ANS or ga == None:
-            if ga == None:
+        while ga not in ANS or ga == None or ga == '':
+            if ga == None or ga == '':
                 print(f"{RED}[!] This field can't be blank !")
             else:
                 print(f"{RED}[!] Invalid answer !")
@@ -356,7 +356,7 @@ def main():
             followers_bef = profile.followers
         sleep(1)
         password=str(input(f"{YELLOW}[>] Please enter your password: "))
-        while password == None:
+        while password == None or password == '':
             print(f"{RED}[!] This field can't be blank !")
             sleep(1)
             password=str(input(f"{YELLOW}[>] Please enter again your password: "))
