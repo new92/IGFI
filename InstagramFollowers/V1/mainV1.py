@@ -11,17 +11,12 @@ User's login credentials (such as: username, password) will not be stored or sav
 Will be used only to increase the followers of the user's Instagram account
 ***************************
 """
-import os
-def fpath(fname: str):
-    for root, dirs, files in os.walk('/'):
-        if fname in files:
-            return os.path.abspath(os.path.join(root, fname))
-    return None
 try:
     import sys
     from time import sleep
     if sys.version_info[0] < 3:
         print("[!] Error ! IGFollowersIncreaser requires Python version 3.X ! ")
+        sleep(2)
         print("""[+] Instructions to download Python 3.x : 
         Linux: apt install python3
         Windows: https://www.python.org/downloads/
@@ -43,6 +38,7 @@ try:
     from os import system
     import instagrapi
     import requests
+    import os
     import instaloader
     from datetime import date
     from colorama import init, Fore
@@ -123,7 +119,7 @@ def ScriptInfo():
     lang = 'en-US'
     language = 'Python'
     name = 'IGFollowersIncreaser'
-    lines = 808
+    lines = 804
     f = 'mainV1.py'
     if os.path.exists(fpath(f)):
         fsize = os.stat(fpath(f)).st_size
