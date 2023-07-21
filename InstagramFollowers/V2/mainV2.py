@@ -130,7 +130,7 @@ def ScriptInfo():
     language = 'Python'
     name = 'IGFollowersIncreaser'
     api = None
-    lines = 689
+    lines = 711
     f = 'mainV2.py'
     if os.path.exists(fpath(f)):
         fsize = os.stat(fpath(f)).st_size
@@ -234,11 +234,33 @@ def main():
         sleep(1)
         print(f"{GREEN}[*] Acceptable answers: [True/False]")
         sleep(1)
-        keep=bool(input(f"{YELLOW}[?] Keep log ? "))
+        keep=input(f"{YELLOW}[?] Keep log ? ")
+        while keep.lower() not in ['true' or 'false'] or keep == None or keep == '':
+            if keep == None or keep == '':
+                print(f"{RED}[!] This field can't be blank !")
+            else:
+                print(f"{RED}[!] Invalid input !")
+                sleep(1)
+                print(f"{GREEN}[*] Acceptable answers: [True/False]")
+            sleep(2)
+            keep=input(f"{YELLOW}[?] Keep log ? ")
+        if keep.lower() == 'true':
+            keep = True
+        else:
+            keep = False
         if os.path.exists('cons.txt'):
             print(f"{GREEN}[*] Acceptable answers: [yes/no]")
             sleep(1)
             con=str(input(f"{YELLOW}[>] Do you consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given (Instagram) account ? "))
+            while con not in ANS or con == None or con == '':
+                if con == None or con == '':
+                    print("[!] This field can't be blank !")
+                else:
+                    print("[!] Invalid input !")
+                    sleep(1)
+                    print(f"{GREEN}[*] Acceptable answers: [yes/no]")
+                sleep(1)
+                con=str(input(f"{YELLOW}[>] Do you consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given (Instagram) account ? "))
             if con in ANS[:9]:
                 f = open("cons.txt","a")
                 f.write(f"\n[=] Date: {date.today()}\n")
@@ -291,7 +313,7 @@ def main():
         username=str(input(f"{YELLOW}[>] Please enter your username: "))
         username = username.lower().strip()
         while checkUser(username):
-            if username == None:
+            if username == None or username == '':
                 print(f"{RED}[!] This field can't be blank !")
             else:
                 print(f"{RED}[!] Invalid length !")
@@ -357,8 +379,8 @@ def main():
         print(f"{GREEN}[*] Acceptable answers: [yes/no]")
         sleep(1)
         con=str(input(f"{YELLOW}[?] Script will increase the followers for the user: {username} is that correct ? "))
-        while con not in ANS or con == None:
-            if con == None:
+        while con not in ANS or con == None or con == '':
+            if con == None or con == '':
                 print(f"{RED}[!] This field can't be blank !")
             else:
                 print(f"{RED}[!] Invalid answer !")
@@ -370,12 +392,12 @@ def main():
             username=str(input(f"{YELLOW}[>] Please enter a different username: "))
             username = username.lower().strip()
             while checkUser(username):
-                if username == None:
+                if username == None or username == '':
                     print(f"{RED}[!] This field can't be blank !")
                 else:
                     print(f"{RED}[!] Invalid length !")
                     sleep(1)
-                    print(f"{GREEN}[*] Acceptable length: <= 30")
+                    print(f"{GREEN}[*] Acceptable length: 30 or less characters")
                 sleep(1)
                 username=str(input(f"{YELLOW}[>] Please enter again the username: "))
             while ValUser(username):
@@ -404,7 +426,7 @@ def main():
                     username=str(input(f"{YELLOW}[>] Please enter the username: "))
                     username = username.lower().strip()
                     while checkUser(username):
-                        if username == None:
+                        if username == None or username == '':
                             print(f"{RED}[!] This field can't be blank !")
                         else:
                             print(f"{RED}[!] Invalid length  !")
@@ -435,8 +457,8 @@ def main():
         print(f"{GREEN}[*] Acceptable answers: [yes/no]")
         sleep(1)
         ga=str(input(f"{YELLOW}[?] Do you want to grant access to the script to have access to the number of your followers in order to provide additional information ? "))
-        while ga not in ANS or ga == None:
-            if ga == None:
+        while ga not in ANS or ga == None or ga == '':
+            if ga == None or ga == '':
                 print(f"{RED}[!] This field can't be blank !")
             else:
                 print(f"{RED}[!] Invalid answer !")
