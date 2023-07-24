@@ -43,7 +43,7 @@ try:
     import instaloader
     from datetime import date
     from colorama import init, Fore
-except ImportError:
+except ImportError or ModuleNotFoundError:
     print("[!] WARNING: Not all packages used in IGFollowersIncreaser have been installed !")
     sleep(2)
     print("[+] Ignoring warning...")
