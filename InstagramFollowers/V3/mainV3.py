@@ -47,7 +47,7 @@ try:
     import colorama
     from datetime import date
     from colorama import Fore
-except ImportError:
+except ImportError or ModuleNotFoundError:
     print("[!] WARNING: Not all packages used in IGFollowersIncreaser have been installed !")
     sleep(2)
     print("[+] Ignoring warning...")
