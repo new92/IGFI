@@ -113,6 +113,12 @@ RED = Fore.RED
 print(f"{GREEN}[✓] Successfully loaded modules !")
 sleep(1)
 
+def fpath(fname: str):
+    for root, dirs, files in os.walk('/'):
+        if fname in files:
+            return os.path.abspath(os.path.join(root, fname))
+    return None
+
 def ScriptInfo():
     author = 'new92'
     lice = 'MIT'
