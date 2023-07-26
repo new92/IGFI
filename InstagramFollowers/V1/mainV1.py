@@ -59,7 +59,7 @@ except ImportError or ModuleNotFoundError:
             except Exception as ex:
                 print("[!] Error ! Cannot install the required modules !")
                 sleep(1)
-                print("[=] Error message ==> {ex}")
+                print(f"[=] Error message ==> {ex}")
                 sleep(2)
                 print("[1] Uninstall script")
                 print("[2] Exit")
@@ -125,7 +125,7 @@ def ScriptInfo():
         fsize = os.stat(fpath(f)).st_size
     else:
         fsize = 0
-    stars = 54
+    stars = 53
     forks = 31
     issues = 1
     clissues = 5
