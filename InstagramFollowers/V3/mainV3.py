@@ -129,7 +129,7 @@ def ScriptInfo():
     language = 'Python'
     name = 'IGFollowersIncreaser'
     api = None
-    lines = 802
+    lines = 803
     f = 'mainV3.py'
     if os.path.exists(fpath(f)):
         fsize = os.stat(fpath(f))
@@ -653,8 +653,8 @@ def main():
                     print(f"{GREEN}[✓] Successfully saved log !")
                     sleep(2)
                     print(f"{GREEN}[↪] Log file name: {name}")
-                    print(f"{GREEN}[↪] Path to log file: {os.path.abspath(name)}")
-                    print(f"{GREEN}[↪] Log file size: {(os.stat(name)).st_size} bytes")
+                    print(f"{GREEN}[↪] Path to log file: {fpath(name)}")
+                    print(f"{GREEN}[↪] Log file size: {os.stat(fpath(name))} bytes")
                 print("\n")
         res = f - x
         if res != 0:
@@ -724,7 +724,7 @@ def main():
             sleep(2)
             print(f"{GREEN}[↪] Log file name: {name}")
             print(f"{GREEN}[↪] Path to log file: {fpath(name)}")
-            print(f"{GREEN}[↪] Log file size: {(os.stat(fpath(name))).st_size} bytes")
+            print(f"{GREEN}[↪] Log file size: {os.stat(fpath(name))} bytes")
     elif num == 2:
         clear()
         ScriptInfo()
@@ -740,7 +740,7 @@ def main():
             sleep(1)
             print(f"{GREEN}[↪] Log file name: {name}")
             print(f"{GREEN}[↪] Path to log file: {fpath(name)}")
-            print(f"{GREEN}[↪] Log file size: {(os.stat(fpath(name))).st_size} bytes")
+            print(f"{GREEN}[↪] Log file size: {os.stat(fpath(name))} bytes")
             sleep(3)
         else:
             clear()
@@ -754,6 +754,7 @@ def main():
             1) Return to menu and enter the option number 1
             2) Enter <True> in the keep log question
             """)
+            sleep(3)
     elif num == 4:
         print(Uninstall())
         sleep(2)
