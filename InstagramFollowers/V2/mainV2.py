@@ -133,10 +133,10 @@ def ScriptInfo():
     lines = 711
     f = 'mainV2.py'
     if os.path.exists(fpath(f)):
-        fsize = os.stat(fpath(f)).st_size
+        fsize = os.stat(fpath(f))
     else:
         fsize = 0
-    stars = 54
+    stars = 53
     forks = 31
     issues = 1
     clissues = 5
@@ -152,7 +152,7 @@ def ScriptInfo():
     print(f"{YELLOW}[+] Script's name: {name}")
     print(f"{YELLOW}[+] API(s) used: {api}")
     print(f"{YELLOW}[+] File size: {fsize} bytes")
-    print(f"{YELLOW}[+] File path: {os.path.abspath(f)}")
+    print(f"{YELLOW}[+] File path: {fpath(f)}")
     print(f"{YELLOW}|======|GITHUB REPO INFO|======|")
     print(f"{YELLOW}[+] Stars: {stars}")
     print(f"{YELLOW}[+] Forks: {forks}")
