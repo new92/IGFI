@@ -132,7 +132,7 @@ def ScriptInfo():
     lines = 803
     f = 'mainV3.py'
     if os.path.exists(fpath(f)):
-        fsize = os.stat(fpath(f))
+        fsize = os.stat(fpath(f)).st_size
     else:
         fsize = 0
     stars = 54
@@ -654,7 +654,7 @@ def main():
                     sleep(2)
                     print(f"{GREEN}[↪] Log file name: {name}")
                     print(f"{GREEN}[↪] Path to log file: {fpath(name)}")
-                    print(f"{GREEN}[↪] Log file size: {os.stat(fpath(name))} bytes")
+                    print(f"{GREEN}[↪] Log file size: {os.stat(fpath(name)).st_size} bytes")
                 print("\n")
         res = f - x
         if res != 0:
@@ -724,7 +724,7 @@ def main():
             sleep(2)
             print(f"{GREEN}[↪] Log file name: {name}")
             print(f"{GREEN}[↪] Path to log file: {fpath(name)}")
-            print(f"{GREEN}[↪] Log file size: {os.stat(fpath(name))} bytes")
+            print(f"{GREEN}[↪] Log file size: {os.stat(fpath(name)).st_size} bytes")
     elif num == 2:
         clear()
         ScriptInfo()
@@ -740,7 +740,7 @@ def main():
             sleep(1)
             print(f"{GREEN}[↪] Log file name: {name}")
             print(f"{GREEN}[↪] Path to log file: {fpath(name)}")
-            print(f"{GREEN}[↪] Log file size: {os.stat(fpath(name))} bytes")
+            print(f"{GREEN}[↪] Log file size: {os.stat(fpath(name)).st_size} bytes")
             sleep(3)
         else:
             clear()
