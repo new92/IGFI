@@ -25,7 +25,7 @@ try:
         Linux: apt install python3
         Windows: https://www.python.org/downloads/
         MacOS: https://docs.python-guide.org/starting/install3/osx/""")
-        sleep(2)
+        sleep(3)
         print("[+] Please install Python 3 and then use IGFollowersIncreaser ✅")
         sleep(2)
         print("[+] Exiting...")
@@ -132,7 +132,7 @@ def ScriptInfo():
     lines = 802
     f = 'mainV3.py'
     if os.path.exists(fpath(f)):
-        fsize = os.stat(fpath(f)).st_size
+        fsize = os.stat(fpath(f))
     else:
         fsize = 0
     stars = 54
@@ -151,7 +151,7 @@ def ScriptInfo():
     print(f"{YELLOW}[+] Script's name: {name}")
     print(f"{YELLOW}[+] API(s) used: {api}")
     print(f"{YELLOW}[+] File size: {fsize} bytes")
-    print(f"{YELLOW}[+] File path: {os.path.abspath(f)}")
+    print(f"{YELLOW}[+] File path: {fpath(f)}")
     print(f"{YELLOW}|======|GITHUB REPO INFO|======|")
     print(f"{YELLOW}[+] Stars: {stars}")
     print(f"{YELLOW}[+] Forks: {forks}")
