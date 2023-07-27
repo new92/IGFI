@@ -618,7 +618,7 @@ def main():
                         sleep(2)
                         print(f"{GREEN}[↪] Log file name: {name}")
                         print(f"{GREEN}[↪] Path to log file: {fpath(name)}")
-                        print(f"{GREEN}[↪] Log file size: {os.stat(fpath(name)).st_size} bytes")
+                        print(f"{GREEN}[↪] Log file size: {os.stat(fpath(name))} bytes")
                         sleep(4)
                     else:
                         f = open(name,"w")
@@ -634,7 +634,7 @@ def main():
                         sleep(2)
                         print(f"{GREEN}[↪] Log file name: {name}")
                         print(f"{GREEN}[↪] Path to log file: {fpath(name)}")
-                        print(f"{GREEN}[↪] Log file size: {os.stat(fpath(name)).st_size} bytes")
+                        print(f"{GREEN}[↪] Log file size: {os.stat(fpath(name))} bytes")
                         sleep(4)
     elif option == 2:
         clear()
@@ -651,7 +651,7 @@ def main():
             sleep(1)
             print(f"{GREEN}[↪] Log file name: {name}")
             print(f"{GREEN}[↪] Path to log file: {fpath(name)}")
-            print(f"{GREEN}[↪] Log file size: {os.stat(fpath(name)).st_size} bytes")
+            print(f"{GREEN}[↪] Log file size: {os.stat(fpath(name))} bytes")
             sleep(4)
         else:
             clear()
