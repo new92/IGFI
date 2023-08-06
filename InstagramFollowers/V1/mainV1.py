@@ -349,7 +349,7 @@ def main():
                 username=str(input(f"{YELLOW}[>] Please enter the username: "))
                 username = username.lower().strip()
                 while checkUser(username):
-                    if username == None or username == '':
+                    if username == None or username == '' or username == ' ':
                         print(f"{RED}[!] This field can't be blank !")
                     else:
                         print(f"{RED}[!] Invalid username !")
