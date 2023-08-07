@@ -28,7 +28,7 @@ try:
         sleep(1)
         quit(0)
     from tqdm import tqdm
-    total_mods = 10
+    total_mods = 11
     bar = tqdm(total=total_mods, desc='Loading modules', unit='module')
     for _ in range(total_mods):
         sleep(0.75)
@@ -39,6 +39,7 @@ try:
     import instagrapi
     import requests
     import os
+    import json
     import instaloader
     from datetime import date
     from colorama import init, Fore
@@ -120,41 +121,30 @@ def fpath(fname: str):
     return None
 
 def ScriptInfo():
-    author = 'new92'
-    lice = 'MIT'
-    lang = 'en-US'
-    language = 'Python'
-    name = 'IGFollowersIncreaser'
-    lines = 828
+    with open('config.json') as config:
+        conf = json.load(config)
     f = 'mainV1.py'
     if os.path.exists(fpath(f)):
         fsize = os.stat(fpath(f)).st_size
     else:
         fsize = 0
-    stars = 56
-    forks = 31
-    issues = 1
-    clissues = 5
-    prs = 0
-    clprs = 8
-    discs = 5
-    print(f"{YELLOW}[+] Author: {author}")
-    print(f"{YELLOW}[+] Github: @{author}")
-    print(f"{YELLOW}[+] License: {lice}")
-    print(f"{YELLOW}[+] Natural language: {lang}")
-    print(f"{YELLOW}[+] Programming language(s) used: {language}")
-    print(f"{YELLOW}[+] Number of lines: {lines}")
-    print(f"{YELLOW}[+] Script's name: {name}")
+    print(f"{YELLOW}[+] Author: {conf['author']}")
+    print(f"{YELLOW}[+] Github: @{conf['author']}")
+    print(f"{YELLOW}[+] License: {conf['lice']}")
+    print(f"{YELLOW}[+] Natural language: {conf['lang']}")
+    print(f"{YELLOW}[+] Programming language(s) used: {conf['language']}")
+    print(f"{YELLOW}[+] Number of lines: {conf['lines']}")
+    print(f"{YELLOW}[+] Script's name: {conf['name']}")
     print(f"{YELLOW}[+] File size: {fsize} bytes")
     print(f"{YELLOW}[+] File path: {fpath(f)}")
     print(f"{YELLOW}|======|GITHUB REPO INFO|======|")
-    print(f"{YELLOW}[+] Stars: {stars}")
-    print(f"{YELLOW}[+] Forks: {forks}")
-    print(f"{YELLOW}[+] Open issues: {issues}")
-    print(f"{YELLOW}[+] Closed issues: {clissues}")
-    print(f"{YELLOW}[+] Open pull requests: {prs}")
-    print(f"{YELLOW}[+] Closed pull requests: {clprs}")
-    print(f"{YELLOW}[+] Discussions: {discs}")
+    print(f"{YELLOW}[+] Stars: {conf['stars']}")
+    print(f"{YELLOW}[+] Forks: {conf['forks']}")
+    print(f"{YELLOW}[+] Open issues: {conf['issues']}")
+    print(f"{YELLOW}[+] Closed issues: {conf['clissues']}")
+    print(f"{YELLOW}[+] Open pull requests: {conf['prs']}")
+    print(f"{YELLOW}[+] Closed pull requests: {conf['clprs']}")
+    print(f"{YELLOW}[+] Discussions: {conf['discs']}")
 
 def banner() -> str:
     return f"""{YELLOW}
