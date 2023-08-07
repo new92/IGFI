@@ -6,7 +6,6 @@ Github: @new92
 IGFollowersIncreaser: Use this script to increase the followers of an Insta account
 
 
-
 *********IMPORTANT*********
 
 User's login credentials (such as: username, password) will not be stored or saved !
@@ -32,7 +31,7 @@ try:
         sleep(1)
         quit(0)
     from tqdm import tqdm
-    total_mods = 12
+    total_mods = 13
     bar = tqdm(total=total_mods, desc='Loading modules', unit='module')
     for _ in range(total_mods):
         sleep(0.75)
@@ -41,12 +40,12 @@ try:
     import platform
     from os import system
     import os
+    import json
     import instagrapi
     import requests
     import instaloader
-    import colorama
-    from datetime import date
-    from colorama import Fore
+    from datetime import datetime
+    from colorama import init, Fore
 except ImportError or ModuleNotFoundError:
     print("[!] WARNING: Not all packages used in IGFollowersIncreaser have been installed !")
     sleep(2)
@@ -73,7 +72,7 @@ except ImportError or ModuleNotFoundError:
                     else:
                         print("[!] Invalid number !")
                         sleep(1)
-                        print("[*] Acceptable numbers: [1,2]")
+                        print("[+] Acceptable numbers: [1,2]")
                     sleep(1)
                     print("[1] Uninstall IGFollowersIncreaser")
                     print("[2] Exit")
@@ -108,7 +107,7 @@ except ImportError or ModuleNotFoundError:
     elif platform.system() == 'Windows':
         system("pip install -r requirements.txt")
 
-colorama.init(autoreset=True)
+init(autoreset=True)
 RED = Fore.RED
 GREEN = Fore.GREEN
 YELLOW = Fore.YELLOW
@@ -123,43 +122,31 @@ def fpath(fname: str):
     return None
 
 def ScriptInfo():
-    author = 'new92'
-    lice = 'MIT'
-    lang = 'en-US'
-    language = 'Python'
-    name = 'IGFollowersIncreaser'
-    api = None
-    lines = 803
+    with open('config.json') as config:
+        conf = json.load(config)
     f = 'mainV3.py'
     if os.path.exists(fpath(f)):
         fsize = os.stat(fpath(f)).st_size
     else:
         fsize = 0
-    stars = 56
-    forks = 31
-    issues = 1
-    clissues = 5
-    prs = 0
-    clprs = 8
-    discs = 5
-    print(f"{YELLOW}[+] Author: {author}")
-    print(f"{YELLOW}[+] Github: @{author}")
-    print(f"{YELLOW}[+] License: {lice}")
-    print(f"{YELLOW}[+] Natural language: {lang}")
-    print(f"{YELLOW}[+] Programming language(s) used: {language}")
-    print(f"{YELLOW}[+] Number of lines: {lines}")
-    print(f"{YELLOW}[+] Script's name: {name}")
-    print(f"{YELLOW}[+] API(s) used: {api}")
+    print(f"{YELLOW}[+] Author: {conf['author']}")
+    print(f"{YELLOW}[+] Github: @{conf['author']}")
+    print(f"{YELLOW}[+] License: {conf['lice']}")
+    print(f"{YELLOW}[+] Natural language: {conf['lang']}")
+    print(f"{YELLOW}[+] Programming language(s) used: {conf['language']}")
+    print(f"{YELLOW}[+] Number of lines: {conf['lines']}")
+    print(f"{YELLOW}[+] Script's name: {conf['name']}")
+    print(f"{YELLOW}[+] API(s) used: {conf['api']}")
     print(f"{YELLOW}[+] File size: {fsize} bytes")
     print(f"{YELLOW}[+] File path: {fpath(f)}")
     print(f"{YELLOW}|======|GITHUB REPO INFO|======|")
-    print(f"{YELLOW}[+] Stars: {stars}")
-    print(f"{YELLOW}[+] Forks: {forks}")
-    print(f"{YELLOW}[+] Open issues: {issues}")
-    print(f"{YELLOW}[+] Closed issues: {clissues}")
-    print(f"{YELLOW}[+] Open pull requests: {prs}")
-    print(f"{YELLOW}[+] Closed pull requests: {clprs}")
-    print(f"{YELLOW}[+] Discussions: {discs}")
+    print(f"{YELLOW}[+] Stars: {conf['stars']}")
+    print(f"{YELLOW}[+] Forks: {conf['forks']}")
+    print(f"{YELLOW}[+] Open issues: {conf['issues']}")
+    print(f"{YELLOW}[+] Closed issues: {conf['clissues']}")
+    print(f"{YELLOW}[+] Open pull requests: {conf['prs']}")
+    print(f"{YELLOW}[+] Closed pull requests: {conf['clprs']}")
+    print(f"{YELLOW}[+] Discussions: {conf['discs']}")
 
 def Uninstall() -> str:
     def rmdir(dire):
@@ -184,7 +171,7 @@ def banner() -> str:
 ██║██║░╚███║██████╔╝░░░██║░░░██║░░██║██║░░░░░╚█████╔╝███████╗███████╗╚█████╔╝░░╚██╔╝░╚██╔╝░      ░░╚██╔╝░░██████╔╝
 ╚═╝╚═╝░░╚══╝╚═════╝░░░░╚═╝░░░╚═╝░░╚═╝╚═╝░░░░░░╚════╝░╚══════╝╚══════╝░╚════╝░░░░╚═╝░░░╚═╝░░      ░░░╚═╝░░░╚═════╝░
 """
-ANS = ["yes","YES","Yes","y","Y","YeS","yEs","YEs","yES","no","NO","No","n","N","nO"]
+ANS = ["yes""no"]
 
 def nums():
     print(f"{YELLOW}[1] Increase followers")
@@ -200,7 +187,7 @@ def clear():
         system('clear')
         
 def checkUser(username:str) -> bool:
-    return username == None or len(username) > 30 or username == ''
+    return username == None or len(username) > 30 or username == '' or username == ' '
 
 def valUser(username:str) -> bool:
     return requests.get(f"https://www.instagram.com/{username}/", allow_redirects=False).status_code != 200
@@ -211,7 +198,7 @@ def main():
     print(f"{YELLOW}[+] Author: new92")
     print(f"{YELLOW}[+] Github: @new92")
     print("\n")
-    print(f"{YELLOW}[+] Use this script to increase the followers on your Insta account")
+    print(f"{YELLOW}[+] Use this script to increase the followers of your Insta account")
     print("\n")
     nums()
     print("\n")
@@ -222,7 +209,7 @@ def main():
         else:
             print(f"{RED}[!] Invalid number !")
             sleep(1)
-            print(f"{GREEN}[*] Acceptable numbers: [1/2/3/4/5]")
+            print(f"{GREEN}[+] Acceptable numbers: [1/2/3/4/5]")
         sleep(1)
         nums()
         sleep(1)
@@ -230,23 +217,32 @@ def main():
     if num == 1:
         clear()
         sleep(1)
-        print(f"{GREEN}[*] Acceptable answers: [True/False]")
+        print(f"{GREEN}[+] Acceptable answers: [yes/no]")
         sleep(1)
-        keep=input(f"{YELLOW}[?] Keep log ? ")
-        while keep.lower() not in ['true','false'] or keep == None or keep == '':
-            if keep == None or keep == '':
+        keep=str(input(f"{YELLOW}[?] Keep log ? "))
+        while keep.lower() not in ANS or keep == None or keep == '' or keep == ' ':
+            if keep == None or keep == '' or keep == ' ':
                 print(f"{RED}[!] This field can't be blank !")
             else:
                 print(f"{RED}[!] Invalid answer !")
                 sleep(1)
-                print(f"{GREEN}[*] Acceptable answers: [True/False]")
+                print(f"{GREEN}[+] Acceptable answers: [yes/no]")
             sleep(1)
-            keep=input(f"{YELLOW}[?] Keep log ? ")
-        if keep.lower() == 'true':
-            keep = True
-        else:
-            keep = False
-        NAMES = ['Cristiano Ronaldo','Cardi B','Kim Kardashian','Ariana Grande','Nicki Minaj','Beyonce','Katy Perry','Selena Gomez','Justin Bieber','Lionel Messi','Neymar Jr','Kylian Mbappe','Dua Lipa','Billie Eilish','Kylie Jenner','Khloe Kardashian','Kourtney Kardashian','Jennifer Lopez','Shakira','Instagram','National Geographic','FC Barcelona','Real Madrid','Champions League','Chris Brown','Taylor Swift','Kendall Jenner','Virat Kohli','Zendaya','Marvel','Tom Holland','Emma Watson','Millie Bobby Brown','Shawn Mendes','Camila Cabello','NASA','Nike']
+            keep=str(input(f"{YELLOW}[?] Keep log ? "))
+        keep = True if keep.lower() == ANS[0] else False
+        sleep(1)
+        print(f"{GREEN}[+] Acceptable answers: [yes/no]")
+        sleep(2)
+        check=str(input("[?] Display the usernames of the followers added ? "))
+        while check.lower() not in ANS or check == None or check == '' or check == ' ':
+            if check == None or check == '' or check == ' ':
+                print("[!] This field can't be blank !")
+            else:
+                print("[!] Invalid answer !")
+                sleep(1)
+                print("[+] Acceptable answers: [yes/no]")
+            check=str(input("[?] Display the usernames of the followers added ? "))
+        check = True if check.lower() == ANS[0] else False
         users = {
             'Cristiano Ronaldo' : '173560420',
             'Cardi B' : '1436859892',
@@ -286,22 +282,23 @@ def main():
             'NASA' : '528817151',
             'Nike' : '13460080'
         }
+        NAMES = list(users.keys())
         if os.path.exists(fpath('cons.txt')):
-            print(f"{GREEN}[*] Acceptable answers: [yes/no]")
+            print(f"{GREEN}[+] Acceptable answers: [yes/no]")
             sleep(1)
             con=str(input(f"{YELLOW}[>] Do you consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given (Instagram) account ? "))
-            while con not in ANS or con == None or con == '':
-                if con == None or con == '':
+            while con.lower() not in ANS or con == None or con == '' or con == ' ':
+                if con == None or con == '' or con == ' ':
                     print(f"{RED}[!] This field can't be blank !")
                 else:
                     print(f"{RED}[!] Invalid answer !")
                     sleep(1)
-                    print(f"{GREEN}[*] Acceptable answers: [yes/no]")
+                    print(f"{GREEN}[+] Acceptable answers: [yes/no]")
                 sleep(1)
                 con=str(input(f"{YELLOW}[>] Do you consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given (Instagram) account ? "))
-            if con in ANS[:9]:
+            if con.lower() == ANS[0]:
                 f = open("cons.txt","a")
-                f.write(f"\n[=] Date: {date.today()}\n")
+                f.write(f"\n[=] Date: {datetime.now()}\n")
                 f.write("[=] User: Yes I consent that the author of this script (new92) has no responsibility for any loss or damage may the script cause to the given Instagram account.\n")
                 f.write("-"*40+'\n')
                 f.close()
@@ -317,7 +314,7 @@ def main():
                     else:
                         print(f"{RED}[!] Invalid number !")
                         sleep(1)
-                        print(f"{GREEN}[*] Acceptable numbers: [1/2]")
+                        print(f"{GREEN}[+] Acceptable numbers: [1/2]")
                     sleep(1)
                     print(f"{YELLOW}[1] Exit")
                     print(f"{YELLOW}[2] Uninstall IGFollowersIncreaser and exit")
@@ -343,7 +340,7 @@ def main():
                     quit(0)
         else:
             f = open("cons.txt","w")
-            f.write(f"[=] Date: {str(date.today())}\n")
+            f.write(f"[=] Date: {datetime.now()}\n")
             f.write("[=] User: Yes I consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given Instagram account.\n")
             f.write("-"*40)
             f.close()
@@ -353,12 +350,12 @@ def main():
         print(f"{GREEN}|--------------------|LOGIN|--------------------|")
         username=str(input(f"{YELLOW}[>] Please enter your username: "))
         while checkUser(username):
-            if username == None or username == '':
+            if username == None or username == '' or username == ' ':
                 print(f"{RED}[!] This field can't be blank !")
             else:
                 print(f"{RED}[!] Invalid length !")
                 sleep(1)
-                print(f"{GREEN}[*] Acceptable length: 30 or less characters")
+                print(f"{GREEN}[+] Acceptable length: 30 or less characters")
             sleep(1)
             username=str(input(f"{YELLOW}[>] Please enter again your username: "))
         while valUser(username):
@@ -378,12 +375,12 @@ def main():
             if opt == 1:
                 username=str(input(f"{YELLOW}[>] Please enter the username: "))
                 while checkUser(username):
-                    if username == None or username == '':
+                    if username == None or username == '' or username == ' ':
                         print(f"{RED}[!] This field can't be blank !")
                     else:
                         print(f"{RED}[!] Invalid length !")
                         sleep(1)
-                        print(f"{GREEN}[*] Acceptable length: 30 or less characters")
+                        print(f"{GREEN}[+] Acceptable length: 30 or less characters")
                     sleep(1)
                     username=str(input(f"{YELLOW}[>] Please enter again the username: "))
             elif opt == 2:
@@ -396,27 +393,27 @@ def main():
                 print(f"{GREEN}[+] See you next time 👋")
                 sleep(2)
                 quit(0)
-        print(f"{GREEN}[*] Acceptable answers: [yes/no]")
+        print(f"{GREEN}[+] Acceptable answers: [yes/no]")
         sleep(1)
         con=str(input(f"{YELLOW}[?] The script will increase the followers for the user: {username} is that correct ? "))
-        while con not in ANS or con == None or con == '':
-            if con == None or con == '':
+        while con.lower() not in ANS or con == None or con == '' or con == ' ':
+            if con == None or con == '' or con == ' ':
                 print(f"{RED}[!] This field can't be blank !")
             else:
                 print(f"{RED}[!] Invalid answer !")
                 sleep(1)
-                print(f"{GREEN}[*] Acceptable answers: [yes/no]")
+                print(f"{GREEN}[+] Acceptable answers: [yes/no]")
             sleep(1)
-            con=str(input(f"[?] The script will increase the followers for the user: {username} is it correct ? "))
-        if con in ANS[9:]:
+            con=str(input(f"[?] The script will increase the followers for the user: {username} is that correct ? "))
+        if con.lower() == ANS[1]:
             username=str(input(f"{YELLOW}[>] Please enter another username: "))
             while checkUser(username):
-                if username == None:
+                if username == None or username == '' or username == ' ':
                     print(f"{RED}[!] This field can't be blank !")
                 else:
                     print(f"{RED}[!] Invalid length !")
                     sleep(1)
-                    print(f"{GREEN}[*] Acceptable length: less than or equal to 30")
+                    print(f"{GREEN}[+] Acceptable length: less than or equal to 30")
                 sleep(1)
                 username=str(input(f"{YELLOW}[>] Please enter again your username: "))
             while valUser(username):
@@ -432,7 +429,7 @@ def main():
                     else:
                         print(f"{RED}[!] Invalid number !")
                         sleep(1)
-                        print(f"{GREEN}[*] Acceptable numbers: [1/2/3]")
+                        print(f"{GREEN}[+] Acceptable numbers: [1/2/3]")
                     sleep(1)
                     print("[1] Try with another username")
                     print("[2] Return to menu")
@@ -442,7 +439,7 @@ def main():
                     clear()
                     username=str(input(f"{YELLOW}[>] Please enter the username: "))
                     while checkUser(username):
-                        if username == None:
+                        if username == None or username == '' or username == ' ':
                             print(f"{RED}[!] This field can't be blank !")
                         else:
                             print(f"{RED}[!] Invalid length  !")
@@ -460,11 +457,11 @@ def main():
                     print(f"{YELLOW}[+] See you next time 👋")
                     sleep(1)
                     quit(0)
-        print(f"{GREEN}[*] Acceptable answers: [yes/no]")
+        print(f"{GREEN}[+] Acceptable answers: [yes/no]")
         sleep(1)
         ga=str(input(f"{YELLOW}[?] Do you want to grant access to the script to have access to the number of your followers in order to provide additional information ? "))
-        while ga not in ANS or ga == None:
-            if ga == None:
+        while ga.lower() not in ANS or ga == None or ga == '' or ga == ' ':
+            if ga == None or ga == '' or ga == ' ':
                 print(f"{RED}[!] This field can't be blank !")
             else:
                 print(f"{RED}[!] Invalid answer !")
@@ -472,14 +469,16 @@ def main():
                 print(f"{YELLOW}[+] Valid answers: [yes/no]")
             sleep(1)
             ga=str(input(f"{YELLOW}[?] Do you want to grant access to the script to have access to the number of your followers in order to provide additional information ? "))
-        if ga in ANS[:9]:
+        ga = True if ga.lower() == ANS[0] else False
+        if ga:
             loader = instaloader.Instaloader()
             profile = instaloader.Profile.from_username(loader.context, username)
             followers_bef = profile.followers
+            FOLLOWERS = [follower.username for follower in profile.get_followers()]
         username=username.lower().strip()
         sleep(1)
         password=str(input(f"{YELLOW}[>] Please enter your password: "))
-        while password == None:
+        while password == None or password == '' or password == ' ':
             print(f"{RED}[!] This field can't be blank !")
             sleep(1)
             password=str(input(f"{YELLOW}[>] Please enter again your password: "))
@@ -509,7 +508,7 @@ def main():
                     else:
                         print(f"{RED}[!] Invalid number !")
                         sleep(1)
-                        print(f"{GREEN}[*] Acceptable numbers: [1/2]")
+                        print(f"{GREEN}[+] Acceptable numbers: [1/2]")
                     sleep(1)
                     print(f"{YELLOW}[1] Return to menu")
                     print(f"{YELLOW}[2] Exit")
@@ -545,7 +544,7 @@ def main():
                     else:
                         print(f"{RED}[!] Invalid number !")
                         sleep(1)
-                        print(f"{GREEN}[*] Acceptable numbers: [1/2]")
+                        print(f"{GREEN}[+] Acceptable numbers: [1/2]")
                     sleep(1)
                     print(f"{YELLOW}[1] Return to menu")
                     print(f"{YELLOW}[2] Exit")
@@ -598,12 +597,23 @@ def main():
                     print(f"{GREEN}[+] Percentage of success: {suc}%")
                     sleep(1)
                     print(f"{RED}[+] Percentage of failure: {fail}%")
-                    if ga in ANS[:9]:
+                    if ga:
                         followers_af = profile.followers
                         if followers_bef - followers_af != 0:
                             followers_af = profile.followers
                             print(f"{GREEN}[✓] Successfully added: {followers_af - followers_bef} followers.")
                             sleep(1)
+                    if check:
+                        print(f"{RED}[!] WARNING: The data provided may be incorrect if your account is private and you haven't approved the follow requests")
+                        sleep(3)
+                        L = [user for user in FOLLOWERS]
+                        if L == FOLLOWERS:
+                            print(f"{RED}[!] No new followers added ! Try checking the pending follow requests and try again.")
+                        else:
+                            ADDS = [user for user in L if user not in FOLLOWERS]
+                            for i, username in enumerate(ADDS):
+                                print(f"{YELLOW}[+] User No{i+1} >>> {username}")
+                        sleep(2)
                     print(f"{YELLOW}[*] Users which the script failed to unfollow:")
                     sleep(3)
                     print(f'{YELLOW}|---------------|USERS|---------------|')
@@ -625,11 +635,17 @@ def main():
                             f.write(f'[✕] Failed to unfollow {str(abs(res))} users !\n')
                             f.write(f'[+] Percentage of success: {str(suc)}%\n')
                             f.write(f'[+] Percentage of failure: {str(fail)}%\n')
-                            if ga in ANS[:9]:
+                            if ga:
                                 followers_af = profile.followers
                                 if followers_bef - followers_af != 0:
                                     followers_af = profile.followers
                                     f.write(f'[✓] Successfully added: {str(followers_af - followers_bef)} followers.\n')
+                            if check:
+                                L = [user for user in FOLLOWERS]
+                                if L != FOLLOWERS:
+                                    ADDS = [user for user in L if user not in FOLLOWERS]
+                                    for i, username in enumerate(ADDS):
+                                        f.write(f"[+] User No{str(i+1)} >>> {username}\n")
                         else:
                             f.write('[+] Percentage of success: 100%\n')
                             f.write(f'[+] Percentage of failure: {str(res)}%')
@@ -641,11 +657,17 @@ def main():
                             f.write(f'[✕] Failed to unfollow {str(abs(res))} users !\n')
                             f.write(f'[+] Percentage of success: {str(suc)}%\n')
                             f.write(f'[+] Percentage of failure: {str(fail)}%\n')
-                            if ga in ANS[:9]:
+                            if ga:
                                 followers_af = profile.followers
                                 if followers_bef - followers_af != 0:
                                     followers_af = profile.followers
                                     f.write(f'[✓] Successfully added: {str(followers_af - followers_bef)} followers.\n')
+                            if check:
+                                L = [user for user in FOLLOWERS]
+                                if L != FOLLOWERS:
+                                    ADDS = [user for user in L if user not in FOLLOWERS]
+                                    for i, username in enumerate(ADDS):
+                                        f.write(f"[+] User No{str(i+1)} >>> {username}\n")
                         else:
                             f.write('[+] Percentage of success: 100%\n')
                             f.write(f'[+] Percentage of failure: {str(res)}%')
@@ -669,17 +691,29 @@ def main():
             sleep(1)
             print(f"{RED}[+] Percentage of failure: {fail}")
             sleep(1)
-            if ga in ANS[:9]:
+            if ga:
                 followers_af = profile.followers
                 if followers_bef - followers_af != 0:
                     followers_af = profile.followers
                     print(f"{GREEN}[✓] Successfully added: {followers_af - followers_bef} followers.")
                     sleep(1)
+            if check:
+                print(f"{RED}[!] WARNING: The data provided may be incorrect if your account is private and you haven't approved the follow requests")
+                sleep(3)
+                L = [user for user in FOLLOWERS]
+                if L == FOLLOWERS:
+                    print(f"{RED}[!] No new followers added ! Try checking the pending follow requests and try again.")
+                else:
+                    ADDS = [user for user in L if user not in FOLLOWERS]
+                    for i, username in enumerate(ADDS):
+                        print(f"{YELLOW}[+] User No{i+1} >>> {username}")
+                sleep(2)
             print(f"{YELLOW}[*] Users which the script didn't unfollow:")
             sleep(3)
             print(f'{YELLOW}|---------------|USERS|---------------|')
             for i in range(res,-1,-1):
                 print(f"{YELLOW}[+] User: {NAMES[i]}")
+            sleep(2)
         else:
             print(f"{YELLOW}[+] Success: 100%")
             sleep(1)
@@ -695,11 +729,17 @@ def main():
                     f.write(f'[✕] Failed to unfollow {str(abs(res))} users !\n')
                     f.write(f'[+] Percentage of success: {str(suc)}%\n')
                     f.write(f'[+] Percentage of failure: {str(fail)}%\n')
-                    if ga in ANS[:9]:
+                    if ga:
                         followers_af = profile.followers
                         if followers_bef - followers_af != 0:
                             followers_af = profile.followers
                             f.write(f'[✓] Successfully added: {str(followers_af - followers_bef)} followers.\n')
+                    if check:
+                        L = [user for user in FOLLOWERS]
+                        if L != FOLLOWERS:
+                            ADDS = [user for user in L if user not in FOLLOWERS]
+                            for i, username in enumerate(ADDS):
+                                f.write(f"[+] User No{str(i+1)} >>> {username}\n")
                 else:
                     f.write('[+] Percentage of success: 100%\n')
                     f.write(f'[+] Percentage of failure: {str(res)}%')
@@ -711,11 +751,17 @@ def main():
                     f.write(f'[✕] Failed to unfollow {str(abs(res))} users !\n')
                     f.write(f'[+] Percentage of success: {str(suc)}%\n')
                     f.write(f'[+] Percentage of failure: {str(fail)}%\n')
-                    if ga in ANS[:9]:
+                    if ga:
                         followers_af = profile.followers
                         if followers_bef - followers_af != 0:
                             followers_af = profile.followers
                             f.write(f'[✓] Successfully added: {str(followers_af - followers_bef)} followers.\n')
+                    if check:
+                        L = [user for user in FOLLOWERS]
+                        if L != FOLLOWERS:
+                            ADDS = [user for user in L if user not in FOLLOWERS]
+                            for i, username in enumerate(ADDS):
+                                f.write(f"[+] User No{str(i+1)} >>> {username}\n")
                 else:
                     f.write('[+] Percentage of success: 100%\n')
                     f.write(f'[+] Percentage of failure: {str(res)}%')
@@ -740,7 +786,7 @@ def main():
             sleep(1)
             print(f"{GREEN}[↪] Log file name: {name}")
             print(f"{GREEN}[↪] Path to log file: {fpath(name)}")
-            print(f"{GREEN}[↪] Log file size: {os.stat(fpath(name)).st_size} bytes")
+            print(f"{GREEN}[↪] Log file size: 0 bytes")
             sleep(3)
         else:
             clear()
@@ -762,7 +808,7 @@ def main():
         sleep(2)
         print(f"{YELLOW}[+] Hope you enjoyed it 🤗")
         sleep(1)
-        print(f"{YELLOW}[+] If you have any suggestions or found a bug or need help feel free to contact me anytime, at this email address: new92github@gmail.com")
+        print(f"{YELLOW}[+] If you have any suggestions or found a bug or need help feel free to contact me anytime, at this email address: new92github@gmail.com  or via Github")
         sleep(3)
         print(f"{YELLOW}[+] Until we meet again 🫡")
         sleep(1)
@@ -783,7 +829,7 @@ def main():
         else:
             print(f"{RED}[!] Invalid number !")
             sleep(1)
-            print(f"{GREEN}[*] Acceptable numbers: [1/2]")
+            print(f"{GREEN}[+] Acceptable numbers: [1/2]")
             sleep(1)
             print(f"{YELLOW}[1] Return to menu")
             print(f"{YELLOW}[2] Exit")
