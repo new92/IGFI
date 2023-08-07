@@ -42,7 +42,7 @@ try:
     import instagrapi
     import requests
     import instaloader
-    from datetime import date
+    from datetime import datetime
     from colorama import init, Fore
 except ImportError or ModuleNotFoundError:
     print("[!] WARNING: Not all packages used in IGFollowersIncreaser have been installed !")
@@ -262,7 +262,7 @@ def main():
                 con=str(input(f"{YELLOW}[>] Do you consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given (Instagram) account ? "))
             if con.lower() == ANS[0]:
                 f = open("cons.txt","a")
-                f.write(f"\n[=] Date: {date.today()}\n")
+                f.write(f"\n[=] Date: {datetime.now()}\n")
                 f.write("[=] User: Yes I consent that the author of this script (new92) has no responsibility for any loss or damage may the script cause to the given Instagram account.\n")
                 f.write("-"*40)
                 f.close()
@@ -302,7 +302,7 @@ def main():
                     quit(0)
         else:
             f = open("cons.txt","w")
-            f.write(f"[=] Date: {date.today()}\n")
+            f.write(f"[=] Date: {datetime.now()}\n")
             f.write("[=] User: Yes I consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given Instagram account.\n")
             f.write("-"*40)
             f.close()
@@ -615,7 +615,7 @@ def main():
                     if os.path.exists(fpath(name)):
                         f = open(name,'a')
                         f.write("\n"+"-"*40+'\n')
-                        f.write(f"[+] Date: {str(date.today())}\n")
+                        f.write(f"[+] Date: {str(datetime.now())}\n")
                         f.write(f"[+] Followed: {str(follow)} users\n")
                         f.write(f"[+] Unfollowed: {str(unfollow)} users\n")
                         if follow - unfollow != 0:
@@ -642,7 +642,7 @@ def main():
                     else:
                         f = open(name,"w")
                         f.write("-"*40+'\n')
-                        f.write(f"[+] Date: {str(date.today())}\n")
+                        f.write(f"[+] Date: {str(datetime.now())}\n")
                         f.write(f"[+] Followed: {str(follow)} users\n")
                         f.write(f"[+] Unfollowed: {str(unfollow)} users\n")
                         pers = (follow + unfollow) / float(len(FOLLOW)*2)
