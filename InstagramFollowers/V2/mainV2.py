@@ -29,7 +29,7 @@ try:
         sleep(1)
         quit(0)
     from tqdm import tqdm
-    total_mods = 10
+    total_mods = 11
     bar = tqdm(total=total_mods, desc='Loading modules', unit='module')
     for _ in range(total_mods):
         sleep(0.75)
@@ -38,6 +38,7 @@ try:
     import platform
     from os import system
     import os
+    import json
     import instagrapi
     import requests
     import instaloader
@@ -124,45 +125,34 @@ def fpath(fname: str):
     return None
 
 def ScriptInfo():
-    author = 'new92'
-    lice = 'MIT'
-    lang = 'en-US'
-    language = 'Python'
-    name = 'IGFollowersIncreaser'
-    api = None
-    lines = 711
+    with open("config.json") as config:
+        conf = json.load(config)
     f = 'mainV2.py'
     if os.path.exists(fpath(f)):
         fsize = os.stat(fpath(f)).st_size
     else:
         fsize = 0
-    stars = 56
-    forks = 31
-    issues = 1
-    clissues = 5
-    prs = 0
-    clprs = 8
-    discs = 5
-    print(f"{YELLOW}[+] Author: {author}")
-    print(f"{YELLOW}[+] Github: @{author}")
-    print(f"{YELLOW}[+] License: {lice}")
-    print(f"{YELLOW}[+] Natural language: {lang}")
-    print(f"{YELLOW}[+] scriptming language(s) used: {language}")
-    print(f"{YELLOW}[+] Number of lines: {lines}")
-    print(f"{YELLOW}[+] Script's name: {name}")
-    print(f"{YELLOW}[+] API(s) used: {api}")
+    print(f"{YELLOW}[+] Author: {conf['author']}")
+    print(f"{YELLOW}[+] Github: @{conf['author']}")
+    print(f"{YELLOW}[+] License: {conf['lice']}")
+    print(f"{YELLOW}[+] Natural language: {conf['lang']}")
+    print(f"{YELLOW}[+] Programming language(s) used: {conf['language']}")
+    print(f"{YELLOW}[+] Number of lines: {conf['lines']}")
+    print(f"{YELLOW}[+] Script's name: {conf['name']}")
+    print(f"{YELLOW}[+] API(s) used: {conf['api']}")
     print(f"{YELLOW}[+] File size: {fsize} bytes")
     print(f"{YELLOW}[+] File path: {fpath(f)}")
     print(f"{YELLOW}|======|GITHUB REPO INFO|======|")
-    print(f"{YELLOW}[+] Stars: {stars}")
-    print(f"{YELLOW}[+] Forks: {forks}")
-    print(f"{YELLOW}[+] Open issues: {issues}")
-    print(f"{YELLOW}[+] Closed issues: {clissues}")
-    print(f"{YELLOW}[+] Open pull requests: {prs}")
-    print(f"{YELLOW}[+] Closed pull requests: {clprs}")
-    print(f"{YELLOW}[+] Discussions: {discs}")
+    print(f"{YELLOW}[+] Stars: {conf['stars']}")
+    print(f"{YELLOW}[+] Forks: {conf['forks']}")
+    print(f"{YELLOW}[+] Open issues: {conf['issues']}")
+    print(f"{YELLOW}[+] Closed issues: {conf['clissues']}")
+    print(f"{YELLOW}[+] Open pull requests: {conf['prs']}")
+    print(f"{YELLOW}[+] Closed pull requests: {conf['clprs']}")
+    print(f"{YELLOW}[+] Discussions: {conf['discs']}")
 
-ANS = ["yes","YES","Yes","y","Y","YeS","yEs","YEs","yES","no","NO","No","n","N","nO"]
+
+ANS = ["yes","no"]
 
 def Uninstall() -> str:
     def rmdir(dire):
@@ -190,7 +180,7 @@ def banner() -> str:
 """
 
 def checkUser(username:str) -> bool:
-    return username == None or len(username) > 30 or username == ''
+    return username == None or len(username) > 30 or username == '' or username == ' '
 
 def ValUser(username:str) -> bool:
     return requests.get(f'https://www.instagram.com/{username}/', allow_redirects=False).status_code != 200
@@ -234,9 +224,9 @@ def main():
         sleep(1)
         print(f"{GREEN}[*] Acceptable answers: [True/False]")
         sleep(1)
-        keep=input(f"{YELLOW}[?] Keep log ? ")
-        while keep.lower() not in ['true' or 'false'] or keep == None or keep == '':
-            if keep == None or keep == '':
+        keep=str(input(f"{YELLOW}[?] Keep log ? "))
+        while keep.lower() not in ['true','false'] or keep == None or keep == '' or keep == ' ':
+            if keep == None or keep == '' or keep == ' ':
                 print(f"{RED}[!] This field can't be blank !")
             else:
                 print(f"{RED}[!] Invalid input !")
@@ -244,16 +234,25 @@ def main():
                 print(f"{GREEN}[*] Acceptable answers: [True/False]")
             sleep(2)
             keep=input(f"{YELLOW}[?] Keep log ? ")
-        if keep.lower() == 'true':
-            keep = True
-        else:
-            keep = False
+        keep = True if keep.lower() == 'true' else False
+        print("[+] Acceptable answers: [yes/no]")
+        sleep(1)
+        check=str(input("[?] Display the usernames of the followers added ? "))
+        while check.lower() not in ANS or check == None or check == '' or check == ' ':
+            if check == None or check == '' or check == ' ':
+                print("[!] This field can't be blank !")
+            else:
+                print("[!] Invalid answer !")
+                sleep(1)
+                print("[+] Acceptable answers: [yes/no]")
+            check=str(input("[?] Display the usernames of the followers added ? "))
+        check = True if check.lower() == ANS[0] else False
         if os.path.exists('cons.txt'):
             print(f"{GREEN}[*] Acceptable answers: [yes/no]")
             sleep(1)
             con=str(input(f"{YELLOW}[>] Do you consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given (Instagram) account ? "))
-            while con not in ANS or con == None or con == '':
-                if con == None or con == '':
+            while con.lower() not in ANS or con == None or con == '' or con == ' ':
+                if con == None or con == '' or con == ' ':
                     print(f"{RED}[!] This field can't be blank !")
                 else:
                     print(f"{RED}[!] Invalid input !")
@@ -261,7 +260,7 @@ def main():
                     print(f"{GREEN}[*] Acceptable answers: [yes/no]")
                 sleep(1)
                 con=str(input(f"{YELLOW}[>] Do you consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given (Instagram) account ? "))
-            if con in ANS[:9]:
+            if con.lower() == ANS[0]:
                 f = open("cons.txt","a")
                 f.write(f"\n[=] Date: {date.today()}\n")
                 f.write("[=] User: Yes I consent that the author of this script (new92) has no responsibility for any loss or damage may the script cause to the given Instagram account.\n")
@@ -313,7 +312,7 @@ def main():
         username=str(input(f"{YELLOW}[>] Please enter your username: "))
         username = username.lower().strip()
         while checkUser(username):
-            if username == None or username == '':
+            if username == None or username == '' or username == ' ':
                 print(f"{RED}[!] This field can't be blank !")
             else:
                 print(f"{RED}[!] Invalid length !")
@@ -346,7 +345,7 @@ def main():
                 clear()
                 username=str(input(f"{YELLOW}[>] Please enter the username: "))
                 while checkUser(username):
-                    if username == None:
+                    if username == None or username == '' or username == ' ':
                         print(f"{RED}[!] This field can't be blank !")
                     else:
                         print(f"{RED}[!] Invalid length  !")
@@ -379,8 +378,8 @@ def main():
         print(f"{GREEN}[*] Acceptable answers: [yes/no]")
         sleep(1)
         con=str(input(f"{YELLOW}[?] Script will increase the followers for the user: {username} is that correct ? "))
-        while con not in ANS or con == None or con == '':
-            if con == None or con == '':
+        while con.lower() not in ANS or con == None or con == '' or con == ' ':
+            if con == None or con == '' or con == ' ':
                 print(f"{RED}[!] This field can't be blank !")
             else:
                 print(f"{RED}[!] Invalid answer !")
@@ -392,7 +391,7 @@ def main():
             username=str(input(f"{YELLOW}[>] Please enter a different username: "))
             username = username.lower().strip()
             while checkUser(username):
-                if username == None or username == '':
+                if username == None or username == '' or username == ' ':
                     print(f"{RED}[!] This field can't be blank !")
                 else:
                     print(f"{RED}[!] Invalid length !")
@@ -426,7 +425,7 @@ def main():
                     username=str(input(f"{YELLOW}[>] Please enter the username: "))
                     username = username.lower().strip()
                     while checkUser(username):
-                        if username == None or username == '':
+                        if username == None or username == '' or username == ' ':
                             print(f"{RED}[!] This field can't be blank !")
                         else:
                             print(f"{RED}[!] Invalid length  !")
@@ -457,8 +456,8 @@ def main():
         print(f"{GREEN}[*] Acceptable answers: [yes/no]")
         sleep(1)
         ga=str(input(f"{YELLOW}[?] Do you want to grant access to the script to have access to the number of your followers in order to provide additional information ? "))
-        while ga not in ANS or ga == None or ga == '':
-            if ga == None or ga == '':
+        while ga not in ANS or ga == None or ga == '' or ga == ' ':
+            if ga == None or ga == '' or ga == ' ':
                 print(f"{RED}[!] This field can't be blank !")
             else:
                 print(f"{RED}[!] Invalid answer !")
@@ -466,13 +465,14 @@ def main():
                 print(f"{GREEN}[*] Acceptable answers: [yes/no]")
             sleep(1)
             ga=str(input(f"{YELLOW}[?] Do you want to grant access to the script to have access to the number of your followers in order to provide additional information ? "))
-        if ga in ANS[:9]:
+        ga = True if ga.lower() == ANS[0] else False
+        if ga:
             loader = instaloader.Instaloader()
             profile = instaloader.Profile.from_username(loader.context, username)
             followers_bef = profile.followers
         sleep(1)
         password=str(input(f"{YELLOW}[>] Please enter your password: "))
-        while password == None or password == '':
+        while password == None or password == '' or password == ' ':
             print(f"{RED}[!] This field can't be blank !")
             sleep(1)
             password=str(input(f"{YELLOW}[>] Please enter again your password: "))
@@ -593,7 +593,7 @@ def main():
                 sleep(1)
                 print(f"{GREEN}[+] Percentage of fail: {float(100 - pers)}%")
                 sleep(1)
-                if ga in ANS[:9]:
+                if ga:
                     followers_af = profile.followers
                     print(f"{GREEN}[✓] Successfully added: {followers_af - followers_bef} followers.")
                     sleep(1)
