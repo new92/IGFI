@@ -387,7 +387,7 @@ def main():
                 print(f"{GREEN}[*] Acceptable answers: [yes/no]")
             sleep(1)
             con=str(input(f"{YELLOW}[?] Script will increase the followers for the user: {username} is that correct ? "))
-        if con in ANS[9:]:
+        if con.lower() == ANS[1]:
             username=str(input(f"{YELLOW}[>] Please enter a different username: "))
             username = username.lower().strip()
             while checkUser(username):
@@ -453,10 +453,11 @@ def main():
                     print(f"{GREEN}[+] See you next time 👋")
                     sleep(1)
                     quit(0)
+        sleep(2)
         print(f"{GREEN}[*] Acceptable answers: [yes/no]")
         sleep(1)
         ga=str(input(f"{YELLOW}[?] Do you want to grant access to the script to have access to the number of your followers in order to provide additional information ? "))
-        while ga not in ANS or ga == None or ga == '' or ga == ' ':
+        while ga.lower() not in ANS or ga == None or ga == '' or ga == ' ':
             if ga == None or ga == '' or ga == ' ':
                 print(f"{RED}[!] This field can't be blank !")
             else:
@@ -470,6 +471,7 @@ def main():
             loader = instaloader.Instaloader()
             profile = instaloader.Profile.from_username(loader.context, username)
             followers_bef = profile.followers
+            FOLLOWERS = [follower.username for follower in profile.get_followers()]
         sleep(1)
         password=str(input(f"{YELLOW}[>] Please enter your password: "))
         while password == None or password == '' or password == ' ':
@@ -597,6 +599,17 @@ def main():
                     followers_af = profile.followers
                     print(f"{GREEN}[✓] Successfully added: {followers_af - followers_bef} followers.")
                     sleep(1)
+                if check:
+                    print(f"{RED}[!] WARNING: The data provided may be incorrect if your account is private and you haven't approved the follow requests")
+                    sleep(3)
+                    L = [user for user in FOLLOWERS]
+                    if L == FOLLOWERS:
+                        print(f"{RED}[!] No new followers added ! Try checking the pending follow requests and try again.")
+                    else:
+                        ADDS = [user for user in L if user not in FOLLOWERS]
+                        for i, username in enumerate(ADDS):
+                            print(f"{YELLOW}[+] User No{i+1} >>> {username}")
+                    sleep(2)
                 if keep:
                     name = 'log.txt'
                     if os.path.exists(fpath(name)):
@@ -610,9 +623,15 @@ def main():
                         pers = (follow + unfollow) / float(len(FOLLOW)*2)
                         f.write(f"[+] Percentage of success: {str(pers)}%\n")
                         f.write(f"[+] Percentage of fail: {str(float(100 - pers))}%\n")
-                        if ga in ANS[:9]:
+                        if ga:
                             followers_af = profile.followers
                             f.write(f"[✓] Successfully added: {str(followers_af - followers_bef)} followers.")
+                        if check:
+                            L = [user for user in FOLLOWERS]
+                            if L != FOLLOWERS:
+                                ADDS = [user for user in L if user not in FOLLOWERS]
+                                for i, username in enumerate(ADDS):
+                                    f.write(f"[+] User No{str(i+1)} >>> {username}\n")
                         f.close()
                         print(f"{GREEN}[✓] Successfully saved log !")
                         sleep(2)
