@@ -233,7 +233,7 @@ def main():
                 sleep(1)
                 print(f"{GREEN}[*] Acceptable answers: [True/False]")
             sleep(2)
-            keep=input(f"{YELLOW}[?] Keep log ? ")
+            keep=str(input(f"{YELLOW}[?] Keep log ? "))
         keep = True if keep.lower() == 'true' else False
         print("[+] Acceptable answers: [yes/no]")
         sleep(1)
