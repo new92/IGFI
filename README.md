@@ -83,8 +83,8 @@ If you are reporting a bug or making a suggestion please make sure your report/s
 
 - [ ] GUI
 - [ ] Automation
-- [x] Display the usernames of the followers added
-- [x] V3 script better than both versions 1 and 2 **<a href='https://github.com/new92/IGFollowersIncreaser/tree/main/InstagramFollowers/V3'>URL</a>**
+- [x] ~~Display the usernames of the followers added~~
+- [x] ~~V3 script better than both versions 1 and 2~~ **<a href='https://github.com/new92/IGFollowersIncreaser/tree/main/InstagramFollowers/V3'>URL</a>**
 - [ ] V4 (this version will include the features as shown above and some extra)
 
 ## FAQ 🤔
