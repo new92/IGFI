@@ -29,9 +29,9 @@ Any type of feedback is welcome and appreciated. (Please try avoiding the vulgar
 
 | OS | Linux | Windows | MacOS
 | :---: | :---: | :---: | :---: |
-| | Kali |
-| | | 10 |
-| | | 11 |
+| ✅ | Kali |
+| ✅ | | 10 |
+| ✅ | | 11 |
 
 
 
