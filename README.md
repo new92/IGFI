@@ -27,9 +27,11 @@ Any type of feedback is welcome and appreciated. (Please try avoiding the vulgar
 
 ## Tested on 🔎
 
-- Kali linux ✅
-- Windows 10/11 ✅
-- MacOS ❌
+| OS | Linux | Windows | MacOS
+| :---: | :---: | :---: | :---: |
+| | Kali |
+| | | 10 |
+| | | 11 |
 
 
 
