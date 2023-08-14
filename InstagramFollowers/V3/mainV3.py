@@ -2,6 +2,7 @@
 """
 Author: new92
 Github: @new92
+Leetcode: @new92
 
 IGFollowersIncreaser: Use this script to increase the followers of an Insta account
 
@@ -181,10 +182,7 @@ def nums():
     print(f"{YELLOW}[5] Exit")
 
 def clear():
-    if platform.system() == 'Windows':
-        system('cls')
-    else:
-        system('clear')
+    system('cls') if platform.system() == 'Windows' else system('clear')
         
 def checkUser(username:str) -> bool:
     return username == None or len(username) > 30 or username == '' or username == ' '
