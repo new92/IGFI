@@ -193,10 +193,7 @@ def nums():
     print(f"{YELLOW}[5] Exit")
 
 def clear():
-    if platform.system() == 'Windows':
-        system('cls')
-    else:
-        system('clear')
+    system('cls') if platform.system() == 'Windows' else system('clear')
 
 def main():
     print(banner())
