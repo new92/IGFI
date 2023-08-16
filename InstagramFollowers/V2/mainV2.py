@@ -23,7 +23,7 @@ try:
         Linux: apt install python3
         Windows: https://www.python.org/downloads/
         MacOS: https://docs.python-guide.org/starting/install3/osx/""")
-        sleep(2)
+        sleep(3)
         print("[+] Please install Python 3 and then use IGFollowersIncreaser ✅")
         sleep(2)
         print("[+] Exiting...")
@@ -67,17 +67,18 @@ except ImportError or ModuleNotFoundError:
                 print("[1] Uninstall IGFollowersIncreaser")
                 print("[2] Exit")
                 opt=int(input("[>] Please enter a number (from the above ones): "))
-                while opt < 1 or opt > 2 or opt == None:
-                    if opt == None:
-                        print("[!] This field can't be blank !")
-                    else:
-                        print("[!] Invalid number !")
+                valErr = opt in [1,2]
+                while not valErr:
+                    try:
+                        print("[1] Uninstall IGFollowersIncreaser")
+                        print("[2] Exit")
+                        opt=int(input("[>] Please enter again a number (from the above ones): "))
+                        valErr = opt in [1,2]
+                    except ValueError:
+                        print("[!] Please enter a valid number.")
                         sleep(1)
-                        print("[*] Acceptable numbers: [1,2]")
-                    sleep(1)
-                    print("[1] Uninstall IGFollowersIncreaser")
-                    print("[2] Exit")
-                    opt=int(input("[>] Please enter again a number (from the above ones): "))
+                        print("[+] Acceptable numbers: [1,2]")
+                        sleep(1)
                 if opt == 1:
                     def fpath(fname: str):
                         for root, dirs, files in os.walk('/'):
@@ -207,16 +208,17 @@ def main():
     nums()
     print(f"\n")
     option=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
-    while option < 1 or option > 5 or option == None:
-        if option == None:
-            print(f"{RED}[!] This field can't be blank !")
-        else:
-            print(f"{RED}[!] Invalid number !")
+    valErr = option in [1,2,3,4,5]
+    while not valErr:
+        try:
+            nums()
+            option=int(input(f"{YELLOW}[>] Please enter again a number (from the above ones): "))
+            valErr = option in [1,2,3,4,5]
+        except ValueError:
+            print(f"{RED}[!] Please enter a valid number.")
             sleep(1)
-            print(f"{GREEN}[*] Acceptable numbers: [1/2/3/4/5]")
-        sleep(1)
-        nums()
-        option=int(input(f"{YELLOW}[>] Please enter again a number (from the above ones): "))
+            print(f"{GREEN}[+] Acceptable numbers: [1,2,3,4,5]")
+            sleep(1)
     if option == 1:
         clear()
         sleep(1)
@@ -270,18 +272,19 @@ def main():
                 print(f"{YELLOW}[1] Exit")
                 print(f"{YELLOW}[2] Uninstall IGFollowersIncreaser and exit")
                 num=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
-                while num < 1 or num > 2 or num == None:
-                    if num == None:
-                        print(f"{RED}[!] This field can't be blank !")
-                    else:
-                        print(f"{RED}[!] Invalid number !")
+                valErr = num in [1,2]
+                while not valErr:
+                    try:
+                        print(f"{YELLOW}[1] Exit")
+                        print(f"{YELLOW}[2] Uninstall IGFollowersIncreaser and exit")
                         sleep(1)
-                        print(f"{GREEN}[*] Acceptable numbers: [1/2]")
-                    sleep(1)
-                    print(f"{YELLOW}[1] Exit")
-                    print(f"{YELLOW}[2] Uninstall IGFollowersIncreaser and exit")
-                    sleep(1)
-                    num=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
+                        num=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
+                        valErr = num in [1,2]
+                    except ValueError:
+                        print(f"{RED}[!] Please enter a valid number.")
+                        sleep(1)
+                        print(f"{GREEN}[+] Acceptable numbers: [1,2]")
+                        sleep(1)
                 if num == 1:
                     clear()
                     print(f"{RED}[+] Exiting...")
@@ -326,19 +329,20 @@ def main():
             print(f"{YELLOW}[3] Uninstall and Exit")
             print(f"{YELLOW}[4] Exit")
             opt=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
-            while opt < 1 or opt > 4 or opt == None:
-                if opt == None:
-                    print(f"{RED}[!] This field can't be blank !")
-                else:
-                    print(f"{RED}[!] Invalid number !")
+            valErr = opt in [1,2,3,4]
+            while not valErr:
+                try:
+                    print(f"{YELLOW}[1] Try with another username")
+                    print(f"{YELLOW}[2] Return to menu")
+                    print(f"{YELLOW}[3] Uninstall and Exit")
+                    print(f"{YELLOW}[4] Exit")
+                    opt=int(input(f"{YELLOW}[>] Please enter again a number (from the above ones): "))
+                    valErr = opt in [1,2,3,4]
+                except ValueError:
+                    print(f"{RED}[!] Please enter a valid number.")
                     sleep(1)
-                    print(f"{GREEN}[*] Acceptable numbers: [1/2/3/4]")
-                sleep(1)
-                print(f"{YELLOW}[1] Try with another username")
-                print(f"{YELLOW}[2] Return to menu")
-                print(f"{YELLOW}[3] Uninstall and Exit")
-                print(f"{YELLOW}[4] Exit")
-                opt=int(input(f"{YELLOW}[>] Please enter again a number (from the above ones): "))
+                    print(f"{GREEN}[+] Acceptable numbers: [1,2,3,4]")
+                    sleep(1)
             if opt == 1:
                 clear()
                 username=str(input(f"{YELLOW}[>] Please enter the username: "))
@@ -405,19 +409,20 @@ def main():
                 print(f"{YELLOW}[3] Uninstall and Exit")
                 print(f"{YELLOW}[4] Exit")
                 opt=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
-                while opt < 1 or opt > 4 or opt == None:
-                    if opt == None:
-                        print(f"{RED}[!] This field can't be blank !")
-                    else:
-                        print(f"{RED}[!] Invalid number !")
+                valErr = opt in [1,2,3,4]
+                while not valErr:
+                    try:
+                        print(f"{YELLOW}[1] Try with another username")
+                        print(f"{YELLOW}[2] Return to menu")
+                        print(f"{YELLOW}[3] Uninstall and Exit")
+                        print(f"{YELLOW}[4] Exit")
+                        opt=int(input(f"{YELLOW}[>] Please enter again a number (from the above ones): "))
+                        valErr = opt in [1,2,3,4]
+                    except ValueError:
+                        print(f"{RED}[!] Please enter a valid number.")
                         sleep(1)
-                        print(f"{GREEN}[*] Acceptable numbers: [1/2/3/4]")
-                    sleep(1)
-                    print(f"{YELLOW}[1] Try with another username")
-                    print(f"{YELLOW}[2] Return to menu")
-                    print(f"{YELLOW}[3] Uninstall and Exit")
-                    print(f"{YELLOW}[4] Exit")
-                    opt=int(input(f"{YELLOW}[>] Please enter again a number (from the above ones): "))
+                        print(f"{GREEN}[+] Acceptable numbers: [1,2,3,4]")
+                        sleep(1)
                 if opt == 1:
                     clear()
                     username=str(input(f"{YELLOW}[>] Please enter the username: "))
@@ -495,15 +500,19 @@ def main():
                 print(f"{YELLOW}[2] Uninstall IGFollowersIncreaser and Exit")
                 print(f"{YELLOW}[3] Exit")
                 num=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
-                while num < 1 or num > 3 or num == None:
-                    if num == None:
-                        print(f"{RED}[!] This field can't be empty !")
-                    else:
-                        print(f"{RED}[!] Invalid number !")
+                valErr = num in [1,2,3]
+                while not valErr:
+                    try:
+                        print(f"{YELLOW}[1] Return to menu")
+                        print(f"{YELLOW}[2] Uninstall IGFollowersIncreaser and Exit")
+                        print(f"{YELLOW}[3] Exit")
+                        num=int(input(f"{YELLOW}[>] Please enter again a number (from the above ones):"))
+                        valErr = num in [1,2,3]
+                    except ValueError:
+                        print(f"{RED}[!] Please enter a valid number.")
                         sleep(1)
-                        print(f"{GREEN}[*] Acceptable numbers: [1/2/3]")
-                    sleep(1)
-                    num=int(input(f"{YELLOW}[>] Please enter again a number (from the above ones):"))
+                        print(f"{GREEN}[+] Acceptable numbers: [1,2,3]")
+                        sleep(1)
                 if num == 1:
                     clear()
                     main()
@@ -529,17 +538,17 @@ def main():
             print(f"{YELLOW}[1] Return to menu")
             print(f"{YELLOW}[2] Exit")
             num=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
-            while num < 1 or num > 2 or num == None:
-                if num == None:
-                    print(f"{RED}[!] This field can't be empty !")
-                else:
-                    print(f"{RED}[!] Invalid number !")
+            valErr = num in [1,2]
+            while not valErr:
+                try:
+                    print(f"{YELLOW}[1] Return to menu")
+                    print(f"{YELLOW}[2] Exit")
+                    num=int(input(f"{YELLOW}[>] Please enter again a number (from the above ones): "))
+                    valErr = num in [1,2]
+                except ValueError:
+                    print(f"{RED}[!] Please enter a valid number.")
                     sleep(1)
-                    print(f"{GREEN}[*] Acceptable numbers: [1/2]")
-                sleep(1)
-                print(f"{YELLOW}[1] Return to menu")
-                print(f"{YELLOW}[2] Exit")
-                num=int(input(f"{YELLOW}[>] Please enter again a number (from the above ones): "))
+                    print(f"{GREEN}[+] Acceptable numbers: [1,2]")
             if num == 1:
                 clear()
                 main()
@@ -702,17 +711,18 @@ def main():
     print(f"{YELLOW}[1] Return to menu")
     print(f"{YELLOW}[2] Exit")
     opt=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
-    while opt < 1 or opt > 2 or opt == None:
-        if opt == None:
-            print(f"{RED}[!] This field can't be blank !")
-        else:
-            print(f"{RED}[!] Invalid number !")
+    valErr = opt in [1,2]
+    while not valErr:
+        try:
+            print(f"{YELLOW}[1] Return to menu")
+            print(f"{YELLOW}[2] Exit")
+            opt=int(input(f"{YELLOW}[>] Please enter again a number (from the above ones): "))
+            valErr = opt in [1,2]
+        except ValueError:
+            print(f"{RED}[!] Please enter a valid number.")
             sleep(1)
-            print(f"{GREEN}[*] Acceptable numbers: [1/2]")
-        sleep(1)
-        print(f"{YELLOW}[1] Return to menu")
-        print(f"{YELLOW}[2] Exit")
-        opt=int(input(f"{YELLOW}[>] Please enter again a number (from the above ones): "))
+            print(f"{GREEN}[+] Acceptable numbers: [1,2]")
+            sleep(1)
         if opt == 1:
             clear()
             main()
