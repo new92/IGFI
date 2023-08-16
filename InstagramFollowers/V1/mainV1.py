@@ -74,7 +74,7 @@ except ImportError or ModuleNotFoundError:
                         opt=int(input("[>] Please enter again a number (from the above ones): "))
                         valErr = opt in [1,2]
                     except ValueError:
-                        print("[!] Please enter a valid number !")
+                        print("[!] Please enter a valid number.")
                         sleep(1)
                         print("[+] Acceptable numbers: [1,2]")
                         sleep(1)
@@ -209,7 +209,7 @@ def main():
             option=int(input(f"{YELLOW}[>] Please enter again a number (from the above ones): "))
             valErr = option in [1,2,3,4,5]
         except ValueError:
-            print(f"{RED}[!] Please enter a valid number !")
+            print(f"{RED}[!] Please enter a valid number.")
             sleep(1)
             print(f"{GREEN}[+] Acceptable numbers: [1,2,3,4,5]")
             sleep(1)
@@ -276,7 +276,7 @@ def main():
                         num=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
                         valErr = num in [1,2]
                     except ValueError:
-                        print(f"{RED}[!] Please enter a valid number !")
+                        print(f"{RED}[!] Please enter a valid number.")
                         sleep(1)
                         print(f"{GREEN}[+] Acceptable numbers: [1,2]")
                         sleep(1)
@@ -333,7 +333,7 @@ def main():
                     opt=int(input(f"{YELLOW}[>] Please enter again a number (from the above ones): "))
                     valErr = opt in [1,2,3]
                 except ValueError:
-                    print(f"{RED}[!] Please enter a valid number !")
+                    print(f"{RED}[!] Please enter a valid number.")
                     sleep(1)
                     print(f"{GREEN}[+] Acceptable numbers: [1,2,3]")
                     sleep(1)
@@ -410,7 +410,7 @@ def main():
                         num=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
                         valErr = num in [1,2]
                     except ValueError:
-                        print(f"{RED}[!] Please enter a valid number !")
+                        print(f"{RED}[!] Please enter a valid number.")
                         sleep(1)
                         print(f"{GREEN}[+] Acceptable numbers: [1,2]")
                         sleep(1)
@@ -440,7 +440,7 @@ def main():
                     num=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
                     valErr = num in [1,2]
                 except ValueError:
-                    print(f"{RED}[!] Please enter a valid number !")
+                    print(f"{RED}[!] Please enter a valid number.")
                     sleep(1)
                     print(f"{GREEN}[+] Acceptable numbers: [1,2]")
                     sleep(1)
@@ -805,7 +805,7 @@ def main():
             num=int(input(f"{YELLOW}[>] Please enter again a number (from the above ones): "))
             valErr = num in [1,2]
         except ValueError:
-            print(f"{RED}[!] Please enter a valid number !")
+            print(f"{RED}[!] Please enter a valid number.")
             sleep(1)
             print(f"{GREEN}[+] Acceptable numbers: [1,2]")
             sleep(1)
