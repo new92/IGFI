@@ -441,7 +441,7 @@ def main():
                     except ValueError:
                         print(f"{RED}[!] Please enter a valid number !")
                         sleep(1)
-                        print(f"{YELLOW}[+] Acceptable numbers: [1,2,3]")
+                        print(f"{GREEN}[+] Acceptable numbers: [1,2,3]")
                         sleep(1)
                 if opt == 1:
                     clear()
@@ -520,7 +520,7 @@ def main():
                     except ValueError:
                         print(f"{RED}[!] Please enter a valid number !")
                         sleep(1)
-                        print(f"{YELLOW}[+] Acceptable numbers: [1,2]")
+                        print(f"{GREEN}[+] Acceptable numbers: [1,2]")
                         sleep(1)
                 if num == 1:
                     clear()
@@ -557,7 +557,7 @@ def main():
                     except ValueError:
                         print(f"{RED}[!] Please enter a valid number !")
                         sleep(1)
-                        print(f"{YELLOW}[+] Acceptable numbers: [1,2]")
+                        print(f"{GREEN}[+] Acceptable numbers: [1,2]")
                 if num == 1:
                     clear()
                     main()
@@ -842,7 +842,7 @@ def main():
         except ValueError:
             print(f"{RED}[!] Please enter a valid number !")
             sleep(1)
-            print(f"{YELLOW}[+] Acceptable numbers: [1,2]")
+            print(f"{GREEN}[+] Acceptable numbers: [1,2]")
             sleep(1)
     if opt == 1:
         clear()
