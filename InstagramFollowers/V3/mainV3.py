@@ -68,7 +68,7 @@ except ImportError or ModuleNotFoundError:
                 print("[2] Exit")
                 opt=str(input("[>] Please enter a number (from the above ones): "))
                 while opt not in ['1','2']:
-                    print("[!] Please enter a valid number !")
+                    print("[!] Please enter a valid number.")
                     sleep(1)
                     print("[+] Acceptable numbers: [1,2]")
                     sleep(1)
@@ -206,9 +206,9 @@ def main():
             num=int(input(f"{YELLOW}[>] Please enter again a number (from the above ones): "))
             valErr = num in [1,2,3,4,5]
         except ValueError:
-            print("[!] Please enter a valid number !")
+            print(f"{RED}[!] Please enter a valid number.")
             sleep(1)
-            print("[+] Acceptable numbers: [1-5]")
+            print(f"{GREEN}[+] Acceptable numbers: [1-5]")
             sleep(1)
     if num == 1:
         clear()
@@ -229,15 +229,15 @@ def main():
         sleep(1)
         print(f"{GREEN}[+] Acceptable answers: [yes/no]")
         sleep(2)
-        check=str(input("[?] Display the usernames of the followers added ? "))
+        check=str(input(f"{YELLOW}[?] Display the usernames of the followers added ? "))
         while check.lower() not in ANS or check == None or check == '' or check == ' ':
             if check == None or check == '' or check == ' ':
-                print("[!] This field can't be blank !")
+                print(f"{RED}[!] This field can't be blank !")
             else:
-                print("[!] Invalid answer !")
+                print(f"{RED}[!] Invalid answer !")
                 sleep(1)
-                print("[+] Acceptable answers: [yes/no]")
-            check=str(input("[?] Display the usernames of the followers added ? "))
+                print(f"{GREEN}[+] Acceptable answers: [yes/no]")
+            check=str(input(f"{YELLOW}[?] Display the usernames of the followers added ? "))
         check = True if check.lower() == ANS[0] else False
         users = {
             'Cristiano Ronaldo' : '173560420',
@@ -312,9 +312,9 @@ def main():
                         num=int(input(f"{YELLOW}[>] Please enter again a number (from the above ones): "))
                         valErr = num in [1,2]
                     except ValueError:
-                        print("[!] Please enter a valid number !")
+                        print(f"{RED}[!] Please enter a valid number.")
                         sleep(2)
-                        print("[+] Acceptable numbers: [1/2]")
+                        print(f"{GREEN}[+] Acceptable numbers: [1/2]")
                         sleep(1)
                 if num == 1:
                     clear()
@@ -371,9 +371,9 @@ def main():
                     if opt in [1,2,3]:
                         valErr = True
                 except ValueError:
-                    print("[!] Invalid number !")
+                    print(f"{RED}[!] Please enter a valid number.")
                     sleep(1)
-                    print("[+] Acceptable numbers: [1-3]")
+                    print(f"{GREEN}[+] Acceptable numbers: [1-3]")
                     sleep(1)
             if opt == 1:
                 username=str(input(f"{YELLOW}[>] Please enter the username: "))
@@ -435,7 +435,7 @@ def main():
                         opt=int(input(f"{YELLOW}[>] Please enter again a number (from the above ones): "))
                         valErr = opt in [1,2,3]
                     except ValueError:
-                        print(f"{RED}[!] Please enter a valid number !")
+                        print(f"{RED}[!] Please enter a valid number.")
                         sleep(1)
                         print(f"{GREEN}[+] Acceptable numbers: [1,2,3]")
                         sleep(1)
@@ -514,7 +514,7 @@ def main():
                         num=int(input(f"{YELLOW}[>] Please enter again a number (from the above ones):"))
                         valErr = num in [1,2]
                     except ValueError:
-                        print(f"{RED}[!] Please enter a valid number !")
+                        print(f"{RED}[!] Please enter a valid number.")
                         sleep(1)
                         print(f"{GREEN}[+] Acceptable numbers: [1,2]")
                         sleep(1)
@@ -551,7 +551,7 @@ def main():
                         num=int(input(f"{YELLOW}[>] Please enter again a number (from the above ones):"))
                         valERR = num in [1,2]
                     except ValueError:
-                        print(f"{RED}[!] Please enter a valid number !")
+                        print(f"{RED}[!] Please enter a valid number.")
                         sleep(1)
                         print(f"{GREEN}[+] Acceptable numbers: [1,2]")
                 if num == 1:
@@ -836,7 +836,7 @@ def main():
             opt=int(input(f"{YELLOW}[>] Please enter again a number (from the above ones): "))
             valErr = opt in [1,2]
         except ValueError:
-            print(f"{RED}[!] Please enter a valid number !")
+            print(f"{RED}[!] Please enter a valid number.")
             sleep(1)
             print(f"{GREEN}[+] Acceptable numbers: [1,2]")
             sleep(1)
