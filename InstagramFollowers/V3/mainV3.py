@@ -66,19 +66,15 @@ except ImportError or ModuleNotFoundError:
                 sleep(2)
                 print("[1] Uninstall script")
                 print("[2] Exit")
-                opt=int(input("[>] Please enter a number (from the above ones): "))
-                valErr = opt in [1,2]
-                while not valErr:
-                    try:
-                        print("[1] Uninstall script")
-                        print("[2] Exit")
-                        opt=int(input("[>] Please enter a number (from the above ones): "))
-                        valErr = opt in [1,2]
-                    except ValueError:
-                        print("[!] Please enter a valid number.")
-                        sleep(1)
-                        print("[+] Acceptable numbers: [1,2]")
-                        sleep(1)
+                opt=str(input("[>] Please enter a number (from the above ones): "))
+                while opt not in ['1','2']:
+                    print("[!] Please enter a valid number !")
+                    sleep(1)
+                    print("[+] Acceptable numbers: [1,2]")
+                    sleep(1)
+                    print("[1] Uninstall script")
+                    print("[2] Exit")
+                    opt=str(input("[>] Please enter a number (from the above ones): "))
                 if opt == 1:
                     def fpath(fname: str):
                         for root, dirs, files in os.walk('/'):
