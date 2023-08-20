@@ -242,66 +242,59 @@ def main():
                 print("[+] Acceptable answers: [yes/no]")
             check=str(input("[?] Display the usernames of the followers added ? "))
         check = True if check.lower() == ANS[0] else False
-        if os.path.exists(fpath('cons.txt')):
-            print(f"{GREEN}[+] Acceptable answers: [yes/no]")
+        print(f"{GREEN}[+] Acceptable answers: [yes/no]")
+        sleep(1)
+        con=str(input(f"{YELLOW}[>] Do you consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given (Instagram) account ? "))
+        while con.lower() not in ANS or con == None or con == '' or con == ' ':
+            if con == None or con == '' or con == ' ':
+                print(f"{RED}[!] This field can't be blank !")
+            else:
+                print(f"{RED}[!] Invalid answer !")
+                sleep(1)
+                print(f"{GREEN}[+] Acceptable answers: [yes/no]")
             sleep(1)
             con=str(input(f"{YELLOW}[>] Do you consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given (Instagram) account ? "))
-            while con.lower() not in ANS or con == None or con == '' or con == ' ':
-                if con == None or con == '' or con == ' ':
-                    print(f"{RED}[!] This field can't be blank !")
-                else:
-                    print(f"{RED}[!] Invalid answer !")
-                    sleep(1)
-                    print(f"{GREEN}[+] Acceptable answers: [yes/no]")
-                sleep(1)
-                con=str(input(f"{YELLOW}[>] Do you consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given (Instagram) account ? "))
-            if con.lower() == ANS[0]:
-                f = open("cons.txt","a")
-                f.write(f"\n[=] Date: {datetime.now()}\n")
-                f.write("[=] User: Yes I consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given Instagram account.\n")
-                f.write("-"*40)
-                f.close()
-            else:
-                print(f"{YELLOW}[OK]")
-                sleep(1)
-                print(f"{YELLOW}[1] Exit")
-                print(f"{YELLOW}[2] Uninstall IGFollowersIncreaser and exit")
-                num=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
-                valErr = num in [1,2]
-                while not valErr:
-                    try:
-                        print(f"{YELLOW}[1] Exit")
-                        print(f"{YELLOW}[2] Uninstall IGFollowersIncreaser and exit")
-                        sleep(1)
-                        num=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
-                        valErr = num in [1,2]
-                    except ValueError:
-                        print(f"{RED}[!] Please enter a valid number.")
-                        sleep(1)
-                        print(f"{GREEN}[+] Acceptable numbers: [1,2]")
-                        sleep(1)
-                if num == 1:
-                    clear()
-                    print(f"{YELLOW}[+] Exiting...")
-                    sleep(1)
-                    quit(0)
-                else:
-                    clear()
-                    print(Uninstall())
-                    sleep(2)
-                    print(f"{YELLOW}[+] Exiting...")
-                    sleep(1)
-                    print(f"{YELLOW}[+] Thank you for using IGFollowersIncreaser 🫡")
-                    sleep(2)
-                    print(f"{YELLOW}[+] Until we meet again 👋")
-                    sleep(1)
-                    quit(0)
-        else:
-            f = open("cons.txt","w")
-            f.write(f"[=] Date: {datetime.now()}\n")
+        if con.lower() == ANS[0]:
+            f = open("cons.txt","a")
+            f.write(f"\n[=] Date: {datetime.now()}\n")
             f.write("[=] User: Yes I consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given Instagram account.\n")
-            f.write("-"*40+'\n')
+            f.write("-"*40)
             f.close()
+        else:
+            print(f"{YELLOW}[OK]")
+            sleep(1)
+            print(f"{YELLOW}[1] Exit")
+            print(f"{YELLOW}[2] Uninstall IGFollowersIncreaser and exit")
+            num=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
+            valErr = num in [1,2]
+            while not valErr:
+                try:
+                    print(f"{YELLOW}[1] Exit")
+                    print(f"{YELLOW}[2] Uninstall IGFollowersIncreaser and exit")
+                    sleep(1)
+                    num=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
+                    valErr = num in [1,2]
+                except ValueError:
+                    print(f"{RED}[!] Please enter a valid number.")
+                    sleep(1)
+                    print(f"{GREEN}[+] Acceptable numbers: [1,2]")
+                    sleep(1)
+            if num == 1:
+                clear()
+                print(f"{YELLOW}[+] Exiting...")
+                sleep(1)
+                quit(0)
+            else:
+                clear()
+                print(Uninstall())
+                sleep(2)
+                print(f"{YELLOW}[+] Exiting...")
+                sleep(1)
+                print(f"{YELLOW}[+] Thank you for using IGFollowersIncreaser 🫡")
+                sleep(2)
+                print(f"{YELLOW}[+] Until we meet again 👋")
+                sleep(1)
+                quit(0)
         print("\n")
         print(f"{YELLOW}[+] The login credentials will not be stored or saved")
         sleep(2)
