@@ -279,67 +279,60 @@ def main():
             'Nike' : '13460080'
         }
         NAMES = list(users.keys())
-        if os.path.exists(fpath('cons.txt')):
-            print(f"{GREEN}[+] Acceptable answers: [yes/no]")
+        print(f"{GREEN}[+] Acceptable answers: [yes/no]")
+        sleep(1)
+        con=str(input(f"{YELLOW}[>] Do you consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given (Instagram) account ? "))
+        while con.lower() not in ANS or con == None or con == '' or con == ' ':
+            if con == None or con == '' or con == ' ':
+                print(f"{RED}[!] This field can't be blank !")
+            else:
+                print(f"{RED}[!] Invalid answer !")
+                sleep(1)
+                print(f"{GREEN}[+] Acceptable answers: [yes/no]")
             sleep(1)
             con=str(input(f"{YELLOW}[>] Do you consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given (Instagram) account ? "))
-            while con.lower() not in ANS or con == None or con == '' or con == ' ':
-                if con == None or con == '' or con == ' ':
-                    print(f"{RED}[!] This field can't be blank !")
-                else:
-                    print(f"{RED}[!] Invalid answer !")
-                    sleep(1)
-                    print(f"{GREEN}[+] Acceptable answers: [yes/no]")
-                sleep(1)
-                con=str(input(f"{YELLOW}[>] Do you consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given (Instagram) account ? "))
-            if con.lower() == ANS[0]:
-                f = open("cons.txt","a")
-                f.write(f"\n[=] Date: {datetime.now()}\n")
-                f.write("[=] User: Yes I consent that the author of this script (new92) has no responsibility for any loss or damage may the script cause to the given Instagram account.\n")
-                f.write("-"*40+'\n')
-                f.close()
-            else:
-                print(f"{YELLOW}[OK]")
-                sleep(1)
-                print(f"{YELLOW}[1] Exit")
-                print(f"{YELLOW}[2] Uninstall IGFollowersIncreaser and exit")
-                num=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
-                valErr = num in [1,2]
-                while not valErr:
-                    try:
-                        print(f"{YELLOW}[1] Exit")
-                        print(f"{YELLOW}[2] Uninstall IGFollowersIncreaser and exit")
-                        num=int(input(f"{YELLOW}[>] Please enter again a number (from the above ones): "))
-                        valErr = num in [1,2]
-                    except ValueError:
-                        print(f"{RED}[!] Please enter a valid number.")
-                        sleep(2)
-                        print(f"{GREEN}[+] Acceptable numbers: [1/2]")
-                        sleep(1)
-                if num == 1:
-                    clear()
-                    print(f"{RED}[+] Exiting...")
-                    sleep(1)
-                    print(f"{GREEN}[+] See you next time 👋")
-                    sleep(1)
-                    quit(0)
-                else:
-                    clear()
-                    print(Uninstall())
-                    sleep(1)
-                    print(f"{RED}[+] Exiting...")
-                    sleep(1)
-                    print(f"{GREEN}[+] Thank you for choosing to use IGFollowersIncreaser 😁")
-                    sleep(2)
-                    print(f"{GREEN}[+] If you have any suggestions or found a bug or need help feel free to contact me anytime, at this email address: new92github@gmail.com")
-                    sleep(3)
-                    quit(0)
-        else:
-            f = open("cons.txt","w")
-            f.write(f"[=] Date: {datetime.now()}\n")
-            f.write("[=] User: Yes I consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given Instagram account.\n")
-            f.write("-"*40)
+        if con.lower() == ANS[0]:
+            f = open("cons.txt","a")
+            f.write(f"\n[=] Date: {datetime.now()}\n")
+            f.write("[=] User: Yes I consent that the author of this script (new92) has no responsibility for any loss or damage may the script cause to the given Instagram account.\n")
+            f.write("-"*40+'\n')
             f.close()
+        else:
+            print(f"{YELLOW}[OK]")
+            sleep(1)
+            print(f"{YELLOW}[1] Exit")
+            print(f"{YELLOW}[2] Uninstall IGFollowersIncreaser and exit")
+            num=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
+            valErr = num in [1,2]
+            while not valErr:
+                try:
+                    print(f"{YELLOW}[1] Exit")
+                    print(f"{YELLOW}[2] Uninstall IGFollowersIncreaser and exit")
+                    num=int(input(f"{YELLOW}[>] Please enter again a number (from the above ones): "))
+                    valErr = num in [1,2]
+                except ValueError:
+                    print(f"{RED}[!] Please enter a valid number.")
+                    sleep(2)
+                    print(f"{GREEN}[+] Acceptable numbers: [1/2]")
+                    sleep(1)
+            if num == 1:
+                clear()
+                print(f"{RED}[+] Exiting...")
+                sleep(1)
+                print(f"{GREEN}[+] See you next time 👋")
+                sleep(1)
+                quit(0)
+            else:
+                clear()
+                print(Uninstall())
+                sleep(1)
+                print(f"{RED}[+] Exiting...")
+                sleep(1)
+                print(f"{GREEN}[+] Thank you for choosing to use IGFollowersIncreaser 😁")
+                sleep(2)
+                print(f"{GREEN}[+] If you have any suggestions or found a bug or need help feel free to contact me anytime, at this email address: new92github@gmail.com")
+                sleep(2)
+                quit(0)
         sleep(1)
         print(f"{YELLOW}[+] The login credentials will not be stored or saved")
         sleep(2)
