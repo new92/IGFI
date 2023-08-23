@@ -176,7 +176,7 @@ def Uninstall() -> str:
     return f"{GREEN}[✓] Files and dependencies uninstalled successfully !"
 
 def checkUser(username:str) -> bool:
-    return username == None or len(username) > 30 or username == '' or username == ' '
+    return username in [None, '', ' '] or len(username) > 30
 
 def valUser(username: str) -> bool:
     return requests.get(f'https://www.instagram.com/{username}/', allow_redirects=False).status_code != 200
