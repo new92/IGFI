@@ -191,7 +191,7 @@ def clear():
     system('cls') if platform.system() == 'Windows' else system('clear')
         
 def checkUser(username:str) -> bool:
-    return username == None or len(username) > 30 or username == '' or username == ' '
+    return username in [None, '', ' '] or len(username) > 30
 
 def valUser(username:str) -> bool:
     return requests.get(f"https://www.instagram.com/{username}/", allow_redirects=False).status_code != 200
@@ -199,8 +199,10 @@ def valUser(username:str) -> bool:
 def main():
     print(banner())
     print("\n")
+    print(f"{YELLOW} [-] -- Socials --")
     print(f"{YELLOW}[+] Author: new92")
     print(f"{YELLOW}[+] Github: @new92")
+    print(f"{YELLOW}[+] Leetcode: @new92")
     print("\n")
     print(f"{YELLOW}[+] Use this script to increase the followers of your Insta account")
     print("\n")
