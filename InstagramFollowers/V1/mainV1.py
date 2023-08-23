@@ -196,8 +196,10 @@ def main():
     print("\n")
     print(f"{YELLOW}[+] IGFollowersIncreaser is a tool which helps the increment of the followers of a user on Instagram")
     print("\n")
+    print(f"{YELLOW} [-] -- Socials --")
     print(f"{YELLOW}[+] Author: new92")
     print(f"{YELLOW}[+] Github: @new92")
+    print(f"{YELLOW}[+] Leetcode: @new92")
     print("\n")
     nums()
     print("\n")
@@ -221,26 +223,26 @@ def main():
         keep=str(input(f"{YELLOW}[?] Keep log ? "))
         while keep.lower() not in ANS or keep == None or keep == '' or keep == ' ':
             if keep == '' or keep == ' ' or keep == None:
-                print("[!] This field can't be blank !")
+                print(f"{RED}[!] This field can't be blank !")
             else:
-                print("[!] Invalid answer !")
+                print(f"{RED}[!] Invalid answer !")
                 sleep(1)
-                print("[+] Acceptable answers: [yes/no]")
+                print(f"{GREEN}[+] Acceptable answers: [yes/no]")
             sleep(1)
             keep=str(input(f"{YELLOW}[?] Keep log ? "))
         keep = True if keep.lower() == ANS[0] else False
         sleep(1)
-        print("[+] Acceptable answers: [yes/no]")
+        print(f"{GREEN}[+] Acceptable answers: [yes/no]")
         sleep(1)
-        check=str(input("[?] Display the usernames of the followers added ? "))
+        check=str(input(f"{YELLOW}[?] Display the usernames of the followers added ? "))
         while check.lower() not in ANS or check == None or check == '' or check == ' ':
             if check == None or check == '' or check == ' ':
-                print("[!] This field can't be blank !")
+                print(f"{RED}[!] This field can't be blank !")
             else:
-                print("[!] Invalid answer !")
+                print(f"{RED}[!] Invalid answer !")
                 sleep(1)
-                print("[+] Acceptable answers: [yes/no]")
-            check=str(input("[?] Display the usernames of the followers added ? "))
+                print(f"{GREEN}[+] Acceptable answers: [yes/no]")
+            check=str(input(f"{YELLOW}[?] Display the usernames of the followers added ? "))
         check = True if check.lower() == ANS[0] else False
         print(f"{GREEN}[+] Acceptable answers: [yes/no]")
         sleep(1)
