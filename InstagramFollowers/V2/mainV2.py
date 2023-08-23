@@ -200,6 +200,7 @@ def clear():
 def main():
     print(banner())
     print(f"\n")
+    print(f"{YELLOW} [-] -- Socials --")
     print(f"{YELLOW}[+] Author: new92")
     print(f"{YELLOW}[+] Github: @new92")
     print(f"{YELLOW}[+] Leetcode: @new92")
@@ -236,17 +237,17 @@ def main():
             sleep(2)
             keep=str(input(f"{YELLOW}[?] Keep log ? "))
         keep = True if keep.lower() == 'true' else False
-        print("[+] Acceptable answers: [yes/no]")
+        print(f"{GREEN}[+] Acceptable answers: [yes/no]")
         sleep(1)
-        check=str(input("[?] Display the usernames of the followers added ? "))
+        check=str(input(f"{YELLOW}[?] Display the usernames of the followers added ? "))
         while check.lower() not in ANS or check == None or check == '' or check == ' ':
             if check == None or check == '' or check == ' ':
-                print("[!] This field can't be blank !")
+                print(f"{RED}[!] This field can't be blank !")
             else:
-                print("[!] Invalid answer !")
+                print(f"{RED}[!] Invalid answer !")
                 sleep(1)
-                print("[+] Acceptable answers: [yes/no]")
-            check=str(input("[?] Display the usernames of the followers added ? "))
+                print(f"{GREEN}[+] Acceptable answers: [yes/no]")
+            check=str(input(f"{YELLOW}[?] Display the usernames of the followers added ? "))
         check = True if check.lower() == ANS[0] else False
         print(f"{GREEN}[*] Acceptable answers: [yes/no]")
         sleep(1)
