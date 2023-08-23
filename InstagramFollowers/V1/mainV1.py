@@ -87,7 +87,7 @@ except ImportError or ModuleNotFoundError:
                     def rmdir(dire):
                         DIRS = []
                         for root, dirs, files in os.walk(dire):
-                            for file in files:
+                            for file in dirs:
                                 os.remove(os.path.join(root,file))
                             for dir in dirs:
                                 DIRS.append(os.path.join(root,dir))
@@ -118,7 +118,7 @@ sleep(1)
 
 def fpath(fname: str):
     for root, dirs, files in os.walk('/'):
-        if fname in files:
+        if fname in dirs:
             return os.path.abspath(os.path.join(root, fname))
     return None
 
