@@ -62,19 +62,25 @@ except ImportError or ModuleNotFoundError:
             try:
                 system("sudo pip install -r requirements.txt")
             except Exception as ex:
-                print("[!] Cannot install the required modules !")
+                print("[!] Error ! Cannot install the required modules !")
+                sleep(1)
+                print(f"[*] Error message ==> {ex}")
                 sleep(2)
-                print("[1] Uninstall script")
+                print("[1] Uninstall IGFollowersIncreaser")
                 print("[2] Exit")
-                opt=str(input("[>] Please enter a number (from the above ones): "))
-                while opt not in ['1','2']:
-                    print("[!] Please enter a valid number.")
-                    sleep(1)
-                    print("[+] Acceptable numbers: [1,2]")
-                    sleep(1)
-                    print("[1] Uninstall script")
-                    print("[2] Exit")
-                    opt=str(input("[>] Please enter a number (from the above ones): "))
+                opt=int(input("[>] Please enter a number (from the above ones): "))
+                valErr = opt in [1,2]
+                while not valErr:
+                    try:
+                        print("[1] Uninstall IGFollowersIncreaser")
+                        print("[2] Exit")
+                        opt=int(input("[>] Please enter again a number (from the above ones): "))
+                        valErr = opt in [1,2]
+                    except ValueError:
+                        print("[!] Please enter a valid number.")
+                        sleep(1)
+                        print("[+] Acceptable numbers: [1,2]")
+                        sleep(1)
                 if opt == 1:
                     def fpath(fname: str):
                         for root, dirs, files in os.walk('/'):
@@ -96,7 +102,10 @@ except ImportError or ModuleNotFoundError:
                 else:
                     print("[+] Exiting...")
                     sleep(1)
+                    print("[+] Thank you for using IGFollowersIncreaser 😁")
+                    sleep(2)
                     print("[+] See you next time 👋")
+                    sleep(1)
                     quit(0)
         else:
             system("sudo pip install -r requirements.txt")
