@@ -176,7 +176,7 @@ def Uninstall() -> str:
     return f"{GREEN}[✓] Files and dependencies uninstalled successfully !"
 
 def checkUser(username:str) -> bool:
-    return username in [None, '', ' '] or len(username) > 30
+    return username in ['None', '', ' '] or len(username) > 30
 
 def valUser(username: str) -> bool:
     return requests.get(f'https://www.instagram.com/{username}/', allow_redirects=False).status_code != 200
@@ -196,7 +196,7 @@ def main():
     print("\n")
     print(f"{YELLOW}[+] IGFollowersIncreaser is a tool which helps the increment of the followers of a user on Instagram")
     print("\n")
-    print(f"{YELLOW} [-] -- Socials --")
+    print(f"{YELLOW}[-] -- Socials --")
     print(f"{YELLOW}[+] Author: new92")
     print(f"{YELLOW}[+] Github: @new92")
     print(f"{YELLOW}[+] Leetcode: @new92")
@@ -208,6 +208,7 @@ def main():
     while not valErr:
         try:
             nums()
+            print('\n')
             option=int(input(f"{YELLOW}[>] Please enter again a number (from the above ones): "))
             valErr = option in [1,2,3,4,5]
         except ValueError:
@@ -244,6 +245,7 @@ def main():
                 print(f"{GREEN}[+] Acceptable answers: [yes/no]")
             check=str(input(f"{YELLOW}[?] Display the usernames of the followers added ? "))
         check = True if check.lower() == ANS[0] else False
+        sleep(1)
         print(f"{GREEN}[+] Acceptable answers: [yes/no]")
         sleep(1)
         con=str(input(f"{YELLOW}[>] Do you consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given (Instagram) account ? "))
@@ -304,7 +306,7 @@ def main():
         username=str(input(f"{YELLOW}[>] Please enter your username: "))
         username = username.lower().strip()
         while checkUser(username):
-            if username == None or username == '':
+            if username == 'None' or username == '' or username == ' ':
                 print(f"{RED}[!] This field can't be blank !")
             else:
                 print(f"{RED}[!] Invalid length !")
@@ -337,7 +339,7 @@ def main():
                 username=str(input(f"{YELLOW}[>] Please enter the username: "))
                 username = username.lower().strip()
                 while checkUser(username):
-                    if username == None or username == '' or username == ' ':
+                    if username == 'None' or username == '' or username == ' ':
                         print(f"{RED}[!] This field can't be blank !")
                     else:
                         print(f"{RED}[!] Invalid username !")
