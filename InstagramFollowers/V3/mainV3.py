@@ -14,7 +14,6 @@ Will be used only to increase the followers of the user's Instagram account
 
 ***************************
 """
-
 try:
     import sys
     from time import sleep
