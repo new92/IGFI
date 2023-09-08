@@ -8,7 +8,7 @@ IGFollowersIncreaser: Use this script to increase the followers of an Insta acco
 
 
 *********IMPORTANT*********
-User's login credentials (such as: username, password) will not be stored or saved ! 
+User's login credentials (username, password) will not be stored or saved ! 
 Will be used only to increase the followers of the user's Instagram account
 ***************************
 """
