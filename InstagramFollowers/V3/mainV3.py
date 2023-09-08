@@ -191,7 +191,7 @@ def clear():
     system('cls') if platform.system() == 'Windows' else system('clear')
         
 def checkUser(username:str) -> bool:
-    return username in [None, '', ' '] or len(username) > 30
+    return username in ['None', '', ' '] or len(username) > 30
 
 def valUser(username:str) -> bool:
     return requests.get(f"https://www.instagram.com/{username}/", allow_redirects=False).status_code != 200
@@ -350,7 +350,7 @@ def main():
         print(f"{GREEN}|--------------------|LOGIN|--------------------|")
         username=str(input(f"{YELLOW}[>] Please enter your username: "))
         while checkUser(username):
-            if username == None or username == '' or username == ' ':
+            if username == 'None' or username == '' or username == ' ':
                 print(f"{RED}[!] This field can't be blank !")
             else:
                 print(f"{RED}[!] Invalid length !")
@@ -382,7 +382,7 @@ def main():
             if opt == 1:
                 username=str(input(f"{YELLOW}[>] Please enter the username: "))
                 while checkUser(username):
-                    if username == None or username == '' or username == ' ':
+                    if username == 'None' or username == '' or username == ' ':
                         print(f"{RED}[!] This field can't be blank !")
                     else:
                         print(f"{RED}[!] Invalid length !")
@@ -415,7 +415,7 @@ def main():
         if con.lower() == ANS[1]:
             username=str(input(f"{YELLOW}[>] Please enter another username: "))
             while checkUser(username):
-                if username == None or username == '' or username == ' ':
+                if username == 'None' or username == '' or username == ' ':
                     print(f"{RED}[!] This field can't be blank !")
                 else:
                     print(f"{RED}[!] Invalid length !")
@@ -447,7 +447,7 @@ def main():
                     clear()
                     username=str(input(f"{YELLOW}[>] Please enter the username: "))
                     while checkUser(username):
-                        if username == None or username == '' or username == ' ':
+                        if username == 'None' or username == '' or username == ' ':
                             print(f"{RED}[!] This field can't be blank !")
                         else:
                             print(f"{RED}[!] Invalid length  !")
