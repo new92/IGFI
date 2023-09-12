@@ -176,7 +176,7 @@ def Uninstall() -> str:
     return f"{GREEN}[✓] Files and dependencies uninstalled successfully !"
 
 def checkUser(username:str) -> bool:
-    return username in ['None', '', ' '] or len(username) > 30
+    return username in ['', ' '] or len(username) > 30
 
 def valUser(username: str) -> bool:
     return requests.get(f'https://www.instagram.com/{username}/', allow_redirects=False).status_code != 200
@@ -222,8 +222,8 @@ def main():
         print(f"{GREEN}[+] Acceptable answers: [yes/no]")
         sleep(1)
         keep=str(input(f"{YELLOW}[?] Keep log ? "))
-        while keep.lower() not in ANS or keep == None or keep == '' or keep == ' ':
-            if keep == '' or keep == ' ' or keep == None:
+        while keep.lower() not in ANS or keep in ['', ' ']:
+            if keep in ['', ' ']:
                 print(f"{RED}[!] This field can't be blank !")
             else:
                 print(f"{RED}[!] Invalid answer !")
@@ -236,8 +236,8 @@ def main():
         print(f"{GREEN}[+] Acceptable answers: [yes/no]")
         sleep(1)
         check=str(input(f"{YELLOW}[?] Display the usernames of the followers added ? "))
-        while check.lower() not in ANS or check == None or check == '' or check == ' ':
-            if check == None or check == '' or check == ' ':
+        while check.lower() not in ANS or check in ['', ' ']:
+            if check in ['', ' ']:
                 print(f"{RED}[!] This field can't be blank !")
             else:
                 print(f"{RED}[!] Invalid answer !")
@@ -249,8 +249,8 @@ def main():
         print(f"{GREEN}[+] Acceptable answers: [yes/no]")
         sleep(1)
         con=str(input(f"{YELLOW}[>] Do you consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given (Instagram) account ? "))
-        while con.lower() not in ANS or con == None or con == '' or con == ' ':
-            if con == None or con == '' or con == ' ':
+        while con.lower() not in ANS or con in ['', ' ']:
+            if con in ['', ' ']:
                 print(f"{RED}[!] This field can't be blank !")
             else:
                 print(f"{RED}[!] Invalid answer !")
@@ -306,7 +306,7 @@ def main():
         username=str(input(f"{YELLOW}[>] Please enter your username: "))
         username = username.lower().strip()
         while checkUser(username):
-            if username == 'None' or username == '' or username == ' ':
+            if username in ['', ' ']:
                 print(f"{RED}[!] This field can't be blank !")
             else:
                 print(f"{RED}[!] Invalid length !")
@@ -339,7 +339,7 @@ def main():
                 username=str(input(f"{YELLOW}[>] Please enter the username: "))
                 username = username.lower().strip()
                 while checkUser(username):
-                    if username == 'None' or username == '' or username == ' ':
+                    if username in ['', ' ']:
                         print(f"{RED}[!] This field can't be blank !")
                     else:
                         print(f"{RED}[!] Invalid username !")
@@ -360,8 +360,8 @@ def main():
         print(f"{GREEN}[+] Acceptable answers: [yes/no]")
         sleep(1)
         ga=str(input(f"{YELLOW}[?] Do you want to grant access to the script to have access to the number of your followers in order to provide additional information ? "))
-        while ga.lower() not in ANS or ga == None or ga == '' or ga == ' ':
-            if ga == None or ga == '' or ga == ' ':
+        while ga.lower() not in ANS or ga in ['', ' ']:
+            if ga in ['', ' ']:
                 print(f"{RED}[!] This field can't be blank !")
             else:
                 print(f"{RED}[!] Invalid answer !")
@@ -377,7 +377,7 @@ def main():
             FOLLOWERS = [follower.username for follower in profile.get_followers()]
         sleep(1)
         password=str(input(f"{YELLOW}[>] Please enter your password: "))
-        while password == None or password == '' or password == ' ':
+        while password in ['', ' ']:
             print(f"{RED}[!] This field can't be blank !")
             sleep(1)
             password=str(input(f"{YELLOW}[>] Please enter again your password: "))
@@ -725,50 +725,49 @@ def main():
             if keep:
                 name = 'log.txt'
                 if os.path.exists(fpath(name)):
-                    f = open(name,'a')
-                    f.write('\n'+'-'*40+'\n')
-                    f.write(f"[+] Date: {str(datetime.now())}\n")
-                    f.write(f"[+] Followed: {str(follow)} users\n")
-                    f.write(f"[+] Unfollowed: {str(unfollow)} users\n")
-                    if follow - unfollow != 0:
-                        f.write(f"[✕] Failed to unfollow: {str(abs(follow - unfollow))} users\n")
-                    pers = (follow + unfollow) / 74.0
-                    f.write(f"[+] Percentage of success: {str(pers)}%\n")
-                    f.write(f"[+] Percentage of fail: {str(float(100 - pers))}%\n")
-                    if ga:
-                        followers_af = profile.followers
-                        f.write(f"[✓] Successfully added: {str(followers_af - followers_bef)} followers.\n")
-                    if check:
-                        L = [user for user in FOLLOWERS]
-                        if L != FOLLOWERS:
-                            ADDS = [user for user in L if user not in FOLLOWERS]
-                            for i, username in enumerate(ADDS):
-                                f.write(f"[+] User No{str(i+1)} >>> {username}\n")
-                    f.close()
+                    with open(name, 'a', encoding='utf8') as f:
+                        f.write('\n'+'-'*40+'\n')
+                        f.write(f"[+] Date: {datetime.now()}\n")
+                        f.write(f"[+] Followed: {follow} users\n")
+                        f.write(f"[+] Unfollowed: {unfollow} users\n")
+                        if follow - unfollow != 0:
+                            f.write(f"[✕] Failed to unfollow: {abs(follow - unfollow)} users\n")
+                        pers = (follow + unfollow) / 74.0
+                        f.write(f"[+] Percentage of success: {pers}%\n")
+                        f.write(f"[+] Percentage of fail: {float(100 - pers)}%\n")
+                        if ga:
+                            followers_af = profile.followers
+                            f.write(f"[✓] Successfully added: {followers_af - followers_bef} followers.\n")
+                        if check:
+                            L = [user for user in FOLLOWERS]
+                            if L != FOLLOWERS:
+                                ADDS = [user for user in L if user not in FOLLOWERS]
+                                for i, username in enumerate(ADDS):
+                                    f.write(f"[+] User No{i+1} >>> {username}\n")
                     print(f"{GREEN}[✓] Successfully saved log !")
                     sleep(2)
-                    print(f"{GREEN}[↪] Log file name: {name}")
-                    print(f"{GREEN}[↪] Path to log file: {fpath(name)}")
-                    print(f"{GREEN}[↪] Log file size: {os.stat(fpath(name)).st_size} bytes")
+                    print(f"{GREEN}[↪] Log file name >>> {name}")
+                    print(f"{GREEN}[↪] Path to log file >>> {fpath(name)}")
+                    print(f"{GREEN}[↪] Log file size >>> {os.stat(fpath(name)).st_size} bytes")
                     sleep(4)
                 else:
                     f = open(name,"w")
                     f.write("\n"+"-"*40)
                     f.write(f"[+] Date: {datetime.now()}\n")
-                    f.write(f"[+] Followed: {str(follow)} users\n")
-                    f.write(f"[+] Unfollowed: {str(unfollow)} users"+"\n")
+                    f.write(f"[+] Followed: {follow} users\n")
+                    f.write(f"[+] Unfollowed: {unfollow} users"+"\n")
                     pers = (follow + unfollow) / 74.0
-                    f.write(f"[+] Percentage of success: {str(pers)}%\n")
-                    f.write(f"[+] Percentage of fail: {str(float(100 - pers))}%\n")
+                    f.write(f"[+] Percentage of success: {pers}%\n")
+                    f.write(f"[+] Percentage of fail: {float(100 - pers)}%\n")
                     if ga:
                         followers_af = profile.followers
-                        f.write(f"[✓] Successfully added: {str(followers_af - followers_bef)} followers.\n")
+                        f.write(f"[✓] Successfully added: {followers_af - followers_bef} followers.\n")
                     f.close()
                     print(f"{GREEN}[✓] Successfully saved log !")
                     sleep(2)
-                    print(f"{GREEN}[↪] Log file name: {name}")
-                    print(f"{GREEN}[↪] Path to log file: {fpath(name)}")
-                    print(f"{GREEN}[↪] Log file size: {os.stat(fpath(name)).st_size} bytes")
+                    print(f"{GREEN}[↪] Log file name >>> {name}")
+                    print(f"{GREEN}[↪] Path to log file >>> {fpath(name)}")
+                    print(f"{GREEN}[↪] Log file size >>> {os.stat(fpath(name)).st_size} bytes")
                     sleep(4)
     elif option == 2:
         clear()
