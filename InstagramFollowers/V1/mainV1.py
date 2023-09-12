@@ -126,10 +126,7 @@ def ScriptInfo():
     with open('config.json') as config:
         conf = json.load(config)
     f = 'mainV1.py'
-    if os.path.exists(fpath(f)):
-        fsize = os.stat(fpath(f)).st_size
-    else:
-        fsize = 0
+    fsize = 0 if not os.path.exists(fpath(f)) else os.stat(fpath(f)).st_size
     print(f"{YELLOW}[+] Author: {conf['author']}")
     print(f"{YELLOW}[+] Github: @{conf['author']}")
     print(f"{YELLOW}[+] License: {conf['lice']}")
@@ -196,7 +193,7 @@ def main():
     print("\n")
     print(f"{YELLOW}[+] IGFollowersIncreaser is a tool which helps the increment of the followers of a user on Instagram")
     print("\n")
-    print(f"{YELLOW}[-] -- Socials --")
+    print(f"{YELLOW} [-] -- Socials --")
     print(f"{YELLOW}[+] Author: new92")
     print(f"{YELLOW}[+] Github: @new92")
     print(f"{YELLOW}[+] Leetcode: @new92")
@@ -259,11 +256,10 @@ def main():
             sleep(1)
             con=str(input(f"{YELLOW}[>] Do you consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given (Instagram) account ? "))
         if con.lower() == ANS[0]:
-            f = open("cons.txt","a")
-            f.write(f"\n[=] Date: {datetime.now()}\n")
-            f.write("[=] User: Yes I consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given Instagram account.\n")
-            f.write("-"*40)
-            f.close()
+            with open('cons.txt', 'a', encoding='utf8') as f:
+                f.write(f"\n[=] Date: {datetime.now()}\n")
+                f.write("[=] User: Yes I consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given Instagram account.\n")
+                f.write("-"*40)
         else:
             print(f"{YELLOW}[OK]")
             sleep(1)
@@ -724,34 +720,7 @@ def main():
                 sleep(2)
             if keep:
                 name = 'log.txt'
-                if os.path.exists(fpath(name)):
-                    with open(name, 'a', encoding='utf8') as f:
-                        f.write('\n'+'-'*40+'\n')
-                        f.write(f"[+] Date: {datetime.now()}\n")
-                        f.write(f"[+] Followed: {follow} users\n")
-                        f.write(f"[+] Unfollowed: {unfollow} users\n")
-                        if follow - unfollow != 0:
-                            f.write(f"[✕] Failed to unfollow: {abs(follow - unfollow)} users\n")
-                        pers = (follow + unfollow) / 74.0
-                        f.write(f"[+] Percentage of success: {pers}%\n")
-                        f.write(f"[+] Percentage of fail: {float(100 - pers)}%\n")
-                        if ga:
-                            followers_af = profile.followers
-                            f.write(f"[✓] Successfully added: {followers_af - followers_bef} followers.\n")
-                        if check:
-                            L = [user for user in FOLLOWERS]
-                            if L != FOLLOWERS:
-                                ADDS = [user for user in L if user not in FOLLOWERS]
-                                for i, username in enumerate(ADDS):
-                                    f.write(f"[+] User No{i+1} >>> {username}\n")
-                    print(f"{GREEN}[✓] Successfully saved log !")
-                    sleep(2)
-                    print(f"{GREEN}[↪] Log file name >>> {name}")
-                    print(f"{GREEN}[↪] Path to log file >>> {fpath(name)}")
-                    print(f"{GREEN}[↪] Log file size >>> {os.stat(fpath(name)).st_size} bytes")
-                    sleep(4)
-                else:
-                    f = open(name,"w")
+                with open(name, 'w', encoding='utf8') as f:
                     f.write("\n"+"-"*40)
                     f.write(f"[+] Date: {datetime.now()}\n")
                     f.write(f"[+] Followed: {follow} users\n")
@@ -762,13 +731,12 @@ def main():
                     if ga:
                         followers_af = profile.followers
                         f.write(f"[✓] Successfully added: {followers_af - followers_bef} followers.\n")
-                    f.close()
-                    print(f"{GREEN}[✓] Successfully saved log !")
-                    sleep(2)
-                    print(f"{GREEN}[↪] Log file name >>> {name}")
-                    print(f"{GREEN}[↪] Path to log file >>> {fpath(name)}")
-                    print(f"{GREEN}[↪] Log file size >>> {os.stat(fpath(name)).st_size} bytes")
-                    sleep(4)
+                print(f"{GREEN}[✓] Successfully saved log !")
+                sleep(2)
+                print(f"{GREEN}[↪] Log file name >>> {name}")
+                print(f"{GREEN}[↪] Path to log file >>> {fpath(name)}")
+                print(f"{GREEN}[↪] Log file size >>> {os.stat(fpath(name)).st_size} bytes")
+                sleep(4)
     elif option == 2:
         clear()
         ScriptInfo()
