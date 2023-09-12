@@ -4,7 +4,7 @@ Author: new92
 Github: @new92
 Leetcode: @new92
 
-IGFollowersIncreaser: Use this script to increase the followers of an Insta account
+IGFollowersIncreaser is a python script for increasing the number of followers of an account on Instagram.
 
 *********IMPORTANT*********
 
@@ -200,7 +200,7 @@ def main():
     print(f"{YELLOW}[+] Github: @new92")
     print(f"{YELLOW}[+] Leetcode: @new92")
     print(f"\n")
-    print(f"{YELLOW}[+] IGFollowersIncreaser is a tool which helps the increment of the followers of a user")
+    print(f"{YELLOW}[+] IGFollowersIncreaser is a python script for increasing the number of followers of an account on Instagram.")
     print(f"\n")
     nums()
     print(f"\n")
