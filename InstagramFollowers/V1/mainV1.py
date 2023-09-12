@@ -729,7 +729,7 @@ def main():
                     f.write(f"[+] Percentage of fail: {float(100 - pers)}%\n")
                     if ga:
                         followers_af = profile.followers
-                        f.write(f"[✓] Successfully added: {followers_af - followers_bef} followers.\n")
+                        f.write(f"[✓] Successfully added: {followers_af - followers_bef} followers.")
                 print(f"{GREEN}[✓] Successfully saved log !")
                 sleep(2)
                 print(f"{GREEN}[↪] Log file name >>> {name}")
