@@ -6,7 +6,6 @@ Leetcode: @new92
 
 IGFollowersIncreaser is a python script for increasing the number of followers of an account on Instagram.
 
-
 *********IMPORTANT*********
 
 User's login credentials (such as: username, password) will not be stored or saved !
