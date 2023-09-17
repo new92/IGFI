@@ -126,10 +126,7 @@ def ScriptInfo():
     with open('config.json') as config:
         conf = json.load(config)
     f = 'mainV1.py'
-    if os.path.exists(fpath(f)):
-        fsize = os.stat(fpath(f)).st_size
-    else:
-        fsize = 0
+    fsize = 0 if not os.path.exists(fpath(f)) else os.stat(fpath(f)).st_size
     print(f"{YELLOW}[+] Author: {conf['author']}")
     print(f"{YELLOW}[+] Github: @{conf['author']}")
     print(f"{YELLOW}[+] License: {conf['lice']}")
@@ -196,7 +193,7 @@ def main():
     print("\n")
     print(f"{YELLOW}[+] IGFollowersIncreaser is a tool which helps the increment of the followers of a user on Instagram")
     print("\n")
-    print(f"{YELLOW}[-] -- Socials --")
+    print(f"{YELLOW} [-] -- Socials --")
     print(f"{YELLOW}[+] Author: new92")
     print(f"{YELLOW}[+] Github: @new92")
     print(f"{YELLOW}[+] Leetcode: @new92")
