@@ -4,7 +4,8 @@ Author: new92
 Github: @new92
 Leetcode: @new92
 
-IGFollowersIncreaser is a python script for increasing the number of followers of an account on Instagram.
+IGFollowersIncreaser: Use this script to increase the followers of an Insta account
+
 
 *********IMPORTANT*********
 User's login credentials (username, password) will not be stored or saved ! 
@@ -125,7 +126,10 @@ def ScriptInfo():
     with open('config.json') as config:
         conf = json.load(config)
     f = 'mainV1.py'
-    fsize = 0 if not os.path.exists(fpath(f)) else os.stat(fpath(f)).st_size
+    if os.path.exists(fpath(f)):
+        fsize = os.stat(fpath(f)).st_size
+    else:
+        fsize = 0
     print(f"{YELLOW}[+] Author: {conf['author']}")
     print(f"{YELLOW}[+] Github: @{conf['author']}")
     print(f"{YELLOW}[+] License: {conf['lice']}")
@@ -172,7 +176,7 @@ def Uninstall() -> str:
     return f"{GREEN}[✓] Files and dependencies uninstalled successfully !"
 
 def checkUser(username:str) -> bool:
-    return username in ['', ' '] or len(username) > 30
+    return username in ['None', '', ' '] or len(username) > 30
 
 def valUser(username: str) -> bool:
     return requests.get(f'https://www.instagram.com/{username}/', allow_redirects=False).status_code != 200
@@ -192,7 +196,7 @@ def main():
     print("\n")
     print(f"{YELLOW}[+] IGFollowersIncreaser is a tool which helps the increment of the followers of a user on Instagram")
     print("\n")
-    print(f"{YELLOW} [-] -- Socials --")
+    print(f"{YELLOW}[-] -- Socials --")
     print(f"{YELLOW}[+] Author: new92")
     print(f"{YELLOW}[+] Github: @new92")
     print(f"{YELLOW}[+] Leetcode: @new92")
@@ -218,8 +222,8 @@ def main():
         print(f"{GREEN}[+] Acceptable answers: [yes/no]")
         sleep(1)
         keep=str(input(f"{YELLOW}[?] Keep log ? "))
-        while keep.lower() not in ANS or keep in ['', ' ']:
-            if keep in ['', ' ']:
+        while keep.lower() not in ANS or keep in ['None', '', ' ']:
+            if keep in ['None', '', ' ']:
                 print(f"{RED}[!] This field can't be blank !")
             else:
                 print(f"{RED}[!] Invalid answer !")
@@ -232,8 +236,8 @@ def main():
         print(f"{GREEN}[+] Acceptable answers: [yes/no]")
         sleep(1)
         check=str(input(f"{YELLOW}[?] Display the usernames of the followers added ? "))
-        while check.lower() not in ANS or check in ['', ' ']:
-            if check in ['', ' ']:
+        while check.lower() not in ANS or check in ['None', '', ' ']:
+            if check in ['None', '', ' ']:
                 print(f"{RED}[!] This field can't be blank !")
             else:
                 print(f"{RED}[!] Invalid answer !")
@@ -245,8 +249,8 @@ def main():
         print(f"{GREEN}[+] Acceptable answers: [yes/no]")
         sleep(1)
         con=str(input(f"{YELLOW}[>] Do you consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given (Instagram) account ? "))
-        while con.lower() not in ANS or con in ['', ' ']:
-            if con in ['', ' ']:
+        while con.lower() not in ANS or con in ['None', '', ' ']:
+            if con in ['None', '', ' ']:
                 print(f"{RED}[!] This field can't be blank !")
             else:
                 print(f"{RED}[!] Invalid answer !")
@@ -301,7 +305,7 @@ def main():
         username=str(input(f"{YELLOW}[>] Please enter your username: "))
         username = username.lower().strip()
         while checkUser(username):
-            if username in ['', ' ']:
+            if username in ['None', '', ' ']:
                 print(f"{RED}[!] This field can't be blank !")
             else:
                 print(f"{RED}[!] Invalid length !")
@@ -334,7 +338,7 @@ def main():
                 username=str(input(f"{YELLOW}[>] Please enter the username: "))
                 username = username.lower().strip()
                 while checkUser(username):
-                    if username in ['', ' ']:
+                    if username in ['None', '', ' ']:
                         print(f"{RED}[!] This field can't be blank !")
                     else:
                         print(f"{RED}[!] Invalid username !")
@@ -355,8 +359,8 @@ def main():
         print(f"{GREEN}[+] Acceptable answers: [yes/no]")
         sleep(1)
         ga=str(input(f"{YELLOW}[?] Do you want to grant access to the script to have access to the number of your followers in order to provide additional information ? "))
-        while ga.lower() not in ANS or ga in ['', ' ']:
-            if ga in ['', ' ']:
+        while ga.lower() not in ANS or ga in ['None', '', ' ']:
+            if ga in ['None', '', ' ']:
                 print(f"{RED}[!] This field can't be blank !")
             else:
                 print(f"{RED}[!] Invalid answer !")
@@ -372,7 +376,7 @@ def main():
             FOLLOWERS = [follower.username for follower in profile.get_followers()]
         sleep(1)
         password=str(input(f"{YELLOW}[>] Please enter your password: "))
-        while password in ['', ' ']:
+        while password in ['None', '', ' ']:
             print(f"{RED}[!] This field can't be blank !")
             sleep(1)
             password=str(input(f"{YELLOW}[>] Please enter again your password: "))
@@ -729,13 +733,13 @@ def main():
                     f.write(f"[+] Percentage of fail: {float(100 - pers)}%\n")
                     if ga:
                         followers_af = profile.followers
-                        f.write(f"[✓] Successfully added: {followers_af - followers_bef} followers.")
-                print(f"{GREEN}[✓] Successfully saved log !")
-                sleep(2)
-                print(f"{GREEN}[↪] Log file name >>> {name}")
-                print(f"{GREEN}[↪] Path to log file >>> {fpath(name)}")
-                print(f"{GREEN}[↪] Log file size >>> {os.stat(fpath(name)).st_size} bytes")
-                sleep(4)
+                        f.write(f"[✓] Successfully added: {followers_af - followers_bef} followers.\n")
+                    print(f"{GREEN}[✓] Successfully saved log !")
+                    sleep(2)
+                    print(f"{GREEN}[↪] File name: {name}")
+                    print(f"{GREEN}[↪] Path: {fpath(name)}")
+                    print(f"{GREEN}[↪] File size: {os.stat(fpath(name)).st_size} bytes")
+                    sleep(4)
     elif option == 2:
         clear()
         ScriptInfo()
