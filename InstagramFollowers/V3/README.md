@@ -1,4 +1,4 @@
-## What does V3 provides ? 🧐
+## What does V3 provides ? 😎
 
 InstaFollowV3 (of IFv3 for short) provides many features ! Such as:
 - Easy to use
