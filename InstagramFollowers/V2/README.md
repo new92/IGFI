@@ -1,4 +1,4 @@
-## What does V2 provides ? 🤓
+## What does V2 provides ? 🤠
 
 InstaFollowV2 (of IFv2 for short) provides many features ! Such as:
 - User friendly
