@@ -1,4 +1,4 @@
-## What does V1 provide ? 😎
+## What does V1 provide ? 🧐
 
 InstaFollowV1 (or IFv1 for short) provides many features ! Some of which are:
 - Security (for your login credentials)
