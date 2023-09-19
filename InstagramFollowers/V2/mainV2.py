@@ -152,7 +152,6 @@ def ScriptInfo():
     print(f"{YELLOW}[+] Closed pull requests: {conf['clprs']}")
     print(f"{YELLOW}[+] Discussions: {conf['discs']}")
 
-
 ANS = ["yes","no"]
 
 def Uninstall() -> str:
@@ -169,7 +168,6 @@ def Uninstall() -> str:
     rmdir(fpath('IGFollowersIncreaser'))
     return f"{GREEN}[✓] Files and dependencies uninstalled successfully !"
 
-
 def banner() -> str:
   return f"""{YELLOW}
 ██╗███╗░░██╗░██████╗████████╗░█████╗░███████╗░█████╗░██╗░░░░░██╗░░░░░░█████╗░░██╗░░░░░░░██╗    ██╗░░░██╗██████╗░
@@ -181,7 +179,7 @@ def banner() -> str:
 """
 
 def checkUser(username:str) -> bool:
-    return username in ['None', '', ' '] or len(username) > 30
+    return username in ['', ' '] or len(username) > 30
 
 def ValUser(username:str) -> bool:
     return requests.get(f'https://www.instagram.com/{username}/', allow_redirects=False).status_code != 200
@@ -226,7 +224,7 @@ def main():
         print(f"{GREEN}[*] Acceptable answers: [True/False]")
         sleep(1)
         keep=str(input(f"{YELLOW}[?] Keep log ? "))
-        while keep.lower() not in ['true','false'] or keep in ['None', '', ' ']:
+        while keep.lower() not in ['true','false'] or keep in ['', ' ']:
             if keep in ['None', '', ' ']:
                 print(f"{RED}[!] This field can't be blank !")
             else:
@@ -239,8 +237,8 @@ def main():
         print(f"{GREEN}[+] Acceptable answers: [yes/no]")
         sleep(1)
         check=str(input(f"{YELLOW}[?] Display the usernames of the followers added ? "))
-        while check.lower() not in ANS or check == None or check == '' or check == ' ':
-            if check == None or check == '' or check == ' ':
+        while check.lower() not in ANS or check in ['', ' ']:
+            if check in ['', ' ']:
                 print(f"{RED}[!] This field can't be blank !")
             else:
                 print(f"{RED}[!] Invalid answer !")
@@ -251,8 +249,8 @@ def main():
         print(f"{GREEN}[*] Acceptable answers: [yes/no]")
         sleep(1)
         con=str(input(f"{YELLOW}[>] Do you consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given (Instagram) account ? "))
-        while con.lower() not in ANS or con in ['None', '', ' ']:
-            if con in ['None', '', ' ']:
+        while con.lower() not in ANS or con in ['', ' ']:
+            if con in ['', ' ']:
                 print(f"{RED}[!] This field can't be blank !")
             else:
                 print(f"{RED}[!] Invalid input !")
@@ -306,7 +304,7 @@ def main():
         username=str(input(f"{YELLOW}[>] Please enter your username: "))
         username = username.lower().strip()
         while checkUser(username):
-            if username in ['None', '', ' ']:
+            if username in ['', ' ']:
                 print(f"{RED}[!] This field can't be blank !")
             else:
                 print(f"{RED}[!] Invalid length !")
@@ -340,7 +338,7 @@ def main():
                 clear()
                 username=str(input(f"{YELLOW}[>] Please enter the username: "))
                 while checkUser(username):
-                    if username in ['None', '', ' ']:
+                    if username in ['', ' ']:
                         print(f"{RED}[!] This field can't be blank !")
                     else:
                         print(f"{RED}[!] Invalid length  !")
@@ -358,8 +356,6 @@ def main():
                 sleep(2)
                 print(f"{GREEN}[+] Thank you for using IGFollowersIncreaser 😁")
                 sleep(2)
-                print(f"{GREEN}[+] Hope you enjoyed it ! ☺️")
-                sleep(2)
                 print(f"{GREEN}[+] Until next time 👋")
                 sleep(1)
                 quit(0)
@@ -373,8 +369,8 @@ def main():
         print(f"{GREEN}[*] Acceptable answers: [yes/no]")
         sleep(1)
         con=str(input(f"{YELLOW}[?] Script will increase the followers for the user: {username} is that correct ? "))
-        while con.lower() not in ANS or con in ['None', '', ' ']:
-            if con in ['None', '', ' ']:
+        while con.lower() not in ANS or con in ['', ' ']:
+            if con in ['', ' ']:
                 print(f"{RED}[!] This field can't be blank !")
             else:
                 print(f"{RED}[!] Invalid answer !")
@@ -386,7 +382,7 @@ def main():
             username=str(input(f"{YELLOW}[>] Please enter a different username: "))
             username = username.lower().strip()
             while checkUser(username):
-                if username in ['None', '', ' ']:
+                if username in ['', ' ']:
                     print(f"{RED}[!] This field can't be blank !")
                 else:
                     print(f"{RED}[!] Invalid length !")
@@ -421,7 +417,7 @@ def main():
                     username=str(input(f"{YELLOW}[>] Please enter the username: "))
                     username = username.lower().strip()
                     while checkUser(username):
-                        if username in ['None', '', ' ']:
+                        if username in ['', ' ']:
                             print(f"{RED}[!] This field can't be blank !")
                         else:
                             print(f"{RED}[!] Invalid length  !")
@@ -453,8 +449,8 @@ def main():
         print(f"{GREEN}[*] Acceptable answers: [yes/no]")
         sleep(1)
         ga=str(input(f"{YELLOW}[?] Do you want to grant access to the script to have access to the number of your followers in order to provide additional information ? "))
-        while ga.lower() not in ANS or ga in ['None', '', ' ']:
-            if ga in ['None', '', ' ']:
+        while ga.lower() not in ANS or ga in ['', ' ']:
+            if ga in ['', ' ']:
                 print(f"{RED}[!] This field can't be blank !")
             else:
                 print(f"{RED}[!] Invalid answer !")
@@ -470,7 +466,7 @@ def main():
             FOLLOWERS = [follower.username for follower in profile.get_followers()]
         sleep(1)
         password=str(input(f"{YELLOW}[>] Please enter your password: "))
-        while password in ['None', '', ' ']:
+        while password in ['', ' ']:
             print(f"{RED}[!] This field can't be blank !")
             sleep(1)
             password=str(input(f"{YELLOW}[>] Please enter again your password: "))
