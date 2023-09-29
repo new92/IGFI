@@ -31,13 +31,16 @@ try:
         print("[+] Exiting...")
         sleep(1)
         quit(0)
-    from tqdm import tqdm
-    total_mods = 13
-    bar = tqdm(total=total_mods, desc='Loading modules', unit='module')
-    for _ in range(total_mods):
-        sleep(0.75)
-        bar.update(1)
-    bar.close()
+    from rich.align import Align
+    from rich.table import Table
+    from rich.live import Live
+    from rich.console import Console
+    console = Console()
+    mods = ['sys', 'time', 'rich', 'platform', 'os', 'json', 'instagrapi', 'requests', 'instaloader', 'datetime', 'colorama']
+    with console.status('[bold dark_orange]Loading module...') as status:
+        for mod in mods:
+            sleep(0.8)
+            console.log(f'[[bold red]{mod}[/]] => [bold dark_green]okay')
     import platform
     from os import system
     import os
@@ -119,8 +122,10 @@ RED = Fore.RED
 GREEN = Fore.GREEN
 YELLOW = Fore.YELLOW
 
-print(f"{GREEN}[✓] Successfully loaded modules !")
-sleep(1)
+sleep(0.8)
+console.clear()
+console.print("[bold dark_green][✓] Successfully loaded modules.")
+sleep(0.8)
 
 def fpath(fname: str):
     for root, dirs, files in os.walk('/'):
@@ -167,23 +172,45 @@ def Uninstall() -> str:
     rmdir(fpath('IGFollowersIncreaser'))
     return f"{GREEN}[✓] Files and dependencies uninstalled successfully !"
 
+TABLE = [
+    [
+        "[b white]Author[/]: [i light_green]new92[/]",
+        "[green]https://github.com/new92[/]"
+    ],
+    [
+        "[b white]Github[/]: [i light_green]@new92[/]",
+        "[green]https://github.com/new92[/]"
+    ],
+    [
+        "[b white]Leetcode[/]: [i light_green]@new92[/]",
+        "[green]https://leetcode.com/new92[/]"
+    ],
+    [
+        "[b white]PyPI[/]: [i light_green]@new92[/]",
+        "[green]https://pypi.org/user/new92[/]"
+    ]
+]
+
+console = Console()
+table = Table(show_footer=False)
+centered = Align.center(table)
+
 def banner() -> str:
-    return f"""{YELLOW}
+    console.print("""[bold yellow]
 ██╗███╗░░██╗░██████╗████████╗░█████╗░███████╗░█████╗░██╗░░░░░██╗░░░░░░█████╗░░██╗░░░░░░░██╗      ██╗░░░██╗██████╗░
 ██║████╗░██║██╔════╝╚══██╔══╝██╔══██╗██╔════╝██╔══██╗██║░░░░░██║░░░░░██╔══██╗░██║░░██╗░░██║      ██║░░░██║╚════██╗
 ██║██╔██╗██║╚█████╗░░░░██║░░░███████║█████╗░░██║░░██║██║░░░░░██║░░░░░██║░░██║░╚██╗████╗██╔╝      ╚██╗░██╔╝░█████╔╝
 ██║██║╚████║░╚═══██╗░░░██║░░░██╔══██║██╔══╝░░██║░░██║██║░░░░░██║░░░░░██║░░██║░░████╔═████║░      ░╚████╔╝░░╚═══██╗
 ██║██║░╚███║██████╔╝░░░██║░░░██║░░██║██║░░░░░╚█████╔╝███████╗███████╗╚█████╔╝░░╚██╔╝░╚██╔╝░      ░░╚██╔╝░░██████╔╝
-╚═╝╚═╝░░╚══╝╚═════╝░░░░╚═╝░░░╚═╝░░╚═╝╚═╝░░░░░░╚════╝░╚══════╝╚══════╝░╚════╝░░░░╚═╝░░░╚═╝░░      ░░░╚═╝░░░╚═════╝░
-"""
+╚═╝╚═╝░░╚══╝╚═════╝░░░░╚═╝░░░╚═╝░░╚═╝╚═╝░░░░░░╚════╝░╚══════╝╚══════╝░╚════╝░░░░╚═╝░░░╚═╝░░      ░░░╚═╝░░░╚═════╝░[/]""")
 ANS = ["yes","no"]
 
 def nums():
-    print(f"{YELLOW}[1] Increase followers")
-    print(f"{YELLOW}[2] Show IGFollowersIncreaser's info")
-    print(f"{YELLOW}[3] Clear log")
-    print(f"{YELLOW}[4] Uninstall IGFollowersIncreaser")
-    print(f"{YELLOW}[5] Exit")
+    console.print("[bold yellow][1] Increase followers[/]")
+    console.print("[bold yellow][2] Show IGFollowersIncreaser's info[/]")
+    console.print("[bold yellow][3] Clear log[/]")
+    console.print("[bold yellow][4] Uninstall IGFollowersIncreaser[/]")
+    console.print("[bold yellow][5] Exit[/]")
 
 def clear():
     system('cls') if platform.system() == 'Windows' else system('clear')
@@ -195,14 +222,15 @@ def valUser(username:str) -> bool:
     return requests.get(f"https://www.instagram.com/{username}/", allow_redirects=False).status_code != 200
 
 def main():
-    print(banner())
+    banner()
     print("\n")
-    print(f"{YELLOW} [-] -- Socials --")
-    print(f"{YELLOW}[+] Author: new92") 
-    print(f"{YELLOW}[+] Github: @new92")
-    print(f"{YELLOW}[+] Leetcode: @new92")
+    with Live(centered, console=console, screen=False):
+        table.add_column('Socials', no_wrap=False)
+        table.add_column('Url', no_wrap=False)
+        for row in TABLE:
+            table.add_row(*row)
     print("\n")
-    print(f"{YELLOW}[+] IGFollowersIncreaser is a python script for increasing the number of followers of an Instagram account.")
+    console.print("[bold yellow][+] IGFollowersIncreaser is a python script for increasing the number of followers of an Instagram account.")
     print("\n")
     nums()
     print("\n")
@@ -342,6 +370,7 @@ def main():
                 sleep(2)
                 quit(0)
         sleep(1)
+        clear()
         print(f"{YELLOW}[+] The login credentials will not be stored or saved")
         sleep(2)
         print(f"{GREEN}|--------------------|LOGIN|--------------------|")
@@ -725,7 +754,7 @@ def main():
             print(f"{GREEN}[✓] Successfully saved log !")
             sleep(2)
             print(f"{GREEN}[↪] File name: {name}")
-            print(f"{GREEN}[↪] Path: {fpath(name)}")
+            print(f"{GREEN}[↪] Location: {fpath(name)}")
             print(f"{GREEN}[↪] File size: {os.stat(fpath(name)).st_size} bytes")
     elif num == 2:
         clear()
@@ -740,9 +769,9 @@ def main():
             f.close()
             print(f"{GREEN}[✓] Successfully cleared log !")
             sleep(1)
-            print(f"{GREEN}[↪] Log file name: {name}")
-            print(f"{GREEN}[↪] Path to log file: {fpath(name)}")
-            print(f"{GREEN}[↪] Log file size: 0 bytes")
+            print(f"{GREEN}[↪] File name: {name}")
+            print(f"{GREEN}[↪] Location: {fpath(name)}")
+            print(f"{GREEN}[↪] Size: 0 bytes")
             sleep(3)
         else:
             clear()
@@ -758,6 +787,7 @@ def main():
             """)
             sleep(3)
     elif num == 4:
+        clear()
         print(Uninstall())
         sleep(2)
         print(f"{GREEN}[+] Thank you for choosing IGFollowersIncreaser 😀😁")
@@ -768,7 +798,7 @@ def main():
         sleep(3)
         print(f"{GREEN}[+] Until we meet again 🫡")
         sleep(1)
-        quit(0)
+        quit(0)     
     else:
         clear()
         print(f"{YELLOW}[+] Thank you for using IGFollowersIncreaser 😁")
@@ -803,4 +833,6 @@ def main():
         quit(0)
 
 if __name__ == '__main__':
+    sleep(2)
+    clear()
     main()
