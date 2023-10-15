@@ -5,7 +5,7 @@ Github: @new92
 Leetcode: @new92
 PyPI: @new92
 
-IGFollowersIncreaser: Use this script to increase the followers of an Insta account
+IGFI: Use this script to increase the followers of an Insta account
 
 *********IMPORTANT*********
 
@@ -18,14 +18,14 @@ try:
     import sys
     from time import sleep
     if sys.version_info[0] < 3:
-        print("[!] Error ! IGFollowersIncreaser requires Python version 3.X ! ")
+        print("[!] Error ! IGFI requires Python version 3.X ! ")
         sleep(2)
         print("""[+] Instructions to download Python 3.x : 
         Linux: apt install python3
         Windows: https://www.python.org/downloads/
         MacOS: https://docs.python-guide.org/starting/install3/osx/""")
         sleep(3)
-        print("[+] Please install Python 3 and then use IGFollowersIncreaser ✅")
+        print("[+] Please install Python 3 and then use IGFI ✅")
         sleep(2)
         print("[+] Exiting...")
         sleep(1)
@@ -51,7 +51,7 @@ try:
     from datetime import datetime
     from colorama import init, Fore
 except ImportError or ModuleNotFoundError:
-    print("[!] WARNING: Not all packages used in IGFollowersIncreaser have been installed !")
+    print("[!] WARNING: Not all packages used in IGFI have been installed !")
     sleep(2)
     print("[+] Ignoring warning...")
     sleep(1)
@@ -69,13 +69,13 @@ except ImportError or ModuleNotFoundError:
                 sleep(1)
                 print(f"[*] Error message ==> {ex}")
                 sleep(2)
-                print("[1] Uninstall IGFollowersIncreaser")
+                print("[1] Uninstall IGFI")
                 print("[2] Exit")
                 opt=int(input("[>] Please enter a number (from the above ones): "))
                 valErr = opt in [1,2]
                 while not valErr:
                     try:
-                        print("[1] Uninstall IGFollowersIncreaser")
+                        print("[1] Uninstall IGFI")
                         print("[2] Exit")
                         opt=int(input("[>] Please enter again a number (from the above ones): "))
                         valErr = opt in [1,2]
@@ -100,12 +100,12 @@ except ImportError or ModuleNotFoundError:
                         for i in range(len(DIRS)):
                             os.rmdir(DIRS[i])
                         os.rmdir(dire)
-                    rmdir(fpath('IGFollowersIncreaser'))
+                    rmdir(fpath('IGFI'))
                     print("[✓] Files and dependencies uninstalled successfully !")
                 else:
                     print("[+] Exiting...")
                     sleep(1)
-                    print("[+] Thank you for using IGFollowersIncreaser 😁")
+                    print("[+] Thank you for using IGFI 😁")
                     sleep(2)
                     print("[+] See you next time 👋")
                     sleep(1)
@@ -176,7 +176,7 @@ def Uninstall() -> str:
         for i in range(len(DIRS)):
             os.rmdir(DIRS[i])
         os.rmdir(dire)
-    rmdir(fpath('IGFollowersIncreaser'))
+    rmdir(fpath('IGFI'))
     return f"{GREEN}[✓] Files and dependencies uninstalled successfully !"
 
 TABLE = [
@@ -219,9 +219,9 @@ def ValUser(username:str) -> bool:
 
 def nums():
     console.print("[bold yellow][1] Increase followers[/]")
-    console.print("[bold yellow][2] Show IGFollowersIncreaser's info[/]")
+    console.print("[bold yellow][2] Show IGFI's info[/]")
     console.print("[bold yellow][3] Clear log[/]")
-    console.print("[bold yellow][4] Uninstall IGFollowersIncreaser[/]")
+    console.print("[bold yellow][4] Uninstall IGFI[/]")
     console.print("[bold yellow][5] Exit[/]")
 
 def clear():
@@ -236,7 +236,7 @@ def main():
         for row in TABLE:
             table.add_row(*row)
     print(f"\n")
-    console.print("[bold yellow][+] IGFollowersIncreaser is a python script for increasing the number of followers of an Instagram account.")
+    console.print("[bold yellow][+] IGFI is a python script for increasing the number of followers of an Instagram account.")
     print(f"\n")
     nums()
     print(f"\n")
@@ -306,13 +306,13 @@ def main():
             print(f"{YELLOW}[OK]")
             sleep(1)
             print(f"{YELLOW}[1] Exit")
-            print(f"{YELLOW}[2] Uninstall IGFollowersIncreaser and exit")
+            print(f"{YELLOW}[2] Uninstall IGFI and exit")
             num=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
             valErr = num in [1,2]
             while not valErr:
                 try:
                     print(f"{YELLOW}[1] Exit")
-                    print(f"{YELLOW}[2] Uninstall IGFollowersIncreaser and exit")
+                    print(f"{YELLOW}[2] Uninstall IGFI and exit")
                     sleep(1)
                     num=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
                     valErr = num in [1,2]
@@ -395,7 +395,7 @@ def main():
                 clear()
                 print(Uninstall())
                 sleep(2)
-                print(f"{GREEN}[+] Thank you for using IGFollowersIncreaser 😁")
+                print(f"{GREEN}[+] Thank you for using IGFI 😁")
                 sleep(2)
                 print(f"{GREEN}[+] Until next time 👋")
                 sleep(1)
@@ -472,7 +472,7 @@ def main():
                 elif opt == 3:
                     clear()
                     print(Uninstall())
-                    print(f"{GREEN}[+] Thank you for using IGFollowersIncreaser 😁")
+                    print(f"{GREEN}[+] Thank you for using IGFI 😁")
                     sleep(2)
                     print(f"{GREEN}[+] Hope you enjoyed it ! 😊")
                     sleep(2)
@@ -537,14 +537,14 @@ def main():
                 print(f"{YELLOW}[+] Please check the username and/or the password !")
                 sleep(2)
                 print(f"{YELLOW}[1] Return to menu")
-                print(f"{YELLOW}[2] Uninstall IGFollowersIncreaser and Exit")
+                print(f"{YELLOW}[2] Uninstall IGFI and Exit")
                 print(f"{YELLOW}[3] Exit")
                 num=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
                 valErr = num in [1,2,3]
                 while not valErr:
                     try:
                         print(f"{YELLOW}[1] Return to menu")
-                        print(f"{YELLOW}[2] Uninstall IGFollowersIncreaser and Exit")
+                        print(f"{YELLOW}[2] Uninstall IGFI and Exit")
                         print(f"{YELLOW}[3] Exit")
                         num=int(input(f"{YELLOW}[>] Please enter again a number (from the above ones):"))
                         valErr = num in [1,2,3]
@@ -559,7 +559,7 @@ def main():
                 elif num == 2:
                     clear()
                     print(Uninstall())
-                    print(f"{GREEN}[+] Thank you for using IGFollowersIncreaser 😁")
+                    print(f"{GREEN}[+] Thank you for using IGFI 😁")
                     sleep(2)
                     print(f"{GREEN}[+] Until we meet again 👋")
                     sleep(1)
@@ -706,14 +706,14 @@ def main():
         clear()
         print(Uninstall())
         sleep(2)
-        print(f"{GREEN}[+] Thank you for using IGFollowersIncreaser 😁")
+        print(f"{GREEN}[+] Thank you for using IGFI 😁")
         sleep(2)
         print(f"{GREEN}[+] Until we meet again 🫡")
         sleep(1)
         quit(0)
     else:
         clear()
-        print(f"{GREEN}[+] Thank you for using IGFollowersIncreaser 😁")
+        print(f"{GREEN}[+] Thank you for using IGFI 😁")
         sleep(2)
         print(f"{GREEN}[+] See you next time 👋")
         sleep(1)
@@ -738,7 +738,7 @@ def main():
             main()
         else:
             clear()
-            print(f"{GREEN}[+] Thank you for using IGFollowersIncreaser 😁")
+            print(f"{GREEN}[+] Thank you for using IGFI 😁")
             sleep(2)
             print(f"{GREEN}[+] See you next time 👋")
             sleep(1)
