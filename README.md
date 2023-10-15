@@ -8,15 +8,15 @@ It's suggested to use it every two (2) days in order for your account not to get
 Also it provides additional information such as: the number of followers added, the percentage of success / failure etc.
 
 > If you like this repository feel free to star and/or fork it. It helps me to continue uploading these types of repositories.
-If you didn't like it and/or found a bug or you have a suggestion please feel free to contact me at anytime at <a href='mailto:new92github@gmail.com'>this email address</a>. Or create a <a href="https://github.com/new92/IGFollowersIncreaser/discussions">discussion</a>. Or open an <a href="https://github.com/new92/IGFollowersIncreaser/issues">issue</a>.
+If you didn't like it and/or found a bug or you have a suggestion please feel free to contact me at anytime at <a href='mailto:new92github@gmail.com'>this email address</a>. Or create a <a href="https://github.com/new92/IGFI/discussions">discussion</a>. Or open an <a href="https://github.com/new92/IGFI/issues">issue</a>.
 Any type of feedback is welcome and appreciated. (Please try avoiding the vulgar vocabulary)
 
 
 ## Urls 🔗
 
- - [License](https://github.com/new92/IGFollowersIncreaser/blob/main/LICENSE.md)
- - [Contributing](https://github.com/new92/IGFollowersIncreaser/blob/main/CONTRIBUTING.md)
- - [Code of conduct](https://github.com/new92/IGFollowersIncreaser/blob/main/CODE_OF_CONDUCT.md)
+ - [License](https://github.com/new92/IGFI/blob/main/LICENSE.md)
+ - [Contributing](https://github.com/new92/IGFI/blob/main/CONTRIBUTING.md)
+ - [Code of conduct](https://github.com/new92/IGFI/blob/main/CODE_OF_CONDUCT.md)
  - [You may also find interesting](https://github.com/new92?tab=repositories)
 
 
@@ -37,31 +37,31 @@ Any type of feedback is welcome and appreciated. (Please try avoiding the vulgar
 
 ## Badges 📛
 
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/9864f7f507804c81975576919a4a684a?style=for-the-badge&logo=codacy)](https://app.codacy.com/gh/new92/IGFollowersIncreaser/dashboard?style=for-the-badge&logo=codacy)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/9864f7f507804c81975576919a4a684a?style=for-the-badge&logo=codacy)](https://app.codacy.com/gh/new92/IGFI/dashboard?style=for-the-badge&logo=codacy)
 
-[![Number of files](https://img.shields.io/github/directory-file-count/new92/IGFollowersIncreaser?style=for-the-badge)](https://img.shields.io/github/directory-file-count/new92/IGFollowersIncreaser)
+[![Number of files](https://img.shields.io/github/directory-file-count/new92/IGFI?style=for-the-badge)](https://img.shields.io/github/directory-file-count/new92/IGFI)
 
-[![Code size](https://img.shields.io/github/languages/code-size/new92/IGFollowersIncreaser?style=for-the-badge)](https://img.shields.io/github/languages/code-size/new92/IGFollowersIncreaser)
+[![Code size](https://img.shields.io/github/languages/code-size/new92/IGFI?style=for-the-badge)](https://img.shields.io/github/languages/code-size/new92/IGFI)
 
 [![Followers](https://img.shields.io/github/followers/new92?style=for-the-badge)](https://img.shields.io/github/followers/new92)
 
-[![Forks](https://img.shields.io/github/forks/new92/IGFollowersIncreaser?style=for-the-badge)](https://img.shields.io/github/forks/new92/IGFollowersIncreaser)
+[![Forks](https://img.shields.io/github/forks/new92/IGFI?style=for-the-badge)](https://img.shields.io/github/forks/new92/IGFI)
 
-[![Stars](https://img.shields.io/github/stars/new92/IGFollowersIncreaser?style=for-the-badge)](https://img.shields.io/github/stars/new92/IGFollowersIncreaser)
+[![Stars](https://img.shields.io/github/stars/new92/IGFI?style=for-the-badge)](https://img.shields.io/github/stars/new92/IGFI)
 
-[![Open issues](https://img.shields.io/github/issues-raw/new92/IGFollowersIncreaser?style=for-the-badge)](https://img.shields.io/github/issues-raw/new92/IGFollowersIncreaser)
+[![Open issues](https://img.shields.io/github/issues-raw/new92/IGFI?style=for-the-badge)](https://img.shields.io/github/issues-raw/new92/IGFI)
 
-[![Closed Issues](https://img.shields.io/github/issues-closed-raw/new92/IGFollowersIncreaser?style=for-the-badge)](https://img.shields.io/github/issues-closed-raw/new92/IGFollowersIncreaser)
+[![Closed Issues](https://img.shields.io/github/issues-closed-raw/new92/IGFI?style=for-the-badge)](https://img.shields.io/github/issues-closed-raw/new92/IGFI)
 
-[![Open pull requests](https://img.shields.io/github/issues-pr-raw/new92/IGFollowersIncreaser?style=for-the-badge)](https://img.shields.io/github/issues-pr-raw/new92/IGFollowersIncreaser)
+[![Open pull requests](https://img.shields.io/github/issues-pr-raw/new92/IGFI?style=for-the-badge)](https://img.shields.io/github/issues-pr-raw/new92/IGFI)
 
-[![Closed pull requests](https://img.shields.io/github/issues-pr-closed-raw/new92/IGFollowersIncreaser?style=for-the-badge)](https://img.shields.io/github/issues-pr-closed-raw/new92/IGFollowersIncreaser)
+[![Closed pull requests](https://img.shields.io/github/issues-pr-closed-raw/new92/IGFI?style=for-the-badge)](https://img.shields.io/github/issues-pr-closed-raw/new92/IGFI)
 
-[![Discussions](https://img.shields.io/github/discussions/new92/IGFollowersIncreaser?style=for-the-badge)](https://img.shields.io/github/discussions/new92/IGFollowersIncreaser)
+[![Discussions](https://img.shields.io/github/discussions/new92/IGFI?style=for-the-badge)](https://img.shields.io/github/discussions/new92/IGFI)
 
-[![Contributors](https://img.shields.io/github/contributors/new92/IGFollowersIncreaser?style=for-the-badge)](https://img.shields.io/github/contributors/new92/IGFollowersIncreaser)
+[![Contributors](https://img.shields.io/github/contributors/new92/IGFI?style=for-the-badge)](https://img.shields.io/github/contributors/new92/IGFI)
 
-[![Language](https://img.shields.io/github/languages/top/new92/IGFollowersIncreaser?style=for-the-badge)](https://img.shields.io/github/languages/top/new92/IGFollowersIncreaser?style=for-the-badge)
+[![Language](https://img.shields.io/github/languages/top/new92/IGFI?style=for-the-badge)](https://img.shields.io/github/languages/top/new92/IGFI?style=for-the-badge)
 
 ## Contributing 🤝
 
@@ -92,8 +92,8 @@ The files expected to be created are:
 - [ ] Automation
 - [ ] Execute the script directly from terminal (using argparse)
 - [ ] V4 (this version will include the features as shown above and some extra)
-- [x] ~~Display the usernames of the followers added~~ **<a href="https://github.com/new92/IGFollowersIncreaser/tree/main/InstagramFollowers">URL</a>**
-- [x] ~~V3 script~~ **<a href='https://github.com/new92/IGFollowersIncreaser/tree/main/InstagramFollowers/V3'>URL</a>**
+- [x] ~~Display the usernames of the followers added~~ **<a href="https://github.com/new92/IGFI/tree/main/InstagramFollowers">URL</a>**
+- [x] ~~V3 script~~ **<a href='https://github.com/new92/IGFI/tree/main/InstagramFollowers/V3'>URL</a>**
 
 ## FAQ 🤔
 
@@ -171,9 +171,9 @@ git pull
 
 ## License 📜
 
-[![License](https://img.shields.io/github/license/new92/IGFollowersIncreaser?style=for-the-badge)](https://github.com/new92/IGFollowersIncreaser/blob/main/LICENSE.md)
+[![License](https://img.shields.io/github/license/new92/IGFI?style=for-the-badge)](https://github.com/new92/IGFI/blob/main/LICENSE.md)
 
 
 ## Screenshots 📸
 
-**Photos of the script can be found at <a href="https://github.com/new92/IGFollowersIncreaser/tree/main/InstagramFollowers/Photos">this url</a>**
+**Photos of the script can be found at <a href="https://github.com/new92/IGFI/tree/main/InstagramFollowers/Photos">this url</a>**
