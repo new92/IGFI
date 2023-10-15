@@ -1,5 +1,5 @@
 ![Logo](https://user-images.githubusercontent.com/94779840/220741614-2ea1ace7-4bd7-411a-80e8-21ec40b75b4e.jpg)
-# IGFollowersIncreaser 🤖
+# IGFI 🤖
 
 With this script the user by simply logging in, can increase their followers !
 Works for both private and public accounts.
@@ -129,8 +129,8 @@ Answer ➡️ Only if you're using a very old version of Instagram. But the scri
 
 ```bash
 sudo su
-git clone https://github.com/new92/IGFollowersIncreaser
-cd IGFollowersIncreaser
+git clone https://github.com/new92/IGFI
+cd IGFI
 cd InstagramFollowers
 sudo pip install -r requirements.txt
 python3 cookies.py
@@ -141,8 +141,8 @@ python3 mainV<and the number of the script. Example: python3 mainV1.py>.py
 ### Windows 🪟
 
 ```bash
-git clone https://github.com/new92/IGFollowersIncreaser
-cd IGFollowersIncreaser
+git clone https://github.com/new92/IGFI
+cd IGFI
 cd InstagramFollowers
 pip install -r requirements.txt
 python3 cookies.py
@@ -153,8 +153,8 @@ python3 mainV<and the number of the script. Example: python3 mainV1.py>.py
 ### MacOS 🍎
 
 ```bash
-git clone https://github.com/new92/IGFollowersIncreaser
-cd IGFollowersIncreaser
+git clone https://github.com/new92/IGFI
+cd IGFI
 cd InstagramFollowers
 pip install -r requirements.txt
 python3 cookies.py
@@ -165,7 +165,7 @@ python3 mainV<and the number of the script. Example: python3 mainV1.py>.py
 ## Update 🔄️
 
 ```bash
-cd <path_to_script>/IGFollowersIncreaser
+cd <path_to_script>/IGFI
 git pull
 ```
 
