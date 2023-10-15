@@ -1,5 +1,5 @@
 # 🛑 TEMPORARILY SUSPENSION OF IGFOLLOWERSINCREASER 🛑
-Due to numerous reports about issues with the login procedure and subsequent bugs, we have decided to temporarily suspend IGFollowersIncreaser for a few days to address and resolve all the existing problems. Please refrain from using these versions as they are currently unstable.
+<b>Due to numerous reports about issues with the login procedure and subsequent bugs, we have decided to temporarily suspend IGFollowersIncreaser for a few days to address and resolve all the existing problems. Please refrain from using these versions as they are currently unstable.</b>
 
 
 
