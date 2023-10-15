@@ -3,6 +3,7 @@
 Author: new92
 Github: @new92
 Leetcode: @new92
+PyPI: @new92
 
 IGFollowersIncreaser: Use this script to increase the followers of an Insta account
 
@@ -28,19 +29,23 @@ try:
         print("[+] Exiting...")
         sleep(1)
         quit(0)
-    from tqdm import tqdm
-    total_mods = 11
-    bar = tqdm(total=total_mods, desc='Loading modules', unit='module')
-    for _ in range(total_mods):
-        sleep(0.75)
-        bar.update(1)
-    bar.close()
+    from rich.align import Align
+    from rich.table import Table
+    from rich.live import Live
+    from rich.console import Console
+    console = Console()
+    mods = ['sys', 'time', 'os', 'platform', 'rich', 'instagrapi', 'requests', 'json', 'instaloader', 'datetime', 'colorama', 'logging']
+    with console.status('[bold dark_orange]Loading module...') as status:
+        for mod in mods:
+            sleep(0.8)
+            console.log(f'[[bold red]{mod}[/]] => [bold dark_green]okay')
     import platform
     from os import system
     import instagrapi
     import requests
     import os
     import json
+    import logging
     import instaloader
     from datetime import datetime
     from colorama import init, Fore
@@ -113,8 +118,11 @@ GREEN = Fore.GREEN
 YELLOW = Fore.YELLOW
 RED = Fore.RED
 
-print(f"{GREEN}[✓] Successfully loaded modules !")
-sleep(1)
+sleep(0.8)
+console.clear()
+console.print("[bold dark_green][✓] Successfully loaded modules.")
+sleep(1.1)
+console.clear()
 
 def fpath(fname: str):
     for root, dirs, files in os.walk('/'):
@@ -123,19 +131,23 @@ def fpath(fname: str):
     return None
 
 def ScriptInfo():
-    with open('config.json') as config:
+    with open('InstagramFollowers/V1/config.json') as config:
         conf = json.load(config)
     f = 'mainV1.py'
     fp = True if not fpath(f) == None else False
-    fsize = 0 if fp else os.stat(fpath(f)).st_size
+    fsize = 0 if not fp else os.stat(fpath(f)).st_size
     print(f"{YELLOW}[+] Author: {conf['author']}")
     print(f"{YELLOW}[+] Github: @{conf['author']}")
+    print(f"{YELLOW}[+] Leetcode: @{conf['author']}")
+    print(f"{YELLOW}[+] PyPI: @{conf['author']}")
+    print(f"{YELLOW}[+] Contributors : {conf['contributors']}")
     print(f"{YELLOW}[+] License: {conf['lice']}")
     print(f"{YELLOW}[+] Natural language: {conf['lang']}")
     print(f"{YELLOW}[+] Programming language(s) used: {conf['language']}")
     print(f"{YELLOW}[+] Number of lines: {conf['lines']}")
     print(f"{YELLOW}[+] Script's name: {conf['name']}")
     print(f"{YELLOW}[+] API(s) used: {conf['api']}")
+    print(f"{YELLOW}[+] Latest update: {conf['update']}")
     print(f"{YELLOW}[+] File size: {fsize} bytes")
     print(f"{YELLOW}[+] File path: {fpath(f)}")
     print(f"{YELLOW}|======|GITHUB REPO INFO|======|")
@@ -148,16 +160,38 @@ def ScriptInfo():
     print(f"{YELLOW}[+] Discussions: {conf['discs']}")
 
 def banner() -> str:
-    return f"""{YELLOW}
+    console.print("""[bold yellow]
     ██╗███╗░░██╗░██████╗████████╗░█████╗░███████╗░█████╗░██╗░░░░░██╗░░░░░░█████╗░░██╗░░░░░░░██╗    ██╗░░░██╗░░███╗░░
     ██║████╗░██║██╔════╝╚══██╔══╝██╔══██╗██╔════╝██╔══██╗██║░░░░░██║░░░░░██╔══██╗░██║░░██╗░░██║    ██║░░░██║░████║░░
     ██║██╔██╗██║╚█████╗░░░░██║░░░███████║█████╗░░██║░░██║██║░░░░░██║░░░░░██║░░██║░╚██╗████╗██╔╝    ╚██╗░██╔╝██╔██║░░
     ██║██║╚████║░╚═══██╗░░░██║░░░██╔══██║██╔══╝░░██║░░██║██║░░░░░██║░░░░░██║░░██║░░████╔═████║░    ░╚████╔╝░╚═╝██║░░
     ██║██║░╚███║██████╔╝░░░██║░░░██║░░██║██║░░░░░╚█████╔╝███████╗███████╗╚█████╔╝░░╚██╔╝░╚██╔╝░    ░░╚██╔╝░░███████╗
-    ╚═╝╚═╝░░╚══╝╚═════╝░░░░╚═╝░░░╚═╝░░╚═╝╚═╝░░░░░░╚════╝░╚══════╝╚══════╝░╚════╝░░░░╚═╝░░░╚═╝░░    ░░░╚═╝░░░╚══════╝
-    """
+    ╚═╝╚═╝░░╚══╝╚═════╝░░░░╚═╝░░░╚═╝░░╚═╝╚═╝░░░░░░╚════╝░╚══════╝╚══════╝░╚════╝░░░░╚═╝░░░╚═╝░░    ░░░╚═╝░░░╚══════╝[/]""")
 
 ANS = ["yes","no"]
+
+TABLE = [
+    [
+        "[b white]Author[/]: [i light_green]new92[/]",
+        "[green]https://new92.github.io/[/]"
+    ],
+    [
+        "[b white]Github[/]: [i light_green]@new92[/]",
+        "[green]https://github.com/new92[/]"
+    ],
+    [
+        "[b white]Leetcode[/]: [i light_green]@new92[/]",
+        "[green]https://leetcode.com/new92[/]"
+    ],
+    [
+        "[b white]PyPI[/]: [i light_green]@new92[/]",
+        "[green]https://pypi.org/user/new92[/]"
+    ]
+]
+
+console = Console()
+table = Table(show_footer=False)
+centered = Align.center(table)
 
 def Uninstall() -> str:
     def rmdir(dire):
@@ -183,21 +217,22 @@ def clear():
     system('cls') if platform.system() == 'Windows' else system('clear')
 
 def nums():
-    print(f"{YELLOW}[1] Increase followers")
-    print(f"{YELLOW}[2] Show IGFollowersIncreaser's info")
-    print(f"{YELLOW}[3] Clear log")
-    print(f"{YELLOW}[4] Uninstall IGFollowersIncreaser")
-    print(f"{YELLOW}[5] Exit")
+    console.print("[bold yellow][1] Increase followers[/]")
+    console.print("[bold yellow][2] Show IGFollowersIncreaser's info[/]")
+    console.print("[bold yellow][3] Clear log[/]")
+    console.print("[bold yellow][4] Uninstall IGFollowersIncreaser[/]")
+    console.print("[bold yellow][5] Exit[/]")
 
 def main():
-    print(banner())
+    banner()
     print("\n")
-    print(f"{YELLOW}[+] IGFollowersIncreaser is a tool which helps the increment of the followers of a user on Instagram")
+    with Live(centered, console=console, screen=False):
+        table.add_column('Socials', no_wrap=False)
+        table.add_column('Url', no_wrap=False)
+        for row in TABLE:
+            table.add_row(*row)
     print("\n")
-    print(f"{YELLOW} [-] -- Socials --")
-    print(f"{YELLOW}[+] Author: new92")
-    print(f"{YELLOW}[+] Github: @new92")
-    print(f"{YELLOW}[+] Leetcode: @new92")
+    console.print("[bold yellow][+] IGFollowersIncreaser is a python script for increasing the number of followers of an Instagram account.")
     print("\n")
     nums()
     print("\n")
@@ -220,8 +255,8 @@ def main():
         print(f"{GREEN}[+] Acceptable answers: [yes/no]")
         sleep(1)
         keep=str(input(f"{YELLOW}[?] Keep log ? "))
-        while keep.lower() not in ANS or keep in ['None', '', ' ']:
-            if keep in ['None', '', ' ']:
+        while keep.lower() not in ANS or keep in ['', ' ']:
+            if keep in ['', ' ']:
                 print(f"{RED}[!] This field can't be blank !")
             else:
                 print(f"{RED}[!] Invalid answer !")
@@ -234,8 +269,8 @@ def main():
         print(f"{GREEN}[+] Acceptable answers: [yes/no]")
         sleep(1)
         check=str(input(f"{YELLOW}[?] Display the usernames of the followers added ? "))
-        while check.lower() not in ANS or check in ['None', '', ' ']:
-            if check in ['None', '', ' ']:
+        while check.lower() not in ANS or check in ['', ' ']:
+            if check in ['', ' ']:
                 print(f"{RED}[!] This field can't be blank !")
             else:
                 print(f"{RED}[!] Invalid answer !")
@@ -247,8 +282,8 @@ def main():
         print(f"{GREEN}[+] Acceptable answers: [yes/no]")
         sleep(1)
         con=str(input(f"{YELLOW}[>] Do you consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given (Instagram) account ? "))
-        while con.lower() not in ANS or con in ['None', '', ' ']:
-            if con in ['None', '', ' ']:
+        while con.lower() not in ANS or con in ['', ' ']:
+            if con in ['', ' ']:
                 print(f"{RED}[!] This field can't be blank !")
             else:
                 print(f"{RED}[!] Invalid answer !")
@@ -257,10 +292,13 @@ def main():
             sleep(1)
             con=str(input(f"{YELLOW}[>] Do you consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given (Instagram) account ? "))
         if con.lower() == ANS[0]:
-            with open('cons.txt', 'a', encoding='utf8') as f:
-                f.write(f"\n[=] Date: {datetime.now()}\n")
-                f.write("[=] User: Yes I consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given Instagram account.\n")
-                f.write("-"*40)
+            logging.basicConfig(
+                filename='cons.txt',
+                level=logging.INFO,
+                format='%(asctime)s [%(levelname)s]: %(message)s',
+                datefmt='%Y-%m-%d %H:%M:%S'
+            )
+            logging.info('Yes I consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given Instagram account.')
         else:
             print(f"{YELLOW}[OK]")
             sleep(1)
@@ -296,7 +334,8 @@ def main():
                 print(f"{YELLOW}[+] Until we meet again 👋")
                 sleep(1)
                 quit(0)
-        print("\n")
+        sleep(1)
+        clear()
         print(f"{YELLOW}[+] The login credentials will not be stored or saved")
         sleep(2)
         print(f"{GREEN}|--------------------|LOGIN|--------------------|")
@@ -369,6 +408,16 @@ def main():
         ga = True if ga.lower() == ANS[0] else False
         if ga:
             loader = instaloader.Instaloader()
+            try:
+                loader.load_session_from_file(username)
+            except FileNotFoundError:
+                print(f"{RED}[✕] Session file not found !")
+                sleep(2)
+                print(f"{GREEN}[+] Logging in...")
+                sleep(0.8)
+            if not loader.context.is_logged_in:
+                loader.interactive_login(username)
+                loader.save_session_to_file()
             profile = instaloader.Profile.from_username(loader.context, username)
             followers_bef = profile.followers
             FOLLOWERS = [follower.username for follower in profile.get_followers()]
@@ -699,10 +748,10 @@ def main():
             sleep(2)
             if follow - unfollow != 0:
                 print(f"{RED}[✕] Failed to unfollow: {abs(follow - unfollow)} users")
-            pers = (follow + unfollow) / 74.0
-            print(f"{GREEN}[+] Percentage of success: {pers}")
+            pers = (follow + unfollow) // 74
+            print(f"{GREEN}[+] Percentage of success: {pers}%")
             sleep(1)
-            print(f"{RED}[+] Percentage of fail: {float(100 - pers)}%")
+            print(f"{RED}[+] Percentage of fail: {100 - pers}%")
             sleep(1)
             if ga:
                 followers_af = profile.followers
@@ -726,17 +775,17 @@ def main():
                     f.write(f"[+] Date: {datetime.now()}\n")
                     f.write(f"[+] Followed: {follow} users\n")
                     f.write(f"[+] Unfollowed: {unfollow} users"+"\n")
-                    pers = (follow + unfollow) / 74.0
+                    pers = (follow + unfollow) // 74
                     f.write(f"[+] Percentage of success: {pers}%\n")
-                    f.write(f"[+] Percentage of fail: {float(100 - pers)}%\n")
+                    f.write(f"[+] Percentage of fail: {100 - pers}%\n")
                     if ga:
                         followers_af = profile.followers
                         f.write(f"[✓] Successfully added: {followers_af - followers_bef} followers.\n")
                     print(f"{GREEN}[✓] Successfully saved log !")
                     sleep(2)
-                    print(f"{GREEN}[↪] File name: {name}")
-                    print(f"{GREEN}[↪] Path: {fpath(name)}")
-                    print(f"{GREEN}[↪] File size: {os.stat(fpath(name)).st_size} bytes")
+                    print(f"{GREEN}[↪] File name >>> {name}")
+                    print(f"{GREEN}[↪] Path >>> {fpath(name)}")
+                    print(f"{GREEN}[↪] File size >>> {os.stat(fpath(name)).st_size} bytes")
                     sleep(4)
     elif option == 2:
         clear()
@@ -744,6 +793,31 @@ def main():
         sleep(4)
         print("\n\n")
     elif option == 3:
+        clear()
+        name = 'log.txt'
+        if fpath(name):
+            f = open(name,"w")
+            f.close()
+            print(f"{GREEN}[✓] Successfully cleared log !")
+            sleep(1)
+            print(f"{GREEN}[↪] File name >>> {name}")
+            print(f"{GREEN}[↪] Location >>> {fpath(name)}")
+            print(f"{GREEN}[↪] Size: 0 bytes")
+            sleep(3)
+        else:
+            clear()
+            print(f"{RED}[✕] Log file not found on this device !")
+            sleep(2)
+            print(f"{YELLOW}[+] Searched log file using name: {name}")
+            sleep(2)
+            print(f"{GREEN}[*] Please first create the log file and then use this option 😀")
+            sleep(2)
+            print(f"""{YELLOW}[+] Instructions: 
+            1) Return to menu and enter the option number 1
+            2) Enter <True> in the keep log question
+            """)
+            sleep(3)
+    elif option == 4:
         clear()
         print(Uninstall())
         sleep(2)

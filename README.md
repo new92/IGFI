@@ -1,8 +1,3 @@
-# 🛑 TEMPORARILY SUSPENSION OF IGFOLLOWERSINCREASER 🛑
-<b>Due to numerous reports about issues with the login procedure and subsequent bugs, we have decided to temporarily suspend IGFollowersIncreaser for a few days to address and resolve all the existing problems. Please refrain from using these versions as they are currently unstable.</b>
-
-
-
 ![Logo](https://user-images.githubusercontent.com/94779840/220741614-2ea1ace7-4bd7-411a-80e8-21ec40b75b4e.jpg)
 # IGFollowersIncreaser 🤖
 
@@ -85,14 +80,20 @@ If you have any feedback, please reach out to us at <a href="mailto:new92github@
 **Feel free to contact us anytime ! You'll get a reply within a day. Please avoid using abusive or offensive language.
 If you are reporting a bug or making a suggestion please make sure your report/suggestion is as much detailed as possible.**
 
+## Expected files 📁
+
+The files expected to be created are:
+1. `cons.txt`
+2. `log.txt`
 
 ## Features 🔜
 
 - [ ] GUI
 - [ ] Automation
-- [x] ~~Display the usernames of the followers added~~ **<a href="https://github.com/new92/IGFollowersIncreaser/tree/main/InstagramFollowers">URL</a>**
-- [x] ~~V3 script better than both versions 1 and 2~~ **<a href='https://github.com/new92/IGFollowersIncreaser/tree/main/InstagramFollowers/V3'>URL</a>**
+- [ ] Execute the script directly from terminal (using argparse)
 - [ ] V4 (this version will include the features as shown above and some extra)
+- [x] ~~Display the usernames of the followers added~~ **<a href="https://github.com/new92/IGFollowersIncreaser/tree/main/InstagramFollowers">URL</a>**
+- [x] ~~V3 script~~ **<a href='https://github.com/new92/IGFollowersIncreaser/tree/main/InstagramFollowers/V3'>URL</a>**
 
 ## FAQ 🤔
 
@@ -100,7 +101,7 @@ If you are reporting a bug or making a suggestion please make sure your report/s
 
 - Error while logging in ?
 
-Answer ➡️ This can be resolved by logging in to your instagram account, following the instagram instructions in order to verify that the account belongs to you and then running the script.
+Answer ➡️ This error can be resolved by simply executing the `cookies.py` script and running the script again.
 
 #### Question 2
 
@@ -112,7 +113,7 @@ Answer ➡️ You can report a bug by creating an issue or by emailing us at <a 
 
 - Is illegal to increase followers using script(s) ?
 
-Answer ➡️ No, not at all ! Because it's like asking if following and unfollowing an account is illegal. Although Instagram doesn't suggest using this technique to increase your followers.
+Answer ➡️ No, not at all! It's similar to asking if following and unfollowing an account is illegal, even though Instagram doesn't recommend using this technique to increase your followers.
 
 
 ### Question 4
@@ -120,7 +121,6 @@ Answer ➡️ No, not at all ! Because it's like asking if following and unfollo
 - Can my account get blocked by using this script ?
 
 Answer ➡️ Only if you're using a very old version of Instagram. But the script has been tested in several accounts and none of them got blocked.
-
 
 
 ## Installation 📥
@@ -133,6 +133,7 @@ git clone https://github.com/new92/IGFollowersIncreaser
 cd IGFollowersIncreaser
 cd InstagramFollowers
 sudo pip install -r requirements.txt
+python3 cookies.py
 cd V<and the version you want to use. Example: cd V1   Available versions: 1/2/3>
 python3 mainV<and the number of the script. Example: python3 mainV1.py>.py
 ```
@@ -144,6 +145,7 @@ git clone https://github.com/new92/IGFollowersIncreaser
 cd IGFollowersIncreaser
 cd InstagramFollowers
 pip install -r requirements.txt
+python3 cookies.py
 cd V<and the version you want to use. Example: cd V1   Available versions: 1/2/3>
 python3 mainV<and the number of the script. Example: python3 mainV1.py>.py
 ```
@@ -154,9 +156,10 @@ python3 mainV<and the number of the script. Example: python3 mainV1.py>.py
 git clone https://github.com/new92/IGFollowersIncreaser
 cd IGFollowersIncreaser
 cd InstagramFollowers
-python -m pip install requirements.txt
+pip install -r requirements.txt
+python3 cookies.py
 cd V<and the version you want to use. Example: cd V1   Available versions: 1/2/3>
-python mainV<and the number of the script. Example: python3 mainV1.py>.py
+python3 mainV<and the number of the script. Example: python3 mainV1.py>.py
 ```
     
 ## Update 🔄️
@@ -166,7 +169,6 @@ cd <path_to_script>/IGFollowersIncreaser
 git pull
 ```
 
-
 ## License 📜
 
 [![License](https://img.shields.io/github/license/new92/IGFollowersIncreaser?style=for-the-badge)](https://github.com/new92/IGFollowersIncreaser/blob/main/LICENSE.md)
@@ -175,4 +177,3 @@ git pull
 ## Screenshots 📸
 
 **Photos of the script can be found at <a href="https://github.com/new92/IGFollowersIncreaser/tree/main/InstagramFollowers/Photos">this url</a>**
-
