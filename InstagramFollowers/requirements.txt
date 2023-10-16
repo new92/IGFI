@@ -2,4 +2,6 @@ instagrapi == 1.16.17
 requests == 2.31.0
 instaloader == 4.9.5
 colorama == 0.4.6
-tqdm == 4.65.0
+rich == 12.6.0
+argparse == 1.4.0
+pydantic>=2.4.0 # not directly required, pinned by Snyk to avoid a vulnerability

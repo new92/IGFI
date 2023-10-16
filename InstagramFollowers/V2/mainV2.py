@@ -3,12 +3,13 @@
 Author: new92
 Github: @new92
 Leetcode: @new92
+PyPI: @new92
 
-IGFollowersIncreaser: Use this script to increase the followers of an Insta account
+IGFI: Use this script to increase the followers of an Insta account
 
 *********IMPORTANT*********
 
-User's login credentials (such as: username, password) will not be stored or saved ! 
+User's login credentials (username, password) will not be stored or saved ! 
 Will be used only to increase the followers of the user's Instagram account
 
 ***************************
@@ -17,36 +18,40 @@ try:
     import sys
     from time import sleep
     if sys.version_info[0] < 3:
-        print("[!] Error ! IGFollowersIncreaser requires Python version 3.X ! ")
+        print("[!] Error ! IGFI requires Python version 3.X ! ")
         sleep(2)
         print("""[+] Instructions to download Python 3.x : 
         Linux: apt install python3
         Windows: https://www.python.org/downloads/
         MacOS: https://docs.python-guide.org/starting/install3/osx/""")
         sleep(3)
-        print("[+] Please install Python 3 and then use IGFollowersIncreaser ✅")
+        print("[+] Please install Python 3 and then use IGFI ✅")
         sleep(2)
         print("[+] Exiting...")
         sleep(1)
         quit(0)
-    from tqdm import tqdm
-    total_mods = 11
-    bar = tqdm(total=total_mods, desc='Loading modules', unit='module')
-    for _ in range(total_mods):
-        sleep(0.75)
-        bar.update(1)
-    bar.close()
+    from rich.align import Align
+    from rich.table import Table
+    from rich.live import Live
+    from rich.console import Console
+    console = Console()
+    mods = ['sys', 'time', 'rich', 'platform', 'os', 'json', 'logging' ,'instagrapi', 'requests', 'instaloader', 'datetime', 'colorama']
+    with console.status('[bold dark_orange]Loading module...') as status:
+        for mod in mods:
+            sleep(0.8)
+            console.log(f'[[bold red]{mod}[/]] => [bold dark_green]okay')
     import platform
     from os import system
     import os
     import json
+    import logging
     import instagrapi
     import requests
     import instaloader
     from datetime import datetime
     from colorama import init, Fore
 except ImportError or ModuleNotFoundError:
-    print("[!] WARNING: Not all packages used in IGFollowersIncreaser have been installed !")
+    print("[!] WARNING: Not all packages used in IGFI have been installed !")
     sleep(2)
     print("[+] Ignoring warning...")
     sleep(1)
@@ -62,15 +67,15 @@ except ImportError or ModuleNotFoundError:
             except Exception as ex:
                 print("[!] Error ! Cannot install the required modules !")
                 sleep(1)
-                print(f"[=] Error message -> {ex}")
+                print(f"[*] Error message ==> {ex}")
                 sleep(2)
-                print("[1] Uninstall IGFollowersIncreaser")
+                print("[1] Uninstall IGFI")
                 print("[2] Exit")
                 opt=int(input("[>] Please enter a number (from the above ones): "))
                 valErr = opt in [1,2]
                 while not valErr:
                     try:
-                        print("[1] Uninstall IGFollowersIncreaser")
+                        print("[1] Uninstall IGFI")
                         print("[2] Exit")
                         opt=int(input("[>] Please enter again a number (from the above ones): "))
                         valErr = opt in [1,2]
@@ -82,7 +87,7 @@ except ImportError or ModuleNotFoundError:
                 if opt == 1:
                     def fpath(fname: str):
                         for root, dirs, files in os.walk('/'):
-                            if fname in files:
+                            if fname in dirs:
                                 return os.path.abspath(os.path.join(root, fname))
                         return None
                     def rmdir(dire):
@@ -95,12 +100,12 @@ except ImportError or ModuleNotFoundError:
                         for i in range(len(DIRS)):
                             os.rmdir(DIRS[i])
                         os.rmdir(dire)
-                    rmdir(fpath('IGFollowersIncreaser'))
+                    rmdir(fpath('IGFI'))
                     print("[✓] Files and dependencies uninstalled successfully !")
                 else:
                     print("[+] Exiting...")
                     sleep(1)
-                    print("[+] Thank you for using IGFollowersIncreaser 😁")
+                    print("[+] Thank you for using IGFI 😁")
                     sleep(2)
                     print("[+] See you next time 👋")
                     sleep(1)
@@ -117,30 +122,35 @@ GREEN = Fore.GREEN
 RED = Fore.RED
 YELLOW = Fore.YELLOW
 
-print(f"{GREEN}[✓] Successfully loaded modules !")
-sleep(1)
+sleep(0.8)
+console.clear()
+console.print("[bold dark_green][✓] Successfully loaded modules.")
+sleep(1.1)
+console.clear()
 
 def fpath(fname: str):
     for root, dirs, files in os.walk('/'):
-         if fname in files:
+         if fname in dirs:
             return os.path.abspath(os.path.join(root, fname))
     return None
 
 def ScriptInfo():
-    with open("config.json") as config:
+    with open('InstagramFollowers/V2/config.json') as config:
         conf = json.load(config)
     f = 'mainV2.py'
-    if os.path.exists(fpath(f)):
-        fsize = os.stat(fpath(f)).st_size
-    else:
-        fsize = 0
+    fp = True if not fpath(f) == None else False
+    fsize = 0 if not fp else os.stat(fpath(f)).st_size
     print(f"{YELLOW}[+] Author: {conf['author']}")
     print(f"{YELLOW}[+] Github: @{conf['author']}")
+    print(f"{YELLOW}[+] Leetcode: @{conf['author']}")
+    print(f"{YELLOW}[+] PyPI: @{conf['author']}")
+    print(f"{YELLOW}[+] Contributors : {conf['contributors']}")
     print(f"{YELLOW}[+] License: {conf['lice']}")
     print(f"{YELLOW}[+] Natural language: {conf['lang']}")
     print(f"{YELLOW}[+] Programming language(s) used: {conf['language']}")
     print(f"{YELLOW}[+] Number of lines: {conf['lines']}")
     print(f"{YELLOW}[+] Script's name: {conf['name']}")
+    print(f"{YELLOW}[+] Latest update: {conf['update']}")
     print(f"{YELLOW}[+] API(s) used: {conf['api']}")
     print(f"{YELLOW}[+] File size: {fsize} bytes")
     print(f"{YELLOW}[+] File path: {fpath(f)}")
@@ -152,7 +162,6 @@ def ScriptInfo():
     print(f"{YELLOW}[+] Open pull requests: {conf['prs']}")
     print(f"{YELLOW}[+] Closed pull requests: {conf['clprs']}")
     print(f"{YELLOW}[+] Discussions: {conf['discs']}")
-
 
 ANS = ["yes","no"]
 
@@ -167,43 +176,68 @@ def Uninstall() -> str:
         for i in range(len(DIRS)):
             os.rmdir(DIRS[i])
         os.rmdir(dire)
-    rmdir(fpath('IGFollowersIncreaser'))
+    rmdir(fpath('IGFI'))
     return f"{GREEN}[✓] Files and dependencies uninstalled successfully !"
 
+TABLE = [
+    [
+        "[b white]Author[/]: [i light_green]new92[/]",
+        "[green]https://new92.github.io/[/]"
+    ],
+    [
+        "[b white]Github[/]: [i light_green]@new92[/]",
+        "[green]https://github.com/new92[/]"
+    ],
+    [
+        "[b white]Leetcode[/]: [i light_green]@new92[/]",
+        "[green]https://leetcode.com/new92[/]"
+    ],
+    [
+        "[b white]PyPI[/]: [i light_green]@new92[/]",
+        "[green]https://pypi.org/user/new92[/]"
+    ]
+]
+
+console = Console()
+table = Table(show_footer=False)
+centered = Align.center(table)
 
 def banner() -> str:
-  return f"""{YELLOW}
-██╗███╗░░██╗░██████╗████████╗░█████╗░███████╗░█████╗░██╗░░░░░██╗░░░░░░█████╗░░██╗░░░░░░░██╗    ██╗░░░██╗██████╗░
-██║████╗░██║██╔════╝╚══██╔══╝██╔══██╗██╔════╝██╔══██╗██║░░░░░██║░░░░░██╔══██╗░██║░░██╗░░██║    ██║░░░██║╚════██╗
-██║██╔██╗██║╚█████╗░░░░██║░░░███████║█████╗░░██║░░██║██║░░░░░██║░░░░░██║░░██║░╚██╗████╗██╔╝    ╚██╗░██╔╝░░███╔═╝
-██║██║╚████║░╚═══██╗░░░██║░░░██╔══██║██╔══╝░░██║░░██║██║░░░░░██║░░░░░██║░░██║░░████╔═████║░    ░╚████╔╝░██╔══╝░░
-██║██║░╚███║██████╔╝░░░██║░░░██║░░██║██║░░░░░╚█████╔╝███████╗███████╗╚█████╔╝░░╚██╔╝░╚██╔╝░    ░░╚██╔╝░░███████╗
-╚═╝╚═╝░░╚══╝╚═════╝░░░░╚═╝░░░╚═╝░░╚═╝╚═╝░░░░░░╚════╝░╚══════╝╚══════╝░╚════╝░░░░╚═╝░░░╚═╝░░    ░░░╚═╝░░░╚══════╝
-"""
+  console.print("""[bold yellow]
+                                                ██╗░██████╗░███████╗██╗     ██╗░░░██╗██████╗░
+                                                ██║██╔════╝░██╔════╝██║     ██║░░░██║╚════██╗
+                                                ██║██║░░██╗░█████╗░░██║     ╚██╗░██╔╝░░███╔═╝
+                                                ██║██║░░╚██╗██╔══╝░░██║     ░╚████╔╝░██╔══╝░░
+                                                ██║╚██████╔╝██║░░░░░██║     ░░╚██╔╝░░███████╗
+                                                ╚═╝░╚═════╝░╚═╝░░░░░╚═╝     ░░░╚═╝░░░╚══════╝
+[/]""")
 
 def checkUser(username:str) -> bool:
-    return username == None or len(username) > 30 or username == '' or username == ' '
+    return username in ['', ' '] or len(username) > 30
 
 def ValUser(username:str) -> bool:
     return requests.get(f'https://www.instagram.com/{username}/', allow_redirects=False).status_code != 200
 
 def nums():
-    print(f"{YELLOW}[1] Increase followers")
-    print(f"{YELLOW}[2] Show IGFollowersIncreaser's info")
-    print(f"{YELLOW}[3] Clear log")
-    print(f"{YELLOW}[4] Uninstall IGFollowersIncreaser")
-    print(f"{YELLOW}[5] Exit")
+    console.print("[bold yellow][1] Increase followers[/]")
+    console.print("[bold yellow][2] Show IGFI's info[/]")
+    console.print("[bold yellow][3] Clear log[/]")
+    console.print("[bold yellow][4] Uninstall IGFI[/]")
+    console.print("[bold yellow][5] Exit[/]")
 
 def clear():
     system('cls') if platform.system() == 'Windows' else system('clear')
 
 def main():
-    print(banner())
+    banner()
     print(f"\n")
-    print(f"{YELLOW}[+] Author: new92")
-    print(f"{YELLOW}[+] Github: @new92")
+    with Live(centered, console=console, screen=False):
+        table.add_column('Socials', no_wrap=False)
+        table.add_column('Url', no_wrap=False)
+        for row in TABLE:
+            table.add_row(*row)
     print(f"\n")
-    print(f"{YELLOW}[+] IGFollowersIncreaser is a tool which helps the increment of the followers of a user")
+    console.print("[bold yellow][+] IGFI is a python script for increasing the number of followers of an Instagram account.")
     print(f"\n")
     nums()
     print(f"\n")
@@ -225,8 +259,8 @@ def main():
         print(f"{GREEN}[*] Acceptable answers: [True/False]")
         sleep(1)
         keep=str(input(f"{YELLOW}[?] Keep log ? "))
-        while keep.lower() not in ['true','false'] or keep == None or keep == '' or keep == ' ':
-            if keep == None or keep == '' or keep == ' ':
+        while keep.lower() not in ['true', 'false'] or keep in ['', ' ']:
+            if keep in ['', ' ']:
                 print(f"{RED}[!] This field can't be blank !")
             else:
                 print(f"{RED}[!] Invalid input !")
@@ -235,23 +269,25 @@ def main():
             sleep(2)
             keep=str(input(f"{YELLOW}[?] Keep log ? "))
         keep = True if keep.lower() == 'true' else False
-        print("[+] Acceptable answers: [yes/no]")
+        sleep(0.8)
+        print(f"{GREEN}[+] Acceptable answers: [yes/no]")
         sleep(1)
-        check=str(input("[?] Display the usernames of the followers added ? "))
-        while check.lower() not in ANS or check == None or check == '' or check == ' ':
-            if check == None or check == '' or check == ' ':
-                print("[!] This field can't be blank !")
+        check=str(input(f"{YELLOW}[?] Display the usernames of the followers added ? "))
+        while check.lower() not in ANS or check in ['', ' ']:
+            if check in ['', ' ']:
+                print(f"{RED}[!] This field can't be blank !")
             else:
-                print("[!] Invalid answer !")
+                print(f"{RED}[!] Invalid answer !")
                 sleep(1)
-                print("[+] Acceptable answers: [yes/no]")
-            check=str(input("[?] Display the usernames of the followers added ? "))
+                print(f"{GREEN}[+] Acceptable answers: [yes/no]")
+            check=str(input(f"{YELLOW}[?] Display the usernames of the followers added ? "))
         check = True if check.lower() == ANS[0] else False
+        sleep(0.8)
         print(f"{GREEN}[*] Acceptable answers: [yes/no]")
         sleep(1)
         con=str(input(f"{YELLOW}[>] Do you consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given (Instagram) account ? "))
-        while con.lower() not in ANS or con == None or con == '' or con == ' ':
-            if con == None or con == '' or con == ' ':
+        while con.lower() not in ANS or con in ['', ' ']:
+            if con in ['', ' ']:
                 print(f"{RED}[!] This field can't be blank !")
             else:
                 print(f"{RED}[!] Invalid input !")
@@ -260,22 +296,24 @@ def main():
             sleep(1)
             con=str(input(f"{YELLOW}[>] Do you consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given (Instagram) account ? "))
         if con.lower() == ANS[0]:
-            f = open("cons.txt","a")
-            f.write(f"\n[=] Date: {datetime.now()}\n")
-            f.write("[=] User: Yes I consent that the author of this script (new92) has no responsibility for any loss or damage may the script cause to the given Instagram account.\n")
-            f.write("-"*40)
-            f.close()
+            logging.basicConfig(
+                filename='cons.txt',
+                level=logging.INFO,
+                format='%(asctime)s [%(levelname)s]: %(message)s',
+                datefmt='%Y-%m-%d %H:%M:%S'
+            )
+            logging.info('Yes I consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given Instagram account')
         else:
             print(f"{YELLOW}[OK]")
             sleep(1)
             print(f"{YELLOW}[1] Exit")
-            print(f"{YELLOW}[2] Uninstall IGFollowersIncreaser and exit")
+            print(f"{YELLOW}[2] Uninstall IGFI and exit")
             num=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
             valErr = num in [1,2]
             while not valErr:
                 try:
                     print(f"{YELLOW}[1] Exit")
-                    print(f"{YELLOW}[2] Uninstall IGFollowersIncreaser and exit")
+                    print(f"{YELLOW}[2] Uninstall IGFI and exit")
                     sleep(1)
                     num=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
                     valErr = num in [1,2]
@@ -300,13 +338,15 @@ def main():
                 print(f"{YELLOW}[+] Until we meet again 👋")
                 sleep(1)
                 quit(0)
+        sleep(1)
+        clear()
         print(f"{YELLOW}[+] The login credentials will not be stored or saved")
         sleep(2)
         print(f"{GREEN}|--------------------|LOGIN|--------------------|")
         username=str(input(f"{YELLOW}[>] Please enter your username: "))
         username = username.lower().strip()
         while checkUser(username):
-            if username == None or username == '' or username == ' ':
+            if username in ['', ' ']:
                 print(f"{RED}[!] This field can't be blank !")
             else:
                 print(f"{RED}[!] Invalid length !")
@@ -340,7 +380,7 @@ def main():
                 clear()
                 username=str(input(f"{YELLOW}[>] Please enter the username: "))
                 while checkUser(username):
-                    if username == None or username == '' or username == ' ':
+                    if username in ['', ' ']:
                         print(f"{RED}[!] This field can't be blank !")
                     else:
                         print(f"{RED}[!] Invalid length  !")
@@ -356,9 +396,7 @@ def main():
                 clear()
                 print(Uninstall())
                 sleep(2)
-                print(f"{GREEN}[+] Thank you for using IGFollowersIncreaser 😁")
-                sleep(2)
-                print(f"{GREEN}[+] Hope you enjoyed it ! ☺️")
+                print(f"{GREEN}[+] Thank you for using IGFI 😁")
                 sleep(2)
                 print(f"{GREEN}[+] Until next time 👋")
                 sleep(1)
@@ -373,8 +411,8 @@ def main():
         print(f"{GREEN}[*] Acceptable answers: [yes/no]")
         sleep(1)
         con=str(input(f"{YELLOW}[?] Script will increase the followers for the user: {username} is that correct ? "))
-        while con.lower() not in ANS or con == None or con == '' or con == ' ':
-            if con == None or con == '' or con == ' ':
+        while con.lower() not in ANS or con in ['', ' ']:
+            if con in ['', ' ']:
                 print(f"{RED}[!] This field can't be blank !")
             else:
                 print(f"{RED}[!] Invalid answer !")
@@ -386,7 +424,7 @@ def main():
             username=str(input(f"{YELLOW}[>] Please enter a different username: "))
             username = username.lower().strip()
             while checkUser(username):
-                if username == None or username == '' or username == ' ':
+                if username in ['', ' ']:
                     print(f"{RED}[!] This field can't be blank !")
                 else:
                     print(f"{RED}[!] Invalid length !")
@@ -421,7 +459,7 @@ def main():
                     username=str(input(f"{YELLOW}[>] Please enter the username: "))
                     username = username.lower().strip()
                     while checkUser(username):
-                        if username == None or username == '' or username == ' ':
+                        if username in ['', ' ']:
                             print(f"{RED}[!] This field can't be blank !")
                         else:
                             print(f"{RED}[!] Invalid length  !")
@@ -435,7 +473,7 @@ def main():
                 elif opt == 3:
                     clear()
                     print(Uninstall())
-                    print(f"{GREEN}[+] Thank you for using IGFollowersIncreaser 😁")
+                    print(f"{GREEN}[+] Thank you for using IGFI 😁")
                     sleep(2)
                     print(f"{GREEN}[+] Hope you enjoyed it ! 😊")
                     sleep(2)
@@ -453,8 +491,8 @@ def main():
         print(f"{GREEN}[*] Acceptable answers: [yes/no]")
         sleep(1)
         ga=str(input(f"{YELLOW}[?] Do you want to grant access to the script to have access to the number of your followers in order to provide additional information ? "))
-        while ga.lower() not in ANS or ga == None or ga == '' or ga == ' ':
-            if ga == None or ga == '' or ga == ' ':
+        while ga.lower() not in ANS or ga in ['', ' ']:
+            if ga in ['', ' ']:
                 print(f"{RED}[!] This field can't be blank !")
             else:
                 print(f"{RED}[!] Invalid answer !")
@@ -465,12 +503,22 @@ def main():
         ga = True if ga.lower() == ANS[0] else False
         if ga:
             loader = instaloader.Instaloader()
+            try:
+                loader.load_session_from_file(username)
+            except FileNotFoundError:
+                print(f"{RED}[✕] Session file not found !")
+                sleep(2)
+                print(f"{GREEN}[+] Logging in...")
+                sleep(0.8)
+            if not loader.context.is_logged_in:
+                loader.interactive_login(username)
+                loader.save_session_to_file()
             profile = instaloader.Profile.from_username(loader.context, username)
             followers_bef = profile.followers
             FOLLOWERS = [follower.username for follower in profile.get_followers()]
         sleep(1)
         password=str(input(f"{YELLOW}[>] Please enter your password: "))
-        while password == None or password == '' or password == ' ':
+        while password in ['', ' ']:
             print(f"{RED}[!] This field can't be blank !")
             sleep(1)
             password=str(input(f"{YELLOW}[>] Please enter again your password: "))
@@ -479,7 +527,7 @@ def main():
         print(f"{GREEN}|---------------------------------------------|")
         client=instagrapi.Client()
         try:
-            login = client.login(username,password)
+            login = client.login(username, password)
             if login:
                 print(f"{GREEN}[✓] Login successful !")
                 sleep(2)
@@ -490,14 +538,14 @@ def main():
                 print(f"{YELLOW}[+] Please check the username and/or the password !")
                 sleep(2)
                 print(f"{YELLOW}[1] Return to menu")
-                print(f"{YELLOW}[2] Uninstall IGFollowersIncreaser and Exit")
+                print(f"{YELLOW}[2] Uninstall IGFI and Exit")
                 print(f"{YELLOW}[3] Exit")
                 num=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
                 valErr = num in [1,2,3]
                 while not valErr:
                     try:
                         print(f"{YELLOW}[1] Return to menu")
-                        print(f"{YELLOW}[2] Uninstall IGFollowersIncreaser and Exit")
+                        print(f"{YELLOW}[2] Uninstall IGFI and Exit")
                         print(f"{YELLOW}[3] Exit")
                         num=int(input(f"{YELLOW}[>] Please enter again a number (from the above ones):"))
                         valErr = num in [1,2,3]
@@ -512,7 +560,7 @@ def main():
                 elif num == 2:
                     clear()
                     print(Uninstall())
-                    print(f"{GREEN}[+] Thank you for using IGFollowersIncreaser 😁")
+                    print(f"{GREEN}[+] Thank you for using IGFI 😁")
                     sleep(2)
                     print(f"{GREEN}[+] Until we meet again 👋")
                     sleep(1)
@@ -590,10 +638,10 @@ def main():
                 sleep(2)
                 if follow - unfollow != 0:
                     print(f"{RED}[✕] Failed to unfollow: {abs(follow - unfollow)} users")
-                pers = (follow + unfollow) / float(len(FOLLOW)*2)
-                print(f"{GREEN}[+] Percentage of success: {pers}")
+                pers = round((follow + unfollow) / float(len(FOLLOW)*2))
+                print(f"{GREEN}[+] Percentage of success: {pers}%")
                 sleep(1)
-                print(f"{GREEN}[+] Percentage of fail: {float(100 - pers)}%")
+                print(f"{GREEN}[+] Percentage of fail: {100 - pers}%")
                 sleep(1)
                 if ga:
                     followers_af = profile.followers
@@ -612,48 +660,18 @@ def main():
                     sleep(2)
                 if keep:
                     name = 'log.txt'
-                    if os.path.exists(fpath(name)):
-                        f = open(name,'a')
-                        f.write("\n"+"-"*40+'\n')
-                        f.write(f"[+] Date: {str(datetime.now())}\n")
-                        f.write(f"[+] Followed: {str(follow)} users\n")
-                        f.write(f"[+] Unfollowed: {str(unfollow)} users\n")
-                        if follow - unfollow != 0:
-                            f.write(f"[✕] Failed to unfollow: {str(abs(follow - unfollow))} users\n")
-                        pers = (follow + unfollow) / float(len(FOLLOW)*2)
-                        f.write(f"[+] Percentage of success: {str(pers)}%\n")
-                        f.write(f"[+] Percentage of fail: {str(float(100 - pers))}%\n")
-                        if ga:
-                            followers_af = profile.followers
-                            f.write(f"[✓] Successfully added: {str(followers_af - followers_bef)} followers.")
-                        if check:
-                            L = [user for user in FOLLOWERS]
-                            if L != FOLLOWERS:
-                                ADDS = [user for user in L if user not in FOLLOWERS]
-                                for i, username in enumerate(ADDS):
-                                    f.write(f"[+] User No{str(i+1)} >>> {username}\n")
-                        f.close()
-                        print(f"{GREEN}[✓] Successfully saved log !")
-                        sleep(2)
-                        print(f"{GREEN}[↪] Log file name: {name}")
-                        print(f"{GREEN}[↪] Path to log file: {fpath(name)}")
-                        print(f"{GREEN}[↪] Log file size: {os.stat(fpath(name)).st_size} bytes")
-                        sleep(4)
-                    else:
-                        f = open(name,"w")
+                    with open(name, 'w', encoding='utf8') as f:
                         f.write("-"*40+'\n')
-                        f.write(f"[+] Date: {str(datetime.now())}\n")
-                        f.write(f"[+] Followed: {str(follow)} users\n")
-                        f.write(f"[+] Unfollowed: {str(unfollow)} users\n")
-                        pers = (follow + unfollow) / float(len(FOLLOW)*2)
-                        f.write(f"[+] Percentage of success: {str(pers)}%\n")
-                        f.write(f"[+] Percentage of fail: {str(float(100 - pers))}%\n")
-                        f.close()
+                        f.write(f"[+] Date: {datetime.now()}\n")
+                        f.write(f"[+] Followed: {follow} users\n")
+                        f.write(f"[+] Unfollowed: {unfollow} users\n")
+                        f.write(f"[+] Percentage of success: {(follow + unfollow) / float(len(FOLLOW)*2)}%\n")
+                        f.write(f"[+] Percentage of fail: {100 - pers}%\n")
                         print(f"{GREEN}[✓] Successfully saved log !")
                         sleep(2)
-                        print(f"{GREEN}[↪] Log file name: {name}")
-                        print(f"{GREEN}[↪] Path to log file: {fpath(name)}")
-                        print(f"{GREEN}[↪] Log file size: {os.stat(fpath(name)).st_size} bytes")
+                        print(f"{GREEN}[↪] File name >>> {name}")
+                        print(f"{GREEN}[↪] Path >>> {fpath(name)}")
+                        print(f"{GREEN}[↪] File size >>> {os.stat(fpath(name)).st_size} bytes")
                         sleep(4)
     elif option == 2:
         clear()
@@ -663,14 +681,14 @@ def main():
     elif option == 3:
         clear()
         name = 'log.txt'
-        if os.path.exists(fpath(name)):
+        if fpath(name):
             f = open(name,"w")
             f.close()
             print(f"{GREEN}[✓] Successfully cleared log !")
             sleep(1)
-            print(f"{GREEN}[↪] Log file name: {name}")
-            print(f"{GREEN}[↪] Path to log file: {fpath(name)}")
-            print(f"{GREEN}[↪] Log file size: {os.stat(fpath(name)).st_size} bytes")
+            print(f"{GREEN}[↪] File name: {name}")
+            print(f"{GREEN}[↪] Path: {fpath(name)}")
+            print(f"{GREEN}[↪] File size: {os.stat(fpath(name)).st_size} bytes")
             sleep(4)
         else:
             clear()
@@ -689,16 +707,16 @@ def main():
         clear()
         print(Uninstall())
         sleep(2)
-        print(f"{YELLOW}[+] Thank you for using IGFollowersIncreaser 😁")
+        print(f"{GREEN}[+] Thank you for using IGFI 😁")
         sleep(2)
-        print(f"{YELLOW}[+] Until we meet again 🫡")
+        print(f"{GREEN}[+] Until we meet again 🫡")
         sleep(1)
         quit(0)
     else:
         clear()
-        print(f"{YELLOW}[+] Thank you for using IGFollowersIncreaser 😁")
+        print(f"{GREEN}[+] Thank you for using IGFI 😁")
         sleep(2)
-        print(f"{YELLOW}[+] See you next time 👋")
+        print(f"{GREEN}[+] See you next time 👋")
         sleep(1)
         quit(0)
     print(f"{YELLOW}[1] Return to menu")
@@ -721,7 +739,7 @@ def main():
             main()
         else:
             clear()
-            print(f"{GREEN}[+] Thank you for using IGFollowersIncreaser 😁")
+            print(f"{GREEN}[+] Thank you for using IGFI 😁")
             sleep(2)
             print(f"{GREEN}[+] See you next time 👋")
             sleep(1)

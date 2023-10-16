@@ -1,6 +1,6 @@
-## What does V2 provides ? 🤓
+## What does V2 provide ? 🤠
 
-InstaFollowV2 (of IFv2 for short) provides many features ! Such as:
+IGFollowersIncreaser V2 provides many features ! Such as:
 - User friendly
 - High speed (10 followers every 30 seconds)
 - Reliability (for your login credentials)

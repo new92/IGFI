@@ -1,5 +1,5 @@
 ![Logo](https://user-images.githubusercontent.com/94779840/220741614-2ea1ace7-4bd7-411a-80e8-21ec40b75b4e.jpg)
-# IGFollowersIncreaser 🤖
+# IGFI 🤖
 
 With this script the user by simply logging in, can increase their followers !
 Works for both private and public accounts.
@@ -8,15 +8,15 @@ It's suggested to use it every two (2) days in order for your account not to get
 Also it provides additional information such as: the number of followers added, the percentage of success / failure etc.
 
 > If you like this repository feel free to star and/or fork it. It helps me to continue uploading these types of repositories.
-If you didn't like it and/or found a bug or you have a suggestion please feel free to contact me at anytime at <a href='mailto:new92github@gmail.com'>this email address</a>. Or create a <a href="https://github.com/new92/IGFollowersIncreaser/discussions">discussion</a>. Or open an <a href="https://github.com/new92/IGFollowersIncreaser/issues">issue</a>.
+If you didn't like it and/or found a bug or you have a suggestion please feel free to contact me at anytime at <a href='mailto:new92github@gmail.com'>this email address</a>. Or create a <a href="https://github.com/new92/IGFI/discussions">discussion</a>. Or open an <a href="https://github.com/new92/IGFI/issues">issue</a>.
 Any type of feedback is welcome and appreciated. (Please try avoiding the vulgar vocabulary)
 
 
 ## Urls 🔗
 
- - [License](https://github.com/new92/IGFollowersIncreaser/blob/main/LICENSE.md)
- - [Contributing](https://github.com/new92/IGFollowersIncreaser/blob/main/CONTRIBUTING.md)
- - [Code of conduct](https://github.com/new92/IGFollowersIncreaser/blob/main/CODE_OF_CONDUCT.md)
+ - [License](https://github.com/new92/IGFI/blob/main/LICENSE.md)
+ - [Contributing](https://github.com/new92/IGFI/blob/main/CONTRIBUTING.md)
+ - [Code of conduct](https://github.com/new92/IGFI/blob/main/CODE_OF_CONDUCT.md)
  - [You may also find interesting](https://github.com/new92?tab=repositories)
 
 
@@ -37,31 +37,31 @@ Any type of feedback is welcome and appreciated. (Please try avoiding the vulgar
 
 ## Badges 📛
 
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/9864f7f507804c81975576919a4a684a?style=for-the-badge&logo=codacy)](https://app.codacy.com/gh/new92/IGFollowersIncreaser/dashboard?style=for-the-badge&logo=codacy)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/9864f7f507804c81975576919a4a684a?style=for-the-badge&logo=codacy)](https://app.codacy.com/gh/new92/IGFI/dashboard?style=for-the-badge&logo=codacy)
 
-[![Number of files](https://img.shields.io/github/directory-file-count/new92/IGFollowersIncreaser?style=for-the-badge)](https://img.shields.io/github/directory-file-count/new92/IGFollowersIncreaser)
+[![Number of files](https://img.shields.io/github/directory-file-count/new92/IGFI?style=for-the-badge)](https://img.shields.io/github/directory-file-count/new92/IGFI)
 
-[![Code size](https://img.shields.io/github/languages/code-size/new92/IGFollowersIncreaser?style=for-the-badge)](https://img.shields.io/github/languages/code-size/new92/IGFollowersIncreaser)
+[![Code size](https://img.shields.io/github/languages/code-size/new92/IGFI?style=for-the-badge)](https://img.shields.io/github/languages/code-size/new92/IGFI)
 
 [![Followers](https://img.shields.io/github/followers/new92?style=for-the-badge)](https://img.shields.io/github/followers/new92)
 
-[![Forks](https://img.shields.io/github/forks/new92/IGFollowersIncreaser?style=for-the-badge)](https://img.shields.io/github/forks/new92/IGFollowersIncreaser)
+[![Forks](https://img.shields.io/github/forks/new92/IGFI?style=for-the-badge)](https://img.shields.io/github/forks/new92/IGFI)
 
-[![Stars](https://img.shields.io/github/stars/new92/IGFollowersIncreaser?style=for-the-badge)](https://img.shields.io/github/stars/new92/IGFollowersIncreaser)
+[![Stars](https://img.shields.io/github/stars/new92/IGFI?style=for-the-badge)](https://img.shields.io/github/stars/new92/IGFI)
 
-[![Open issues](https://img.shields.io/github/issues-raw/new92/IGFollowersIncreaser?style=for-the-badge)](https://img.shields.io/github/issues-raw/new92/IGFollowersIncreaser)
+[![Open issues](https://img.shields.io/github/issues-raw/new92/IGFI?style=for-the-badge)](https://img.shields.io/github/issues-raw/new92/IGFI)
 
-[![Closed Issues](https://img.shields.io/github/issues-closed-raw/new92/IGFollowersIncreaser?style=for-the-badge)](https://img.shields.io/github/issues-closed-raw/new92/IGFollowersIncreaser)
+[![Closed Issues](https://img.shields.io/github/issues-closed-raw/new92/IGFI?style=for-the-badge)](https://img.shields.io/github/issues-closed-raw/new92/IGFI)
 
-[![Open pull requests](https://img.shields.io/github/issues-pr-raw/new92/IGFollowersIncreaser?style=for-the-badge)](https://img.shields.io/github/issues-pr-raw/new92/IGFollowersIncreaser)
+[![Open pull requests](https://img.shields.io/github/issues-pr-raw/new92/IGFI?style=for-the-badge)](https://img.shields.io/github/issues-pr-raw/new92/IGFI)
 
-[![Closed pull requests](https://img.shields.io/github/issues-pr-closed-raw/new92/IGFollowersIncreaser?style=for-the-badge)](https://img.shields.io/github/issues-pr-closed-raw/new92/IGFollowersIncreaser)
+[![Closed pull requests](https://img.shields.io/github/issues-pr-closed-raw/new92/IGFI?style=for-the-badge)](https://img.shields.io/github/issues-pr-closed-raw/new92/IGFI)
 
-[![Discussions](https://img.shields.io/github/discussions/new92/IGFollowersIncreaser?style=for-the-badge)](https://img.shields.io/github/discussions/new92/IGFollowersIncreaser)
+[![Discussions](https://img.shields.io/github/discussions/new92/IGFI?style=for-the-badge)](https://img.shields.io/github/discussions/new92/IGFI)
 
-[![Contributors](https://img.shields.io/github/contributors/new92/IGFollowersIncreaser?style=for-the-badge)](https://img.shields.io/github/contributors/new92/IGFollowersIncreaser)
+[![Contributors](https://img.shields.io/github/contributors/new92/IGFI?style=for-the-badge)](https://img.shields.io/github/contributors/new92/IGFI)
 
-[![Language](https://img.shields.io/github/languages/top/new92/IGFollowersIncreaser?style=for-the-badge)](https://img.shields.io/github/languages/top/new92/IGFollowersIncreaser?style=for-the-badge)
+[![Language](https://img.shields.io/github/languages/top/new92/IGFI?style=for-the-badge)](https://img.shields.io/github/languages/top/new92/IGFI?style=for-the-badge)
 
 ## Contributing 🤝
 
@@ -80,14 +80,20 @@ If you have any feedback, please reach out to us at <a href="mailto:new92github@
 **Feel free to contact us anytime ! You'll get a reply within a day. Please avoid using abusive or offensive language.
 If you are reporting a bug or making a suggestion please make sure your report/suggestion is as much detailed as possible.**
 
+## Expected files 📁
+
+The files expected to be created are:
+1. `cons.txt`
+2. `log.txt`
 
 ## Features 🔜
 
 - [ ] GUI
 - [ ] Automation
-- [x] ~~Display the usernames of the followers added~~ **<a href="https://github.com/new92/IGFollowersIncreaser/tree/main/InstagramFollowers">URL</a>**
-- [x] ~~V3 script better than both versions 1 and 2~~ **<a href='https://github.com/new92/IGFollowersIncreaser/tree/main/InstagramFollowers/V3'>URL</a>**
+- [ ] Execute the script directly from terminal (using argparse)
 - [ ] V4 (this version will include the features as shown above and some extra)
+- [x] ~~Display the usernames of the followers added~~ **<a href="https://github.com/new92/IGFI/tree/main/InstagramFollowers">URL</a>**
+- [x] ~~V3 script~~ **<a href='https://github.com/new92/IGFI/tree/main/InstagramFollowers/V3'>URL</a>**
 
 ## FAQ 🤔
 
@@ -95,7 +101,7 @@ If you are reporting a bug or making a suggestion please make sure your report/s
 
 - Error while logging in ?
 
-Answer ➡️ This can be resolved by logging in to your instagram account, following the instagram instructions in order to verify that the account belongs to you and then running the script.
+Answer ➡️ This error can be resolved by simply executing the `cookies.py` script and running the script again.
 
 #### Question 2
 
@@ -107,7 +113,7 @@ Answer ➡️ You can report a bug by creating an issue or by emailing us at <a 
 
 - Is illegal to increase followers using script(s) ?
 
-Answer ➡️ No, not at all ! Because it's like asking if following and unfollowing an account is illegal. Although Instagram doesn't suggest using this technique to increase your followers.
+Answer ➡️ No, not at all! It's similar to asking if following and unfollowing an account is illegal, even though Instagram doesn't recommend using this technique to increase your followers.
 
 
 ### Question 4
@@ -117,57 +123,57 @@ Answer ➡️ No, not at all ! Because it's like asking if following and unfollo
 Answer ➡️ Only if you're using a very old version of Instagram. But the script has been tested in several accounts and none of them got blocked.
 
 
-
 ## Installation 📥
 
 ### Linux 🐧
 
 ```bash
-  sudo su
-  git clone https://github.com/new92/IGFollowersIncreaser
-  cd IGFollowersIncreaser
-  cd InstagramFollowers
-  sudo pip install -r requirements.txt
-  cd V<and the version you want to use. Example: cd V1   Available versions: 1/2/3>
-  python3 mainV<and the number of the script. Example: python3 mainV1.py>.py
+sudo su
+git clone https://github.com/new92/IGFI
+cd IGFI
+cd InstagramFollowers
+sudo pip install -r requirements.txt
+python3 cookies.py
+cd V<and the version you want to use. Example: cd V1   Available versions: 1/2/3>
+python3 mainV<and the number of the script. Example: python3 mainV1.py>.py
 ```
 
 ### Windows 🪟
 
 ```bash
-  git clone https://github.com/new92/IGFollowersIncreaser
-  cd IGFollowersIncreaser
-  cd InstagramFollowers
-  pip install -r requirements.txt
-  cd V<and the version you want to use. Example: cd V1   Available versions: 1/2/3>
-  python3 mainV<and the number of the script. Example: python3 mainV1.py>.py
+git clone https://github.com/new92/IGFI
+cd IGFI
+cd InstagramFollowers
+pip install -r requirements.txt
+python3 cookies.py
+cd V<and the version you want to use. Example: cd V1   Available versions: 1/2/3>
+python3 mainV<and the number of the script. Example: python3 mainV1.py>.py
 ```
 
 ### MacOS 🍎
 
 ```bash
-  git clone https://github.com/new92/IGFollowersIncreaser
-  cd IGFollowersIncreaser
-  cd InstagramFollowers
-  python -m pip install requirements.txt
-  cd V<and the version you want to use. Example: cd V1   Available versions: 1/2/3>
-  python mainV<and the number of the script. Example: python3 mainV1.py>.py
+git clone https://github.com/new92/IGFI
+cd IGFI
+cd InstagramFollowers
+pip install -r requirements.txt
+python3 cookies.py
+cd V<and the version you want to use. Example: cd V1   Available versions: 1/2/3>
+python3 mainV<and the number of the script. Example: python3 mainV1.py>.py
 ```
     
 ## Update 🔄️
 
 ```bash
-   cd <path_to_script>/IGFollowersIncreaser
-   git pull
+cd <path_to_script>/IGFI
+git pull
 ```
-
 
 ## License 📜
 
-[![License](https://img.shields.io/github/license/new92/IGFollowersIncreaser?style=for-the-badge)](https://github.com/new92/IGFollowersIncreaser/blob/main/LICENSE.md)
+[![License](https://img.shields.io/github/license/new92/IGFI?style=for-the-badge)](https://github.com/new92/IGFI/blob/main/LICENSE.md)
 
 
 ## Screenshots 📸
 
-**Photos of the script can be found at <a href="https://github.com/new92/IGFollowersIncreaser/tree/main/InstagramFollowers/Photos">this url</a>**
-
+**Photos of the script can be found at <a href="https://github.com/new92/IGFI/tree/main/InstagramFollowers/Photos">this url</a>**
