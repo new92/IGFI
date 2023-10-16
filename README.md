@@ -24,6 +24,51 @@ Any type of feedback is welcome and appreciated. (Please try avoiding the vulgar
 
 - [@new92](https://www.github.com/new92)
 
+## Installation 📥
+
+### Linux 🐧
+
+```bash
+sudo su
+git clone https://github.com/new92/IGFI
+cd IGFI
+cd InstagramFollowers
+sudo pip install -r requirements.txt
+python3 cookies.py
+cd V<and the version you want to use. Example: cd V1   Available versions: 1/2/3>
+python3 mainV<and the number of the script. Example: python3 mainV1.py>.py
+```
+
+### Windows 🪟
+
+```bash
+git clone https://github.com/new92/IGFI
+cd IGFI
+cd InstagramFollowers
+pip install -r requirements.txt
+python3 cookies.py
+cd V<and the version you want to use. Example: cd V1   Available versions: 1/2/3>
+python3 mainV<and the number of the script. Example: python3 mainV1.py>.py
+```
+
+### MacOS 🍎
+
+```bash
+git clone https://github.com/new92/IGFI
+cd IGFI
+cd InstagramFollowers
+pip install -r requirements.txt
+python3 cookies.py
+cd V<and the version you want to use. Example: cd V1   Available versions: 1/2/3>
+python3 mainV<and the number of the script. Example: python3 mainV1.py>.py
+```
+    
+## Update 🔄️
+
+```bash
+cd <path_to_script>/IGFI
+git pull
+```
 
 ## Tested on 🔎
 
@@ -32,7 +77,6 @@ Any type of feedback is welcome and appreciated. (Please try avoiding the vulgar
 | -> | Kali |
 | -> | | 10 |
 | -> | | 11 |
-
 
 
 ## Badges 📛
@@ -121,53 +165,6 @@ Answer ➡️ No, not at all! It's similar to asking if following and unfollowin
 - Can my account get blocked by using this script ?
 
 Answer ➡️ Only if you're using a very old version of Instagram. But the script has been tested in several accounts and none of them got blocked.
-
-
-## Installation 📥
-
-### Linux 🐧
-
-```bash
-sudo su
-git clone https://github.com/new92/IGFI
-cd IGFI
-cd InstagramFollowers
-sudo pip install -r requirements.txt
-python3 cookies.py
-cd V<and the version you want to use. Example: cd V1   Available versions: 1/2/3>
-python3 mainV<and the number of the script. Example: python3 mainV1.py>.py
-```
-
-### Windows 🪟
-
-```bash
-git clone https://github.com/new92/IGFI
-cd IGFI
-cd InstagramFollowers
-pip install -r requirements.txt
-python3 cookies.py
-cd V<and the version you want to use. Example: cd V1   Available versions: 1/2/3>
-python3 mainV<and the number of the script. Example: python3 mainV1.py>.py
-```
-
-### MacOS 🍎
-
-```bash
-git clone https://github.com/new92/IGFI
-cd IGFI
-cd InstagramFollowers
-pip install -r requirements.txt
-python3 cookies.py
-cd V<and the version you want to use. Example: cd V1   Available versions: 1/2/3>
-python3 mainV<and the number of the script. Example: python3 mainV1.py>.py
-```
-    
-## Update 🔄️
-
-```bash
-cd <path_to_script>/IGFI
-git pull
-```
 
 ## License 📜
 
