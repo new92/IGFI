@@ -57,7 +57,7 @@ python3 mainV<and the number of the script. Example: python3 mainV1.py>.py
 git clone https://github.com/new92/IGFI
 cd IGFI
 cd InstagramFollowers
-pip install -r requirements.txt
+python -m pip install -r requirements.txt
 python3 cookies.py
 cd V<and the version you want to use. Example: cd V1   Available versions: 1/2/3>
 python3 mainV<and the number of the script. Example: python3 mainV1.py>.py
