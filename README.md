@@ -133,7 +133,6 @@ The files expected to be created are:
 ## Features 🔜
 
 - [ ] GUI
-- [ ] Automation
 - [ ] Execute the script directly from terminal (using argparse)
 - [ ] V4 (this version will include the features as shown above and some extra)
 - [x] ~~Display the usernames of the followers added~~ **<a href="https://github.com/new92/IGFI/tree/main/InstagramFollowers">URL</a>**
