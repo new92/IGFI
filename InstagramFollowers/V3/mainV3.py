@@ -257,30 +257,24 @@ def main():
     if num == 1:
         clear()
         sleep(1)
-        print(f"{GREEN}[+] Acceptable answers: [yes/no]")
+        print(f"{GREEN}[+] Acceptable answers: {ANS}")
         sleep(1)
         keep=str(input(f"{YELLOW}[?] Keep log ? "))
-        while keep.lower() not in ANS or keep in ['', ' ']:
-            if keep in ['', ' ']:
-                print(f"{RED}[!] This field can't be blank !")
-            else:
-                print(f"{RED}[!] Invalid answer !")
-                sleep(1)
-                print(f"{GREEN}[+] Acceptable answers: [yes/no]")
+        while keep.lower() not in ANS:
+            print(f"{RED}[!] Invalid answer !")
+            sleep(1)
+            print(f"{GREEN}[+] Acceptable answers: {ANS}")
             sleep(1)
             keep=str(input(f"{YELLOW}[?] Keep log ? "))
         keep = True if keep.lower() == ANS[0] else False
         sleep(1)
-        print(f"{GREEN}[+] Acceptable answers: [yes/no]")
+        print(f"{GREEN}[+] Acceptable answers: {ANS}")
         sleep(2)
         check=str(input(f"{YELLOW}[?] Display the usernames of the followers added ? "))
-        while check.lower() not in ANS or check in ['', ' ']:
-            if check in ['', ' ']:
-                print(f"{RED}[!] This field can't be blank !")
-            else:
-                print(f"{RED}[!] Invalid answer !")
-                sleep(1)
-                print(f"{GREEN}[+] Acceptable answers: [yes/no]")
+        while check.lower() not in ANS:
+            print(f"{RED}[!] Invalid answer !")
+            sleep(1)
+            print(f"{GREEN}[+] Acceptable answers: {ANS}")
             check=str(input(f"{YELLOW}[?] Display the usernames of the followers added ? "))
         check = True if check.lower() == ANS[0] else False
         users = {
@@ -323,16 +317,13 @@ def main():
             'Nike' : '13460080'
         }
         NAMES = list(users.keys())
-        print(f"{GREEN}[+] Acceptable answers: [yes/no]")
+        print(f"{GREEN}[+] Acceptable answers: {ANS}")
         sleep(1)
         con=str(input(f"{YELLOW}[>] Do you consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given (Instagram) account ? "))
-        while con.lower() not in ANS or con in ['', ' ']:
-            if con in ['', ' ']:
-                print(f"{RED}[!] This field can't be blank !")
-            else:
-                print(f"{RED}[!] Invalid answer !")
-                sleep(1)
-                print(f"{GREEN}[+] Acceptable answers: [yes/no]")
+        while con.lower() not in ANS:
+            print(f"{RED}[!] Invalid answer !")
+            sleep(1)
+            print(f"{GREEN}[+] Acceptable answers: {ANS}")
             sleep(1)
             con=str(input(f"{YELLOW}[>] Do you consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given (Instagram) account ? "))
         if con.lower() == ANS[0]:
@@ -436,16 +427,13 @@ def main():
                 print(f"{GREEN}[+] See you next time 👋")
                 sleep(2)
                 quit(0)
-        print(f"{GREEN}[+] Acceptable answers: [yes/no]")
+        print(f"{GREEN}[+] Acceptable answers: {ANS}")
         sleep(1)
         con=str(input(f"{YELLOW}[?] The script will increase the followers for the user: {username} is that correct ? "))
-        while con.lower() not in ANS or con in ['', ' ']:
-            if con in ['', ' ']:
-                print(f"{RED}[!] This field can't be blank !")
-            else:
-                print(f"{RED}[!] Invalid answer !")
-                sleep(1)
-                print(f"{GREEN}[+] Acceptable answers: [yes/no]")
+        while con.lower() not in ANS:
+            print(f"{RED}[!] Invalid answer !")
+            sleep(1)
+            print(f"{GREEN}[+] Acceptable answers: {ANS}")
             sleep(1)
             con=str(input(f"[?] The script will increase the followers for the user: {username} is that correct ? "))
         if con.lower() == ANS[1]:
@@ -501,16 +489,13 @@ def main():
                     print(f"{YELLOW}[+] See you next time 👋")
                     sleep(1)
                     quit(0)
-        print(f"{GREEN}[+] Acceptable answers: [yes/no]")
+        print(f"{GREEN}[+] Acceptable answers: {ANS}")
         sleep(1)
         ga=str(input(f"{YELLOW}[?] Do you want to grant access to the script to have access to the number of your followers in order to provide additional information ? "))
-        while ga.lower() not in ANS or ga in ['', ' ']:
-            if ga in ['', ' ']:
-                print(f"{RED}[!] This field can't be blank !")
-            else:
-                print(f"{RED}[!] Invalid answer !")
-                sleep(1)
-                print(f"{YELLOW}[+] Valid answers: [yes/no]")
+        while ga.lower() not in ANS:
+            print(f"{RED}[!] Invalid answer !")
+            sleep(1)
+            print(f"{YELLOW}[+] Valid answers: [yes/no]")
             sleep(1)
             ga=str(input(f"{YELLOW}[?] Do you want to grant access to the script to have access to the number of your followers in order to provide additional information ? "))
         ga = True if ga.lower() == ANS[0] else False
