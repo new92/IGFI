@@ -562,8 +562,8 @@ def main():
                     print(f"{GREEN}[+] See you next time 👋")
                     sleep(2)
                     quit(0)
-        except Exception:
-            if Exception == 'The password you entered is incorrect. Please try again.':
+        except Exception as ex:
+            if ex == 'The password you entered is incorrect. Please try again.':
                 print(f"{RED}[!] Incorrect password !")
                 sleep(2)
                 print(f"{YELLOW}[+] Returning to menu...")
@@ -573,7 +573,7 @@ def main():
             else:
                 print(f"{RED}[!] Error !")
                 sleep(1)
-                print(f"{YELLOW}[*] Error message ==> {Exception}")
+                print(f"{YELLOW}[*] Error message ==> {ex}")
                 sleep(2)
                 print(f"{YELLOW}[1] Return to menu")
                 print(f"{YELLOW}[2] Exit")
