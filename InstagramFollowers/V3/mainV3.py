@@ -489,6 +489,8 @@ def main():
                     print(f"{YELLOW}[+] See you next time 👋")
                     sleep(1)
                     quit(0)
+        username=username.lower().strip()
+        sleep(0.6)
         print(f"{GREEN}[+] Acceptable answers: {ANS}")
         sleep(1)
         ga=str(input(f"{YELLOW}[?] Do you want to grant access to the script to have access to the number of your followers in order to provide additional information ? "))
@@ -514,7 +516,6 @@ def main():
             profile = instaloader.Profile.from_username(loader.context, username)
             followers_bef = profile.followers
             FOLLOWERS = [follower.username for follower in profile.get_followers()]
-        username=username.lower().strip()
         sleep(1)
         password=str(input(f"{YELLOW}[>] Please enter your password: "))
         while password in ['', ' ']:
@@ -526,8 +527,7 @@ def main():
         print(f"{GREEN}|---------------------------------------------|")
         client=instagrapi.Client()
         try:
-            login = client.login(username,password)
-            if login:
+            if client.login(username,password):
                 print(f"{GREEN}[✓] Login successful !")
                 sleep(1)
                 print(f"{YELLOW}[+] Please wait while the program is increasing your followers...")
