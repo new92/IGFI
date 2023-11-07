@@ -4,4 +4,3 @@ instaloader == 4.9.5
 colorama == 0.4.6
 rich == 12.6.0
 argparse == 1.4.0
-pydantic>=2.4.0 # not directly required, pinned by Snyk to avoid a vulnerability
