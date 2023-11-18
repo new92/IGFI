@@ -1,18 +1,11 @@
 # -*- coding: utf-8 -*-
 """
-Author: new92
-Github: @new92
-Leetcode: @new92
-PyPI: @new92
 
-IGFI is a python script for increasing the number of followers of an Instagram account.
+**THIS VERSION IS UNDER TESTING PROCESS.**
 
-*********IMPORTANT*********
+Small changes to the follow / unfollow process, error handling etc.
+Not tested yet so we're not changing the stable version.
 
-User's login credentials (such as: username, password) will not be stored or saved !
-Will be used only to increase the followers of the user's Instagram account
-
-***************************
 """
 
 try:
