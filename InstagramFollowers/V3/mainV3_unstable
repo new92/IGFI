@@ -7,7 +7,6 @@ Small changes to the follow / unfollow process, error handling etc.
 Not tested yet so we're not changing the stable version.
 
 """
-
 try:
     import sys
     from time import sleep
@@ -625,9 +624,9 @@ def main():
                     sleep(2)
                     print(f"{RED}[✕] Failed to unfollow {abs(res)} users !")
                     sleep(1)
-                    print(f"{GREEN}[+] Percentage of success: {suc}%")
+                    print(f"{GREEN}[+] Percentage of success >>> {suc}%")
                     sleep(1)
-                    print(f"{RED}[+] Percentage of failure: {fail}%")
+                    print(f"{RED}[+] Percentage of failure >>> {fail}%")
                     if ga:
                         followers_af = profile.followers
                         if followers_bef - followers_af != 0:
