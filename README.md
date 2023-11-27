@@ -30,7 +30,7 @@ cd InstagramFollowers
 sudo pip install -r requirements.txt
 python3 cookies.py
 cd V<and the version you want to use. Example: cd V1   Available versions: 1/2/3>
-python3 mainV<and the number of the script. Example: python3 mainV1.py>.py
+python3 igfi.py
 ```
 
 ### Windows 🪟
@@ -42,7 +42,7 @@ cd InstagramFollowers
 pip install -r requirements.txt
 python3 cookies.py
 cd V<and the version you want to use. Example: cd V1   Available versions: 1/2/3>
-python3 mainV<and the number of the script. Example: python3 mainV1.py>.py
+python3 igfi.py
 ```
 
 ### MacOS 🍎
@@ -54,7 +54,7 @@ cd InstagramFollowers
 python -m pip install -r requirements.txt
 python3 cookies.py
 cd V<and the version you want to use. Example: cd V1   Available versions: 1/2/3>
-python3 mainV<and the number of the script. Example: python3 mainV1.py>.py
+python3 igfi.py
 ```
     
 ## Update 🔄️
