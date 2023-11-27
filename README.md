@@ -1,7 +1,7 @@
 ![Logo](https://user-images.githubusercontent.com/94779840/220741614-2ea1ace7-4bd7-411a-80e8-21ec40b75b4e.jpg)
 # IGFI 🤖
 
-With this script, users can effortlessly increase their followers by simply logging in. It works seamlessly for both private and public accounts. Upon the initial use, users can gain up to 50 followers! Subsequent uses typically result in an addition of 25-30 followers. To maintain account safety, it is recommended to use the script every two (2) days to prevent potential blocking. The script also provides valuable information, including the number of followers added and the percentage of success or failure.
+With this script, users can effortlessly increase their followers by simply logging in. **It works seamlessly for both private and public accounts**. Upon the initial use, users can gain up to **50 followers**! Subsequent uses typically result in an addition of 25-30 followers. To maintain account safety, it is recommended to use the script every two (2) days to prevent potential blocking. The script also provides valuable information, including the number of followers added and the percentage of success or failure.
 
 > If you find this repository helpful, please consider giving it a star and/or forking it. Your support encourages me to keep sharing similar repositories. If you encounter any issues, have suggestions, or simply didn't like the script, feel free to contact me anytime at <a href='mailto:new92github@gmail.com'>this email address</a>, or start a <a href="https://github.com/new92/IGFI/discussions">discussion</a>, or open an <a href="https://github.com/new92/IGFI/issues">issue</a>. Any form of feedback is welcome and appreciated (please refrain from using vulgar language).
 
