@@ -1,15 +1,9 @@
 ![Logo](https://user-images.githubusercontent.com/94779840/220741614-2ea1ace7-4bd7-411a-80e8-21ec40b75b4e.jpg)
 # IGFI 🤖
 
-With this script the user by simply logging in, can increase their followers !
-Works for both private and public accounts.
-And the first time the user uses it can add up to 50 followers ! The other times it can add 25 - 30 followers.
-It's suggested to use it every two (2) days in order for your account not to get blocked.
-Also it provides additional information such as: the number of followers added, the percentage of success / failure etc.
+With this script, users can effortlessly increase their followers by simply logging in. It works seamlessly for both private and public accounts. Upon the initial use, users can gain up to 50 followers! Subsequent uses typically result in an addition of 25-30 followers. To maintain account safety, it is recommended to use the script every two (2) days to prevent potential blocking. The script also provides valuable information, including the number of followers added and the percentage of success or failure.
 
-> If you like this repository feel free to star and/or fork it. It helps me to continue uploading these types of repositories.
-If you didn't like it and/or found a bug or you have a suggestion please feel free to contact me at anytime at <a href='mailto:new92github@gmail.com'>this email address</a>. Or create a <a href="https://github.com/new92/IGFI/discussions">discussion</a>. Or open an <a href="https://github.com/new92/IGFI/issues">issue</a>.
-Any type of feedback is welcome and appreciated. (Please try avoiding the vulgar vocabulary)
+> If you find this repository helpful, please consider giving it a star and/or forking it. Your support encourages me to keep sharing similar repositories. If you encounter any issues, have suggestions, or simply didn't like the script, feel free to contact me anytime at <a href='mailto:new92github@gmail.com'>this email address</a>, or start a <a href="https://github.com/new92/IGFI/discussions">discussion</a>, or open an <a href="https://github.com/new92/IGFI/issues">issue</a>. Any form of feedback is welcome and appreciated (please refrain from using vulgar language).
 
 
 ## Urls 🔗
