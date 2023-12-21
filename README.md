@@ -1,3 +1,5 @@
+**⚠️ IGFI IS TEMPORARILY UNAVAILABLE - PLEASE DO NOT USE IT DURING THE MAINTENANCE TIME ⚠️**
+
 ![Logo](https://user-images.githubusercontent.com/94779840/220741614-2ea1ace7-4bd7-411a-80e8-21ec40b75b4e.jpg)
 # IGFI 🤖
 
