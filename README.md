@@ -77,31 +77,8 @@ git pull
 
 ## Badges 📛
 
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/9864f7f507804c81975576919a4a684a?style=for-the-badge&logo=codacy)](https://app.codacy.com/gh/new92/IGFI/dashboard?style=for-the-badge&logo=codacy)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/9864f7f507804c81975576919a4a684a?style=for-the-badge&logo=codacy)](https://app.codacy.com/gh/new92/IGFI/dashboard?style=for-the-badge&logo=codacy) [![Number of files](https://img.shields.io/github/directory-file-count/new92/IGFI?style=for-the-badge)](https://img.shields.io/github/directory-file-count/new92/IGFI) [![Code size](https://img.shields.io/github/languages/code-size/new92/IGFI?style=for-the-badge)](https://img.shields.io/github/languages/code-size/new92/IGFI) [![Followers](https://img.shields.io/github/followers/new92?style=for-the-badge)](https://img.shields.io/github/followers/new92) [![Forks](https://img.shields.io/github/forks/new92/IGFI?style=for-the-badge)](https://img.shields.io/github/forks/new92/IGFI) [![Stars](https://img.shields.io/github/stars/new92/IGFI?style=for-the-badge)](https://img.shields.io/github/stars/new92/IGFI) [![Open issues](https://img.shields.io/github/issues-raw/new92/IGFI?style=for-the-badge)](https://img.shields.io/github/issues-raw/new92/IGFI) [![Closed Issues](https://img.shields.io/github/issues-closed-raw/new92/IGFI?style=for-the-badge)](https://img.shields.io/github/issues-closed-raw/new92/IGFI) [![Open pull requests](https://img.shields.io/github/issues-pr-raw/new92/IGFI?style=for-the-badge)](https://img.shields.io/github/issues-pr-raw/new92/IGFI) [![Closed pull requests](https://img.shields.io/github/issues-pr-closed-raw/new92/IGFI?style=for-the-badge)](https://img.shields.io/github/issues-pr-closed-raw/new92/IGFI) [![Discussions](https://img.shields.io/github/discussions/new92/IGFI?style=for-the-badge)](https://img.shields.io/github/discussions/new92/IGFI) [![Contributors](https://img.shields.io/github/contributors/new92/IGFI?style=for-the-badge)](https://img.shields.io/github/contributors/new92/IGFI) [![Language](https://img.shields.io/github/languages/top/new92/IGFI?style=for-the-badge)](https://img.shields.io/github/languages/top/new92/IGFI?style=for-the-badge)
 
-[![Number of files](https://img.shields.io/github/directory-file-count/new92/IGFI?style=for-the-badge)](https://img.shields.io/github/directory-file-count/new92/IGFI)
-
-[![Code size](https://img.shields.io/github/languages/code-size/new92/IGFI?style=for-the-badge)](https://img.shields.io/github/languages/code-size/new92/IGFI)
-
-[![Followers](https://img.shields.io/github/followers/new92?style=for-the-badge)](https://img.shields.io/github/followers/new92)
-
-[![Forks](https://img.shields.io/github/forks/new92/IGFI?style=for-the-badge)](https://img.shields.io/github/forks/new92/IGFI)
-
-[![Stars](https://img.shields.io/github/stars/new92/IGFI?style=for-the-badge)](https://img.shields.io/github/stars/new92/IGFI)
-
-[![Open issues](https://img.shields.io/github/issues-raw/new92/IGFI?style=for-the-badge)](https://img.shields.io/github/issues-raw/new92/IGFI)
-
-[![Closed Issues](https://img.shields.io/github/issues-closed-raw/new92/IGFI?style=for-the-badge)](https://img.shields.io/github/issues-closed-raw/new92/IGFI)
-
-[![Open pull requests](https://img.shields.io/github/issues-pr-raw/new92/IGFI?style=for-the-badge)](https://img.shields.io/github/issues-pr-raw/new92/IGFI)
-
-[![Closed pull requests](https://img.shields.io/github/issues-pr-closed-raw/new92/IGFI?style=for-the-badge)](https://img.shields.io/github/issues-pr-closed-raw/new92/IGFI)
-
-[![Discussions](https://img.shields.io/github/discussions/new92/IGFI?style=for-the-badge)](https://img.shields.io/github/discussions/new92/IGFI)
-
-[![Contributors](https://img.shields.io/github/contributors/new92/IGFI?style=for-the-badge)](https://img.shields.io/github/contributors/new92/IGFI)
-
-[![Language](https://img.shields.io/github/languages/top/new92/IGFI?style=for-the-badge)](https://img.shields.io/github/languages/top/new92/IGFI?style=for-the-badge)
 
 ## Contributing 🤝
 
