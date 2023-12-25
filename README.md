@@ -3,7 +3,11 @@
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/9864f7f507804c81975576919a4a684a?style=for-the-badge&logo=codacy)](https://app.codacy.com/gh/new92/IGFI/dashboard?style=for-the-badge&logo=codacy) [![Number of files](https://img.shields.io/github/directory-file-count/new92/IGFI?style=for-the-badge)](https://img.shields.io/github/directory-file-count/new92/IGFI) [![Code size](https://img.shields.io/github/languages/code-size/new92/IGFI?style=for-the-badge)](https://img.shields.io/github/languages/code-size/new92/IGFI) [![Followers](https://img.shields.io/github/followers/new92?style=for-the-badge)](https://img.shields.io/github/followers/new92) [![Forks](https://img.shields.io/github/forks/new92/IGFI?style=for-the-badge)](https://img.shields.io/github/forks/new92/IGFI) [![Stars](https://img.shields.io/github/stars/new92/IGFI?style=for-the-badge)](https://img.shields.io/github/stars/new92/IGFI) [![Open issues](https://img.shields.io/github/issues-raw/new92/IGFI?style=for-the-badge)](https://img.shields.io/github/issues-raw/new92/IGFI) [![Closed Issues](https://img.shields.io/github/issues-closed-raw/new92/IGFI?style=for-the-badge)](https://img.shields.io/github/issues-closed-raw/new92/IGFI) [![Open pull requests](https://img.shields.io/github/issues-pr-raw/new92/IGFI?style=for-the-badge)](https://img.shields.io/github/issues-pr-raw/new92/IGFI) [![Closed pull requests](https://img.shields.io/github/issues-pr-closed-raw/new92/IGFI?style=for-the-badge)](https://img.shields.io/github/issues-pr-closed-raw/new92/IGFI) [![Discussions](https://img.shields.io/github/discussions/new92/IGFI?style=for-the-badge)](https://img.shields.io/github/discussions/new92/IGFI) [![Contributors](https://img.shields.io/github/contributors/new92/IGFI?style=for-the-badge)](https://img.shields.io/github/contributors/new92/IGFI) [![Language](https://img.shields.io/github/languages/top/new92/IGFI?style=for-the-badge)](https://img.shields.io/github/languages/top/new92/IGFI?style=for-the-badge)
 
+<<<<<<< HEAD
 With IGFI, you can effortlessly increase their followers by simply logging in. **It works seamlessly for both private and public accounts**. Upon the initial use, you can gain up to **50 followers**! Subsequent uses typically result in an addition of 25-30 followers. To maintain account safety, it is recommended to use the script every two (2) days to prevent potential blocking. The script also provides valuable information, including the number and the usernames of the followers added.
+=======
+With this script, users can effortlessly increase their followers by simply logging in. **It works seamlessly for both private and public accounts**. Upon the initial use, users can gain up to **50 followers**! Subsequent uses typically result in an addition of 25-30 followers. To maintain account safety, it is recommended to use the script every two (2) days to prevent potential blocking. The script also provides valuable information, including the number and the usernames of the followers added.
+>>>>>>> 8f68a9bd4697d6a86261a8d6e952fc0bb0a1e949
 
 > If you find this repository helpful, please consider giving it a star and/or forking it. Your support encourages me to keep sharing similar repositories. If you encounter any issues, have suggestions, or simply didn't like the script, feel free to contact me anytime at <a href='mailto:new92github@gmail.com'>this email address</a>, or start a <a href="https://github.com/new92/IGFI/discussions">discussion</a>, or open an <a href="https://github.com/new92/IGFI/issues">issue</a>. Any form of feedback is welcome and appreciated (please refrain from using vulgar language).
 
@@ -68,6 +72,7 @@ git pull
 | -> | | 10 |
 | -> | | 11 |
 
+<<<<<<< HEAD
 ## Expected files 📂
 
 The files expected to be created are:
@@ -87,6 +92,8 @@ The files expected to be created are:
 
 **Photos of the script can be found at <a href="https://github.com/new92/IGFI/tree/main/Photos">this url</a>**
 
+=======
+>>>>>>> 8f68a9bd4697d6a86261a8d6e952fc0bb0a1e949
 ## Contributing 🤝
 
 Contributions are always welcome !
