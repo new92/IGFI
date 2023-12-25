@@ -28,7 +28,7 @@ try:
     from rich.live import Live
     from rich.console import Console
     console = Console()
-    mods = ['sys', 'time', 'rich', 'platform', 'os', 'json', 'logging', 'instagrapi', 'requests', 'instaloader', 'datetime', 'colorama']
+    mods = ['sys', 'time', 'rich', 'platform', 'os', 'json', 'logging', 'instagrapi', 'requests', 'instaloader', 'argparse', 'colorama']
     with console.status('[bold dark_orange]Loading module...') as status:
         for mod in mods:
             sleep(0.8)
@@ -39,11 +39,11 @@ try:
     import json
     import instagrapi
     import requests
+    import argparse
     import logging
     import instaloader
-    from datetime import datetime
     from colorama import init, Fore
-except ImportError or ModuleNotFoundError:
+except (ImportError, ModuleNotFoundError):
     print("[!] WARNING: Not all packages used in IGFI have been installed !")
     sleep(2)
     print("[+] Ignoring warning...")
@@ -130,31 +130,30 @@ def fpath(fname: str):
 def ScriptInfo():
     with open('InstagramFollowers/V3/config.json') as config:
         conf = json.load(config)
-    f = 'mainV3.py'
-    fp = True if not fpath(f) == None else False
-    fsize = 0 if not fp else os.stat(fpath(f)).st_size
-    print(f"{YELLOW}[+] Author: {conf['author']}")
-    print(f"{YELLOW}[+] Github: @{conf['author']}")
-    print(f"{YELLOW}[+] Leetcode: @{conf['author']}")
-    print(f"{YELLOW}[+] PyPI: @{conf['author']}")
-    print(f"{YELLOW}[+] Contributors : {conf['contributors']}")
-    print(f"{YELLOW}[+] License: {conf['lice']}")
-    print(f"{YELLOW}[+] Natural language: {conf['lang']}")
-    print(f"{YELLOW}[+] Programming language(s) used: {conf['language']}")
-    print(f"{YELLOW}[+] Number of lines: {conf['lines']}")
-    print(f"{YELLOW}[+] Script's name: {conf['name']}")
-    print(f"{YELLOW}[+] API(s) used: {conf['api']}")
-    print(f"{YELLOW}[+] Latest update: {conf['update']}")
-    print(f"{YELLOW}[+] File size: {fsize} bytes")
-    print(f"{YELLOW}[+] File path: {fpath(f)}")
+    fsize = os.path.getsize('igfi.py') if os.path.exists('igfi.py') else 0
+    print(f"{YELLOW}[+] Author >>> {conf['author']}")
+    print(f"{YELLOW}[+] Github >>> @{conf['author']}")
+    print(f"{YELLOW}[+] Leetcode >>> @{conf['author']}")
+    print(f"{YELLOW}[+] PyPI >>> @{conf['author']}")
+    print(f"{YELLOW}[+] Contributors >>> {conf['contributors']}")
+    print(f"{YELLOW}[+] License >>> {conf['lice']}")
+    print(f"{YELLOW}[+] Natural language >>> {conf['lang']}")
+    print(f"{YELLOW}[+] Programming language(s) used >>> {conf['language']}")
+    print(f"{YELLOW}[+] Number of lines >>> {conf['lines']}")
+    print(f"{YELLOW}[+] Script's name >>> 'igfi'")
+    print(f"{YELLOW}[+] API(s) used >>> {conf['api']}")
+    print(f"{YELLOW}[+] Latest update >>> {conf['update']}")
+    print(f"{YELLOW}[+] File size >>> {fsize} bytes")
+    print(f"{YELLOW}[+] File path >>> {fpath(conf['name'])}")
     print(f"{YELLOW}|======|GITHUB REPO INFO|======|")
-    print(f"{YELLOW}[+] Stars: {conf['stars']}")
-    print(f"{YELLOW}[+] Forks: {conf['forks']}")
-    print(f"{YELLOW}[+] Open issues: {conf['issues']}")
-    print(f"{YELLOW}[+] Closed issues: {conf['clissues']}")
-    print(f"{YELLOW}[+] Open pull requests: {conf['prs']}")
-    print(f"{YELLOW}[+] Closed pull requests: {conf['clprs']}")
-    print(f"{YELLOW}[+] Discussions: {conf['discs']}")
+    print(f"{YELLOW}[+] Repo name >>> {conf['name']}")
+    print(f"{YELLOW}[+] Stars >>> {conf['stars']}")
+    print(f"{YELLOW}[+] Forks >>> {conf['forks']}")
+    print(f"{YELLOW}[+] Open issues >>> {conf['issues']}")
+    print(f"{YELLOW}[+] Closed issues >>> {conf['clissues']}")
+    print(f"{YELLOW}[+] Open pull requests >>> {conf['prs']}")
+    print(f"{YELLOW}[+] Closed pull requests >>> {conf['clprs']}")
+    print(f"{YELLOW}[+] Discussions >>> {conf['discs']}")
 
 def Uninstall() -> str:
     def rmdir(dire):
@@ -195,12 +194,12 @@ centered = Align.center(table)
 
 def banner() -> str:
     console.print("""[bold yellow]
-                                                ██╗░██████╗░███████╗██╗     ██╗░░░██╗██████╗░
-                                                ██║██╔════╝░██╔════╝██║     ██║░░░██║╚════██╗
-                                                ██║██║░░██╗░█████╗░░██║     ╚██╗░██╔╝░█████╔╝
-                                                ██║██║░░╚██╗██╔══╝░░██║     ░╚████╔╝░░╚═══██╗
-                                                ██║╚██████╔╝██║░░░░░██║     ░░╚██╔╝░░██████╔╝
-                                                ╚═╝░╚═════╝░╚═╝░░░░░╚═╝     ░░░╚═╝░░░╚═════╝░
+                        ██╗░██████╗░███████╗██╗
+                        ██║██╔════╝░██╔════╝██║
+                        ██║██║░░██╗░█████╗░░██║
+                        ██║██║░░╚██╗██╔══╝░░██║
+                        ██║╚██████╔╝██║░░░░░██║
+                        ╚═╝░╚═════╝░╚═╝░░░░░╚═╝
 [/]""")
 ANS = ["yes","no"]
 
@@ -320,7 +319,7 @@ def main():
             con=str(input(f"{YELLOW}[>] Do you consent that the author (new92) has no responsibility for any loss or damage may the script cause to the given (Instagram) account ? "))
         if con.lower() == ANS[0]:
             logging.basicConfig(
-                filename='cons.txt',
+                filename='consent.txt',
                 level=logging.INFO,
                 format='%(asctime)s [%(levelname)s]: %(message)s',
                 datefmt='%Y-%m-%d %H:%M:%S'
@@ -839,4 +838,11 @@ def main():
 if __name__ == '__main__':
     sleep(2)
     clear()
+    if len(sys.argv) == 1:
+        print(f"{GREEN}[+] Usage >>> python3 igfi.py -u <username> -f <session_file>")
+        quit(0)
+    parser = argparse.ArgumentParser(description='IGFI is the best tool for increasing followers on Instagram.')
+    parser.add_argument('-u', '--username', help='The username to increase their followers.')
+    parser.add_argument('-f', '--sessionfile', help='The session file to use. Enter None if file does not exist.')
+    args = parser.parse_args()
     main()
