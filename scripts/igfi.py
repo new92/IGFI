@@ -394,9 +394,9 @@ def main(username: str, sessionfile: str):
         if not loader.context.is_logged_in:
             loader.interactive_login(username)
             loader.save_session_to_file()
-            profile = instaloader.Profile.from_username(loader.context, username)
-            followers_bef = profile.followers
-            FOLLOWERS = [follower.username for follower in profile.get_followers()]
+        profile = instaloader.Profile.from_username(loader.context, username)
+        followers_bef = profile.followers
+        FOLLOWERS = [follower.username for follower in profile.get_followers()]
         client=instagrapi.Client()
         print(f"{GREEN}[✓] Login successful !")
         sleep(1)
