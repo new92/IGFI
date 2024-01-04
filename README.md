@@ -79,7 +79,7 @@ git pull
 
 ## Screenshots 📸
 
-**Photos of the script can be found at <a href="https://github.com/new92/IGFI/tree/main/Photos">this url</a>**
+**Photos of the script can be found at <a href="https://github.com/new92/IGFI/tree/main/photos">this url</a>**
 
 ## Contributing 🤝
 
