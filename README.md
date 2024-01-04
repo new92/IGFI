@@ -1,5 +1,3 @@
-# ⚠️🚨 IGFI is currently undergoing maintenance. Please refrain from using it during this period. 🚨⚠️
-
 ![Logo](https://user-images.githubusercontent.com/94779840/220741614-2ea1ace7-4bd7-411a-80e8-21ec40b75b4e.jpg)
 # IGFI 🤖
 
@@ -32,7 +30,7 @@ git clone https://github.com/new92/IGFI
 cd IGFI
 sudo pip install -r ./files/requirements.txt
 python3 ./scripts/cookies.py
-python3 ./scripts/igfi.py -u <username> -f <session_file>
+python3 ./scripts/igfi.py -u <username> -p <password> --session <session_file>
 ```
 
 ### Windows 🪟
@@ -42,7 +40,7 @@ git clone https://github.com/new92/IGFI
 cd IGFI
 pip install -r /files/requirements.txt
 python3 ./scripts/cookies.py
-python3 ./scripts/igfi.py -u <username> -f <session_file>
+python3 ./scripts/igfi.py -u <username> -p <password> --session <session_file>
 ```
 
 ### MacOS 🍎
@@ -52,7 +50,7 @@ git clone https://github.com/new92/IGFI
 cd IGFI
 python -m pip install -r ./files/requirements.txt
 python3 ./scripts/cookies.py
-python3 ./scripts/igfi.py -u <username> -f <session_file>
+python3 ./scripts/igfi.py -u <username> -p <password> --session <session_file>
 ```
     
 ## Update 🔄️
@@ -69,11 +67,6 @@ git pull
 | -> | Kali |
 | -> | | 10 |
 | -> | | 11 |
-
-## Expected files 📂
-
-The files expected to be created are:
-1. `log.txt`
 
 ## Features 🚀
 
