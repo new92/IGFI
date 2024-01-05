@@ -38,7 +38,7 @@ python3 ./scripts/igfi.py -u <username> -p <password> --session <session_file>
 ```bash
 git clone https://github.com/new92/IGFI
 cd IGFI
-pip install -r /files/requirements.txt
+pip install -r ./files/requirements.txt
 python3 ./scripts/cookies.py
 python3 ./scripts/igfi.py -u <username> -p <password> --session <session_file>
 ```
