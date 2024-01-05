@@ -31,6 +31,8 @@ try:
         print("[+] Exiting...")
         sleep(0.5)
         quit(0)
+    import platform
+    from os import system
     from rich.align import Align
     from rich.table import Table
     from rich.live import Live
@@ -41,8 +43,6 @@ try:
         for mod in mods:
             sleep(0.8)
             console.log(f'[[bold red]{mod}[/]] => [bold dark_green]ok')
-    import platform
-    from os import system
     import os
     import json
     import instagrapi
@@ -245,13 +245,13 @@ def main(username: str, password: str, session: str):
             num=int(input(f"{YELLOW}[>] Please enter again a number (from the above ones): "))
             valErr = num in [1,2,3,4,5]
         except ValueError:
-            print(f"{RED}[!] Please enter a valid number.")
-            sleep(1)
+            print(f"{RED}[x] Invalid number")
+            sleep(0.5)
             print(f"{GREEN}[+] Acceptable numbers >>> [1-5]")
             sleep(1)
     if num == 1:
         clear()
-        sleep(1)
+        sleep(0.9)
         print(f"{GREEN}[+] Acceptable answers >>> {ANS}")
         sleep(1)
         keep=str(input(f"{YELLOW}[?] Keep log ? "))
@@ -262,9 +262,9 @@ def main(username: str, password: str, session: str):
             sleep(1)
             keep=str(input(f"{YELLOW}[?] Keep log ? "))
         keep = keep.lower() == ANS[0]
-        sleep(1)
+        sleep(0.9)
         print(f"{GREEN}[+] Acceptable answers >>> {ANS}")
-        sleep(2)
+        sleep(1)
         check=str(input(f"{YELLOW}[?] Display the usernames of the followers added ? "))
         while check.lower() not in ANS:
             print(f"{RED}[x] Invalid answer !")
