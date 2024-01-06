@@ -685,4 +685,4 @@ if __name__ == '__main__':
     parser.add_argument('-p', '--password', help='The password of your instagram account.')
     parser.add_argument('--session', help='The session file to use. To generate it: python3 ./scripts/cookies.py')
     args = parser.parse_args()
-    main(username=str(args.username).strip().lower(), password=str(args.password).strip(), session=str(args.session).replace('\\', '/')) if args.session is not None else main(username=str(args.username).strip().lower(), password=str(args.password).strip(), session='')
+    main(username=str(args.username).strip().lower(), password=str(args.password).strip(), session=str(args.session).replace('\\', '/'))
