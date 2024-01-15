@@ -131,7 +131,7 @@ console.clear()
 def ScriptInfo():
     with open('./files/config.json') as config:
         conf = json.load(config)
-    fsize = os.stat('./scripts/igfi.py').st_size if os.path.exists('igfi.py') else 0
+    fsize = os.stat(__file__).st_size
     print(f"{YELLOW}[+] Author >>> {conf['author']}")
     print(f"{YELLOW}[+] Github >>> @{conf['author']}")
     print(f"{YELLOW}[+] Leetcode >>> @{conf['author']}")
