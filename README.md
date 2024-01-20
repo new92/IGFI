@@ -22,7 +22,7 @@ With IGFI, you can effortlessly increase their followers by simply logging in. *
 
 ## Installation 📥
 
-### Linux 🐧
+### <a href="https://en.wikipedia.org/wiki/Linux">Linux</a>
 
 ```bash
 sudo su
