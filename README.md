@@ -24,8 +24,6 @@ With IGFI, you can effortlessly increase their followers by simply logging in. *
 
 ### Linux 🐧
 
-)](https://wikipedia.org/wiki/Linux)
-
 ```bash
 sudo su
 git clone https://github.com/new92/IGFI
@@ -36,7 +34,6 @@ python3 ./scripts/igfi.py -u <username> -p <password> --session <session_file>
 ```
 
 ### Windows 🪟
-
 
 ```bash
 git clone https://github.com/new92/IGFI
