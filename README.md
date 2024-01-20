@@ -22,7 +22,8 @@ With IGFI, you can effortlessly increase their followers by simply logging in. *
 
 ## Installation 📥
 
-### <a href="https://en.wikipedia.org/wiki/Linux">Linux</a>
+### [Linux](https://wikipedia.org/wiki/Linux) [![alt tag](![linux](https://github.com/new92/IGFI/assets/94779840/ff06274b-f1f7-4c63-aa87-b03c2067fdb1)](https://wikipedia.org/wiki/Linux)
+)](https://wikipedia.org/wiki/Linux)
 
 ```bash
 sudo su
@@ -33,7 +34,8 @@ python3 ./scripts/cookies.py
 python3 ./scripts/igfi.py -u <username> -p <password> --session <session_file>
 ```
 
-### Windows 🪟
+### [Windows](https://en.wikipedia.org/wiki/Microsoft_Windows) [![alt tag]![windows](https://github.com/new92/IGFI/assets/94779840/3ca674c6-a35f-4d1a-a39b-4589cf11347a)](https://en.wikipedia.org/wiki/Microsoft_Windows)
+
 
 ```bash
 git clone https://github.com/new92/IGFI
@@ -43,7 +45,7 @@ python3 ./scripts/cookies.py
 python3 ./scripts/igfi.py -u <username> -p <password> --session <session_file>
 ```
 
-### MacOS 🍎
+### [MacOS](https://en.wikipedia.org/wiki/MacOS) [![alt tag]![macos](https://github.com/new92/IGFI/assets/94779840/dd36b4f4-d79f-4dab-9c08-465baa22b589)](https://en.wikipedia.org/wiki/MacOS)
 
 ```bash
 git clone https://github.com/new92/IGFI
