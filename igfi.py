@@ -30,7 +30,7 @@ try:
         sleep(1.2)
         print("[+] Exiting...")
         sleep(0.8)
-        quit()
+        quit(0)
     import platform
     from os import system
     from rich.align import Align
