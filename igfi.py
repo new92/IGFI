@@ -30,7 +30,7 @@ try:
         sleep(1.2)
         print("[+] Exiting...")
         sleep(0.8)
-        quit()
+        quit(0)
     import platform
     from os import system
     from rich.align import Align
@@ -93,34 +93,42 @@ console.print("[bold dark_green][✔] Successfully loaded modules.")
 sleep(1.1)
 console.clear()
 
+headers = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36'
+}
+js = ''
+resp = requests.get('https://api.github.com/repos/new92/IGFI', headers=headers)
+if resp.status_code == 200:
+    js = resp.json()
+
 def ScriptInfo():
-    with open('./files/config.json') as config:
-        conf = json.load(config)
+    rest = requests.get('https://api.github.com/repos/new92/IGFI/contributors', headers=headers)
+    contribs = []
+    if rest.status_code == 200:
+        jsn = rest.json()
+        contribs = [jsn[i]['login'] for i in range(len(jsn))]
+    lang = requests.get('https://api.github.com/repos/new92/IGFI/languages', headers=headers)
+    languages = list(lang.json().keys()) if lang.status_code == 200 else []
     fsize = os.stat(__file__).st_size
-    print(f"{YELLOW}[+] Author >>> {conf['author']}")
-    print(f"{YELLOW}[+] Github >>> @{conf['author']}")
-    print(f"{YELLOW}[+] Leetcode >>> @{conf['author']}")
-    print(f"{YELLOW}[+] PyPI >>> @{conf['author']}")
-    print(f"{YELLOW}[+] Contributors >>> {conf['contributors']}")
-    print(f"{YELLOW}[+] License >>> {conf['lice']}")
-    print(f"{YELLOW}[+] Natural language >>> {conf['lang']}")
-    print(f"{YELLOW}[+] Programming language(s) used >>> {conf['language']}")
-    print(f"{YELLOW}[+] Number of lines >>> {conf['lines']}")
-    print(f"{YELLOW}[+] Script's name >>> 'igfi'")
-    print(f"{YELLOW}[+] API(s) used >>> {conf['api']}")
-    print(f"{YELLOW}[+] Latest update >>> {conf['update']}")
-    print(f"{YELLOW}[+] File size >>> {fsize} bytes")
-    print(f"{YELLOW}[+] File path >>> {fpath(conf['name'])}")
+    print(f"{YELLOW}[+] Author | {js['owner']['login']}")
+    print(f"{YELLOW}[+] Github | @{js['owner']['login']}")
+    print(f"{YELLOW}[+] Leetcode | @{js['owner']['login']}")
+    print(f"{YELLOW}[+] PyPI | @{js['owner']['login']}")
+    print(f"{YELLOW}[+] Contributors | {contribs}")
+    print(f"{YELLOW}[+] License | {js['license']['spdx_id']}")
+    print(f"{YELLOW}[+] Programming language(s) used | {languages}")
+    print(f"{YELLOW}[+] Script's name | {js['name']}")
+    print(f"{YELLOW}[+] Latest update | {js['updated_at']}")
+    print(f"{YELLOW}[+] File size | {fsize} bytes")
+    print(f"{YELLOW}[+] File path | {os.path.abspath(__file__)}")
     print(f"{YELLOW}|======|GITHUB REPO INFO|======|")
-    print(f"{YELLOW}[+] Repo name >>> {conf['name']}")
-    print(f"{YELLOW}[+] Repo URL >>> {conf['url']}")
-    print(f"{YELLOW}[+] Stars >>> {conf['stars']}")
-    print(f"{YELLOW}[+] Forks >>> {conf['forks']}")
-    print(f"{YELLOW}[+] Open issues >>> {conf['issues']}")
-    print(f"{YELLOW}[+] Closed issues >>> {conf['clissues']}")
-    print(f"{YELLOW}[+] Open pull requests >>> {conf['prs']}")
-    print(f"{YELLOW}[+] Closed pull requests >>> {conf['clprs']}")
-    print(f"{YELLOW}[+] Discussions >>> {conf['discs']}")
+    print(f"{YELLOW}[+] Repo name | {js['name']}")
+    print(f"{YELLOW}[+] Description | {js['description']}")
+    print(f"{YELLOW}[+] Repo URL | {js['html_url']}")
+    print(f"{YELLOW}[+] Stars | {js['stargazers_count']}")
+    print(f"{YELLOW}[+] Forks | {js['forks']}")
+    print(f"{YELLOW}[+] Watchers | {js['subscribers_count']}")
+    print(f"{YELLOW}[+] Open issues | {js['open_issues_count']}")
 
 def fpath(fname: str):
     for root, dirs, files in os.walk('/'):
@@ -166,13 +174,13 @@ centered = Align.center(table)
 
 def banner() -> str:
     console.print("""[bold yellow]
-                    ██╗░██████╗░███████╗██╗
-                    ██║██╔════╝░██╔════╝██║
-                    ██║██║░░██╗░█████╗░░██║
-                    ██║██║░░╚██╗██╔══╝░░██║
-                    ██║╚██████╔╝██║░░░░░██║
-                    ╚═╝░╚═════╝░╚═╝░░░░░╚═╝
-[/]""")
+██╗░██████╗░███████╗██╗
+██║██╔════╝░██╔════╝██║
+██║██║░░██╗░█████╗░░██║
+██║██║░░╚██╗██╔══╝░░██║
+██║╚██████╔╝██║░░░░░██║
+╚═╝░╚═════╝░╚═╝░░░░░╚═╝
+[/]""", justify='center')
 
 def nums():
     console.print("[bold yellow][1] Increase followers[/]")
@@ -196,7 +204,7 @@ def main(username: str, password: str, session: str):
         for row in TABLE:
             table.add_row(*row)
     print("\n")
-    console.print("[bold yellow][+] IGFI is a python script for increasing the number of followers of an Instagram account.")
+    console.print(f"[bold yellow][+] {js['description']}" if js else 'IGFI is a python script for increasing the number of followers of an Instagram account.')
     print("\n")
     nums()
     print("\n")
@@ -614,12 +622,18 @@ def main(username: str, password: str, session: str):
 if __name__ == '__main__':
     sleep(2)
     clear()
-    if len(sys.argv) == 1:
-        print(f"{GREEN}[+] Usage >>> python3 igfi.py -u <username> -p <password>")
-        quit(0)
     parser = argparse.ArgumentParser(description='IGFI is the best tool for increasing followers on Instagram.')
     parser.add_argument('-u', '--username', help='The username to increase their followers.')
     parser.add_argument('-p', '--password', help='The password of your instagram account.')
     parser.add_argument('--session', help='The session file to use. To generate it: python3 cookies.py')
     args = parser.parse_args()
-    main(username=str(args.username).strip().lower(), password=str(args.password).strip(), session=str(args.session).replace('\\', '/'))
+    if len(sys.argv) < 3:
+        print(f"{RED}[x] Error: Missing arguments.")
+        sleep(0.7)
+        print(f"{GREEN}[+] Usage >>> python3 igfi.py -u <username> -p <password> --session <session_file>")
+        sleep(1.5)
+        username=input(f"{YELLOW}[::] Please enter your username >>> ")
+        password=input(f"{YELLOW}[::] Please enter your password >>> ")
+        session=input(f"{YELLOW}[::] Please enter the session file (if created else hit <Enter>) >>> ")
+        args.username, args.password, args.session = username, password, session
+    main(username=args.username.strip().lower(), password=args.password.strip(), session=args.session.replace('\\', '/'))
