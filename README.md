@@ -16,7 +16,7 @@ With IGFI, you can effortlessly increase their followers by simply logging in. *
  - [You may also find interesting](https://github.com/new92?tab=repositories)
 
 
-## Authors ✍️
+## Author ✍️
 
 - [@new92](https://www.github.com/new92)
 
