@@ -19,7 +19,7 @@ try:
     import sys
     from time import sleep
     if sys.version_info[0] < 3:
-        print("[x] Error ! IGFI requires Python 3 ! ")
+        print("[✘] Error ! IGFI requires Python 3 ! ")
         sleep(1.3)
         print("""[+] Instructions to download Python 3: 
         Linux: apt install python3
@@ -59,24 +59,24 @@ except (ImportError, ModuleNotFoundError):
     sleep(1)
     if sys.platform.startswith('linux') or sys.platform == 'darwin':
         if os.geteuid():
-            print("[x] Root user not detected !")
+            print("[✘] Root user not detected !")
             sleep(2)
             print("[+] Attempting to enable root user...")
             sleep(1)
             os.execvp("sudo", ["sudo", sys.executable] + sys.argv)
-            print("[✓] Done.")
+            print("[✔] Done.")
             sleep(0.6)
             print("[+] Loading required modules...")
             sleep(0.4)
         system("sudo pip install -r ./files/requirements.txt" if sys.platform.startswith('linux') else "python -m pip install requirements.txt")
     elif platform.system() == 'Windows':
         if not ctypes.windll.shell32.IsUserAnAdmin():
-            print("[x] Root user not detected !")
+            print("[✘] Root user not detected !")
             sleep(2)
             print("[+] Attempting to enable root user...")
             sleep(1)
             ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, " ".join(sys.argv), None, 1)
-            print("[✓] Done.")
+            print("[✔] Done.")
             sleep(0.6)
             print("[+] Loading required modules...")
             sleep(0.4)
@@ -89,7 +89,7 @@ YELLOW = Fore.YELLOW
 
 sleep(0.8)
 console.clear()
-console.print("[bold dark_green][✓] Successfully loaded modules.")
+console.print("[bold dark_green][✔] Successfully loaded modules.")
 sleep(1.1)
 console.clear()
 
@@ -139,7 +139,7 @@ def Uninstall() -> str:
             os.rmdir(DIRS[i])
         os.rmdir(dire)
     rmdir(fpath('IGFI'))
-    return f"{GREEN}[✓] Files and dependencies uninstalled successfully !"
+    return f"{GREEN}[✔] Files and dependencies uninstalled successfully !"
 
 TABLE = [
     [
@@ -200,16 +200,16 @@ def main(username: str, password: str, session: str):
     print("\n")
     nums()
     print("\n")
-    num=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
+    num=int(input(f"{YELLOW}[>] Please enter a number (from the above ones) >>> "))
     valErr = num in [1,2,3,4,5]
     while not valErr:
         try:
             nums()
             sleep(1)
-            num=int(input(f"{YELLOW}[>] Please enter again a number (from the above ones): "))
+            num=int(input(f"{YELLOW}[>] Please enter again a number (from the above ones) >>> "))
             valErr = num in [1,2,3,4,5]
         except ValueError:
-            print(f"{RED}[x] Invalid number")
+            print(f"{RED}[✘] Invalid number")
             sleep(0.5)
             print(f"{GREEN}[+] Acceptable numbers >>> [1-5]")
             sleep(1)
@@ -281,13 +281,13 @@ def main(username: str, password: str, session: str):
                 sleep(1)
                 print(f"{YELLOW}[1] Exit")
                 print(f"{YELLOW}[2] Uninstall IGFI and exit")
-                num=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
+                num=int(input(f"{YELLOW}[>] Please enter a number (from the above ones) >>> "))
                 valErr = num in [1,2]
                 while not valErr:
                     try:
                         print(f"{YELLOW}[1] Exit")
                         print(f"{YELLOW}[2] Uninstall IGFI and exit")
-                        num=int(input(f"{YELLOW}[>] Please enter again a number (from the above ones): "))
+                        num=int(input(f"{YELLOW}[>] Please enter again a number (from the above ones) >>> "))
                         valErr = num in [1,2]
                     except ValueError:
                         print(f"{RED}[!] Please enter a valid number.")
@@ -309,7 +309,7 @@ def main(username: str, password: str, session: str):
                     sleep(1)
                     print(f"{GREEN}[+] Thank you for choosing to use IGFI 😁")
                     sleep(2)
-                    print(f"{GREEN}[+] If you have any suggestions or found a bug or need help feel free to contact me anytime, at this email address: new92github@gmail.com")
+                    print(f"{GREEN}[+] If you have any suggestions or found a bug or need help feel free to contact me, at this email address: new92github@gmail.com")
                     sleep(2)
                     quit(0)
         sleep(1)
@@ -323,7 +323,7 @@ def main(username: str, password: str, session: str):
             try:
                 loader.load_session_from_file(username)
             except FileNotFoundError:
-                print(f"{RED}[x] Session file not found !")
+                print(f"{RED}[✘] Session file not found !")
                 sleep(0.8)
                 print(f"{GREEN}[+] Logging in...")
                 sleep(0.8)
@@ -338,10 +338,10 @@ def main(username: str, password: str, session: str):
         followers_bef = profile.followers
         FOLLOWERS = [follower.username for follower in profile.get_followers()]
         if login:
-            print(f"{GREEN}[✓] Login successful !")
+            print(f"{GREEN}[✔] Login successful !")
             sleep(0.5)
         else:
-            print(f"{RED}[x] Failed to login.")
+            print(f"{RED}[✘] Failed to login.")
             sleep(0.7)
             print(f"{YELLOW}[1] Try with different combinations of usernames / passwords.")
             print(f"{YELLOW}[2] Exit")
@@ -349,10 +349,10 @@ def main(username: str, password: str, session: str):
             if num == 1:
                 print(f"{YELLOW}[*] To quit the loop enter: <quit> in the username input.")
                 sleep(0.9)
-                while username != '<quit>':
+                while username != 'quit':
                     username=input(f"{YELLOW}[::] New username >>> ")
                     while checkUser(username):
-                        print(f"{RED}[x] Invalid username !")
+                        print(f"{RED}[✘] Invalid username !")
                         sleep(0.5)
                         username=input(f"{YELLOW}[::] New username >>> ")
                     sleep(0.8)
@@ -360,11 +360,11 @@ def main(username: str, password: str, session: str):
                     login = client.login(username, password)
                     if login:
                         user = username
-                        print(f"{GREEN}[✓] Login successful !")
+                        print(f"{GREEN}[✔] Login successful !")
                         username = '<quit>'
                         sleep(0.5)
                     else:
-                        print(f"{RED}[x] Failed to login.")
+                        print(f"{RED}[✘] Failed to login.")
                         sleep(0.7)
                         print(f"{GREEN}[+] Retrying...")
                         sleep(0.5)
@@ -390,7 +390,7 @@ def main(username: str, password: str, session: str):
                     print(f"{YELLOW}[+] Following {NAMES[j]}...")
                     sleep(2)
                     f += 1
-                    print(f"{GREEN}[✓] Ok")
+                    print(f"{GREEN}[✔] Ok")
                     sleep(0.5)
                 for j in range(len(NAMES)):
                     client.user_unfollow(users[NAMES[j]])
@@ -398,7 +398,7 @@ def main(username: str, password: str, session: str):
                     sleep(1.5)
                     x += 1
                     sleep(0.5)
-                    print(f"{GREEN}[✓] Ok")
+                    print(f"{GREEN}[✔] Ok")
                     sleep(1.5)
             except KeyboardInterrupt:
                 res = f - x
@@ -406,9 +406,9 @@ def main(username: str, password: str, session: str):
                     suc = f / float(len(NAMES))
                     fail = res / float(len(NAMES))
                     tot = f + x
-                    print(f"{GREEN}[✓] Successfully followed/unfollowed a total of {tot} users")
+                    print(f"{GREEN}[✔] Successfully followed/unfollowed a total of {tot} users")
                     sleep(2)
-                    print(f"{RED}[x] Failed to unfollow {abs(res)} users !")
+                    print(f"{RED}[✘] Failed to unfollow {abs(res)} users !")
                     sleep(1)
                     print(f"{GREEN}[+] Percentage of success >>> {suc}%")
                     sleep(1)
@@ -417,7 +417,7 @@ def main(username: str, password: str, session: str):
                         followers_af = profile.followers
                         if followers_bef - followers_af != 0:
                             followers_af = profile.followers
-                            print(f"{GREEN}[✓] Successfully added >>> {followers_af - followers_bef} followers.")
+                            print(f"{GREEN}[✔] Successfully added >>> {followers_af - followers_bef} followers.")
                             sleep(1)
                     if check:
                         print(f"{RED}[!] WARNING: The data provided may be incorrect if your account is private and you haven't approved the follow requests")
@@ -426,7 +426,7 @@ def main(username: str, password: str, session: str):
                         if ADDS == FOLLOWERS:
                             print(f"{RED}[!] No new followers added ! If your account is private try checking the pending follow requests.")
                         else:
-                            print(f"{GREEN}[✓] Found >>> {len(ADDS) - len(FOLLOWERS)} new followers.")
+                            print(f"{GREEN}[✔] Found >>> {len(ADDS) - len(FOLLOWERS)} new followers.")
                             sleep(0.7)
                             for i, username in enumerate(ADDS):
                                 print(f"{YELLOW}[+] User No{i+1} >>> {username}")
@@ -445,26 +445,26 @@ def main(username: str, password: str, session: str):
                     name = './files/log.txt'
                     with open(name, 'w', encoding='utf8') as f:
                         if res != 0:
-                            f.write(f'[✓] Successfully followed/unfollowed a total of {tot} users\n')
-                            f.write(f'[x] Failed to unfollow {abs(res)} users !\n')
+                            f.write(f'[✔] Successfully followed/unfollowed a total of {tot} users\n')
+                            f.write(f'[✘] Failed to unfollow {abs(res)} users !\n')
                             f.write(f'[+] Percentage of success >>> {suc}%\n')
                             f.write(f'[+] Percentage of failure >>> {fail}%\n')
                             if ga:
                                 followers_af = profile.followers
                                 if followers_bef - followers_af != 0:
                                     followers_af = profile.followers
-                                    f.write(f'[✓] Successfully added >>> {followers_af - followers_bef} followers.\n')
+                                    f.write(f'[✔] Successfully added >>> {followers_af - followers_bef} followers.\n')
                             if check:
                                 ADDS = [follower.username for follower in profile.get_followers()]
                                 if ADDS != FOLLOWERS:
-                                    print(f"{GREEN}[✓] Found >>> {len(ADDS) - len(FOLLOWERS)} new followers.")
+                                    print(f"{GREEN}[✔] Found >>> {len(ADDS) - len(FOLLOWERS)} new followers.")
                                     sleep(0.7)
                                     for i, username in enumerate(ADDS):
                                         f.write(f"[+] User No{i+1} >>> {username}\n")
                         else:
                             f.write('[+] Percentage of success >>> 100%\n')
                             f.write(f'[+] Percentage of failure >>> {res}%')
-                    print(f"{GREEN}[✓] Successfully saved log !")
+                    print(f"{GREEN}[✔] Successfully saved log !")
                     sleep(2)
                     print(f"{GREEN}[↪] File name >>> log.txt")
                     print(f"{GREEN}[↪] Path >>> {name}")
@@ -475,9 +475,9 @@ def main(username: str, password: str, session: str):
             suc = round(f / float(len(NAMES)))
             fail = round(res / float(len(NAMES)))
             tot = f + x
-            print(f"{GREEN}[✓] Successfully followed/unfollowed a total of {tot} users")
+            print(f"{GREEN}[✔] Successfully followed/unfollowed a total of {tot} users")
             sleep(2)
-            print(f"{RED}[x] Failed to unfollow {abs(res)} users !")
+            print(f"{RED}[✘] Failed to unfollow {abs(res)} users !")
             sleep(2)
             print(f"{GREEN}[+] Percentage of success >>> {suc}%")
             sleep(1)
@@ -487,16 +487,16 @@ def main(username: str, password: str, session: str):
                 followers_af = profile.followers
                 if followers_bef - followers_af != 0:
                     followers_af = profile.followers
-                    print(f"{GREEN}[✓] Successfully added >>> {followers_af - followers_bef} followers.")
+                    print(f"{GREEN}[✔] Successfully added >>> {followers_af - followers_bef} followers.")
                     sleep(1)
             if check:
                 print(f"{RED}[!] WARNING: The data provided may be incorrect if your account is private and you haven't approved the follow requests.")
                 sleep(1.5)
                 ADDS = [follower.username for follower in profile.get_followers()]
                 if ADDS == FOLLOWERS:
-                    print(f"{RED}[x] No new followers added ! Try checking the pending follow requests and try again.")
+                    print(f"{RED}[✘] No new followers added ! Try checking the pending follow requests and try again.")
                 else:
-                    print(f"{GREEN}[✓] Found >>> {len(ADDS) - len(FOLLOWERS)} new followers.")
+                    print(f"{GREEN}[✔] Found >>> {len(ADDS) - len(FOLLOWERS)} new followers.")
                     sleep(0.7)
                     for i, username in enumerate(ADDS):
                         print(f"{YELLOW}[+] User No{i+1} >>> {username}")
@@ -516,19 +516,19 @@ def main(username: str, password: str, session: str):
             name = './files/log.txt'
             with open(name, 'w', encoding='utf8') as f:
                 if res != 0:
-                    f.write(f'[✓] Successfully followed/unfollowed a total of {tot} users\n')
-                    f.write(f'[x] Failed to unfollow {abs(res)} users !\n')
+                    f.write(f'[✔] Successfully followed/unfollowed a total of {tot} users\n')
+                    f.write(f'[✘] Failed to unfollow {abs(res)} users !\n')
                     f.write(f'[+] Percentage of success >>> {suc}%\n')
                     f.write(f'[+] Percentage of failure >>> {fail}%\n')
                     if ga:
                         followers_af = profile.followers
                         if followers_bef - followers_af != 0:
                             followers_af = profile.followers
-                            f.write(f'[✓] Successfully added >>> {followers_af - followers_bef} followers.\n')
+                            f.write(f'[✔] Successfully added >>> {followers_af - followers_bef} followers.\n')
                     if check:
                         ADDS = [follower.username for follower in profile.get_followers()]
                         if ADDS != FOLLOWERS:
-                            print(f"{GREEN}[✓] Found >>> {len(ADDS) - len(FOLLOWERS)} new followers.")
+                            print(f"{GREEN}[✔] Found >>> {len(ADDS) - len(FOLLOWERS)} new followers.")
                             sleep(0.7)
                             for i, username in enumerate(ADDS):
                                 f.write(f"[+] User No{i+1} >>> {username}\n")
@@ -536,7 +536,7 @@ def main(username: str, password: str, session: str):
                     f.write('[+] Percentage of success >>> 100%\n')
                     f.write(f'[+] Percentage of failure >>> {res}%')
             sleep(0.6)
-            print(f"{GREEN}[✓] Successfully saved log !")
+            print(f"{GREEN}[✔] Successfully saved log !")
             sleep(1)
             print(f"{GREEN}[↪] File name >>> log.txt")
             sleep(0.5)
@@ -553,7 +553,7 @@ def main(username: str, password: str, session: str):
         clear()
         f = open('./files/log.txt', "w")
         f.close()
-        print(f"{GREEN}[✓] Successfully cleared log !")
+        print(f"{GREEN}[✔] Successfully cleared log !")
         sleep(1)
         print(f"{GREEN}[↪] File name >>> log.txt")
         sleep(0.5)
@@ -587,13 +587,13 @@ def main(username: str, password: str, session: str):
     print("\n\n")
     print(f"{YELLOW}[1] Return to menu")
     print(f"{YELLOW}[2] Exit")
-    opt=int(input(f"{YELLOW}[>] Please enter a number (from the above ones): "))
+    opt=int(input(f"{YELLOW}[>] Please enter a number (from the above ones) >>> "))
     valErr = opt in [1,2]
     while not valErr:
         try:
             print(f"{YELLOW}[1] Return to menu")
             print(f"{YELLOW}[2] Exit")
-            opt=int(input(f"{YELLOW}[>] Please enter again a number (from the above ones): "))
+            opt=int(input(f"{YELLOW}[>] Please enter again a number (from the above ones) >>> "))
             valErr = opt in [1,2]
         except ValueError:
             print(f"{RED}[!] Please enter a valid number.")
@@ -620,6 +620,6 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='IGFI is the best tool for increasing followers on Instagram.')
     parser.add_argument('-u', '--username', help='The username to increase their followers.')
     parser.add_argument('-p', '--password', help='The password of your instagram account.')
-    parser.add_argument('--session', help='The session file to use. To generate it: python3 ./cookies.py')
+    parser.add_argument('--session', help='The session file to use. To generate it: python3 cookies.py')
     args = parser.parse_args()
     main(username=str(args.username).strip().lower(), password=str(args.password).strip(), session=str(args.session).replace('\\', '/'))
