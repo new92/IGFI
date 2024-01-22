@@ -627,6 +627,7 @@ if __name__ == '__main__':
     parser.add_argument('-p', '--password', help='The password of your instagram account.')
     parser.add_argument('--session', help='The session file to use. To generate it: python3 cookies.py')
     args = parser.parse_args()
+<<<<<<< HEAD
     if len(sys.argv) < 3:
         print(f"{RED}[x] Error: Missing arguments.")
         sleep(0.7)
@@ -637,3 +638,6 @@ if __name__ == '__main__':
         session=input(f"{YELLOW}[::] Please enter the session file (if created else hit <Enter>) >>> ")
         args.username, args.password, args.session = username, password, session
     main(username=args.username.strip().lower(), password=args.password.strip(), session=args.session.replace('\\', '/'))
+=======
+    main(username=str(args.username).strip().lower(), password=str(args.password).strip(), session=str(args.session).replace('\\', '/'))
+>>>>>>> 81a5c89c1dc2b2a2556563b7ff7ae23eed18de7d
