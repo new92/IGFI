@@ -627,17 +627,12 @@ if __name__ == '__main__':
     parser.add_argument('-p', '--password', help='The password of your instagram account.')
     parser.add_argument('--session', help='The session file to use. To generate it: python3 cookies.py')
     args = parser.parse_args()
-<<<<<<< HEAD
-    if len(sys.argv) < 3:
+    if len(sys.argv) - 1 < 3:
         print(f"{RED}[x] Error: Missing arguments.")
         sleep(0.7)
         print(f"{GREEN}[+] Usage >>> python3 igfi.py -u <username> -p <password> --session <session_file>")
         sleep(1.5)
-        username=input(f"{YELLOW}[::] Please enter your username >>> ")
-        password=input(f"{YELLOW}[::] Please enter your password >>> ")
-        session=input(f"{YELLOW}[::] Please enter the session file (if created else hit <Enter>) >>> ")
-        args.username, args.password, args.session = username, password, session
+        args.username=input(f"{YELLOW}[::] Please enter your username >>> ") if not args.username else args.username
+        args.password=input(f"{YELLOW}[::] Please enter your password >>> ") if not args.password else args.password
+        args.session=input(f"{YELLOW}[::] Please enter the path to the session file (if created else hit <Enter>) >>> ") if not args.session else args.session
     main(username=args.username.strip().lower(), password=args.password.strip(), session=args.session.replace('\\', '/'))
-=======
-    main(username=str(args.username).strip().lower(), password=str(args.password).strip(), session=str(args.session).replace('\\', '/'))
->>>>>>> 81a5c89c1dc2b2a2556563b7ff7ae23eed18de7d
