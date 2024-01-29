@@ -70,8 +70,9 @@ git pull
 
 ## Features 🚀
 
-- [ ] Script that doesn't depend on third-party modules.
+- [ ] Script which doesn't depend on third-party modules.
 - [ ] GUI
+- [ ] Docker support
 - [x] ~~Execute the script directly from terminal (using argparse)~~
 - [ ] V4 (this version will include the features as shown above and some extra)
 - [x] ~~Display the usernames of the followers added~~ **<a href="https://github.com/new92/IGFI/scripts/tree/main/igfi.py">URL</a>**
