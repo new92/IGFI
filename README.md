@@ -81,11 +81,11 @@ python3 ./igfi.py -u <username> -p <password> --session <session_file>
 
 ##### Virtual environment deactivation 📭
 
-###### Windows 🪟
+##### Windows 🪟
 
 `.\venv\Scripts\deactivate`
 
-###### Linux 🐧 / MacOS 🍎
+##### Linux 🐧 / MacOS 🍎
 
 `deactivate`
 
