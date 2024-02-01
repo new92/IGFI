@@ -52,7 +52,43 @@ python -m pip install -r ./files/requirements.txt
 python3 ./cookies.py
 python3 ./igfi.py -u <username> -p <password> --session <session_file>
 ```
-    
+
+## Virtual environment setup 💻
+
+### Windows 🪟
+
+```bash
+git clone https://github.com/new92/IGFI
+cd IGFI
+python -m venv igfi
+.\igfi\scripts\activate
+pip install -r ./files/requirements.txt
+python3 ./cookies.py
+python3 ./igfi.py -u <username> -p <password> --session <session_file>
+```
+
+### Linux 🐧 / MacOS 🍎
+
+```bash
+git clone https://github.com/new92/IGFI
+cd IGFI
+python -m venv igfi
+source venv/bin/activate
+pip install -r ./files/requirements.txt
+python3 ./cookies.py
+python3 ./igfi.py -u <username> -p <password> --session <session_file>
+```
+
+##### Virtual environment deactivation 📭
+
+###### Windows 🪟
+
+`.\venv\Scripts\deactivate`
+
+###### Linux 🐧 / MacOS 🍎
+
+`deactivate`
+
 ## Update 🔄️
 
 ```bash
