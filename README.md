@@ -7,6 +7,8 @@ With IGFI, you can effortlessly increase their followers by simply logging in. *
 
 > If you find this repository helpful, please consider giving it a star and/or forking it. Your support encourages me to keep sharing similar repositories. If you encounter any issues, have suggestions, or simply didn't like the script, feel free to contact me anytime at <a href='mailto:new92github@gmail.com'>this email address</a>, or start a <a href="https://github.com/new92/IGFI/discussions">discussion</a>, or open an <a href="https://github.com/new92/IGFI/issues">issue</a>. Any form of feedback is welcome and appreciated (please refrain from using vulgar language).
 
+[![github-stats-card](https://kasroudra-stats-card.onrender.com/repo?user=new92&repo=IGFI&layout=compact&theme=vue)](https://github.com/KasRoudra/github-stats-card)
+
 
 ## Urls 🔗
 
