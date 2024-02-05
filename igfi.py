@@ -100,7 +100,7 @@ console.clear()
 headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36'
 }
-js = ''
+js = {}
 resp = requests.get('https://api.github.com/repos/new92/IGFI', headers=headers)
 if resp.status_code == 200:
     js = resp.json()

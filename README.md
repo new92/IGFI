@@ -7,6 +7,8 @@ With IGFI, you can effortlessly increase their followers by simply logging in. *
 
 > If you find this repository helpful, please consider giving it a star and/or forking it. Your support encourages me to keep sharing similar repositories. If you encounter any issues, have suggestions, or simply didn't like the script, feel free to contact me anytime at <a href='mailto:new92github@gmail.com'>this email address</a>, or start a <a href="https://github.com/new92/IGFI/discussions">discussion</a>, or open an <a href="https://github.com/new92/IGFI/issues">issue</a>. Any form of feedback is welcome and appreciated (please refrain from using vulgar language).
 
+[![github-stats-card](https://kasroudra-stats-card.onrender.com/repo?user=new92&repo=IGFI&layout=compact&theme=vue)](https://github.com/KasRoudra/github-stats-card)
+
 
 ## Urls 🔗
 
@@ -52,7 +54,52 @@ python -m pip install -r ./files/requirements.txt
 python3 ./cookies.py
 python3 ./igfi.py -u <username> -p <password> --session <session_file>
 ```
-    
+
+### Docker 🐋
+
+```bash
+git clone https://github.com/new92/IGFI
+cd IGFI
+docker build -t IGFI .
+docker run -p 4000:80 IGFI
+```
+
+## Virtual environment setup 💻
+
+### Windows 🪟
+
+```bash
+git clone https://github.com/new92/IGFI
+cd IGFI
+python -m venv igfi
+.\igfi\scripts\activate
+pip install -r ./files/requirements.txt
+python3 ./cookies.py
+python3 ./igfi.py -u <username> -p <password> --session <session_file>
+```
+
+### Linux 🐧 / MacOS 🍎
+
+```bash
+git clone https://github.com/new92/IGFI
+cd IGFI
+python -m venv igfi
+source venv/bin/activate
+pip install -r ./files/requirements.txt
+python3 ./cookies.py
+python3 ./igfi.py -u <username> -p <password> --session <session_file>
+```
+
+##### Virtual environment deactivation 📭
+
+##### Windows 🪟
+
+`.\venv\Scripts\deactivate`
+
+##### Linux 🐧 / MacOS 🍎
+
+`deactivate`
+
 ## Update 🔄️
 
 ```bash
@@ -70,8 +117,10 @@ git pull
 
 ## Features 🚀
 
-- [ ] Script that doesn't depend on third-party modules.
+- [ ] Script which doesn't depend on third-party modules.
 - [ ] GUI
+- [ ] Docker support
+- [x] ~~Virtual environment setup~~
 - [x] ~~Execute the script directly from terminal (using argparse)~~
 - [ ] V4 (this version will include the features as shown above and some extra)
 - [x] ~~Display the usernames of the followers added~~ **<a href="https://github.com/new92/IGFI/scripts/tree/main/igfi.py">URL</a>**

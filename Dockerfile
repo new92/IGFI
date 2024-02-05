@@ -1,17 +1,13 @@
-FROM python:3.8
+FROM python:3.8-slim
 
 WORKDIR /IGFI
 
-COPY files/requirements.txt
+COPY . /IGFI
 
-RUN pip install --no-cache-dir -r /IGFI/requirements.txt
+RUN pip install --no-cache-dir -r files/requirements.txt
 
-COPY ..
+EXPOSE 5000
 
-WORKDIR /IGFI/scripts
+ENV NAME IGFI
 
-EXPOSE 80
-
-ENV IGFI production
-
-CMD ["python", "igfi.py"]
+ENTRYPOINT ["python", "igfi.py"]
