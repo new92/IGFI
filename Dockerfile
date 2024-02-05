@@ -1,18 +1,13 @@
 FROM python:3.8-slim
 
-LABEL maintainer="new92 new92github@gmail.com"
-LABEL description=""
-
 WORKDIR /IGFI
 
-COPY files/requirements.txt
+COPY . /IGFI
 
 RUN pip install --no-cache-dir -r files/requirements.txt
 
-COPY ..
-
 EXPOSE 5000
 
-ENV IGFI production
+ENV NAME IGFI
 
 CMD ["python", "igfi.py"]
