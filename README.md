@@ -55,6 +55,15 @@ python3 ./cookies.py
 python3 ./igfi.py -u <username> -p <password> --session <session_file>
 ```
 
+### Docker 🐋
+
+```bash
+git clone https://github.com/new92/IGFI
+cd IGFI
+docker build -t IGFI .
+docker run -p 4000:80 IGFI
+```
+
 ## Virtual environment setup 💻
 
 ### Windows 🪟
