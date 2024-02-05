@@ -6,8 +6,8 @@ COPY . /IGFI
 
 RUN pip install --no-cache-dir -r files/requirements.txt
 
-EXPOSE 5000
+EXPOSE 4000
 
 ENV NAME IGFI
 
-ENTRYPOINT ["python", "igfi.py"]
+CMD ["python", "igfi.py"]

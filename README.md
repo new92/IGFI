@@ -60,8 +60,8 @@ python3 ./igfi.py -u <username> -p <password> --session <session_file>
 ```bash
 git clone https://github.com/new92/IGFI
 cd IGFI
-docker build -t IGFI .
-docker run -p 4000:80 IGFI
+docker build -t igfi .
+docker run -e DOCKER_CONTAINER=true -e USERNAME=<username> -e PASSWORD=<password> -e SESSION=<session_file> -p 4000:4000 -it igfi
 ```
 
 ## Virtual environment setup 💻

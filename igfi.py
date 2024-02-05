@@ -642,5 +642,5 @@ if __name__ == '__main__':
         else:
             args.username = os.environ.get('USERNAME', args.username)
             args.password = os.environ.get('PASSWORD', args.password)
-            args.session = os.environ.get('SESSIONFILE', args.session)
+            args.session = os.environ.get('SESSION', args.session)
     main(username=args.username.strip().lower(), password=args.password.strip(), session=args.session.replace('\\', '/'))
