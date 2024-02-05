@@ -10,4 +10,4 @@ EXPOSE 5000
 
 ENV NAME IGFI
 
-CMD ["python", "igfi.py"]
+ENTRYPOINT ["python", "igfi.py"]
