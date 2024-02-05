@@ -38,13 +38,12 @@ try:
     from rich.live import Live
     from rich.console import Console
     console = Console()
-    mods = ['sys', 'time', 'rich', 'platform', 'os', 'json', 'logging', 'instagrapi', 'requests', 'instaloader', 'argparse', 'colorama']
+    mods = ['sys', 'time', 'rich', 'platform', 'os', 'logging', 'instagrapi', 'requests', 'instaloader', 'argparse', 'colorama']
     with console.status('[bold dark_orange]Loading module...') as status:
         for mod in mods:
             sleep(0.8)
             console.log(f'[[bold red]{mod}[/]] => [bold dark_green]ok')
     import os
-    import json
     import instagrapi
     import requests
     import logging
@@ -59,7 +58,7 @@ except (ImportError, ModuleNotFoundError):
     sleep(1)
     if sys.platform.startswith('linux') or sys.platform == 'darwin':
         if os.geteuid():
-            print("[✘] Root user not detected !")
+            print("[x] Root user not detected !")
             sleep(2)
             print("[+] Attempting to enable root user...")
             sleep(1)
@@ -68,19 +67,24 @@ except (ImportError, ModuleNotFoundError):
             sleep(0.6)
             print("[+] Loading required modules...")
             sleep(0.4)
-        system("sudo pip install -r ./files/requirements.txt" if sys.platform.startswith('linux') else "python -m pip install requirements.txt")
+        system("sudo pip install -r ./../requirements.txt" if sys.platform.startswith('linux') else "python -m pip install ./../requirements.txt")
     elif platform.system() == 'Windows':
         if not ctypes.windll.shell32.IsUserAnAdmin():
-            print("[✘] Root user not detected !")
+            print("[x] Root user not detected !")
             sleep(2)
             print("[+] Attempting to enable root user...")
             sleep(1)
             ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, " ".join(sys.argv), None, 1)
+            if not ctypes.windll.shell32.IsUserAnAdmin():
+                print("[+] Root user permission denied.")
+                sleep(1)
+                print("[+] Exiting...")
+                quit()
             print("[✔] Done.")
             sleep(0.6)
             print("[+] Loading required modules...")
             sleep(0.4)
-        system("pip install -r ./files/requirements.txt")
+        system("pip install -r ./../requirements.txt")
 
 init(autoreset=True)
 RED = Fore.RED
@@ -109,7 +113,6 @@ def ScriptInfo():
         contribs = [jsn[i]['login'] for i in range(len(jsn))]
     lang = requests.get('https://api.github.com/repos/new92/IGFI/languages', headers=headers)
     languages = list(lang.json().keys()) if lang.status_code == 200 else []
-    fsize = os.stat(__file__).st_size
     print(f"{YELLOW}[+] Author | {js['owner']['login']}")
     print(f"{YELLOW}[+] Github | @{js['owner']['login']}")
     print(f"{YELLOW}[+] Leetcode | @{js['owner']['login']}")
@@ -119,7 +122,7 @@ def ScriptInfo():
     print(f"{YELLOW}[+] Programming language(s) used | {languages}")
     print(f"{YELLOW}[+] Script's name | {js['name']}")
     print(f"{YELLOW}[+] Latest update | {js['updated_at']}")
-    print(f"{YELLOW}[+] File size | {fsize} bytes")
+    print(f"{YELLOW}[+] File size | {os.stat(__file__).st_size} bytes")
     print(f"{YELLOW}[+] File path | {os.path.abspath(__file__)}")
     print(f"{YELLOW}|======|GITHUB REPO INFO|======|")
     print(f"{YELLOW}[+] Repo name | {js['name']}")
@@ -628,11 +631,16 @@ if __name__ == '__main__':
     parser.add_argument('--session', help='The session file to use. To generate it: python3 cookies.py')
     args = parser.parse_args()
     if len(sys.argv) - 1 < 3:
-        print(f"{RED}[x] Error: Missing arguments.")
-        sleep(0.7)
-        print(f"{GREEN}[+] Usage >>> python3 igfi.py -u <username> -p <password> --session <session_file>")
-        sleep(1.5)
-        args.username=input(f"{YELLOW}[::] Please enter your username >>> ") if not args.username else args.username
-        args.password=input(f"{YELLOW}[::] Please enter your password >>> ") if not args.password else args.password
-        args.session=input(f"{YELLOW}[::] Please enter the path to the session file (if created else hit <Enter>) >>> ") if not args.session else args.session
+        if not os.environ.get('DOCKER_CONTAINER'):
+            print(f"{RED}[x] Error: Missing arguments.")
+            sleep(0.7)
+            print(f"{GREEN}[+] Usage >>> python3 igfi.py -u <username> -p <password> --session <session_file>")
+            sleep(1.5)
+            args.username=input(f"{YELLOW}[::] Please enter your username >>> ") if not args.username else args.username
+            args.password=input(f"{YELLOW}[::] Please enter your password >>> ") if not args.password else args.password
+            args.session=input(f"{YELLOW}[::] Please enter the path to the session file (if created else hit <Enter>) >>> ") if not args.session else args.session
+        else:
+            args.username = os.environ.get('USERNAME', args.username)
+            args.password = os.environ.get('PASSWORD', args.password)
+            args.session = os.environ.get('SESSIONFILE', args.session)
     main(username=args.username.strip().lower(), password=args.password.strip(), session=args.session.replace('\\', '/'))
