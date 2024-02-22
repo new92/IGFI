@@ -107,16 +107,9 @@ cd <path_to_script>/IGFI
 git pull
 ```
 
-## Tested on 🔎
-
-| OS | Linux | Windows | MacOS
-| :---: | :---: | :---: | :---: |
-| -> | Kali |
-| -> | | 10 |
-| -> | | 11 |
-
 ## Features 🚀
 
+- [ ] Add followers from specific categories (ex. fitness, education, food, entertainment etc.)
 - [ ] Script which doesn't depend on third-party modules.
 - [ ] GUI
 - [ ] Docker support
@@ -125,6 +118,14 @@ git pull
 - [ ] V4 (this version will include the features as shown above and some extra)
 - [x] ~~Display the usernames of the followers added~~ **<a href="https://github.com/new92/IGFI/scripts/tree/main/igfi.py">URL</a>**
 - [x] ~~V3 script~~ **<a href='https://github.com/new92/IGFI/tree/main/scripts/igfi.py'>URL</a>**
+
+## Tested on 🔎
+
+| OS | Linux | Windows | MacOS
+| :---: | :---: | :---: | :---: |
+| -> | Kali |
+| -> | | 10 |
+| -> | | 11 |
 
 ## Screenshots 📸
 
