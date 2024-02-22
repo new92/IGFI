@@ -9,6 +9,7 @@ With IGFI, you can effortlessly increase their followers by simply logging in. *
 
 [![github-stats-card](https://kasroudra-stats-card.onrender.com/repo?user=new92&repo=IGFI&layout=compact&theme=vue)](https://github.com/KasRoudra/github-stats-card)
 
+## <a href="https://github.com/new92/IGFI/discussions/56">Potential feature 🚀</a>
 
 ## Urls 🔗
 
