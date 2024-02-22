@@ -109,7 +109,7 @@ git pull
 
 ## Features 🚀
 
-- [ ] Add followers from specific categories (ex. fitness, education, food, entertainment etc.)
+- [ ] **Add followers from specific categories (ex. fitness, education, food, entertainment etc.)**
 - [ ] Script which doesn't depend on third-party modules.
 - [ ] GUI
 - [ ] Docker support
