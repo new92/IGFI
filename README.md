@@ -33,7 +33,7 @@ git clone https://github.com/new92/IGFI
 cd IGFI
 sudo pip install -r ./files/requirements.txt
 python3 ./cookies.py
-python3 ./igfi.py -u <username> -p <password> --session <session_file>
+python3 ./igfi.py -u <username> -p <password> --session <path_to_session_file>
 ```
 
 ### Windows 🪟
@@ -43,7 +43,7 @@ git clone https://github.com/new92/IGFI
 cd IGFI
 pip install -r ./files/requirements.txt
 python3 cookies.py
-python3 igfi.py -u <username> -p <password> --session <session_file>
+python3 igfi.py -u <username> -p <password> --session <path_to_session_file>
 ```
 
 ### MacOS 🍎
@@ -53,7 +53,7 @@ git clone https://github.com/new92/IGFI
 cd IGFI
 python -m pip install -r ./files/requirements.txt
 python3 ./cookies.py
-python3 ./igfi.py -u <username> -p <password> --session <session_file>
+python3 ./igfi.py -u <username> -p <password> --session <path_to_session_file>
 ```
 
 ### Docker 🐋
