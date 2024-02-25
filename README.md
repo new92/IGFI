@@ -62,7 +62,7 @@ python3 ./igfi.py -u <username> -p <password> --session <path_to_session_file>
 git clone https://github.com/new92/IGFI
 cd IGFI
 docker build -t igfi .
-docker run -e DOCKER_CONTAINER=true -e USERNAME=<username> -e PASSWORD=<password> -e SESSION=<session_file> -p 4000:4000 -it igfi
+docker run -e DOCKER_CONTAINER=true -e USERNAME=<username> -e PASSWORD=<password> -e SESSION=<path_to_session_file> -p 4000:4000 -it igfi
 ```
 
 ## Virtual environment setup 💻
@@ -75,8 +75,8 @@ cd IGFI
 python -m venv igfi
 .\igfi\scripts\activate
 pip install -r ./files/requirements.txt
-python3 ./cookies.py
-python3 ./igfi.py -u <username> -p <password> --session <session_file>
+python3 cookies.py
+python3 igfi.py -u <username> -p <password> --session <path_to_session_file>
 ```
 
 ### Linux 🐧 / MacOS 🍎
@@ -88,7 +88,7 @@ python -m venv igfi
 source venv/bin/activate
 pip install -r ./files/requirements.txt
 python3 ./cookies.py
-python3 ./igfi.py -u <username> -p <password> --session <session_file>
+python3 ./igfi.py -u <username> -p <password> --session <path_to_session_file>
 ```
 
 ##### Virtual environment deactivation 📭
