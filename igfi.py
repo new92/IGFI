@@ -58,7 +58,7 @@ except (ImportError, ModuleNotFoundError):
     sleep(1)
     if sys.platform.startswith('linux') or sys.platform == 'darwin':
         if os.geteuid():
-            print("[x] Root user not detected !")
+            print("[✘] Root user not detected !")
             sleep(2)
             print("[+] Attempting to enable root user...")
             sleep(1)
@@ -70,7 +70,7 @@ except (ImportError, ModuleNotFoundError):
         system("sudo pip install -r ./../requirements.txt" if sys.platform.startswith('linux') else "python -m pip install ./../requirements.txt")
     elif platform.system() == 'Windows':
         if not ctypes.windll.shell32.IsUserAnAdmin():
-            print("[x] Root user not detected !")
+            print("[✘] Root user not detected !")
             sleep(2)
             print("[+] Attempting to enable root user...")
             sleep(1)
@@ -632,7 +632,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
     if len(sys.argv) - 1 < 3:
         if not os.environ.get('DOCKER_CONTAINER'):
-            print(f"{RED}[x] Error: Missing arguments.")
+            print(f"{RED}[✘] Error: Missing arguments.")
             sleep(0.7)
             print(f"{GREEN}[+] Usage >>> python3 igfi.py -u <username> -p <password> --session <session_file>")
             sleep(1.5)
