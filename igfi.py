@@ -42,7 +42,7 @@ try:
     with console.status('[bold dark_orange]Loading module...') as status:
         for mod in mods:
             sleep(0.8)
-            console.log(f'[[bold red]{mod}[/]] => [bold dark_green]ok')
+            console.log(f'[[bold red]{mod}[/]] => [bold dark_green]ok[/]')
     import os
     import instagrapi
     import requests
