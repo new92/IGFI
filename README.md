@@ -25,7 +25,7 @@ With IGFI, you can effortlessly increase their followers by simply logging in. *
 
 ## Installation 📥
 
-- **Make sure you're logged in to your Instagram account from Firefox before executing IGFI.""
+- **Make sure you're logged in to your Instagram account from Firefox before executing IGFI.**
 
 ### Linux 🐧
 
