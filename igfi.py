@@ -53,9 +53,9 @@ try:
     from colorama import init, Fore
 except (ImportError, ModuleNotFoundError):
     print("[!] WARNING: Not all packages used in IGFI have been installed !")
-    sleep(2)
-    print("[+] Ignoring warning...")
     sleep(1)
+    print("[+] Ignoring warning...")
+    sleep(0.5)
     if sys.platform.startswith('linux') or sys.platform == 'darwin':
         if os.geteuid():
             print("[✘] Root user not detected !")
@@ -91,11 +91,14 @@ RED = Fore.RED
 GREEN = Fore.GREEN
 YELLOW = Fore.YELLOW
 
+def clear():
+    system('cls') if platform.system() == 'Windows' else system('clear')
+
 sleep(0.8)
-console.clear()
-console.print("[bold dark_green][✔] Successfully loaded modules.")
+clear()
+console.print("[bold green][✔] Successfully loaded modules.")
 sleep(1.1)
-console.clear()
+clear()
 
 headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36'
@@ -191,9 +194,6 @@ def nums():
     console.print("[bold yellow][3] Clear log[/]")
     console.print("[bold yellow][4] Uninstall IGFI[/]")
     console.print("[bold yellow][5] Exit[/]")
-
-def clear():
-    system('cls') if platform.system() == 'Windows' else system('clear')
         
 def checkUser(username:str) -> bool:
     return username in ['', ' '] or len(username) > 30 or requests.get(f"https://www.instagram.com/{username}/", allow_redirects=False).status_code != 200
@@ -275,13 +275,14 @@ def main(username: str, password: str, session: str):
         }
         NAMES = list(users.keys())
         sleep(0.6)
-        if not os.stat('./files/consent.txt').st_size:
+        fname = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'files/consent.txt').replace('\\', '/')
+        if not os.path.exists(fname):
             print(f"{GREEN}[+] Acceptable answers >>> [yes/no]")
             sleep(0.9)
             con=input(f"{YELLOW}[>] Do you consent that the author (new92) has no responsibility for any loss or damage the script may cause to {username} ? ").lower() in ('y', 'yes')
             if con:
                 logging.basicConfig(
-                    filename='./files/consent.txt',
+                    filename=fname,
                     level=logging.INFO,
                     format='%(asctime)s [%(levelname)s]: %(message)s',
                     datefmt='%Y-%m-%d %H:%M:%S'
@@ -301,9 +302,9 @@ def main(username: str, password: str, session: str):
                         num=int(input(f"{YELLOW}[>] Please enter again a number (from the above ones) >>> "))
                         valErr = num in [1,2]
                     except ValueError:
-                        print(f"{RED}[!] Please enter a valid number.")
+                        print(f"{RED}[✘] Please enter a valid number.")
                         sleep(2)
-                        print(f"{GREEN}[+] Acceptable numbers >>> [1/2]")
+                        print(f"{GREEN}[+] Acceptable numbers >>> [1,2]")
                         sleep(1)
                 if num == 1:
                     clear()
@@ -431,11 +432,11 @@ def main(username: str, password: str, session: str):
                             print(f"{GREEN}[✔] Successfully added >>> {followers_af - followers_bef} followers.")
                             sleep(1)
                     if check:
-                        print(f"{RED}[!] WARNING: The data provided may be incorrect if your account is private and you haven't approved the follow requests")
+                        print(f"{RED}[✘] WARNING: The data provided may be incorrect if your account is private and you haven't approved the follow requests")
                         sleep(1.5)
                         ADDS = [follower.username for follower in profile.get_followers()]
                         if ADDS == FOLLOWERS:
-                            print(f"{RED}[!] No new followers added ! If your account is private try checking the pending follow requests.")
+                            print(f"{RED}[✘] No new followers added ! If your account is private try checking the pending follow requests.")
                         else:
                             print(f"{GREEN}[✔] Found >>> {len(ADDS) - len(FOLLOWERS)} new followers.")
                             sleep(0.7)
@@ -453,8 +454,8 @@ def main(username: str, password: str, session: str):
                     print(f"{RED}[+] Fail >>> {res}%")
                     sleep(0.9)
                 if keep:
-                    name = './files/log.txt'
-                    with open(name, 'w', encoding='utf8') as f:
+                    name = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'files/log.txt')
+                    with open(name, 'w', encoding='utf-8') as f:
                         if res != 0:
                             f.write(f'[✔] Successfully followed/unfollowed a total of {tot} users\n')
                             f.write(f'[✘] Failed to unfollow {abs(res)} users !\n')
@@ -501,7 +502,7 @@ def main(username: str, password: str, session: str):
                     print(f"{GREEN}[✔] Successfully added >>> {followers_af - followers_bef} followers.")
                     sleep(1)
             if check:
-                print(f"{RED}[!] WARNING: The data provided may be incorrect if your account is private and you haven't approved the follow requests.")
+                print(f"{RED}[✘] WARNING: The data provided may be incorrect if your account is private and you haven't approved the follow requests.")
                 sleep(1.5)
                 ADDS = [follower.username for follower in profile.get_followers()]
                 if ADDS == FOLLOWERS:
@@ -525,7 +526,7 @@ def main(username: str, password: str, session: str):
             sleep(2)
         if keep:
             name = './files/log.txt'
-            with open(name, 'w', encoding='utf8') as f:
+            with open(name, 'w', encoding='utf-8') as f:
                 if res != 0:
                     f.write(f'[✔] Successfully followed/unfollowed a total of {tot} users\n')
                     f.write(f'[✘] Failed to unfollow {abs(res)} users !\n')
@@ -562,13 +563,14 @@ def main(username: str, password: str, session: str):
     
     elif num == 3:
         clear()
-        f = open('./files/log.txt', "w")
-        f.close()
+        loc = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'files/log.txt').replace('\\', '/')
+        with open(loc, 'w', encoding='utf-8') as f:
+            pass
         print(f"{GREEN}[✔] Successfully cleared log !")
         sleep(1)
         print(f"{GREEN}[↪] File name >>> log.txt")
         sleep(0.5)
-        print(f"{GREEN}[↪] Location >>> ./files/log.txt")
+        print(f"{GREEN}[↪] Location >>> {loc}")
         sleep(0.5)
         print(f"{GREEN}[↪] Size >>> 0 bytes")
         sleep(2)
@@ -607,9 +609,9 @@ def main(username: str, password: str, session: str):
             opt=int(input(f"{YELLOW}[>] Please enter again a number (from the above ones) >>> "))
             valErr = opt in [1,2]
         except ValueError:
-            print(f"{RED}[!] Please enter a valid number.")
+            print(f"{RED}[✘] Please enter a valid number.")
             sleep(1)
-            print(f"{GREEN}[+] Acceptable numbers >>> [1/2]")
+            print(f"{GREEN}[+] Acceptable numbers >>> [1,2]")
             sleep(1)
     if opt == 1:
         clear()
@@ -628,13 +630,13 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='IGFI is the best tool for increasing followers on Instagram.')
     parser.add_argument('-u', '--username', help='The username to increase their followers.')
     parser.add_argument('-p', '--password', help='The password of your instagram account.')
-    parser.add_argument('--session', help='The session file to use. To generate it: python3 cookies.py')
+    parser.add_argument('--session', help='The session file to use. To generate it >>> python3 cookies.py')
     args = parser.parse_args()
-    if len(sys.argv) - 1 < 3:
+    if len(sys.argv) < 4:
         if not os.environ.get('DOCKER_CONTAINER'):
             print(f"{RED}[✘] Error: Missing arguments.")
             sleep(0.7)
-            print(f"{GREEN}[+] Usage >>> python3 igfi.py -u <username> -p <password> --session <session_file>")
+            print(f"{GREEN}[+] Usage >>> python3 igfi.py -u <username> -p <password> --session <path_to_session_file>")
             sleep(1.5)
             args.username=input(f"{YELLOW}[::] Please enter your username >>> ") if not args.username else args.username
             args.password=input(f"{YELLOW}[::] Please enter your password >>> ") if not args.password else args.password
@@ -643,4 +645,4 @@ if __name__ == '__main__':
             args.username = os.environ.get('USERNAME', args.username)
             args.password = os.environ.get('PASSWORD', args.password)
             args.session = os.environ.get('SESSION', args.session)
-    main(username=args.username.strip().lower(), password=args.password.strip(), session=args.session.replace('\\', '/'))
+    main(username=args.username.strip().lower(), password=args.password.strip(), session=args.session.strip().replace('\\', '/'))
