@@ -1,5 +1,5 @@
 instagrapi == 1.16.17
-requests == 2.31.0
+requests == 2.32.0
 instaloader == 4.9.5
 colorama == 0.4.6
 rich == 12.6.0
