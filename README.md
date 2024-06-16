@@ -1,4 +1,4 @@
-![logo-color](https://github.com/new92/IGFI/assets/94779840/ef76dcde-1bfb-498e-8b71-ae8a7486317c)
+![logo-no-background](https://github.com/new92/IGFI/assets/94779840/ebc97173-255c-472f-832d-620e218b7c4f)
 
 # IGFI 🤖
 
