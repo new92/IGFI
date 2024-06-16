@@ -1,4 +1,4 @@
-<img src="https://github.com/new92/IGFI/assets/94779840/ebc97173-255c-472f-832d-620e218b7c4f" alt="Logo" width="200" height="100" />
+<img src="https://github.com/new92/IGFI/assets/94779840/ebc97173-255c-472f-832d-620e218b7c4f" alt="Logo" width="200" height="200" />
 
 # IGFI 🤖
 
