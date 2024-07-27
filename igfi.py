@@ -92,7 +92,7 @@ GREEN = Fore.GREEN
 YELLOW = Fore.YELLOW
 
 def clear():
-    system('cls') if platform.system() == 'Windows' else system('clear')
+    system('cls' if platform.system() == 'Windows' else 'clear')
 
 sleep(0.8)
 clear()
