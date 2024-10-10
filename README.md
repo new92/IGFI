@@ -180,3 +180,7 @@ Answer ➡️ Only if you're using a very old version of Instagram. But the scri
 ## License 📜
 
 [![License](https://img.shields.io/github/license/new92/IGFI?style=for-the-badge)](https://github.com/new92/IGFI/blob/main/LICENSE.md)
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=new92/IGFI&type=Date)](https://star-history.com/#new92/IGFI&Date)
